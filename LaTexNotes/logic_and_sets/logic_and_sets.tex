@@ -1,0 +1,1044 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\section{Logic, Metric Spaces, and Set Theory}
+
+
+
+
+\indent \textit{Why study analysis or mathematics in general?} If you intend to reason and navigate the complexities of any system, circumstance, task, or structure, the patterns of reasoning covered in mathematics equips you with the skill of understanding and making inferences or deductions in and about complex systems. So we will study systems at an abstracted level so that our conclusions and hard work are applicable and will aid us in any vocation whether we really notice it or not.  
+\indent Before we begin the rigorous study of calculus, which is the system used to understand and gain insight to abstract dynamic magnitudes. To build this system, we need to first discuss what type of \textit{connections} this systems structure allows. \\
+\indent The first \textit{axiom} of the system is that a \textit{mathematical statement} is either true or false. A mathematical statement is a relationship that is shown through a type of \textit{expression(s)}. An expression is a sequence of mathematical symbols, concepts, and objects that produce some other mathematical object. One can make statements out of expressions by using \textit{relations} such as  \(=, \ <, \ \geq, \ \in, \ \subset \) or by using \textit{properties} such as "is prime", "is invertible", "is continuous". Then one can make a compound statement from other statements by using \textit{logical connectives}. We show some of these below, \\
+\textbf{Conjunction:} If \(X\) is a statement and $Y$ is a statement then the statement "$X$ and $Y$" is a true statement if $X$ and $Y$ are both true. Notice though that this only concerns truth, where the artist of the mathematics must bring the connotations that illustrate more information that just "$X$ and $Y$". For example, "$X$ and also $Y$", or "both $X$ and $Y$", or even "$X$ but $Y$". Notice that $X$ but $Y$ suggests that the statements $X$ and $Y$ are in contrast to each other, while $X$ and $Y$ suggests that they support each other. We can find such reinterpretations of every logical connective.\\
+\textbf{Disjunction:} If $X$ is a statement and $Y$ is a statement then the statement "$X$ or $Y$" is true if either $X$ or $Y$ is true, or both. The reason we include the "$X$ and $Y$" part is because when we are talking about $X$ or $Y$ we want to be talking about \textit{all of} $X$ or $Y$, instead of talking about $X$ and not $Y$ or $Y$ and not $X$. So talking about the \textit{exclusive} "or" (the one that doesn't include "and") is basically talking about two statements. \\
+\textbf{Negation:} The statement "$X$ is not true" or "$X$ is false" is called the \textit{negation} of $X$ and is true if and only if $X$ is false and is false if and only if $X$ is true. Negations convert "and" into "or" and vice versa. For instance, the negation of "Jane Doe has black hair and Jane Doe has blue eyes" is "Jane Doe doesn't have black hair or doesn't have blue eyes". Notice how important the "inclusive or" is here to interpret the meaning of this statement. \\
+\textbf{If and only if:} If $X$ is a statement and $Y$ is a statement, we say that "$X$ is true if and only if $Y$ is true", whenever $X$ is true, $Y$ also has to be true, and whenever $Y$ is true, $X$ must too be true. This is sort of like a logical equivalence. So if we were trying to pin down some type of abstract causal structure of some system an if and only if statement tells me that $X$ and $Y$ will always cause each other.\\
+\textbf{Implication:} If $X$ is a statement and $Y$ is a statement then if we want to know whether (using some abstract notion of "cause") $X$ causes, implies, or leads to $Y$ then we are trying to prove an \textit{implication} which is given by "if $X$ then $Y$" (the implication of $X$ to $Y$). So for $X$ to truly \textit{imply} $Y$, we need that when $X$ is true $Y$ is also true, if $X$ is false then whether $Y$ is true or false doesn't matter. So the only way to disprove an implication is is by showing that when the hypothesis is true, the conclusion is false. One can also think of the statement “if $X$, then $Y$ ” as “$Y$ is at least as true as $X$”—if $X$ is true, then $Y$ also has to be true, but if $X$ is false, $Y$ could be as false as $X$, but it could also be true. 
+\textbf{Variables and Quantifiers:} Notice when we talk about some abstract, general, $X$ and $Y$, the truth of the statements involving them depends on the context of $X$ and $Y$. More precisely, $X$ and $Y$ are \textit{variables} since they are variables that are set to obey some properties but the actual value of them hasn't been specified yet. Then \textit{quantifiers} allow us to talk about the different values of these variables. We can say that there exists $X$ where, say, $X$ implies $Y$ is true, this is denoted \(\exists\). Or we can say for all $X$ (denoted $\forall$), $X$ implies $Y$. 
+\textbf{Equality:} Out of the different relations we have discussed, \textit{equality} is the most obvious. We need to be able to express the relationship of equality. We will present the axioms of equality, called an \textit{equivalence relation}
+\begin{definition}[Equivalence Relation]\label{def:equivalence_relation}
+Given elements $x,y,z$ in any set with the relation $=$ defined, we have
+\begin{enumerate}
+    \item (Reflexivity): Given any object $x$, we have $ x = x$.
+    \item (Symmetry): Given any two objects $x$ and $y$ of the same type, if $x=y$ then $y=x$
+    \item (Transitive): Given any three objects $x, y, z$ of the same type, if $ x = y$ and $y=z$, then $x=z$. 
+    \item (Substitution): Given any two objects $x$ and $y$ of the same type, if $ x = y$, then $ f(x) = f(y) $ for all functions or operations $f$. Similarly, for any property $ P(x) $ depending on $x$, if $x=y$, then $P(x)$ and $P(y)$ are equivalent statements. 
+\end{enumerate}
+\end{definition}
+
+
+
+\begin{definition}\label{def:set}
+A \textit{set} is a well-defined collection of distinct objects, called \textit{elements} or \textit{members} considered as a single entity unified under the defining properties of the set. The membership of an element \( x \) in a set \( S \) is denoted by \( x \in S \), while non-membership is written as \( x \notin S \). A set containing no elements is called the \textit{empty set}, denoted \( \emptyset \). 
+\end{definition}
+
+
+
+
+
+
+
+\begin{proposition}\label{prp:set_operations}
+Let $A, B, C$ be sets, and let $X$ be a set containing $A, B, C$ as subsets. 
+\begin{enumerate}
+    \item (Minimal element) We have $ A \cup \emptyset = A$ and $A \cap \emptyset = \emptyset$
+    \item (Maximal element) We have $ A \cup X = X$ and $ A \cap X = A$.
+    \item (Identity) We have $ A \cup A = A$ and $ A \cap A = A$
+    \item (Commutativity) We have $ A \cup B = B \cup A$ and $ A \cap B = B \cap A$
+    \item (Associativity) We have $ (A \cup B) \cup C = A \cup (B\cup C)$ and $ (A\cap B) \cap C = A \cap (B \cap C)$
+    \item (Distributivity) We have $ A \cap (B\cup C) = (A \cap B) \cup (A\cap C) $ and $ A \cup (B \cap C) = (A \cup B) \cap (A\cup C)$
+    \item (Partition) We have $ A \cup (X \setminus A) = X$ and $ A \cap (X \setminus A) = \emptyset$
+    \item (De Morgan Laws) We have $ X \setminus (A \cup B) = (X \setminus A) \cap (X \setminus B)$ and $ X \setminus (A \cap B) = (X \setminus A) \cup (X \setminus B)$
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+\begin{definition}\label{def:ordered set}
+An \textit{ordered set} is a set S together with an ordering relation, denoted \(<\), such that
+\begin{enumerate}
+    \item \textit{(trichotomy)} \(\forall x,y \in S, \textnormal{ exactly one of } x < y, x=y, \textnormal{ or } y<x\) holds.
+    \item \textit{(transitivity)} If \(x,y,z \in S \textnormal{ such that } x < y \textnormal{ and } y < z \implies x < z.\)
+\end{enumerate}
+\textbf{Well ordering property of }\label{def:WOA}\(\mathbb{N}:\) Every nonempty subset of \(\mathbb{N}\) has a least element.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\label{def:natural numbers}
+We define the natural numbers \( \{1, 2, 3, 4, \dots \} \) to be a set \(\mathbb{N}\) with the \textit{successor function} \(S\) defined on it. The successor function \(S:\mathbb{N} \rightarrow \mathbb{N},\) is defined by the following axioms,
+\\ \indent \textbf{N1:} \( 1 \in \mathbb{N}\)
+\\ \indent \textbf{N2:} If \(   n \in \mathbb{N}\) then its successor \( n+1 \in \mathbb{N}\) 
+\\ \indent \textbf{N3:} \( 1\) is not the successor of any element in \(\mathbb{N}\)
+\\ \indent \textbf{N4:} If \(n\) and \(m\) in \(\mathbb{N}\) have the same successor, then \(n=m\).
+\\ \indent \textbf{N5:} A subset of \(\mathbb{N}\) that contains \(1\), and contains \(n+1\) whenever it contains \(n\), must be equivalent to \(\mathbb{N}\).
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}[Principle of induction]\label{thm:principle_of_induction}
+Let \( P(n) \) be a statement depending on a natural number \( n \). Suppose that
+\begin{itemize}
+    \item[(i)] \textit{(basis statement)} \( P(1) \) is true.
+    \item[(ii)] \textit{(induction step)} If \( P(n) \) is true, then \( P(n+1) \) is true.
+\end{itemize}
+Then \( P(n) \) is true for all \( n \in \mathbb{N} \).\\
+\end{theorem}
+
+
+\begin{proof}
+Let \( S \) be the set of natural numbers \( n \) for which \( P(n) \) is not true. Suppose for contradiction that \( S \) is nonempty. Then \( S \) has a least element by the well-ordering property. Call \( m \in S \) the least element of \( S \). We know \( 1 \notin S \) by hypothesis. So \( m > 1 \), and \( m-1 \) is a natural number as well. Since \( m \) is the least element of \( S \), we know that \( P(m-1) \) is true. But the induction step says that \( P(m-1+1) = P(m) \) is true, contradicting the statement that \( m \in S \). Therefore, \( S \) is empty and \( P(n) \) is true for all \( n \in \mathbb{N} \).
+ 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:field}
+A set \( F \) is called a \textit{field} if it has two operations defined on it, addition \( x + y \) and multiplication \( xy \), and if it satisfies the following axioms:
+\begin{itemize}
+    \item[(A1)] If \( x \in F \) and \( y \in F \), then \( x + y \in F \).
+    \item[(A2)] \textit{(commutativity of addition)} \( x + y = y + x \) for all \( x, y \in F \).
+    \item[(A3)] \textit{(associativity of addition)} \( (x + y) + z = x + (y + z) \) for all \( x, y, z \in F \).
+    \item[(A4)] There exists an element \( 0 \in F \) such that \( 0 + x = x \) for all \( x \in F \).
+    \item[(A5)] For every element \( x \in F \), there exists an element \( -x \in F \) such that \( x + (-x) = 0 \).
+    \item[(M1)] If \( x \in F \) and \( y \in F \), then \( xy \in F \).
+    \item[(M2)] \textit{(commutativity of multiplication)} \( xy = yx \) for all \( x, y \in F \).
+    \item[(M3)] \textit{(associativity of multiplication)} \( (xy)z = x(yz) \) for all \( x, y, z \in F \).
+    \item[(M4)] There exists an element \( 1 \in F \) (with \( 1 \neq 0 \)) such that \( 1x = x \) for all \( x \in F \).
+    \item[(M5)] For every \( x \in F \) such that \( x \neq 0 \), there exists an element \( 1/x \in F \) such that \( x(1/x) = 1 \).
+    \item[(D)] \textit{(distributive law)} \( x(y+z) = xy + xz \) for all \( x, y, z \in F \).
+\end{itemize}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\label{def:ordered_field}
+A field \( F \) is said to be an \textit{ordered field} if \( F \) is also an ordered set such that
+\begin{itemize}
+    \item[(i)] For \( x, y, z \in F \), \( x < y \) implies \( x + z < y + z \).
+    \item[(ii)] For \( x, y \in F \), \( x > 0 \) and \( y > 0 \) implies \( xy > 0 \).
+\end{itemize}
+If \( x > 0 \), we say \( x \) is \textit{positive}. If \( x < 0 \), we say \( x \) is \textit{negative}. We also say \( x \) is \textit{nonnegative} if \( x \geq 0 \), and \( x \) is \textit{nonpositive} if \( x \leq 0 \).
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prop:ordered_field_properties}
+Let \( F \) be an ordered field and \( x, y, z, w \in F \). Then
+\begin{itemize}
+    \item[(i)] If \( x > 0 \), then \( -x < 0 \) (and vice versa).
+    \item[(ii)] If \( x > 0 \) and \( y < z \), then \( xy < xz \).
+    \item[(iii)] If \( x < 0 \) and \( y < z \), then \( xy > xz \).
+    \item[(iv)] If \( x \neq 0 \), then \( x^2 > 0 \).
+    \item[(v)] If \( 0 < x < y \), then \( 0 < 1/y < 1/x \).
+    \item[(vi)] If \( 0 < x < y \), then \( x^2 < y^2 \).
+    \item[(vii)] If \( x \leq y \) and \( z \leq w \), then \( x + z \leq y + w \).
+\end{itemize}
+Note that (iv) implies, in particular, that \( 1 > 0 \).\\
+\end{proposition}
+
+
+
+
+
+\begin{proof}
+Let us prove (i). The inequality \( x > 0 \) implies by item (i) of the definition of ordered fields that \( x + (-x) > 0 + (-x) \). Apply the algebraic properties of fields to obtain \( 0 > -x \). The "vice versa" follows by a similar calculation.
+
+For (ii), note that \( y < z \) implies \( 0 < z - y \) by item (i) of the definition of ordered fields. Apply item (ii) of the definition of ordered fields to obtain \( 0 < x(z - y) \). By algebraic properties, \( 0 < xz - xy \). Again, by item (i) of the definition, \( xy < xz \).
+
+Part (iii) is left as an exercise.
+
+To prove part (iv), first suppose \( x > 0 \). By item (ii) of the definition of ordered fields, \( x^2 > 0 \) (use \( y = x \)). If \( x < 0 \), we use part (iii) of this proposition, where we plug in \( y = x \) and \( z = 0 \).
+
+To prove part (v), notice that \( 1/y \) cannot be equal to zero (why?). Suppose \( 1/y < 0 \), then \( -1/y > 0 \) by (i). Apply part (ii) of the definition (as \( x > 0 \)) to obtain \( x(-1/y) > 0 \) or \( -1 > 0 \), which contradicts \( 1 > 0 \) by using part (i) again. Hence \( 1/y > 0 \). Similarly, \( 1/x > 0 \). Thus \( (1/x)(1/y) x < (1/x)(1/y) y \).
+
+By algebraic properties, \( 1/y < 1/x \).
+
+Parts (vi) and (vii) are left as exercises.
+ 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:bounded_set}
+Let \( E \subset S \), where \( S \) is an ordered set.
+\begin{itemize}
+    \item[(i)] If \( \exists b \in S \textnormal{ such that } x \leq b, \ \forall x \in E \implies E \) is \textit{bounded above} and \( b \) is an \textit{upper bound} of \( E \).
+    \item[(ii)] If \( \exists b \in S \textnormal{ such that } x \geq b, \ \forall x \in E \implies E \) is \textit{bounded below} and \( b \) is a \textit{lower bound} of \( E \).
+    \item[(iii)] If \( \exists b_0 \) an upper bound of \( E \) such that \( b_0 \leq b, \ \forall \) upper bounds \( b \) of \( E \), then \( b_0 \) is called the \textit{least upper bound} or the \textit{supremum} of \( E \). We write:
+    \[
+    \sup E := b_0.
+    \]
+    \item[(iv)] If \( \exists b_0 \) a lower bound of \( E \) such that \( b_0 \geq b, \ \forall \) lower bounds \( b \) of \( E \), then \( b_0 \) is called the \textit{greatest lower bound} or the \textit{infimum} of \( E \). We write
+    \[
+    \inf E := b_0.
+    \]
+\end{itemize}
+When a set \( E \) is both bounded above and bounded below, we say simply that \( E \) is \textit{bounded}.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}[Least Upper Bound Property]\label{def:lub_property}
+An ordered set $S$ has the \textit{least-upper-bound property} if every nonempty subset $ E \subset S$ that is bounded above has a least upper bound, that is, $ \sup E$ exists in $S$.
+\begin{center}
+    The \textit{least-upper-bound property} is sometimes called the \textit{completeness property} or the \textit{Dedekind completeness property}.
+\end{center}
+    
+\end{definition}
+
+
+
+
+
+
+
+\begin{remark}
+So since $A$ is a subset of an ordered field that has the least upper bound property, which states that every set bounded above with the least upper bound property is bounde
+\end{remark}
+
+
+
+\begin{proposition} \label{prop:infimum_exists}
+Let \( F \) be an ordered field with the least-upper-bound property. Let \( A \subset F \) be a nonempty set that is bounded below. Then \( \inf A \) exists.
+\end{proposition}
+
+
+
+
+\begin{proof}
+Let $ B = \{-a \mid a \in A \}$. Then since $A$ is bounded above with the least upper bound property, $ \exists \sup{A}=b \in F$. Thus $ \forall a \in A, a \leq b$ which implies $ -b \leq -a$, which means that $B$ is bounded below by $-b$. Now suppose $\exists M \in F$ such that 
+\[ 
+\forall -a \in B, \quad -b \leq M \leq -a \implies b \geq -M \geq a 
+\]
+Since this is contradicts $ b = \sup{A}$. Therefore we have found that $B$ is bounded below by $-b$ and $-b$ is greater than every other lower bound, so $\inf{B}$ exists. 
+
+ 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{exercise} \label{ex:bounds_of_inf_sup}
+Let \( S \) be an ordered set, and let \( B \subseteq S \) be a subset that is bounded above and below. Suppose that \( A \subseteq B \) is a nonempty subset and that both \( \inf A \) and \( \sup A \) exist. Then we have the inequalities:
+\[
+\inf B \leq \inf A \leq \sup A \leq \sup B.
+\]
+\end{exercise}
+
+\begin{proof}
+Let \(B\subset S\) be bounded above and below, and let \(A\subset B\) be nonempty. By definition of greatest lower bound, every lower bound of \(B\) is also a lower bound of \(A\) (since \(A\subset B\)), and hence \(\inf B\le \inf A.\) Also, every upper bound of \(B\) is an upper bound of \(A\), so \(\sup A\le \sup B.\)  
+Furthermore, because \(A\) is nonempty, for any \(x\in A\) we have \(\inf A \le x\le \sup A,\) which ensures \(\inf A\le \sup A.\) Combining these gives
+\[
+\inf B \;\;\le\;\; \inf A \;\;\le\;\; \sup A \;\;\le\;\; \sup B,
+\]
+as required.
+\end{proof}
+
+\begin{remark}
+Notice that it seems like we are being imprecise about the infs and sups across subsets. We are actually using the definition, try to contradict and show that $ \sup A > \sup B$.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition}[The Supremum is the least upper bound]
+Let \( S \subset \mathbb{R} \) be nonempty, and \( L \in \mathbb{R} \cup \{\infty, -\infty\} \). Then 
+\[
+\sup S \leq L \iff s \leq L \quad \forall s \in S.
+\]
+
+\end{proposition}
+
+
+
+
+
+
+\begin{proof}
+Suppose \(\sup{S} \leq L\). Then by transitivity of ordering \ref{def:ordered set}
+\[
+s \leq \sup{S} \leq L  \quad \forall s \in S
+\]
+Which shows \(s \leq L\).\\
+Conversely, suppose for some  \( L \in \mathbb{R} \cup \{\infty, -\infty\} \) we have \(s \leq L, \ \forall s \in S\). Since we can say that L is in the set of extended reals that bound the set \(S\) where \(\sup S\) is the least element, so we have
+\[
+s \leq \sup S \leq L \quad \forall s \in S.
+\]
+ 
+\end{proof}
+
+
+
+
+
+
+
+
+
+\begin{exercise} \label{ex:bound_compare}
+Let \( A, B \subset \mathbb{R} \) be nonempty sets such that \( x \leq y \) whenever \( x \in A \) and \( y \in B \). Assume \( A \) is bounded above, \( B \) is bounded below, and \( \sup A \leq \inf B \). Then it follows that \( A \) is bounded below, \( B \) is bounded above, and moreover:
+\[
+\sup A \leq \inf B.
+\]
+This inequality confirms that the upper bound of \( A \) does not exceed the lower bound of \( B \), effectively placing \( A \) entirely below or at most touching \( B \).
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+\begin{exercise}\label{ex:sup_inf_subsets}
+If \( S \) and \( T \) are nonempty subsets of \( \mathbb{R} \) and \( T \subseteq S \), then \( \sup T \leq \sup S \) and \( \inf T \geq \inf S \). Note that the supremum and infimum could be finite or infinite.
+\end{exercise}
+
+
+
+
+\begin{proof}
+Suppose nonempty sets \( T \subseteq S \subseteq \mathbb{R}\) exist. Then \(\forall t \in T, \ \exists s_1, s_2 \in S \textnormal{ such that } s_1 \leq t \leq s_2\). Then, 
+\[
+\inf S \leq s_1 \leq \inf T \leq t, \quad \forall t, \implies \inf T \geq \inf S.\]\[
+t \leq \sup T \leq s_2 \leq \sup S, \quad \forall t, \implies \sup T \leq \sup S.\\
+\]
+This states that every upper/lower bound of \(S\) is also an upper/lower bound of \(T\) so the maximum/minimum of such bounds must too satisfy the inequality. Which is exactly what we wanted to prove. Note that the inequalities above also hold if the sets are unbounded. We can see this by considering an example, 
+\[
+\textnormal{If } \sup T = \infty \implies \sup S = \infty \]but the converse does not hold, as T could just be a finite subset.
+ 
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+\begin{exercise} \label{ex:sup_inf_algebra}
+Let \( A \) and \( B \) be two nonempty bounded sets of real numbers, and let \( C = \{a + b : a \in A, b \in B\} \) and \( D = \{ab : a \in A, b \in B\} \). Then 
+\begin{enumerate}
+    \item \(\sup C = \sup A + \sup B \quad \text{and} \quad \inf C = \inf A + \inf B.\)
+    \item \(\sup D = (\sup A)(\sup B) \quad \text{and} \quad \inf D = (\inf A)(\inf B). \)
+\end{enumerate}
+
+\end{exercise}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:function}
+A \textit{function} \( f: A \to B \) is a subset \( f \) of \( A \times B \) such that for each \( x \in A \),
+there exists a unique \( y \in B \) for which \( (x, y) \in f \). We write \( f(x) = y \). Sometimes the set \( f \) is
+called the \textit{graph} of the function rather than the function itself.
+
+The set \( A \) is called the \textit{domain} of \( f \) (and sometimes confusingly denoted \( D(f) \)). The set
+
+\[
+R(f) := \{y \in B : \text{there exists an } x \in A \text{ such that } f(x) = y\}
+\]
+
+is called the \textit{range} of \( f \). The set \( B \) is called the \textit{codomain} of \( f \).
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:image_inverse_image}
+Consider a function \( f: A \to B \). Define the \textit{image} (or \textit{direct image}) of a subset \( C \subset A \) as
+\[
+f(C) := \{ f(x) \in B : x \in C \}.
+\]
+
+Define the \textit{inverse image} of a subset \( D \subset B \) as
+\[
+f^{-1}(D) := \{ x \in A : f(x) \in D \}.
+\]
+
+In particular, \( R(f) = f(A) \), the range is the direct image of the domain \( A \).
+\end{definition}
+
+
+
+\begin{theorem}
+Let $f:A \to B$ be a function. Then the inverse relation $f^{-1}$ is a function from $B$ to $A$ if and only if $f$ is bijective. Furthermore, if $f$ is bijective, then $f^-1$ is also bijective. 
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prop:inverse_image_properties}
+Consider \( f: A \to B \). Let \( C, D \) be subsets of \( B \). Then
+\[
+f^{-1}(C \cup D) = f^{-1}(C) \cup f^{-1}(D),
+\]
+\[
+f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D),
+\]
+\[
+f^{-1}(C^c) = (f^{-1}(C))^c.
+\]
+Read the last line of the proposition as $f^{-1}( B \setminus C) = A \setminus f^{-1} (C)\text{.}$
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prop:direct_image_properties}
+Consider \( f: A \to B \). Let \( C, D \) be subsets of \( A \). Then
+\[
+f(C \cup D) = f(C) \cup f(D),
+\]
+\[
+f(C \cap D) \subseteq f(C) \cap f(D).
+\]
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:injective_surjective_bijective}
+Let \( f: A \to B \) be a function. The function \( f \) is said to be \textit{injective} or \textit{one-to-one} if
+\[
+f(x_1) = f(x_2) \text{ implies } x_1 = x_2.
+\]
+In other words, \( f \) is injective if for all \( y \in B \), the set \( f^{-1}(\{y\}) \) is empty or consists of a single element. We call such an \( f \) an \textit{injection}.
+
+If \( f(A) = B \), then we say \( f \) is \textit{surjective} or \textit{onto}. In other words, \( f \) is surjective if the range and the codomain of \( f \) are equal. We call such an \( f \) a \textit{surjection}.
+
+If \( f \) is both surjective and injective, then we say \( f \) is \textit{bijective} or that \( f \) is a \textit{bijection}.
+\end{definition}
+
+
+
+
+\begin{definition}
+Let $f: A \to B$ and $g:B \to C$ be functions. Then we define the composition as $(g \circ f)(x) = g(f(x))$. So we first use $f$ to map from $A$ to $B$, then take the value of $f$ in $B$ and input into $g$ and use it to map to $C$.
+\end{definition}
+
+
+
+\begin{proposition}
+If $f: A \to B$ and $g: B\to C$ are bijective functions, then $f \circ g$ is bijective.
+\end{proposition}
+
+
+
+
+
+
+\begin{definition} \label{def:cardinality}
+    Let \( A \) and \( B \) be sets. We say \( A \) and \( B \) have the same \textit{cardinality} when there exists a bijection \( f: A \to B \). 
+    
+    We denote by \( |A| \) the equivalence class of all sets with the same cardinality as \( A \), and we simply call \( |A| \) the \textit{cardinality} of \( A \).
+\end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+\begin{definition} \label{def:cardinality_comparison}
+    We write
+    \[
+    |A| \leq |B|
+    \]
+    if there exists an injection from \( A \) to \( B \). 
+    
+    We write \( |A| = |B| \) if \( A \) and \( B \) have the same cardinality. 
+    
+    We write \( |A| < |B| \) if \( |A| \leq |B| \), but \( A \) and \( B \) do not have the same cardinality.\\
+    If $ |A| \leq |\mathbb{N}$ then we say that $A$ is countable. If $|A| = |\mathbb{R}|$ then we say that $A$ is uncountable.
+\end{definition}
+    
+    
+    
+    
+
+\begin{theorem}
+If there exists a bijective function between two sets $A$ and $B$, then we have that the cardanalities, \ref{def:cardinality}, are equivalenet. 
+\end{theorem}
+
+
+\begin{exercise}
+Let $S$ be a nonempty collection of nonempty sets. A realation $R$ is defined on $S$ by A R B if there exists a bijective function from $A$ to $B$. Then R is an equivalence relation \ref{def:equivalence_relation}.
+\end{exercise}
+
+
+\begin{proposition}
+The set $\mathbb{Z}$ is countable
+\end{proposition}
+
+
+\begin{proposition}
+Every infinite subset of a countable set is also countable
+\end{proposition}
+
+
+\begin{proposition}
+If $A$ and $B$ are countable, then $A \times B$ is countable
+\end{proposition}
+
+
+
+
+
+\begin{theorem}
+The set $\mathbb{Q}$ is countable
+\end{theorem}
+
+
+\begin{theorem}
+The open interval $(0,1)$ of real numbers is uncountable.
+\end{theorem}
+
+\begin{theorem}
+\( |(0,1)| = |\mathbb{R}| \)
+\end{theorem}
+
+
+
+
+\begin{theorem}
+\( |\mathcal{P}(A)| = |2^A| \)
+\end{theorem}
+
+
+
+
+\begin{lemma}
+
+    Let \( f: A \to B \) and \( g: C \to D \) be one-to-one functions, where \( A \cap C = \emptyset \), and where the function \( h: A \cup C \to B \cup D \) is defined by
+    \[
+    h(x) =
+    \begin{cases} 
+    f(x) & \text{if } x \in A, \\
+    g(x) & \text{if } x \in C.
+    \end{cases}
+    \]
+    If \( B \cap D = \emptyset \), then \( h \) is also a one-to-one function. Consequently, if \( f \) and \( g \) are bijective functions, then \( h \) is a bijective function.
+\end{lemma}
+
+
+\begin{theorem}
+Let \( A \) and \( B \) be nonempty sets such that \( B \subseteq A \). If there exists an injective function from \( A \) to \( B \), then there exists a bijective function from \( A \) to \( B \).
+\end{theorem}
+
+
+\begin{theorem}[\textbf{Schröder-Bernstein Theorem}]
+If \( A \) and \( B \) are sets such that \( |A| \leq |B| \) and \( |B| \leq |A| \), then \( |A| = |B| \).
+\end{theorem}
+
+
+
+
+\begin{theorem}
+$|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|$
+\end{theorem}
+
+
+\subsection{Metric Spaces}
+\begin{definition} \label{def:metric_space}
+    Let \( X \) be a set, and let \( d: X \times X \to \mathbb{R} \) be a function such that for all \( x, y, z \in X \):
+    \begin{enumerate}
+        \item \( d(x,y) \geq 0 \) \hfill (nonnegativity)
+        \item \( d(x,y) = 0 \) if and only if \( x = y \) \hfill (identity of indiscernibles)
+        \item \( d(x,y) = d(y,x) \) \hfill (symmetry)
+        \item \( d(x,z) \leq d(x,y) + d(y,z) \) \hfill (triangle inequality)
+    \end{enumerate}
+    The pair \( (X, d) \) is called a \textit{metric space}. The function \( d \) is called the \textit{metric} or the \textit{distance function}. Sometimes we write just \( X \) as the metric space instead of \( (X, d) \) if the metric is clear from context.
+    \end{definition}
+    
+    \begin{lemma} \label{lem:cauchy_schwarz}
+    (Cauchy-Schwarz inequality). Suppose \( x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n \), \( y = (y_1, y_2, \dots, y_n) \in \mathbb{R}^n \). Then
+    \[
+    \left( \sum_{k=1}^{n} x_k y_k \right)^2 \leq \left( \sum_{k=1}^{n} x_k^2 \right) \left( \sum_{k=1}^{n} y_k^2 \right).
+    \]
+    \end{lemma}
+    
+    \begin{proposition} \label{prop:metric_restriction}
+    Let \( (X, d) \) be a metric space and \( Y \subset X \). Then the restriction \( d|_{Y \times Y} \) is a metric on \( Y \).
+    \end{proposition}
+    
+    \begin{definition} \label{def:metric_subspace}
+    If \( (X, d) \) is a metric space, \( Y \subset X \), and \( d' := d|_{Y \times Y} \), then \( (Y, d') \) is said to be a \textit{subspace} of \( (X, d) \).
+    \end{definition}
+    
+    \begin{definition} \label{def:bounded_subset}
+    Let \( (X, d) \) be a metric space. A subset \( S \subset X \) is said to be \textit{bounded} if there exists a \( p \in X \) and a \( B \in \mathbb{R} \) such that
+    \[
+    d(p, x) \leq B \quad \text{for all } x \in S.
+    \]
+    We say \( (X, d) \) is \textit{bounded} if \( X \) itself is a bounded subset.
+    \end{definition}
+    
+    \begin{definition} \label{def:open_closed_ball}
+    Let \( (X, d) \) be a metric space, \( x \in X \), and \( \delta > 0 \). Define the \textit{open ball}, or simply \textit{ball}, of radius \( \delta \) around \( x \) as
+    \[
+    B(x, \delta) := \{ y \in X : d(x,y) < \delta \}.
+    \]
+    Define the \textit{closed ball} as
+    \[
+    C(x, \delta) := \{ y \in X : d(x,y) \leq \delta \}.
+    \]
+    When dealing with different metric spaces, it is sometimes vital to emphasize which metric space the ball is in. We do this by writing \( B_X(x, \delta) := B(x, \delta) \) or \( C_X(x, \delta) := C(x, \delta) \).
+    \end{definition}
+    
+    \begin{definition} \label{def:open_closed_sets}
+    Let \( (X, d) \) be a metric space. A subset \( V \subset X \) is \textit{open} if for every \( x \in V \), there exists a \( \delta > 0 \) such that \( B(x, \delta) \subset V \). A subset \( E \subset X \) is \textit{closed} if the complement \( E^c = X \setminus E \) is open. When the ambient space \( X \) is not clear from context, we say \( V \) is \textit{open in} \( X \) and \( E \) is \textit{closed in} \( X \).
+    If \( x \in V \) and \( V \) is open, then we say \( V \) is an \textit{open neighborhood} of \( x \) (or sometimes just \textit{neighborhood}).
+    \end{definition}
+    
+    \begin{proposition} \label{prop:open_sets}
+    Let \( (X, d) \) be a metric space.
+    \begin{enumerate}
+        \item \( \emptyset \) and \( X \) are open.
+        \item If \( V_1, V_2, \dots, V_k \) are open subsets of \( X \), then
+        \[
+        \bigcap_{j=1}^{k} V_j
+        \]
+        is also open. That is, a finite intersection of open sets is open.
+        \item If \( \{ V_{\lambda} \}_{\lambda \in I} \) is an arbitrary collection of open subsets of \( X \), then
+        \[
+        \bigcup_{\lambda \in I} V_{\lambda}
+        \]
+        is also open. That is, a union of open sets is open.
+    \end{enumerate}
+    \end{proposition}
+    
+    \begin{proposition} \label{prop:closed_sets}
+    Let \( (X, d) \) be a metric space.
+    \begin{enumerate}
+        \item \( \emptyset \) and \( X \) are closed.
+        \item If \( \{ E_{\lambda} \}_{\lambda \in I} \) is an arbitrary collection of closed subsets of \( X \), then
+        \[
+        \bigcap_{\lambda \in I} E_{\lambda}
+        \]
+        is also closed. That is, an intersection of closed sets is closed.
+        \item If \( E_1, E_2, \dots, E_k \) are closed subsets of \( X \), then
+        \[
+        \bigcup_{j=1}^{k} E_j
+        \]
+        is also closed. That is, a finite union of closed sets is closed.
+    \end{enumerate}
+    \end{proposition}
+    
+    \begin{proposition} \label{prop:open_closed_ball}
+    Let \( (X, d) \) be a metric space, \( x \in X \), and \( \delta > 0 \). Then \( B(x, \delta) \) is open and \( C(x, \delta) \) is closed.
+    \end{proposition}
+    
+    \begin{proposition} \label{prop:subspace_topology}
+    Suppose \( (X, d) \) is a metric space, and \( Y \subset X \). Then \( U \subset Y \) is open in \( Y \) (in the subspace topology) if and only if there exists an open set \( V \subset X \) (so open in \( X \)) such that \( V \cap Y = U \).
+    \end{proposition}
+    
+    \begin{proposition} \label{prop:subspace_topology_open_closed}
+    Suppose \( (X, d) \) is a metric space, \( V \subset X \) is open, and \( E \subset X \) is closed.
+    \begin{enumerate}
+        \item \( U \subset V \) is open in the subspace topology if and only if \( U \) is open in \( X \).
+        \item \( F \subset E \) is closed in the subspace topology if and only if \( F \) is closed in \( X \).
+    \end{enumerate}
+    \end{proposition}
+    
+
+    \begin{definition} \label{def:connected_space}
+        A nonempty metric space \( (X, d) \) is \textit{connected} if the only subsets of \( X \) that are both open and closed (so-called \textit{clopen} subsets) are \( \emptyset \) and \( X \) itself. If a nonempty \( (X, d) \) is not connected, we say it is \textit{disconnected}. 
+        
+        When we apply the term \textit{connected} to a nonempty subset \( A \subset X \), we mean that \( A \) with the subspace topology is connected.
+        
+        In other words, a nonempty \( X \) is connected if whenever we write \( X = X_1 \cup X_2 \) where \( X_1 \cap X_2 = \emptyset \) and \( X_1 \) and \( X_2 \) are open, then either \( X_1 = \emptyset \) or \( X_2 = \emptyset \). So to show \( X \) is disconnected, we need to find nonempty disjoint open sets \( X_1 \) and \( X_2 \) whose union is \( X \).
+        \end{definition}
+        
+        \begin{proposition} \label{prop:disconnected_set}
+        Let \( (X, d) \) be a metric space. A nonempty set \( S \subset X \) is disconnected if and only if there exist open sets \( U_1 \) and \( U_2 \) in \( X \) such that \( U_1 \cap U_2 \cap S = \emptyset \), \( U_1 \cap S \neq \emptyset \), \( U_2 \cap S \neq \emptyset \), and
+        \[
+        S = (U_1 \cap S) \cup (U_2 \cap S).
+        \]
+        \end{proposition}
+        
+        \begin{proposition} \label{prop:connected_real_set}
+        A nonempty set \( S \subset \mathbb{R} \) is connected if and only if \( S \) is an interval or a single point.
+        \end{proposition}
+        
+        \begin{definition} \label{def:closure}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). The \textit{closure} of \( A \) is the set
+        \[
+        \bar{A} := \bigcap \{E \subset X : E \text{ is closed and } A \subset E\}.
+        \]
+        That is, \( \bar{A} \) is the intersection of all closed sets that contain \( A \).
+        \end{definition}
+        
+        \begin{proposition} \label{prop:closure_properties}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). The closure \( \bar{A} \) is closed, and \( A \subset \bar{A} \). Furthermore, if \( A \) is closed, then \( \bar{A} = A \).
+        \end{proposition}
+        
+        \begin{proposition} \label{prop:closure_characterization}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( x \in \bar{A} \) if and only if for every \( \delta > 0 \), \( B(x, \delta) \cap A \neq \emptyset \).
+        \end{proposition}
+        
+        \begin{definition} \label{def:interior_boundary}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). The \textit{interior} of \( A \) is the set
+        \[
+        A^{\circ} := \{ x \in A : \text{there exists a } \delta > 0 \text{ such that } B(x, \delta) \subset A \}.
+        \]
+        The \textit{boundary} of \( A \) is the set
+        \[
+        \partial A := \bar{A} \setminus A^{\circ}.
+        \]
+        \end{definition}
+        
+        \begin{proposition} \label{prop:interior_boundary}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( A^{\circ} \) is open and \( \partial A \) is closed.
+        \end{proposition}
+        
+        \begin{proposition} \label{prop:boundary_characterization}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( x \in \partial A \) if and only if for every \( \delta > 0 \), \( B(x, \delta) \cap A \) and \( B(x, \delta) \cap A^c \) are both nonempty.
+        \end{proposition}
+        
+        \begin{corollary} \label{cor:boundary_closure}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). Then
+        \[
+        \partial A = \bar{A} \cap \overline{A^c}.
+        \]
+        \end{corollary}
+        
+        \begin{proposition} \label{prop:sequence_convergence}
+        Let \( (X, d) \) be a metric space and \( \{ x_n \}_{n=1}^{\infty} \) a sequence in \( X \). Then \( \{ x_n \}_{n=1}^{\infty} \) converges to \( p \in X \) if and only if for every open neighborhood \( U \) of \( p \), there exists an \( M \in \mathbb{N} \) such that for all \( n \geq M \), we have \( x_n \in U \).
+        
+        \textbf{Proof.} Suppose \( \{ x_n \}_{n=1}^{\infty} \) converges to \( p \). Let \( U \) be an open neighborhood of \( p \), then there exists an \( \epsilon > 0 \) such that \( B(p, \epsilon) \subset U \). As the sequence converges, find an \( M \in \mathbb{N} \) such that for all \( n \geq M \), we have \( d(p, x_n) < \epsilon \), or in other words \( x_n \in B(p, \epsilon) \subset U \).
+        
+        Conversely, given \( \epsilon > 0 \), let \( U := B(p, \epsilon) \) be the neighborhood of \( p \). Then there is an \( M \in \mathbb{N} \) such that for \( n \geq M \), we have \( x_n \in U = B(p, \epsilon) \), or in other words, \( d(p, x_n) < \epsilon \). \(\square\)
+        
+        A closed set contains the limits of its convergent sequences.
+        \end{proposition}
+        
+        \begin{proposition} \label{prop:sequence_closure}
+        Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( p \in \bar{A} \) if and only if there exists a sequence \( \{ x_n \}_{n=1}^{\infty} \) of elements in \( A \) such that
+        \[
+        \lim_{n \to \infty} x_n = p.
+        \]
+        \end{proposition}
+        
+
+        \begin{definition} \label{def:complete_space}
+            We say a metric space \( (X, d) \) is \textit{complete} or \textit{Cauchy-complete} if every Cauchy sequence \( \{x_n\}_{n=1}^{\infty} \) in \( X \) converges to a \( p \in X \).
+            \end{definition}
+            
+            \begin{proposition} \label{prop:complete_Rn}
+            The space \( \mathbb{R}^n \) with the standard metric is a complete metric space.
+            \end{proposition}
+            
+            \begin{proposition} \label{prop:complete_function_space}
+            The space of continuous functions \( C([a,b], \mathbb{R}) \) with the uniform norm as metric is a complete metric space.
+            \end{proposition}
+            
+            \begin{definition} \label{def:compact_set}
+            Let \( (X, d) \) be a metric space and \( K \subset X \). The set \( K \) is said to be \textit{compact} if for every collection of open sets \( \{ U_{\lambda} \}_{\lambda \in I} \) such that
+            \[
+            K \subset \bigcup_{\lambda \in I} U_{\lambda},
+            \]
+            there exists a finite subset \( \{\lambda_1, \lambda_2, \dots, \lambda_m\} \subset I \) such that
+            \[
+            K \subset \bigcup_{j=1}^{m} U_{\lambda_j}.
+            \]
+            A collection of open sets \( \{U_{\lambda} \}_{\lambda \in I} \) as above is said to be an \textit{open cover} of \( K \). A way to say that \( K \) is compact is to say that \textit{every open cover of \( K \) has a finite subcover}.
+            \end{definition}
+            
+            \begin{proposition} \label{prop:compact_closed_bounded}
+            Let \( (X, d) \) be a metric space. If \( K \subset X \) is compact, then \( K \) is closed and bounded.
+            \end{proposition}
+            
+            \begin{lemma} \label{lem:lebesgue_covering}
+            (Lebesgue covering lemma). Let \( (X, d) \) be a metric space and \( K \subset X \). Suppose every sequence in \( K \) has a subsequence convergent in \( K \). Given an open cover \( \{U_{\lambda}\}_{\lambda \in I} \) of \( K \), there exists a \( \delta > 0 \) such that for every \( x \in K \), there exists a \( \lambda \in I \) with \( B(x, \delta) \subset U_{\lambda} \).
+            \end{lemma}
+            
+            \begin{theorem} \label{thm:compactness_sequential}
+            Let \( (X, d) \) be a metric space. Then \( K \subset X \) is compact if and only if every sequence in \( K \) has a subsequence converging to a point in \( K \).
+            \end{theorem}
+            
+            \begin{proposition} \label{prop:compact_closed_subset}
+            Let \( (X, d) \) be a metric space and let \( K \subset X \) be compact. If \( E \subset K \) is a closed set, then \( E \) is compact.
+            \end{proposition}
+            
+            \begin{theorem} \label{thm:heine_borel}
+            (Heine-Borel theorem). A \textit{closed bounded} subset \( K \subset \mathbb{R}^n \) is compact.
+            
+            So subsets of \( \mathbb{R}^n \) are compact if and only if they are closed and bounded, a condition that is much easier to check. Let us reiterate that the Heine-Borel theorem only holds for \( \mathbb{R}^n \) and not for metric spaces in general. The theorem does not hold even for subspaces of \( \mathbb{R}^n \), just in \( \mathbb{R}^n \) itself. In general, compact implies closed and bounded, but not vice versa.
+            \end{theorem}
+            
+            \begin{definition} \label{def:continuous_function}
+            Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces and \( c \in X \). Then \( f: X \to Y \) is \textit{continuous} at \( c \) if for every \( \epsilon > 0 \) there is a \( \delta > 0 \) such that whenever \( x \in X \) and \( d_X(x, c) < \delta \), then \( d_Y(f(x), f(c)) < \epsilon \).
+            
+            When \( f: X \to Y \) is continuous at all \( c \in X \), we simply say that \( f \) is a \textit{continuous function}.
+            \end{definition}
+            
+            \begin{proposition} \label{prop:continuity_sequence}
+            Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces. Then \( f: X \to Y \) is continuous at \( c \in X \) if and only if for every sequence \( \{x_n\}_{n=1}^{\infty} \) in \( X \) converging to \( c \), the sequence \( \{f(x_n)\}_{n=1}^{\infty} \) converges to \( f(c) \).
+            \end{proposition}
+            
+            \begin{lemma} \label{lem:continuous_compact}
+            Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces and \( f: X \to Y \) a continuous function. If \( K \subset X \) is a compact set, then \( f(K) \) is a compact set.
+            \end{lemma}
+
+            \begin{theorem} \label{thm:max_min_compact}
+                Let \( (X, d) \) be a nonempty compact metric space and let \( f: X \to \mathbb{R} \) be continuous. Then \( f \) is bounded and in fact \( f \) achieves an absolute minimum and an absolute maximum on \( X \).
+                
+                \begin{proof} 
+                    As \( X \) is compact and \( f \) is continuous, \( f(X) \subset \mathbb{R} \) is compact. Hence \( f(X) \) is closed and bounded. In particular, \( \sup f(X) \in f(X) \) and \( \inf f(X) \in f(X) \), because both the \(\sup\) and the \(\inf\) can be achieved by sequences in \( f(X) \) and \( f(X) \) is closed. Therefore, there is some \( x \in X \) such that \( f(x) = \sup f(X) \) and some \( y \in X \) such that \( f(y) = \inf f(X) \).
+                \end{proof}
+                \end{theorem}
+                
+                \begin{lemma} \label{lem:continuity_neighborhood}
+                Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces. A function \( f: X \to Y \) is continuous at \( c \in X \) if and only if for every open neighborhood \( U \) of \( f(c) \) in \( Y \), the set \( f^{-1}(U) \) contains an open neighborhood of \( c \) in \( X \).
+                \end{lemma}
+                
+                \begin{theorem} \label{thm:continuity_open_sets}
+                Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces. A function \( f: X \to Y \) is continuous if and only if for every open \( U \subset Y \), \( f^{-1}(U) \) is open in \( X \).
+                \end{theorem}
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

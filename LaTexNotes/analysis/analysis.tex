@@ -1,0 +1,1562 @@
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+
+\section{Analysis}
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}[Archimedean Property] \label{thm:archimedean_property} 
+    If \( x, y \in \mathbb{R} \) and \( x > 0 \), then there exists an \( n \in \mathbb{N} \) such that
+    \[
+    nx > y.
+    \]
+    \end{theorem}
+    
+    
+    
+    
+    
+    \begin{proof}
+    Notice that \( nx > y \implies n > y/x \). So if this didn't hold, we would have that $\mathbb{N}$ is bounded above. Suppose by contradiction, we have \[
+    \exists t \in \mathbb{R}, \forall n \in \mathbb{N}, \quad n \leq t
+    \]
+    Thus there must exist a least upper bound, call it $m \in \mathbb{R}$. Then
+    \[
+    \exists n  \textnormal{ such that }  m - 1 \leq n \leq m \leq t \implies m \leq n.
+    \]
+    This contradicts that $ \exists y,x$ so that $ n \leq y/x \quad \forall n \in \mathbb{N}$. Hence, the Archimedean property holds.  
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{theorem}[Density of \( \mathbb{Q} \) in \( \mathbb{R} \)] \label{thm:density_of_rationals}
+    If \( x, y \in \mathbb{R} \) and \( x < y \), then there exists an \( r \in \mathbb{Q} \) such that
+    \[
+    x < r < y.
+    \]
+    \end{theorem}
+    
+    
+    
+    \begin{proof}
+    Let \( r = \frac{m}{n}\) and \( m,n \in \mathbb{Z}\) such that \( n \neq 0\) and \( gcd(m,n) = 1\). Then we want to show the existence of \( m\) and \(n\) such that for any \(x\) and \(y\),
+    \[
+    x < \frac{m}{n} < y \quad \implies \quad 0 < n(y-x).
+    \]
+    Then by \ref{thm:archimedean_property}, we have that \( \exists n \in \mathbb{N}\) such that 
+    \[
+    1 < n(y-x) \quad \textnormal{ or } \quad \frac{1}{n} < y - x \quad \textnormal{ or } \quad nx + 1 < ny.
+    \]
+    So we have that the \(n\) \textit{scaled difference} of \(y\) and \(x\) is greater than \(1\), this tells me I can fit an integer \(m\) between \(nx\) and \(ny\). To pick this \(m\), let \( S = \left\{k \in \mathbb{Z} \mid k > nx \right\}\). By \ref{thm:archimedean_property}, we know \(S\) is nonempty, then by the Well Ordering Axiom, we have that there exists a least element, call it \(m\). Then \( m\in S\) so \( nx < m\) or \( x < m/n\). Now it remains to show that \( m < ny\). Since \(m\) is the least element of \(S\), we must have \( m-1 \notin S\). Thus \[
+    m-1 < nx \quad \implies \quad m < nx + 1 < ny.
+    \]
+    This gives us, \( m/n < y\) which proves the statement.
+     
+    
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    \subsection{Sequences}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}[Sequence] \label{def:sequence}
+    A \textit{sequence} (of real numbers) is a function \( x : \mathbb{N} \to \mathbb{R} \). Instead of \( x(n) \), we usually denote the \( n \)th element in the sequence by \(x_n\). To denote a sequence we write 
+    \[
+    \{x_n\}_{n=1}^{\infty}
+    \]
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}[Bounded Sequence] \label{def:bounded sequence}
+    A sequence \( \{x_n\}_{n=1}^{\infty}\) is \textit{bounded} if there exists \( M \in \mathbb{R}\) such that 
+    \[
+    |x_n| \leq M \quad \text{for all } n \in \mathbb{N}.
+    \]
+    That is, the sequence \(x_n\) is bounded whenever the set $\{ x_n \mid n \in \mathbb{N} \}$ is bounded.
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}[Monotone Sequence]\label{def:Monotone_sequence}
+    A sequence \(\{x_n\}_{n=1}^{\infty}\) is \textit{monotone increasing} if \( x_n \leq x_{n+1} \) for all \( n \in \mathbb{N} \). A sequence \(\{x_n\}_{n=1}^{\infty}\) is \textit{monotone decreasing} if \( x_n \geq x_{n+1} \) for all \( n \in \mathbb{N} \). If a sequence is either monotone increasing or monotone decreasing, we can simply say the sequence is \textit{monotone}.
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}[Convergent Sequence] \label{def:convergent_sequence}
+    A sequence \(x_n\) is said to \textit{converge} to a number \( x \in \mathbb{R}\) if 
+    \[
+    \forall \varepsilon > 0, \, \exists N \in \mathbb{N} \text{ such that } \forall n \geq N, |x_n - x| < \varepsilon.
+    \]
+    Note that this is equivalently written \( \lim_{n \to \infty} x_n = x\) or \(x_n \longrightarrow x \).
+    
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{remark}
+    The definition of a convergence sequence seems as though it does not lend itself easily to application, but a change in perspective of the definition allows you to see the usefulness. Think of it as, me and some other guy are both looking at \(x_n\), he chooses \( \varepsilon > 0\), this determines how precise our limit must be. So I then choose an \(N \in \mathbb{N}\) such that \(x_n\) is always within \(\varepsilon\) of \(x\) for all \(n\) \textit{after} the \(N\) which we specifically found given \(\varepsilon\).
+    \end{remark}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition} \label{prp:uniqueness_of_limit}
+    A convergent sequence has a unique limit.
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    
+    \begin{proof}
+    Suppose \(x_n\) converges to both \(x\) and \(y\). Then by definition \ref{def:convergent_sequence}, we have \(\forall \varepsilon > 0\), \(\exists N_1 \in \mathbb{N}\) such that \( \forall n \geq N_1\), \(|x_n - x| < \varepsilon/2\), and for the same \(\varepsilon\), \(\exists N_2 \in \mathbb{N}\) such that \(\forall n \geq N_2\), \(|x_n - y| < \varepsilon/2\). Thus if we choose \(N = max(N_1, N_2)\) we obtain, 
+    \[
+    |x - y| = |x - x_n + x_n - y| \leq |x-x_n| + |x_n - y| < \varepsilon/2 + \varepsilon/2 = \varepsilon.
+    \]
+    Since \(|y-x| < \varepsilon, \ \forall \varepsilon > 0\), is equivalent to \(y=x\), this proves that if the limit exists, it is unique.  
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}
+    Claim: The sequence $\{\frac{1}{n}\}_{n=1}^{\infty}$ is convergent and converges to \(0\).\\
+    \textnormal{To apply the definition of convergence we would need to show that for any \(\varepsilon > 0\), there exists some value \(N \in \mathbb{N}\) such that \(x_n\) is bounded by $\varepsilon$ for all \(n\) after that \(N\). In other words, we would that \(\forall \varepsilon > 0, \exists N \in \mathbb{N}\) such that \(\forall n \geq N\), we would have \(|\frac{1}{n}| < \varepsilon \implies n > \frac{1}{\varepsilon}\). Notice this \(n\) exists by \ref{thm:archimedean_property}. This is how we find the \(N\) value that we use in our proof most of the time.}
+    
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}
+    
+    Let \( (s_n)\) be a sequence of non-negative real numbers and suppose \( s = \lim_{n \to \infty}\). Then
+    \[
+    \lim_{n \to \infty}{\sqrt{s_n}} = \sqrt{\lim_{n \to \infty}{s_n}}
+    \]
+    
+    \end{exercise}
+    
+    \begin{proof}
+    From the definition of convergence, we need to bound the magnitude of the difference of \( \sqrt{s_n} - \sqrt{s} \). So we massage the expression that we are supposed to be concluding with to see if we find some bound. 
+    \[
+    \left| \sqrt{s_n} - \sqrt{s} \right| \implies \left| \frac{(\sqrt{s_n} - \sqrt{s})(\sqrt{s_n} + \sqrt{s})}{\sqrt{s_n} + \sqrt{s}} \right| = \left| \frac{s_n - s}{\sqrt{s_n} + \sqrt{s}} \right|
+    \]
+    Since \( \sqrt{s_n} \geq 0\), we have that \( \left| \frac{s_n - s}{\sqrt{s_n} + \sqrt{s}} \right| \leq \left| \frac{s_n - s}{\sqrt{s}} \right|\). This is the type of expression we want, we have that \( s_n - s\) along with other elements, of which we can bound, are greater than the expression we are trying to bound by \( \varepsilon \). So we choose \( N \in \mathbb{N}\) such that
+    \[
+    \mid s_n - s \mid < \sqrt{s}\varepsilon \implies \frac{|s_n - s|}{\sqrt{s}} < \varepsilon \implies \left| \frac{s_n - s}{\sqrt{s_n} + \sqrt{s}} \right| <\varepsilon \implies \left| \sqrt{s_n} - \sqrt{s} \right| < \varepsilon.
+    \]
+    This proves the statement.   
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition}\label{prp: convergent sequences are bounded}
+    
+    Convergent sequences are bounded.
+    
+    \end{proposition}
+    
+    
+    
+    
+    
+    \begin{proof}
+    Suppose \(x_n \longrightarrow x\). Then there exists an \( N \in \mathbb{N}\) such that \(\forall n > N\) we have \(|x_n - x| < 1\). Then for \(n > N\),
+    \[
+    |x_n| = |x_n - x + x| \leq |x_n - x| + |x| < 1 + |x| . 
+    \]
+    Now consider the set 
+    \[M = \{|x_1|, |x_2|, \dots, |x_{N-1}|, 1 + |x|  \}.\]
+    Observe that \(M\) is finite. Then let \[B = \max(\{|x_1|, |x_2|, \dots, |x_{N-1}|, 1 + |x|  \}.\]
+    Then for all \(n \in \mathbb{N}\), 
+    \[|x_n| \leq B.\]
+    This satisfies definition \ref{def:bounded sequence}.   
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition}[Algebra of Limits] \label{prop:limit_algebra}
+    Let \( \{x_n\}_{n=1}^{\infty} \) and \( \{y_n\}_{n=1}^{\infty} \) be convergent sequences.
+    \begin{enumerate}
+        \item 
+        \(
+        \lim_{n\to\infty} (x_n + y_n) = \lim_{n\to\infty} x_n + \lim_{n\to\infty} y_n.
+        \)
+        \item 
+        \(
+        \lim_{n\to\infty} (x_n y_n) = \left( \lim_{n\to\infty} x_n \right) \left( \lim_{n\to\infty} y_n \right).
+        \)
+        \item If \( \lim_{n\to\infty} y_n \neq 0 \) and \( y_n \neq 0 \) for all \( n \in \mathbb{N} \), then
+        \(
+        \lim_{n\to\infty} \frac{x_n}{y_n} = \frac{\lim_{n\to\infty} x_n}{\lim_{n\to\infty} y_n}.
+        \)
+    \end{enumerate}
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{lemma}[Squeeze lemma] \label{lem:squeeze}
+    Let \( \{a_n\}_{n=1}^{\infty} \), \( \{b_n\}_{n=1}^{\infty} \), and \( \{x_n\}_{n=1}^{\infty} \) be sequences such that
+    \[
+    a_n \leq x_n \leq b_n \quad \text{for all } n \in \mathbb{N}.
+    \]
+    Suppose \( \{a_n\}_{n=1}^{\infty} \) and \( \{b_n\}_{n=1}^{\infty} \) converge and
+    \[
+    \lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n.
+    \]
+    Then \( \{x_n\}_{n=1}^{\infty} \) converges and
+    \[
+    \lim_{n\to\infty} x_n = \lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n.
+    \]
+    \end{lemma}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proof}
+    Let \( x := \lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n \). Let \( \varepsilon > 0 \) be given. Find an \( M_1 \) such that for all \( n \geq M_1 \), we have \( |a_n - x| < \varepsilon \), and an \( M_2 \) such that for all \( n \geq M_2 \), we have \( |b_n - x| < \varepsilon \). Set \( M := \max\{M_1, M_2\} \). Suppose \( n \geq M \). In particular, \( x - a_n < \varepsilon \), or \( x - \varepsilon < a_n \). Similarly, \( b_n < x + \varepsilon \). Putting everything together, we find
+    \[
+    x - \varepsilon < a_n \leq x_n \leq b_n < x + \varepsilon.
+    \]
+    In other words, \( -\varepsilon < x_n - x < \varepsilon \) or \( |x_n - x| < \varepsilon \). So \( \{x_n\}_{n=1}^{\infty} \) converges to \( x \).   
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    We can also formally define divergent sequences even though we really already know from our definition of convergence.
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}\label{def:divergent sequence}
+    We say \(x_n\) \textit{diverges to infinity} if
+    \[
+    \forall K \in \mathbb{R}, \exists M \in \mathbb{N}, \textnormal{ such that } \exists n \geq  M \textnormal{ where} x_n > K.
+    \]
+    This is written
+    \[
+    \lim_{n \to \infty}{x_n} = \infty
+    \]
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise} \label{ex: sqrt of lim}
+    Let \( \{x_n\}_{n=1}^{\infty} \) be a convergent sequence such that \( x_n \geq 0 \) for all \( n \in \mathbb{N} \). Then
+    \[
+    \lim_{n \to \infty} \sqrt{x_n} = \sqrt{\lim_{n \to \infty} x_n }.
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise} \label{ex: limit of absolute value sequence}
+    If \( \{x_n\}_{n=1}^{\infty} \) is a convergent sequence, then
+    \[
+    \lim_{n \to \infty} |x_n| = \left| \lim_{n \to \infty} x_n \right|.
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{theorem}[Monotone Convergence Theorem] \label{thm: monotone convergence theorem}
+    A monotone sequence \(\{x_n\}_{n=1}^{\infty}\) is bounded if and only if it is convergent.
+    
+    \textit{Furthermore, if} \(\{x_n\}_{n=1}^{\infty}\) \textit{is monotone increasing and bounded, then}
+    \[
+    \lim_{n \to \infty} x_n = \sup \{x_n : n \in \mathbb{N} \}.
+    \]
+    \textit{If} \(\{x_n\}_{n=1}^{\infty}\) \textit{is monotone decreasing and bounded, then}
+    \[
+    \lim_{n \to \infty} x_n = \inf \{x_n : n \in \mathbb{N} \}.
+    \]
+    \end{theorem}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise} \label{prp: exponential growth of a sequence}
+    For any real number \( a \),
+    \[
+    \lim_{n \to \infty} a^n = 0 \quad \textnormal{ for } |a| < 1.
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise} \label{ex: nth root limit}
+    Let \(n \in \mathbb{N}\) and \(a > 0\). Then,
+    \[
+    \lim_{n \to \infty}{n^{1/n}} = 1 \quad \textnormal{ and } \quad \lim_{n \to \infty}{a^{1/n}} = 1.
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise} \label{ex: limit of c^n}
+    Let \( c > 0 \).
+    \begin{enumerate}
+        \item If \( c < 1 \), then
+        \[
+        \lim_{n \to \infty} c^n = 0.
+        \]
+        \item If \( c > 1 \), then \( \{c^n\}_{n=1}^{\infty} \) is unbounded.
+    \end{enumerate}
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{remark}
+    The idea of the proof in the next exercise uses the result of exercise \ref{ex: limit of c^n}. Notice if \( L < 1\), then each term (since it's in absolute values) is less than the other by a ratio. But this only happens after we get to our limit, so its for all \(n\) after whatever \(M\) makes us convergent. But how exactly would I show that this sequence is a ratio (like a \((1/c)^n)\) type)? This is where you are going to have to get weird. Break the sequence (mentally) into two parts, before \(M\) (meaning, before the terms are a ratio of each other) and after \(M\) (once the terms are a ratio of each other). So we could potentially express \( x_n\) using this.
+    \end{remark}
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}[Ratio Test for Sequences] \label{ex:ratio_test}
+    Let \( (x_n)_{n=1}^{\infty} \) be a sequence such that \( x_n \neq 0 \ \forall n \in \mathbb{N}\) and such that the limit
+    \[
+    L = \lim_{n \to \infty} \frac{|x_{n+1}|}{|x_n|}
+    \]
+    exists.
+    \begin{enumerate}
+        \item If \( L < 1 \), then \( \lim\limits_{n\to\infty} x_n = 0 \).
+        \item If \( L > 1 \), then \( \{x_n\}_{n=1}^{\infty} \) is unbounded.
+    \end{enumerate}
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    \begin{proof}
+    \( (1) \) Suppose \( L < 1 \). Since \( \frac{|x_{n+1}|}{|x_n|} \geq 0 \) for all \( n \), we have that \( L \geq 0 \). Choose an \(r \in \mathbb{R}\) such that \( L < r < 1.\) Since \(r - L > 0\) we can treat \( r - L\) like an \( \varepsilon\) such that, \( \exists M \in \mathbb{N}\) such that \( \forall n \geq M\), we have
+    \[
+    \left| \frac{|x_{n+1}|}{|x_n|} - L \right| < r - L.
+    \]
+    Therefore, for \( n \geq M \),
+    \[
+    \frac{|x_{n+1}|}{|x_n|} - L < r - L \quad \text{or} \quad \frac{|x_{n+1}|}{|x_n|} < r.
+    \]
+    
+    For \( n > M \), use that each term is a multiple in \((0,1)\) of the terms before it, so we write
+    \[
+    |x_n| = |x_M| \frac{|x_{M+1}|}{|x_M|} \frac{|x_{M+2}|}{|x_{M+1}|} \cdots \frac{|x_n|}{|x_{n-1}|} < |x_M| r r \cdots r = |x_M| r^{n-M} = (|x_M| r^{-M}) r^n.
+    \]
+    The sequence \( \{r^n\}_{n=1}^{\infty} \) converges to zero and hence \( |x_M| r^{-M} r^n \) converges to zero. Since \( \{x_n\}_{n=M+1}^{\infty} \) converges to zero, we have that \( \{x_n\}_{n=1}^{\infty} \) converges to zero.
+    
+    Now suppose \( L > 1 \). Pick \( r \) such that \( 1 < r < L \). As \( L - r > 0 \), there exists an \( M \in \mathbb{N} \) such that for all \( n \geq M \),
+    \[
+    \left| \frac{|x_{n+1}|}{|x_n|} - L \right| < L - r.
+    \]
+    Therefore,
+    \[
+    \frac{|x_{n+1}|}{|x_n|} > r.
+    \]
+    
+    Again, for \( n > M \), write
+    \[
+    |x_n| = |x_M| \frac{|x_{M+1}|}{|x_M|} \frac{|x_{M+2}|}{|x_{M+1}|} \cdots \frac{|x_n|}{|x_{n-1}|} > |x_M| r r \cdots r = |x_M| r^{n-M} = (|x_M| r^{-M}) r^n.
+    \]
+    The sequence \( \{r^n\}_{n=1}^{\infty} \) is unbounded (since \( r > 1 \)), and so \( \{x_n\}_{n=1}^{\infty} \) cannot be bounded. Consequently, \( \{x_n\}_{n=1}^{\infty} \) cannot converge.   
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}\label{ex: factorial and exponential growth}
+    For all \( a \in \mathbb{R} \)
+    \[
+    \lim_{n \to \infty} \frac{a^n}{n!} = 0 
+    \]
+    \end{exercise}
+    
+    
+    \begin{proof}
+    Using \ref{ex:ratio_test}, we have
+    \[
+    \lim_{n\to\infty}{\frac{a^{n+1}n!}{a^n(n+1)!}} = \lim_{n\to\infty}{\frac{a}{n+1}} = 0
+    \]\\
+    \end{proof}
+    
+    
+    
+    
+    \begin{exercise}
+    If $ (x_n)^\infty_{n=1}$ is convergent and $ k \in \mathbb{N}$ then
+    \[
+    \lim_{n \to \infty}{x_n^k} = \left( \lim_{n \to \infty}{x_n}\right)^k
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}
+    If $ (x_n)^\infty_{n=1}$ is a convergent sequence and $ x_n \geq 0 $ and $ k \in \mathbb{N}$ then
+    \[
+    \lim_{n \to \infty}{x_n^{1/k}} = \left( \lim_{n \to \infty}{x_n}\right)^{1/k}
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition} \label{def:subsequence}
+    Let \( \{x_n\}_{n=1}^{\infty} \) be a sequence. Let \( \{n_i\}_{i=1}^{\infty} \) be a strictly increasing sequence of natural numbers, that is, \( n_i < n_{i+1} \) for all \( i \in \mathbb{N} \) (in other words \( n_1 < n_2 < n_3 < \cdots \)). The sequence
+    \[
+    \{x_{n_i}\}_{i=1}^{\infty}
+    \]
+    is called a \textit{subsequence} of \( \{x_n\}_{n=1}^{\infty} \).
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition} \label{prp:subsequence limit equal to limit}
+    If \( \{x_n\}_{n=1}^{\infty} \) is a convergent sequence, then every subsequence \( \{x_{n_i}\}_{i=1}^{\infty} \) is also convergent, and
+    \[
+    \lim_{n \to \infty} x_n = \lim_{i \to \infty} x_{n_i}.
+    \]
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition} \label{def:limsup_liminf}
+    Let \( \{x_n\}_{n=1}^{\infty} \) be a bounded sequence. Define the sequences \( \{a_n\}_{n=1}^{\infty} \) and \( \{b_n\}_{n=1}^{\infty} \) by
+    \[
+    a_n := \sup\{ x_k : k \geq n \}, \quad b_n := \inf\{ x_k : k \geq n \}.
+    \]
+    Define, if the limits exist,
+    \[
+    \limsup_{n \to \infty} x_n := \lim_{n \to \infty} a_n, \quad \liminf_{n \to \infty} x_n := \lim_{n \to \infty} b_n.
+    \]
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{theorem}\label{thm: lim sup lim inf subsequence}
+    If \( \{x_n\}_{n=1}^{\infty} \) is a bounded sequence, then there exists a subsequence \( \{x_{n_k}\}_{k=1}^{\infty} \) such that
+    \[
+    \lim_{k \to \infty} x_{n_k} = \limsup_{n \to \infty} x_n.
+    \]
+    Similarly, there exists a (perhaps different) subsequence \( \{x_{m_k}\}_{k=1}^{\infty} \) such that
+    \[
+    \lim_{k \to \infty} x_{m_k} = \liminf_{n \to \infty} x_n.
+    \]
+    \end{theorem}
+    
+    
+    
+    
+    \begin{remark}
+        In the below proof, we are trying to find an \(x_{n_i}\) that converges to the same limit as the supremum. So we want the  
+    \end{remark}
+    
+    
+    
+    
+    
+    \begin{proof}
+    Define $a_n = \sup\{x_k : k \geq n\}$. Let $x := \limsup_{n \to \infty} x_n = \lim_{n \to \infty} a_n$. We define the subsequence inductively. Let $n_1 = 1$, meaning \(x_{n_1} = x_n\), and suppose $n_1, n_2, \dots, n_{k-1}$ are defined for some $k \geq 2$. Since the subsequences index \( (n_k)_{k=1}^{\infty}\) is strictly increasing, \(n_k \geq n_{k-1}+1\), pick an $m \geq n_{k-1} + 1$ such that
+    \[
+    a_{n_k+1} - x_m < \frac{1}{k}.
+    \]
+    Such an $m$ exists as $a_{n_k+1}$ is a supremum of the set $\{x_\ell : \ell \geq n_{k-1} + 1\}$ and hence there are elements of the sequence arbitrarily close (or even possibly equal) to the supremum. Set
+    $n_k = m$. The subsequence $\{x_{n_k}\}_{k=1}^{\infty}$ is defined. Next, we must prove that it converges to $x$.
+    For all $k \geq 2$, we have $a_{n_k+1} \geq a_{n_k}$ (why?) and $a_{n_k} \geq x_{n_k}$. Therefore, for every $k \geq 2$,
+    
+    \[
+    |a_{n_k} - x_{n_k}| = a_{n_k} - x_{n_k} \leq a_{n_k+1} - x_{n_k} < \frac{1}{k}.
+    \]
+    Let us show that $\{x_{n_k}\}_{k=1}^{\infty}$ converges to $x$. Note that the subsequence need not be
+    monotone. Let $\epsilon > 0$ be given. As $\{a_n\}_{n=1}^{\infty}$ converges to $x$, the subsequence $\{a_{n_k}\}_{k=1}^{\infty}$
+    converges to $x$. Thus, there exists an $M_1 \in \mathbb{N}$ such that for all $k \geq M_1$, we have
+    
+    \[
+    |a_{n_k} - x| < \frac{\epsilon}{2}.
+    \]
+    
+    Find an $M_2 \in \mathbb{N}$ such that
+    
+    \[
+    \frac{1}{M_2} \leq \frac{\epsilon}{2}.
+    \]
+    
+    Take $M := \max\{M_1, M_2\}$. For all $k \geq M$,
+    
+    \[
+    |x - x_{n_k}| = |a_{n_k} - x_{n_k} + x - a_{n_k}| \leq |a_{n_k} - x_{n_k}| + |x - a_{n_k}|\leq \frac{1}{M_2} + \frac{\epsilon}{2} \leq \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+    \]
+     
+    \end{proof}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}\label{ex: sup inf monotone sequence}
+    Let \( S \subset \mathbb{R} \) be a nonempty bounded set. Then there exist monotone sequences \( \{x_n\}_{n=1}^{\infty} \) and \( \{y_n\}_{n=1}^{\infty} \) such that \( x_n, y_n \in S \) and
+    \[
+    \sup S = \lim_{n \to \infty} x_n \quad \text{and} \quad \inf S = \lim_{n \to \infty} y_n.
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition} \label{prp: convergence criterion lim inf lim sup}
+    Let \( \{x_n\}_{n=1}^{\infty} \) be a bounded sequence. Then \( \{x_n\}_{n=1}^{\infty} \) converges if and only if
+    \[
+    \liminf_{n \to \infty} x_n = \limsup_{n \to \infty} x_n.
+    \]
+    \textit{Furthermore, if} \( \{x_n\}_{n=1}^{\infty} \) \textit{converges, then}
+    \[
+    \lim_{n \to \infty} x_n = \liminf_{n \to \infty} x_n = \limsup_{n \to \infty} x_n.
+    \]
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}
+    Suppose $ (x_n)^\infty_{n=1}$ is a bounded sequence and $ (x_{n_k})^\infty_{k = 1}$ is a subsequence. Then
+    \[
+    \liminf_{n \to \infty} x_n \leq \liminf_{k \to \infty} x_{n_k} \leq \limsup_{k \to \infty} x_{n_k} \leq \limsup_{n \to \infty} x_n
+    \]
+    \end{exercise}
+    
+    
+    
+    
+    
+    \begin{exercise}
+    A bounded sequence $ (x_n)^\infty_{n=1}$ converges to $x$ $\iff$ every subsequence $ (x_{n_k})^\infty_{k = 1}$ converges to $x$.
+    \end{exercise}
+    
+    
+    
+    
+    \begin{definition}[Subsequential Limit]
+    Let  $ (x_n)^\infty_{n=1}$ be a sequence. A \textit{subsequential limit} is any extended real number that is the limit of some subsequence of  $ (x_n)^\infty_{n=1}$.
+        
+    \end{definition}
+    
+    
+    
+    
+    \begin{theorem}[Bolzano–Weierstrass] \label{thm: Bolzano-Weierstrass}
+    Suppose a sequence \( \{x_n\}_{n=1}^{\infty} \) of real numbers is bounded. Then there exists a convergent subsequence \( \{x_{n_i}\}_{i=1}^{\infty} \).
+    \end{theorem}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{exercise}
+    Let $(s_n)$ be any sequence of nonzero real numbers. Then we have
+    \[
+    \liminf \left| \frac{s_{n+1}}{s_n} \right| 
+    \leq \liminf |s_n|^{1/n} 
+    \leq \limsup |s_n|^{1/n} 
+    \leq \limsup \left| \frac{s_{n+1}}{s_n} \right|.
+    \]
+    
+    \end{exercise}
+    
+    
+    
+    
+    \begin{exercise}
+    If \(\lim \left| \frac{s_{n+1}}{s_n} \right|\) exists and equals \(L\)\, then \(\lim |s_n|^{1/n}\) exists and equals \(L\).
+    
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}[Cauchy Sequence]\label{def:cauchy_sequence}
+    A sequence \( \{x_n\}_{n=1}^{\infty} \) is a \textit{Cauchy sequence} if for every \( \varepsilon > 0 \), there exists an \( M \in \mathbb{N} \) such that for all \( n \geq M \) and all \( k \geq M \), we have
+    \[
+    |x_n - x_k| < \varepsilon.
+    \]
+    \end{definition}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{lemma}
+    If a sequence is Cauchy, then it is bounded. 
+    \end{lemma}
+    
+    
+    
+    
+    \begin{theorem}[Convergent $\iff$ Cauchy]\label{thm:cauchy_convergence}
+    A sequence of real numbers is Cauchy $ \iff$ the sequence is convergent. 
+        
+    \end{theorem}
+    
+    
+    \subsection{Series}
+    \par So we have built a good understanding of sequences, to make sense of what is about to come, consider the following example. Suppose you have an infinite number of people, each of them representing a number (like their age or something), if we give a calculator to the first person and tell them to put their age in then tell the next person to put their age in and tell the same person after them to do so. At any moment if we stop this process, say at person $k$, then the number on the calculator is the $k$th value of our sequence, where the sequence represents the sum of a sequence of numbers. 
+    
+    \begin{definition}[Series]\label{def:series}
+    Given a sequence $ (x_n)^\infty_{n=1}$, we define
+    \[
+    \sum_{n=1}^\infty{x_n}
+    \]
+    as a \textit{series}. A series \textit{converges} if the sequence $ (s_k)^\infty_{k=1}$, called the partial sums, and defined by
+    \[
+    s_k = \sum_{n = 1}^k{x_n} = x_1 + x_2 + \cdots + x_k
+    \]
+    converges. So a series converges if
+    \[
+    \sum_{n=1}^\infty{x_n} = \lim_{k \to \infty}{\sum_{n = 1}^k{x_n}}.
+    \]
+    \end{definition}
+    
+    
+    
+    
+    
+    \begin{proposition}[Geometric Series]\label{prp:geo_series}
+    Suppose $ -1 < r < 1.$ Then the geometric series $ \sum_{n=0}^\infty{r^n}$ converges, and 
+    \[
+    \sum_{n=0}^\infty{r^n} = \frac{1}{1-r}
+    \]
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    \begin{exercise}
+    Let $\sum_{n=1}^\infty{x_n}$ be a series and let $M \in \mathbb{N}$. Then
+    \[
+    \sum_{n=1}^\infty{x_n} \textnormal{ converges } \iff \sum_{n=M}^\infty{x_n} \textnormal{ converges.}
+    \]
+    \end{exercise}
+    
+    
+    \begin{definition}[Cauchy Series]
+    A series $\sum_{n=1}^\infty{x_n}$ is said to be \textit{Cauchy} if the sequence of the partial sums $ (s_n)^\infty_{n=1}$ is a Cauchy sequence.\\
+    Note that a series is convergent if and only if it is Cauchy \ref{thm:cauchy_convergence}.
+    \end{definition}
+    
+    
+    
+    
+    \begin{exercise}
+    If a series $\sum_{n=1}^\infty{x_n}$ converges, then $\lim{x_n} = 0.$
+    \end{exercise}
+    
+    
+    
+    
+    
+    
+    \begin{proposition}[Linearity of Series]\label{prp:linearity_series}
+    Let $\alpha \in \mathbb{R}$ and $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ be convergent series. Then
+    \begin{enumerate}
+        \item $\sum_{n=1}^{\infty} \alpha x_n$ is a convergent series and
+        \[
+        \sum_{n=1}^{\infty} \alpha x_n = \alpha \sum_{n=1}^{\infty} x_n.
+        \]
+        \item $\sum_{n=1}^{\infty} (x_n + y_n)$ is a convergent series and
+        \[
+        \sum_{n=1}^{\infty} (x_n + y_n) = \left( \sum_{n=1}^{\infty} x_n \right) + \left( \sum_{n=1}^{\infty} y_n \right).
+        \]
+    \end{enumerate}
+    
+    \end{proposition}
+    
+    \begin{proof}
+        
+    For the first item, we simply write the $k$th partial sum
+    \[
+    \sum_{n=1}^{k} \alpha x_n = \alpha \left( \sum_{n=1}^{k} x_n \right).
+    \]
+    We look at the right-hand side and note that the constant multiple of a convergent sequence is convergent. Hence, we take the limit of both sides to obtain the result.
+    
+    For the second item, we also look at the $k$th partial sum
+    \[
+    \sum_{n=1}^{k} (x_n + y_n) = \left( \sum_{n=1}^{k} x_n \right) + \left( \sum_{n=1}^{k} y_n \right).
+    \]
+    We look at the right-hand side and note that the sum of convergent sequences is convergent. Hence, we take the limit of both sides to obtain the proposition.   
+    \end{proof}
+    
+    
+    
+    \begin{proposition}
+    If $x_n \geq 0$ for all $n$, then $\sum_{n=1}^{\infty} x_n$ converges if and only if the sequence of partial sums is bounded above.
+    \end{proposition}
+    
+    
+    
+    
+    
+    \begin{definition}[Absolute Convergence]\label{def:absolute_Convergence_series}
+    A series $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely} if the series $\sum_{n=1}^{\infty} |x_n|$ converges. If a series converges, but does not converge absolutely, we say it \textit{converges conditionally}
+    \end{definition}
+    
+    
+    
+    
+    \begin{proposition}
+    If the series $\sum_{n=1}^{\infty} x_n$ converges absolutely, then it converges.
+    \end{proposition}
+    
+    
+    
+    
+    
+    \begin{proposition}[Comparison Test]\label{prp:comparison_test_series}
+    Let $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ be series such that $0 \leq x_n \leq y_n$ for all $n \in \mathbb{N}$.
+    \begin{enumerate}
+        \item If $\sum_{n=1}^{\infty} y_n$ converges, then so does $\sum_{n=1}^{\infty} x_n$.
+        \item If $\sum_{n=1}^{\infty} x_n$ diverges, then so does $\sum_{n=1}^{\infty} y_n$.
+    \end{enumerate}
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    \begin{proposition}[P-Series]\label{prp:p-series}
+    ($p$-series or the $p$-test). For $p \in \mathbb{R}$, the series
+    \[
+    \sum_{n=1}^{\infty} \frac{1}{n^p}
+    \]
+    \textit{converges if and only if} $p > 1$.
+    
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition}[Root Test]\label{prp:root_test}
+    Let $\sum_{n=1}^{\infty} x_n$ be a series and let
+    \[
+    L = \limsup_{n \to \infty} |x_n|^{1/n}.
+    \]
+    \begin{enumerate}
+        \item If $L < 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely}.
+        \item If $L > 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{diverges}.
+    \end{enumerate}
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    
+    \begin{proposition}[Ratio Test]\label{prp:ratio_test_Series}
+    Let $\sum_{n=1}^{\infty} x_n$ be a series, $x_n \neq 0$ for all $n$, and such that
+    \begin{enumerate}
+        \item If $\limsup_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L < 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely}.
+        \item If $\liminf_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L > 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{diverges}.
+    \end{enumerate}
+    \end{proposition}
+    
+    
+    
+    
+    
+    
+    \begin{proposition}[Alternating Series Test]\label{prp:alt_series_test}
+    Let \( \{x_n\}_{n=1}^\infty \) be a monotone decreasing sequence of positive real numbers such that \(\lim_{n \to \infty} x_n = 0\). Then the alternating series
+    \[
+    \sum_{n=1}^\infty (-1)^n x_n
+    \]
+    converges.
+    \end{proposition}
+    
+    
+    
+    
+    \subsection{Continuity}
+    
+    \begin{remark}
+    Now we will generalize the results up to now so we can apply it to mappings between sets. 
+    \end{remark}
+    
+    
+    
+    
+    
+    
+    
+    
+    \begin{definition}[Cluster Point]\label{def:cluster_point}
+    A number \( x \in \mathbb{R} \) is called a cluster point of a set \( S \subset \mathbb{R} \) if for every \( \epsilon > 0 \), the set  
+    
+    \[
+    (x - \epsilon, x + \epsilon) \cap (S \setminus \{x\})
+    \]
+    
+    is nonempty.  
+    
+    Equivalently, \( x \) is a cluster point of \( S \) if for every \( \epsilon > 0 \), there exists some \( y \in S \) such that \( y \neq x \) and \( |x - y| < \epsilon \).  
+    
+    A cluster point of \( S \) need not belong to \( S \).
+    \end{definition}
+    
+    
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$. Then $x \in \mathbb{R}$ is a cluster point of $S$ if and only if there exists a convergent sequence of numbers $\{x_n\}_{n=1}^{\infty}$ such that $x_n \neq x$ and $x_n \in S$ for all $n$, and 
+        \(
+        \lim_{n\to\infty} x_n = x.
+        \)
+    \end{proposition}
+    
+    
+    
+    
+    \begin{definition}
+        Let $f : S \to \mathbb{R}$ be a function and $c$ a cluster point of $S \subset \mathbb{R}$. Suppose there exists an $L \in \mathbb{R}$ and for every $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $x \in S \setminus \{c\}$ and $|x - c| < \delta$, we have
+        \[
+        |f(x) - L| < \epsilon.
+        \]
+        We then say $f(x)$ \textit{converges} to $L$ as $x$ goes to $c$, and we write
+        \[
+        f(x) \to L \quad \text{as} \quad x \to c.
+        \]
+        We say $L$ is a \textit{limit} of $f(x)$ as $x$ goes to $c$, and if $L$ is unique (it is), we write
+        \[
+        \lim_{x\to c} f(x) := L.
+        \]
+        If no such $L$ exists, then we say that the limit does not exist or that $f$ \textit{diverges} at $c$.
+        
+    \end{definition}
+        
+    \begin{proposition}
+    Let $c$ be a cluster point of $S \subset \mathbb{R}$ and let $f : S \to \mathbb{R}$ be a function such that $f(x)$ converges as $x$ goes to $c$. Then the limit of $f(x)$ as $x$ goes to $c$ is unique.
+    \end{proposition}
+        
+    
+    
+    \begin{lemma}
+        Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, let $f : S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $f(x) \to L$ as $x \to c$ if and only if for every sequence $\{x_n\}_{n=1}^{\infty}$ such that $x_n \in S \setminus \{c\}$ for all $n$, and such that $\lim_{n\to\infty} x_n = c$, we have that the sequence $\{f(x_n)\}_{n=1}^{\infty}$ converges to $L$.
+    \end{lemma}
+        
+    \begin{proof}
+        Suppose $f(x) \to L$ as $x \to c$, and $\{x_n\}_{n=1}^{\infty}$ is a sequence such that $x_n \in S \setminus \{c\}$ and $\lim_{n\to\infty} x_n = c$. We wish to show that $\{f(x_n)\}_{n=1}^{\infty}$ converges to $L$. Let $\epsilon > 0$ be given. Find a $\delta > 0$ such that if $x \in S \setminus \{c\}$ and $|x - c| < \delta$, then $|f(x) - L| < \epsilon$. As $\{x_n\}_{n=1}^{\infty}$ converges to $c$, find an $M$ such that for $n \geq M$, we have that $|x_n - c| < \delta$. Therefore, for $n \geq M$,
+        \[
+        |f(x_n) - L| < \epsilon.
+        \]
+        Thus $\{f(x_n)\}_{n=1}^{\infty}$ converges to $L$.
+        
+        For the other direction, we use proof by contrapositive. Suppose it is not true that $f(x) \to L$ as $x \to c$. The negation of the definition is that there exists an $\epsilon > 0$ such that for every $\delta > 0$ there exists an $x \in S \setminus \{c\}$, where $|x - c| < \delta$ and $|f(x) - L| \geq \epsilon$.
+        
+        Let us use $1/n$ for $\delta$ in the statement above to construct a sequence $\{x_n\}_{n=1}^{\infty}$. We have that there exists an $\epsilon > 0$ such that for every $n$, there exists a point $x_n \in S \setminus \{c\}$, where $|x_n - c| < 1/n$ and $|f(x_n) - L| \geq \epsilon$. The sequence $\{x_n\}_{n=1}^{\infty}$ just constructed converges to $c$, but the sequence $\{f(x_n)\}_{n=1}^{\infty}$ does not converge to $L$. And we are done. 
+    \end{proof}
+        
+    
+    
+    
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ are functions such that the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist, and
+        \[
+        f(x) \leq g(x) \quad \text{for all } x \in S \setminus \{c\}.
+        \]
+        Then
+        \[
+        \lim_{x\to c} f(x) \leq \lim_{x\to c} g(x).
+        \]
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$, $g : S \to \mathbb{R}$, and $h : S \to \mathbb{R}$ are functions such that
+        \[
+        f(x) \leq g(x) \leq h(x) \quad \text{for all } x \in S \setminus \{c\}.
+        \]
+        Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+        \[
+        \lim_{x\to c} f(x) = \lim_{x\to c} h(x).
+        \]
+        Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+        \[
+        \lim_{x\to c} g(x) = \lim_{x\to c} f(x) = \lim_{x\to c} h(x).
+        \]
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ are functions such that the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist. Then
+    \begin{enumerate}
+        \item $\lim_{x\to c} (f(x) + g(x)) = \left(\lim_{x\to c} f(x)\right) + \left(\lim_{x\to c} g(x)\right)$.
+        \item $\lim_{x\to c} (f(x) - g(x)) = \lim_{x\to c} f(x) - \lim_{x\to c} g(x)$.
+        \item $\lim_{x\to c} (f(x)g(x)) = \left(\lim_{x\to c} f(x)\right) \left(\lim_{x\to c} g(x)\right)$.
+        \item If $\lim_{x\to c} g(x) \neq 0$ and $g(x) \neq 0$ for all $x \in S \setminus \{c\}$, then
+            \[
+            \lim_{x\to c} \frac{f(x)}{g(x)} = \frac{\lim_{x\to c} f(x)}{\lim_{x\to c} g(x)}.
+            \]
+    \end{enumerate}
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ is a function such that the limit of $f(x)$ as $x$ goes to $c$ exists. Then
+        \[
+        \lim_{x\to c} |f(x)| = \left| \lim_{x\to c} f(x) \right|.
+        \]
+    \end{proposition}
+        
+    \begin{definition}
+        Let $f : S \to \mathbb{R}$ be a function and $A \subset S$. Define the function $f|_A : A \to \mathbb{R}$ by
+        \[
+        f|_A(x) := f(x) \quad \text{for } x \in A.
+        \]
+        We call $f|_A$ the \textit{restriction} of $f$ to $A$.
+    \end{definition}
+        
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$, $c \in \mathbb{R}$, and let $f : S \to \mathbb{R}$ be a function. Suppose $A \subset S$ is such that there is some $\alpha > 0$ such that
+        \[
+        (A \setminus \{c\}) \cap (c - \alpha, c + \alpha) = (S \setminus \{c\}) \cap (c - \alpha, c + \alpha).
+        \]
+    \begin{enumerate}
+        \item The point $c$ is a cluster point of $A$ if and only if $c$ is a cluster point of $S$.
+        \item Supposing $c$ is a cluster point of $S$, then $f(x) \to L$ as $x \to c$ if and only if $f|_A(x) \to L$ as $x \to c$.
+    \end{enumerate}
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $S \subset \mathbb{R}$ be such that $c$ is a cluster point of both $S \cap (-\infty, c)$ and $S \cap (c, \infty)$, let $f : S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $c$ is a cluster point of $S$ and
+        \[
+        \lim_{x\to c} f(x) = L \quad \text{if and only if} \quad \lim_{x\to c^-} f(x) = \lim_{x\to c^+} f(x) = L.
+        \]
+    \end{proposition}
+        
+    \begin{definition}
+        Suppose $S \subset \mathbb{R}$ and $c \in S$. We say $f : S \to \mathbb{R}$ is \textit{continuous} at $c$ if for every $\epsilon > 0$ there is a $\delta > 0$ such that whenever $x \in S$ and $|x - c| < \delta$, we have $|f(x) - f(c)| < \epsilon$.
+        
+        When $f : S \to \mathbb{R}$ is continuous at all $c \in S$, then we simply say $f$ is a \textit{continuous function}.
+    \end{definition}
+        
+    
+    \begin{proposition}
+        Consider a function $f : S \to \mathbb{R}$ defined on a set $S \subset \mathbb{R}$ and let $c \in S$. Then:
+    \begin{enumerate}
+        \item If $c$ is not a cluster point of $S$, then $f$ is continuous at $c$.
+        \item If $c$ is a cluster point of $S$, then $f$ is continuous at $c$ if and only if the limit of $f(x)$ as $x \to c$ exists and
+            \[
+            \lim_{x\to c} f(x) = f(c).
+            \]
+        \item The function $f$ is continuous at $c$ if and only if for every sequence $\{x_n\}_{n=1}^{\infty}$ where $x_n \in S$ and $\lim_{n\to\infty} x_n = c$, the sequence $\{f(x_n)\}_{n=1}^{\infty}$ converges to $f(c)$.
+    \end{enumerate}
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $f : \mathbb{R} \to \mathbb{R}$ be a polynomial. That is,
+        \[
+        f(x) = a_d x^d + a_{d-1} x^{d-1} + \dots + a_1 x + a_0,
+        \]
+        for some constants $a_0, a_1, \dots, a_d$. Then $f$ is continuous.
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ be functions continuous at $c \in S$.
+    \begin{enumerate}
+        \item The function $h: S \to \mathbb{R}$ defined by $h(x) := f(x) + g(x)$ is continuous at $c$.
+        \item The function $h: S \to \mathbb{R}$ defined by $h(x) := f(x) - g(x)$ is continuous at $c$.
+        \item The function $h: S \to \mathbb{R}$ defined by $h(x) := f(x)g(x)$ is continuous at $c$.
+        \item If $g(x) \neq 0$ for all $x \in S$, the function $h: S \to \mathbb{R}$ given by $h(x) := \frac{f(x)}{g(x)}$ is continuous at $c$.
+    \end{enumerate}
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $A, B \subset \mathbb{R}$ and $f : B \to \mathbb{R}$ and $g : A \to B$ be functions. If $g$ is continuous at $c \in A$ and $f$ is continuous at $g(c)$, then $f \circ g: A \to \mathbb{R}$ is continuous at $c$.
+    \end{proposition}
+        
+    \begin{proposition}
+        Let $f : S \to \mathbb{R}$ be a function and $c \in S$. Suppose there exists a sequence $\{x_n\}_{n=1}^{\infty}$, where $x_n \in S$ for all $n$, and $\lim_{n\to\infty} x_n = c$ such that $\{f(x_n)\}_{n=1}^{\infty}$ does not converge to $f(c)$. Then $f$ is discontinuous at $c$.
+    \end{proposition}
+        
+    \begin{lemma}
+        A continuous function $f : [a,b] \to \mathbb{R}$ is bounded.
+    \end{lemma}
+        
+    \begin{theorem}[Minimum-maximum theorem / Extreme value theorem]
+        A continuous function $f : [a,b] \to \mathbb{R}$ achieves both an absolute minimum and an absolute maximum on $[a,b]$.
+    \end{theorem}
+        
+    \begin{lemma}
+        Let $f : [a,b] \to \mathbb{R}$ be a continuous function. Suppose $f(a) < 0$ and $f(b) > 0$. Then there exists a number $c \in (a,b)$ such that $f(c) = 0$.
+    \end{lemma}
+        
+    \begin{theorem}[Bolzano's Intermediate Value Theorem]
+        Let $f : [a,b] \to \mathbb{R}$ be a continuous function. Suppose $y \in \mathbb{R}$ is such that $f(a) < y < f(b)$ or $f(a) > y > f(b)$. Then there exists a $c \in (a,b)$ such that $f(c) = y$.
+    \end{theorem}
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

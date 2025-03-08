@@ -1,0 +1,196 @@
+\documentclass[../main.tex]{subfiles}
+
+
+
+
+\begin{document}
+
+
+
+
+
+
+\section{Advanced Risk and Portfolio Management}
+
+
+\subsection{Data Science}
+
+\subsubsection{Probabilistic Framework}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Mean-Covariance Framework}
+In this framework, we model randomness by measuring only two characteristics of the random variable. We consider only the mean $E(\textbf{X})$ and the covarince $Cv(\textbf{X})$. The expectation gives us the location of our random variable in the multidimensional environment we model it in, and the covariance gives us the amount of dispersion in this random variable with each of the dimensions we define the space to be. Perhaps a better way of seeing this, is to notice that the first and second order terms of the taylor expansion of the characteristic function are fully characterized by the mean and covariance.\\
+\indent We will class random variables based on their first two mooments, $\mu$ and $\sigma^2$. We will then consider affine (linear) transformations of the reference variable for a given class. For example, supposse we have a random variable $\mathbf{X}$ and we transform it into $\mathbf{Y} = \mathbf{a} + \mathbf{b}\mathbf{X}$ which amounts to a rotation, scaling, and translation of $\mathbf{X}$. Since the expectation is linear, this gives us the handy property seen below, the expectation will only act on $\mathbf{X}$,
+\begin{equation}
+    \underbrace{\left( \begin{array}
+    [c]{c}\mathbb{E}\{Y_{1}\}\\
+    \vdots\\
+    \mathbb{E}\{Y_{\bar{k}}\}
+    \end{array} \right) }_{\mathbb{E}\{\boldsymbol{Y}\}}=\underbrace{\left( \begin{array}
+    [c]{c}a_{1}\\
+    \vdots\\
+    a_{\bar{k}}
+    \end{array} \right) }_{\boldsymbol{a}}+\underbrace{\left( \begin{array}
+    [c]{ccc}b_{1,1} & \cdots & b_{1,\bar{n}}\\
+    \vdots & \ddots & \vdots\\
+    b_{\bar{k},1} & \cdots & b_{\bar{k},\bar{n}}
+    \end{array} \right) }_{\boldsymbol{b}}\underbrace{\left( \begin{array}
+    [c]{c}\mathbb{E}\{X_{1}\}\\
+    \vdots\\
+    \mathbb{E}\{X_{\bar{n}}\}
+    \end{array} \right) }_{\mathbb{E}\{\boldsymbol{X}\}}\text{.}
+\end{equation}
+
+So we give the following definitions
+
+\begin{definition}
+Given a probability space $(\Omega, \mathcal{F}, P)$ (\ref{def:probability_space}) with a random variable $X$ (\ref{def:random_variable}), integration with respect to the probability measure (\ref{def:probability_measure}), yields the expectation
+\begin{equation}
+    \mathbb{E}\{X\}\equiv\int_{\Omega}X(\omega)d\mathbb{P}\{\omega\}\text{.}
+\end{equation}
+More specifically, the expectation applied to the indicator function $1_\mathcal{E}$ for a given set $\mathcal{E}$ is the probability of the event $\mathcal{E}$ itself
+\[
+    1_{\boldsymbol{x}\in\mathcal{E}}\equiv1_{\mathcal{E}}(\boldsymbol{x})\equiv\left\{ \begin{array}
+    [c]{ll}0 & \text{ if }\boldsymbol{x}\notin\mathcal{D}\\
+    1 & \text{ if }\boldsymbol{x}\in\mathcal{E}
+    \end{array} \right. \implies \mathbb{E}\{1_{\mathcal{E}}\}=\mathbb{P}\{\mathcal{E}\}\text{.}
+\]
+Note that the indicator $1_\mathcal{E}$ is a special type of random variable, and thus the expectation is well defined. \\
+We commonly use the disitrbution of a random variable (\ref{def:distribution_of_rand_variable}) to calculate the expectation as 
+\begin{equation}
+    \mathbb{E}\{X\}=\int\nolimits_{-\infty}^{+\infty}xdF_{X}(x)\text{.}
+\end{equation}
+Where $dF_{X}(x)$ is the pdf (\ref{def:pdf_of_rand_variable}) of the random variable.\\
+The mean vector, given below, is the weighted average of all possible outcomes where the weights are the likelihoods. Better said, it is the center of mass of the distribution. Each $\mathbb{E}\{\mathbf{X}_n\}$ is the mean of the $n$th marginal variable $\mathbf{X}_n$
+\begin{equation}
+    \mathbb{E}\{\boldsymbol{X}\}\equiv\left( \begin{array}
+    [c]{c}\mathbb{E}\{X_{1}\}\\
+    \vdots\\
+    \mathbb{E}\{X_{n}\}\\
+    \vdots\\
+    \mathbb{E}\{X_{\bar{n}}\}
+    \end{array} \right) \text{,}
+    \end{equation}
+The mean vector is a functional (\ref{def:functional}) of the distribution $F_{X}(x)$ since it inputs the distribution and outputs a vector. 
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Linear Models}
+
+\subsubsection{Machine Learning}
+
+\subsubsection{Estimation}
+
+\subsubsection{Inference}
+
+\subsubsection{Sequential Decisions}
+
+\subsection{Quantiative Finance}
+
+\subsubsection{Financial Engineering}
+
+\subsubsection{Risk Management}
+
+\subsubsection{Portfolio Management}
+
+
+
+
+
+
+
+\end{document}

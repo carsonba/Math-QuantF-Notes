@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{subfiles}
+\usepackage{amsmath, amssymb, amsthm} 
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=red]{hyperref}
+\usepackage{lmodern}
+
+
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{exercise}{Exercise}[section]
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+
+
+
+\title{Mathematics Notes}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+
+
+\subfile{logic_and_sets/logic_and_sets}
+
+\subfile{linear_algebra/linear_algebra}
+
+\subfile{analysis/analysis}
+
+
+\end{document}
