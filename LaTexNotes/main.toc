@@ -1,7 +1,22 @@
 \contentsline {section}{\numberline {1}Logic, Metric Spaces, and Set Theory}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Metric Spaces}{7}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.1}Metric Spaces}{8}{subsection.1.1}%
 \contentsline {section}{\numberline {2}Linear Algebra}{11}{section.2}%
 \contentsline {section}{\numberline {3}Analysis}{11}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Sequences}{12}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Series}{17}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Continuity}{19}{subsection.3.3}%
+\contentsline {section}{\numberline {4}Probability}{22}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Axioms of Probability}{22}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Advanced Risk and Portfolio Management}{26}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Data Science}{26}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Probabilistic Framework}{26}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Mean-Covariance Framework}{26}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}Linear Models}{28}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Machine Learning}{28}{subsubsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.5}Estimation}{28}{subsubsection.5.1.5}%
+\contentsline {subsubsection}{\numberline {5.1.6}Inference}{28}{subsubsection.5.1.6}%
+\contentsline {subsubsection}{\numberline {5.1.7}Sequential Decisions}{28}{subsubsection.5.1.7}%
+\contentsline {subsection}{\numberline {5.2}Quantiative Finance}{28}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}Financial Engineering}{28}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Risk Management}{28}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}Portfolio Management}{28}{subsubsection.5.2.3}%

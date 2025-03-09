@@ -35,7 +35,7 @@
 
 
 \subsubsection{Mean-Covariance Framework}
-In this framework, we model randomness by measuring only two characteristics of the random variable. We consider only the mean $E(\textbf{X})$ and the covarince $Cv(\textbf{X})$. The expectation gives us the location of our random variable in the multidimensional environment we model it in, and the covariance gives us the amount of dispersion in this random variable with each of the dimensions we define the space to be. Perhaps a better way of seeing this, is to notice that the first and second order terms of the taylor expansion of the characteristic function are fully characterized by the mean and covariance.\\
+\indent In this framework, we model randomness by measuring only two characteristics of the random variable. We consider only the mean $E(\textbf{X})$ and the covarince $Cv(\textbf{X})$. The expectation gives us the location of our random variable in the multidimensional environment we model it in, and the covariance gives us the amount of dispersion in this random variable with each of the dimensions we define the space to be. Perhaps a better way of seeing this, is to notice that the first and second order terms of the taylor expansion of the characteristic function are fully characterized by the mean and covariance.\\
 \indent We will class random variables based on their first two mooments, $\mu$ and $\sigma^2$. We will then consider affine (linear) transformations of the reference variable for a given class. For example, supposse we have a random variable $\mathbf{X}$ and we transform it into $\mathbf{Y} = \mathbf{a} + \mathbf{b}\mathbf{X}$ which amounts to a rotation, scaling, and translation of $\mathbf{X}$. Since the expectation is linear, this gives us the handy property seen below, the expectation will only act on $\mathbf{X}$,
 \begin{equation}
     \underbrace{\left( \begin{array}
@@ -58,6 +58,7 @@ In this framework, we model randomness by measuring only two characteristics of 
 \end{equation}
 
 So we give the following definitions
+
 
 \begin{definition}
 Given a probability space $(\Omega, \mathcal{F}, P)$ (\ref{def:probability_space}) with a random variable $X$ (\ref{def:random_variable}), integration with respect to the probability measure (\ref{def:probability_measure}), yields the expectation
@@ -93,7 +94,14 @@ The mean vector is a functional (\ref{def:functional}) of the distribution $F_{X
 
 
 
-
+\begin{equation}
+    \mathbb{C}v\{\boldsymbol{X}\}\equiv\left( \begin{array}
+    [c]{cccc}\mathbb{V}\{X_{1}\} & \mathbb{C}v\{X_{1},X_{2}\} & \cdots & \mathbb{C}v\{X_{1},X_{\bar{n}}\}\\
+    \mathbb{C}v\{X_{2},X_{1}\} & \mathbb{V}\{X_{2}\} & \cdots & \mathbb{C}v\{X_{2},X_{\bar{n}}\}\\
+    \vdots & \vdots & \ddots & \vdots\\
+    \mathbb{C}v\{X_{\bar{n}},X_{1}\} & \mathbb{C}v\{X_{\bar{n}},X_{2}\} & \cdots & \mathbb{V}\{X_{\bar{n}}\}
+    \end{array} \right) \text{.}
+    \end{equation}
 
 
 

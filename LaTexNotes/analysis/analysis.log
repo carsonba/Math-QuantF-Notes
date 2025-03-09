@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  8 MAR 2025 17:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  8 MAR 2025 17:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -437,7 +437,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [6]
 
 [7]
-Overfull \hbox (5.49825pt too wide) in paragraph at lines 1250--1251
+Overfull \hbox (5.49825pt too wide) in paragraph at lines 1256--1257
 [][]\OT1/lmr/bx/n/10 Definition 1.12 \OT1/lmr/m/n/10 (Ab-so-lute Con-ver-gence)\OT1/lmr/bx/n/10 . []\OT1/lmr/m/it/10 A se-ries $[][] \OML/lmm/m/it/10 x[]$ \OT1/lmr/m/it/10 con-verges ab-so-lutely if the se-ries $[][] \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 x[]\OMS/lmsy/m/n/10 j$
  []
 
@@ -466,9 +466,9 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  95i,8n,99p,796b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\carso\Documents\Projects\LaTexNotes\analysis\analysis.pdf (11 pages, 271539 bytes).
+Output written on c:\Users\carso\Documents\Projects\LaTexNotes\analysis\analysis.pdf (11 pages, 272111 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
+ 284 PDF objects out of 1000 (max. 8388607)
  122 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
