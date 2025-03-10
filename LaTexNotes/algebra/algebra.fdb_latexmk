@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741472532.25476 "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" "algebra/algebra.pdf" "algebra" 1741472534.08479 0
+["pdflatex"] 1741620793.75546 "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" "algebra/algebra.pdf" "algebra" 1741620794.67725 0
   "C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741471628 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/carso/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741462396 12036088 9e483035d3dd2b7afcbbdaf83df187cf ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -26,7 +26,6 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/lmsy8.tfm" 1256929440 1304 cdc9a17df9ef0d2dc320eff37bbab1c4 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmbx10.tfm" 1256929440 11880 35fcf136a2198418dfc53c83e9e2a07f ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmbx12.tfm" 1256929440 11880 ea60d06924270684e6f852f3141c992b ""
-  "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmbxi10.tfm" 1256929440 17000 ee24f610e440d069ed0693c37a39a025 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmr10.tfm" 1256929440 11868 4f81e9b6033c032bdaf9884f4d7ef412 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmr12.tfm" 1256929440 11888 6841b91e46b65cf41a49b160e6e74130 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/tfm/public/lm/rm-lmr5.tfm" 1256929440 11804 aefb10c002e6492c25236524a447f969 ""
@@ -38,7 +37,6 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1247596673 34694 870c211f62cb72718a00e353f14f254d ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb" 1256929440 121021 836464b5fe0c782d94085eb083550ccc ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb" 1256929440 116908 9a7a12d1e4df280ea0ab4aad83cdef88 ""
-  "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb" 1256929440 112766 6259d69aa3d87a505f375e49d8f6bf3a ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb" 1256929440 23055 2e5b42921de910eaa97b85df04ca4891 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb" 1256929440 30388 702fae6a5f0e6e9c48a1d872b442ffcf ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb" 1256929440 30789 39c6b966e509dbc60e7a1aaaf85d08a0 ""
@@ -111,12 +109,12 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.cls" 1606222980 1507 57de335d88fde4e5c924dfed577fdb74 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.sty" 1606222980 5262 70ab9987ec94ed2beeb5c2d951d465f6 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "algebra/../main.tex" 1741472410 850 69e395939bbbc93f8500707e41e6b48b ""
-  "algebra/algebra.aux" 1741472533 1898 abfa00f3b01a29b2d44977df95f34280 "pdflatex"
-  "algebra/algebra.out" 1741472533 539 0424c1d614dbcb8dbf9e1e2f4ac8fc4d "pdflatex"
-  "algebra/algebra.tex" 1741472527 32071 cf151f4e65b3700ac89489e3646ec10e ""
-  "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" 1741472527 32071 cf151f4e65b3700ac89489e3646ec10e ""
-  "main.tex" 1741472410 850 69e395939bbbc93f8500707e41e6b48b ""
+  "algebra/../main.tex" 1741480780 937 52ce305af828705245a9d61dfb94fe31 ""
+  "algebra/algebra.aux" 1741620794 1898 abfa00f3b01a29b2d44977df95f34280 "pdflatex"
+  "algebra/algebra.out" 1741620794 539 0424c1d614dbcb8dbf9e1e2f4ac8fc4d "pdflatex"
+  "algebra/algebra.tex" 1741620788 32427 21697a2fd55f76af5f24af953931e94a ""
+  "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" 1741620788 32427 21697a2fd55f76af5f24af953931e94a ""
+  "main.tex" 1741480780 937 52ce305af828705245a9d61dfb94fe31 ""
   (generated)
   "algebra/algebra.aux"
   "algebra/algebra.log"

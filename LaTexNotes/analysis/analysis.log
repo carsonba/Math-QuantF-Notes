@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  8 MAR 2025 17:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  9 MAR 2025 19:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -299,8 +299,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@proposition=\count300
 \c@exercise=\count301
 \c@definition=\count302
-\c@remark=\count303
-\c@example=\count304
+\c@example=\count303
+\c@remark=\count304
 ))
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
  (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
@@ -430,6 +430,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 [3]
 
+LaTeX Warning: Reference `def:complete_space' on page 4 undefined on input line 616.
+
+
+LaTeX Warning: Reference `prop:infimum_exists' on page 4 undefined on input line 616.
+
+
+
 [4]
 
 [5]
@@ -437,11 +444,6 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 [6]
 
 [7]
-Overfull \hbox (5.49825pt too wide) in paragraph at lines 1256--1257
-[][]\OT1/lmr/bx/n/10 Definition 1.12 \OT1/lmr/m/n/10 (Ab-so-lute Con-ver-gence)\OT1/lmr/bx/n/10 . []\OT1/lmr/m/it/10 A se-ries $[][] \OML/lmm/m/it/10 x[]$ \OT1/lmr/m/it/10 con-verges ab-so-lutely if the se-ries $[][] \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 x[]\OMS/lmsy/m/n/10 j$
- []
-
-
 
 [8]
 
@@ -449,26 +451,43 @@ Overfull \hbox (5.49825pt too wide) in paragraph at lines 1256--1257
 
 [10]
 
-[11] (c:\Users\carso\Documents\Projects\LaTexNotes\analysis\analysis.aux)
+[11]
+Overfull \hbox (1.98967pt too wide) in paragraph at lines 1419--1420
+[][]\OT1/lmr/bx/n/10 Definition 1.12 \OT1/lmr/m/n/10 (Ab-so-lute Con-ver-gence)\OT1/lmr/bx/n/10 . []\OT1/lmr/m/n/10 A se-ries $[][] \OML/lmm/m/it/10 x[]$ \OT1/lmr/m/it/10 con-verges ab-so-lutely \OT1/lmr/m/n/10 if the se-ries $[][] \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 x[]\OMS/lmsy/m/n/10 j$
+ []
+
+
+
+[12]
+
+[13]
+
+[14]
+
+[15] (c:\Users\carso\Documents\Projects\LaTexNotes\analysis\analysis.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `analysis.out' has not changed.
 (rerunfilecheck)             Checksum: 1F9BFB9EB146358A0A333C3A1D4BEDD8;379.
  ) 
 Here is how much of TeX's memory you used:
- 10754 strings out of 473523
- 167799 string characters out of 5714631
- 580330 words of memory out of 5000000
- 33698 multiletter control sequences out of 15000+600000
+ 10750 strings out of 473523
+ 167670 string characters out of 5714631
+ 580234 words of memory out of 5000000
+ 33696 multiletter control sequences out of 15000+600000
  598488 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,8n,99p,796b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,8n,99p,833b,632s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\carso\Documents\Projects\LaTexNotes\analysis\analysis.pdf (11 pages, 272111 bytes).
+Output written on c:\Users\carso\Documents\Projects\LaTexNotes\analysis\analysis.pdf (15 pages, 300252 bytes).
 PDF statistics:
- 284 PDF objects out of 1000 (max. 8388607)
- 122 named destinations out of 1000 (max. 500000)
+ 300 PDF objects out of 1000 (max. 8388607)
+ 120 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

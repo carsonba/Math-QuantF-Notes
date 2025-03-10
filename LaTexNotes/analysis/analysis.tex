@@ -370,7 +370,121 @@
     
     
     
-    
+    \begin{proof}
+        We start with (i). Suppose $\{x_n\}_{n=1}^{\infty}$ and $\{y_n\}_{n=1}^{\infty}$ are convergent sequences and write
+$z_n := x_n + y_n$. Let $x := \lim_{n \to \infty} x_n$, $y := \lim_{n \to \infty} y_n$, and $z := x + y$.
+
+Let $\epsilon > 0$ be given. Find an $M_1$ such that for all $n \geq M_1$, we have $|x_n - x| < \epsilon/2$. Find an $M_2$ such that for all $n \geq M_2$, we have $|y_n - y| < \epsilon/2$. Take $M := \max\{M_1, M_2\}$. For all $n \geq M$, we have
+
+\[
+|z_n - z| = |(x_n + y_n) - (x + y)|
+\]
+
+\[
+= |x_n - x + y_n - y|
+\]
+
+\[
+\leq |x_n - x| + |y_n - y|
+\]
+
+\[
+< \frac{\epsilon}{2} + \frac{\epsilon}{2} = \epsilon.
+\]
+
+Therefore (i) is proved. Proof of (ii) is almost identical and is left as an exercise.
+
+Let us tackle (iii). Suppose again that $\{x_n\}_{n=1}^{\infty}$ and $\{y_n\}_{n=1}^{\infty}$ are convergent sequences and write $z_n := x_n y_n$. Let $x := \lim_{n \to \infty} x_n$, $y := \lim_{n \to \infty} y_n$, and $z := xy$.
+
+Let $\epsilon > 0$ be given. Let $K := \max\{|x|, |y|, \epsilon/3, 1\}$. Find an $M_1$ such that for all $n \geq M_1$, we have $|x_n - x| < \epsilon/3K$. Find an $M_2$ such that for all $n \geq M_2$, we have $|y_n - y| < \epsilon/3K$. Take $M := \max\{M_1, M_2\}$. For all $n \geq M$, we have
+
+\[
+|z_n - z| = |(x_n y_n) - (xy)|
+\]
+
+\[
+= |(x_n - x + x)(y_n - y + y) - xy|
+\]
+
+\[
+= |(x_n - x)y + x(y_n - y) + (x_n - x)(y_n - y)|
+\]
+
+\[
+\leq |(x_n - x)y| + |x(y_n - y)| + |(x_n - x)(y_n - y)|
+\]
+
+\[
+= |x_n - x| |y| + |x| |y_n - y| + |x_n - x| |y_n - y|
+\]
+
+\[
+< \frac{\epsilon}{3K} K + \frac{\epsilon}{3K} K + \frac{\epsilon}{3K} K
+\quad \text{(now notice that } \frac{\epsilon}{3K} \leq 1 \text{ and } K \geq 1 \text{)}
+\]
+
+\[
+\leq \frac{\epsilon}{3} + \frac{\epsilon}{3} + \frac{\epsilon}{3} = \epsilon.
+\]
+
+Finally, we examine (iv). Instead of proving (iv) directly, we prove the following simpler claim:
+
+\textbf{Claim:} If $\{y_n\}_{n=1}^{\infty}$ is a convergent sequence such that $\lim_{n \to \infty} y_n \neq 0$ and $y_n \neq 0$ for all $n \in \mathbb{N}$, then $\{1/y_n\}_{n=1}^{\infty}$ converges and
+
+\[
+\lim_{n \to \infty} \frac{1}{y_n} = \frac{1}{\lim_{n \to \infty} y_n}.
+\]
+
+Once the claim is proved, we take the sequence $\{1/y_n\}_{n=1}^{\infty}$, multiply it by the sequence $\{x_n\}_{n=1}^{\infty}$ and apply item (iii).
+
+\textit{Proof of claim:} Let $\epsilon > 0$ be given. Let $y := \lim_{n \to \infty} y_n$. As $|y| \neq 0$, then
+
+\[
+\min \left\{ \frac{|y|^2 \epsilon}{2}, \frac{|y|}{2} \right\} > 0.
+\]
+
+Find an $M$ such that for all $n \geq M$, we have
+
+\[
+|y_n - y| < \min \left\{ \frac{|y|^2 \epsilon}{2}, \frac{|y|}{2} \right\}.
+\]
+
+For all $n \geq M$, we have $|y - y_n| < |y|/2$, and so
+
+\[
+|y| = |y - y_n + y_n| \leq |y - y_n| + |y_n| < \frac{|y|}{2} + |y_n|.
+\]
+
+Subtracting $|y|/2$ from both sides we obtain $|y|/2 < |y_n|$, or in other words,
+
+\[
+\frac{1}{|y_n|} < \frac{2}{|y|}.
+\]
+
+We finish the proof of the claim:
+
+\[
+\left| \frac{1}{y_n} - \frac{1}{y} \right| = \left| \frac{y - y_n}{y y_n} \right|
+\]
+
+\[
+= \frac{|y - y_n|}{|y| |y_n|}
+\]
+
+\[
+\leq \frac{|y - y_n|}{|y|} \cdot \frac{2}{|y|}
+\]
+
+\[
+< \frac{|y|^2 \epsilon}{2} \cdot \frac{2}{|y|}
+\]
+
+\[
+= \epsilon.
+\]
+
+And we are done.
+    \end{proof}
     
     
     
@@ -482,80 +596,6 @@
     
     
     
-    
-    
-    
-    
-    \begin{exercise} \label{ex: sqrt of lim}
-    Let \( \{x_n\}_{n=1}^{\infty} \) be a convergent sequence such that \( x_n \geq 0 \) for all \( n \in \mathbb{N} \). Then
-    \[
-    \lim_{n \to \infty} \sqrt{x_n} = \sqrt{\lim_{n \to \infty} x_n }.
-    \]
-    \end{exercise}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    \begin{exercise} \label{ex: limit of absolute value sequence}
-    If \( \{x_n\}_{n=1}^{\infty} \) is a convergent sequence, then
-    \[
-    \lim_{n \to \infty} |x_n| = \left| \lim_{n \to \infty} x_n \right|.
-    \]
-    \end{exercise}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     \begin{theorem}[Monotone Convergence Theorem] \label{thm: monotone convergence theorem}
     A monotone sequence \(\{x_n\}_{n=1}^{\infty}\) is bounded if and only if it is convergent.
     
@@ -570,61 +610,12 @@
     \end{theorem}
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    \begin{exercise} \label{prp: exponential growth of a sequence}
-    For any real number \( a \),
-    \[
-    \lim_{n \to \infty} a^n = 0 \quad \textnormal{ for } |a| < 1.
-    \]
-    \end{exercise}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+\begin{proof}
+If we assume $x_n$ is convergent, then by (\ref{prp: convergent sequences are bounded}) we have that $x_n$ is bounded.
+\\ \indent Conversely, suppose $x_n$ is monotone increasing and bounded above.
+Since $x_n$ is a sequence of real numbers, by (\ref{def:complete_space} or \ref{prop:infimum_exists}), or the completeness property, the least upper bound $x$ exists.
+Thus for any $\varepsilon > 0$ $ \exists N \in \mathbb{N}$ such that  $\forall n \geq N$,  $x_N \leq x - \varepsilon < x_n \leq x < x + \varepsilon \implies |x_n - x| < \varepsilon $.
+\end{proof}
     
     
     
@@ -638,15 +629,33 @@
     
     
     \begin{exercise} \label{ex: nth root limit}
-    Let \(n \in \mathbb{N}\) and \(a > 0\). Then,
+    Let \(n \in \mathbb{N}\) then,
     \[
-    \lim_{n \to \infty}{n^{1/n}} = 1 \quad \textnormal{ and } \quad \lim_{n \to \infty}{a^{1/n}} = 1.
+    \ \lim_{n \to \infty}{n^{1/n}} = 1.
     \]
     \end{exercise}
     
     
     
-    
+\begin{proof} We want $x_n = 1 - n^{1/n}$ to converge to $0$. Firstly, observe that $n^{1/n}$ is bounded below by $1$. To see this, by contradiction suppose we had $n^{1/n} < 1 \implies n < 1$ which is not true for all $n$. Thus
+\[
+|n^{1/n} - 1| = n^{1/n} - 1
+\]
+This implies that we need to find $n$ such that \[
+n^{1/n} - 1 < \varepsilon \implies n < (\varepsilon + 1)^n.
+\]
+In search of a bound, if we consider the REF binomial expansion of $(1+\varepsilon)^n$, 
+\[
+(1+\varepsilon)^n = \sum_{k=0}^{n}{\binom{n}{k}\varepsilon^k} = 1 + n\varepsilon + \frac{1}{2}n(n-1)\varepsilon^2 + \cdots 
+\]
+Since we only need that $n < (\varepsilon + 1)^n$ and since we have $\frac{1}{2}n(n-1)\varepsilon^2 \leq (1+\varepsilon)^n$,
+it suffices to show that $n < \frac{1}{2}n(n-1)\varepsilon^2 \implies n > \frac{2}{\varepsilon^2} + 1$. Thus $\forall \varepsilon > 0$ choosing $N = \frac{2}{\varepsilon^2} + 2$, we have that $\forall n \geq N$
+\[
+n > \frac{2}{\varepsilon^2} + 1 \implies n < \frac{1}{2}n(n-1)\varepsilon^2 \leq (1+\varepsilon)^n \implies n^{1/n} - 1 < \varepsilon.
+\]
+This concludes the proof.
+
+\end{proof}
     
     
     
@@ -657,15 +666,15 @@
     
     
     \begin{exercise} \label{ex: limit of c^n}
-    Let \( c > 0 \).
-    \begin{enumerate}
-        \item If \( c < 1 \), then
+    If $0<c<1$, then 
         \[
         \lim_{n \to \infty} c^n = 0.
         \]
-        \item If \( c > 1 \), then \( \{c^n\}_{n=1}^{\infty} \) is unbounded.
-    \end{enumerate}
     \end{exercise}
+
+\begin{proof}
+Let $L = \lim{c^n}$. Then $c^{n+1} = cc^n \implies L = cL \implies 0 = L(1-c).$ Since the real numbers are an integral domain REF and $ c \neq 1$, we have $L = 0$. 
+\end{proof}
     
     
     
@@ -740,29 +749,7 @@
     \end{proof}
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    \begin{exercise}\label{ex: factorial and exponential growth}
-    For all \( a \in \mathbb{R} \)
-    \[
-    \lim_{n \to \infty} \frac{a^n}{n!} = 0 
-    \]
-    \end{exercise}
-    
-    
-    \begin{proof}
-    Using \ref{ex:ratio_test}, we have
-    \[
-    \lim_{n\to\infty}{\frac{a^{n+1}n!}{a^n(n+1)!}} = \lim_{n\to\infty}{\frac{a}{n+1}} = 0
-    \]\\
-    \end{proof}
-    
+
     
     
     
@@ -774,8 +761,50 @@
     \end{exercise}
     
     
-    
-    
+    \begin{proof}
+        Let \(\lim_{n\to\infty} x_n = x\). We aim to show that \(x_n^k \to x^k\). By definition of limit, for every \(\varepsilon > 0\), we must find \(N \in \mathbb{N}\) such that for all \(n \ge N\),
+        \[
+        \bigl|\,x_n^k - x^k\bigr| < \varepsilon.
+        \]
+        For \(k \ge 1\), one can factor the difference of powers as  
+        \[
+          x_n^k - x^k 
+          \;=\; 
+          (x_n - x)\,\Bigl(x_n^{k-1} \;+\; x_n^{k-2}\,x \;+\;\cdots+\;x_n\,x^{k-2} \;+\; x^{k-1}\Bigr).
+        \]
+        Hence
+        \[
+          \bigl|\,x_n^k - x^k\bigr|
+          \;\le\;
+          |x_n - x|\,
+          \Bigl(\,\bigl|x_n^{k-1}\bigr| + \bigl|x_n^{k-2}x\bigr| + \cdots + \bigl|x_n x^{k-2}\bigr| + \bigl|x^{k-1}\bigr|\Bigr).
+        \]
+        Since \(x_n \to x\), there exists \(N_1\) such that for all \(n \ge N_1\), we have \(\bigl|x_n\bigr| < |x| + 1\). Then each term \(\bigl|x_n^{k-j}x^{j-1}\bigr|\) is at most \((|x|+1)^{k-j}\,|x|^{j-1}\). Consequently, for \(n \ge N_1\),
+   \[
+     \bigl|x_n^{k-1}\bigr| + \bigl|x_n^{k-2}x\bigr| + \cdots + \bigl|x_n x^{k-2}\bigr| + \bigl|x^{k-1}\bigr|
+     \;\le\;
+     k\,(|x|+1)^{k-1}.
+   \]
+   Therefore,
+   \[
+     \bigl|\,x_n^k - x^k\bigr|
+     \;\le\;
+     |x_n - x|\;k\,(|x|+1)^{k-1}
+     \quad
+     \text{for all } n \ge N_1.
+   \]
+   Since \(x_n \to x\), there exists \(N_2\) such that for all \(n \ge N_2\), we have \(\bigl|x_n - x\bigr| < \frac{\varepsilon}{k\,(|x|+1)^{k-1}}\). Setting \(N = \max(N_1, N_2)\), it follows that for all \(n \ge N\),
+   \[
+     \bigl|\,x_n^k - x^k\bigr|
+     \;\le\;
+     |x_n - x|\;k\,(|x|+1)^{k-1}
+     \;<\;
+     \frac{\varepsilon}{k\,(|x|+1)^{k-1}} \;k\,(|x|+1)^{k-1}
+     \;=\;
+     \varepsilon.
+   \]
+   Hence \(x_n^k \to x^k\).
+    \end{proof}
     
     
     
@@ -789,7 +818,57 @@
     
     
     
-    
+    \begin{proof}
+        Let \(\lim_{n\to\infty} x_n = x\) with each \(x_n \ge 0\). We wish to show \(x_n^{1/k} \to x^{1/k}\). By definition of the limit, for each \(\varepsilon > 0\), we must find \(N\) such that for all \(n \ge N\),
+\[
+\bigl|\,x_n^{1/k} - x^{1/k}\bigr| < \varepsilon.
+\]
+For \(a,b \ge 0\) and \(k\ge 1\), we have
+   \[
+     a^{1/k} - b^{1/k}
+     \;=\;
+     \frac{a - b}{a^{(k-1)/k} + a^{(k-2)/k}b^{1/k} + \cdots + b^{(k-1)/k}}.
+   \]
+   Applying this with \(a = x_n\) and \(b = x\), we get
+   \[
+     x_n^{1/k} - x^{1/k}
+     \;=\;
+     \frac{x_n - x}{x_n^{(k-1)/k} + x_n^{(k-2)/k}x^{1/k} + \cdots + x^{(k-1)/k}}.
+   \]
+   Thus
+   \[
+     \bigl|\,x_n^{1/k} - x^{1/k}\bigr|
+     \;\le\;
+     \frac{|\,x_n - x\,|}{\min\limits_{z \in S_n} z},
+   \]
+   where \(S_n\) is the set of all terms \(x_n^{(k-j)/k} x^{(j-1)/k}\) that appear in the denominator. 
+   Since \(x_n \to x > 0\), for large \(n\), both \(x_n\) and \(x\) are positive and close to each other. In particular, there exists \(N_1\) such that for \(n \ge N_1\), \(x_n\) is bounded below by, say, \(\tfrac{x}{2}\) (assuming \(x>0\)). Consequently, each term in the denominator is at least \(\bigl(\tfrac{x}{2}\bigr)^{(k-j)/k}\,x^{(j-1)/k}\), which is a positive constant (depending on \(x\) and \(k\), but not on \(n\)). Denote
+   \[
+     m \;=\;
+     \min_{0 \,\le\, j \,\le\, k-1}\,\Bigl\{\bigl(\tfrac{x}{2}\bigr)^{\frac{k-j}{k}}\,x^{\frac{j-1}{k}}\Bigr\}
+     \;>\;
+     0.
+   \]
+   Then for \(n \ge N_1\),
+   \[
+     x_n^{(k-1)/k} + x_n^{(k-2)/k}x^{1/k} + \cdots + x^{(k-1)/k}
+     \;\ge\;
+     k\,m.
+   \]
+   Since \(x_n \to x\), we also have \(\bigl|x_n - x\bigr|\to 0\). Choose \(N_2\) so that for \(n \ge N_2\), \(\bigl|x_n - x\bigr| < \varepsilon\,m\). Setting \(N = \max(N_1, N_2)\), for \(n \ge N\) we get
+   \[
+     \bigl|\,x_n^{1/k} - x^{1/k}\bigr|
+     \;\le\;
+     \frac{|x_n - x|}{k\,m}
+     \;<\;
+     \frac{\varepsilon\,m}{k\,m}
+     \;=\;
+     \frac{\varepsilon}{k}.
+   \]
+   Thus \(x_n^{1/k} \to x^{1/k}\).
+
+
+    \end{proof}
     
     
     
@@ -833,7 +912,10 @@
     \end{proposition}
     
     
-    
+    \begin{proof}
+        By the definition of a subsequence (\ref{def:subsequence}), we have that $i \leq n_i$ in $x_{n_i}$ and $x_n$. Then $\forall \varepsilon > 0$ $\exists N \in \mathbb{N}$ such that \[|x_n-x|<\varepsilon \implies |x_{n_i} - x| \leq |x_n - x| < \varepsilon.\]
+        This concludes the proof.
+    \end{proof}
     
     
     
@@ -1044,7 +1126,21 @@
     
     
     
-    
+    \begin{proof}
+        Let $a_n$ and $b_n$ be as in definition (\ref{def:limsup_liminf}). In particular, for all $n \in \mathbb{N}$,
+
+\[
+b_n \leq x_n \leq a_n.
+\]
+
+First suppose $\liminf_{n \to \infty} x_n = \limsup_{n \to \infty} x_n$. Then $\{a_n\}_{n=1}^{\infty}$ and $\{b_n\}_{n=1}^{\infty}$ both converge to the same limit. By the squeeze lemma (\ref{lem:squeeze}), $\{x_n\}_{n=1}^{\infty}$ converges and
+
+\[
+\lim_{n \to \infty} b_n = \lim_{n \to \infty} x_n = \lim_{n \to \infty} a_n.
+\]
+
+Now suppose $\{x_n\}_{n=1}^{\infty}$ converges to $x$. By (\ref{thm: lim sup lim inf subsequence}), there exists a subsequence $\{x_{n_k}\}_{k=1}^{\infty}$ converging to $\limsup_{n \to \infty} x_n$. As $\{x_n\}_{n=1}^{\infty}$ converges to $x$, every subsequence converges to $x$ and so $\limsup_{n \to \infty} x_n = \lim_{k \to \infty} x_{n_k} = x$. Similarly, $\liminf_{n \to \infty} x_n = x$.
+    \end{proof}
     
     
     
@@ -1059,13 +1155,44 @@
     \end{exercise}
     
     
-    
+    \begin{proof}
+
+We want to prove that $\limsup_{k \to \infty} x_{n_k} \leq \limsup_{n \to \infty} x_n$. Define $a_n := \sup\{x_k : k \geq n\}$ as usual. Also define $c_n := \sup\{x_{n_k} : k \geq n\}$. It is not true that $\{c_n\}_{n=1}^{\infty}$ is necessarily a subsequence of $\{a_n\}_{n=1}^{\infty}$. However, as $n_k \geq k$ for all $k$, we have $\{x_{n_k} : k \geq n\} \subset \{x_k : k \geq n\}$. A supremum of a subset is less than or equal to the supremum of the set, and therefore
+
+\[
+c_n \leq a_n \quad \text{for all } n
+\implies \lim_{n \to \infty} c_n \leq \lim_{n \to \infty} a_n,
+\]
+
+which is the desired conclusion.
+    \end{proof}
     
     
     \begin{exercise}
     A bounded sequence $ (x_n)^\infty_{n=1}$ converges to $x$ $\iff$ every subsequence $ (x_{n_k})^\infty_{k = 1}$ converges to $x$.
     \end{exercise}
     
+    \begin{proof}
+Suppose \(x_n \to x\). Let \(\{x_{n_k}\}\) be any subsequence of \(\{x_n\}\). By definition of a subsequence, the terms \(x_{n_k}\) are simply some of the terms \(x_n\), but in the same order. Hence, for every \(\varepsilon > 0\), if we can make \(|x_n - x| < \varepsilon\) for all \(n\) large enough, the same is true for the subsequence terms \(x_{n_k}\). Given \(\varepsilon > 0\), there exists \(N\) such that for all \(n \ge N\), \(|x_n - x| < \varepsilon\). Since \(n_k \ge k\) (in fact \(n_k \to \infty\) as \(k \to \infty\)), eventually \(n_k \ge N\). Thus \(\bigl|x_{n_k} - x\bigr| < \varepsilon\) for all \(k\) sufficiently large. This shows \(x_{n_k} \to x\). Therefore, every convergent subsequence converges to the same limit \(x\).
+\\ \indent For the other direction, we prove the contrapositive. Assume \(\{x_n\}\) does not converge to \(x\). By the definition of the limit, this means there exists some \(\varepsilon_0 > 0\) such that for **every** \(N\in\mathbb{N}\), there is an \(n \ge N\) with
+\[
+  \bigl|x_n - x\bigr| \;\ge\; \varepsilon_0.
+\]
+Intuitively, no matter how far out in the sequence you go, there are terms that stay at least \(\varepsilon_0\)-away from \(x\). We build a subsequence \(\{x_{n_k}\}\) that remains outside the \(\varepsilon_0\)-neighborhood of \(x\). Start by letting \(n_1\) be an index such that \(\bigl|x_{n_1} - x\bigr| \ge \varepsilon_0\). Having chosen \(n_k\), pick \(n_{k+1} > n_k\) such that \(\bigl|x_{n_{k+1}} - x\bigr| \ge \varepsilon_0\).  
+This is always possible by the non-convergence assumption.
+
+Thus, for each \(k\),
+\[
+  \bigl|x_{n_k} - x\bigr| \;\ge\; \varepsilon_0.
+\]
+Therefore, the subsequence \(\{x_{n_k}\}\) does not converge to \(x\). Since \(\{x_n\}\) is given to be bounded, any subsequence (including \(\{x_{n_k}\}\)) is also bounded. By the Bolzano–Weierstrass Theorem (or any equivalent result about bounded sequences in \(\mathbb{R}\)), the subsequence \(\{x_{n_k}\}\) has a further convergent subsequence, say \(\{x_{n_{k_j}}\}\). Let
+\[
+  \lim_{j \to \infty} x_{n_{k_j}} \;=\; y
+\]
+for some \(y \in \mathbb{R}\). By hypothesis, every convergent subsequence of \(\{x_n\}\) must converge to \(x\). Thus we must have \(y = x\).  On one hand, we deduce \(x_{n_{k_j}} \to x\). On the other hand, from the construction we know each \(x_{n_{k_j}}\) satisfies \(\bigl|x_{n_{k_j}} - x\bigr| \ge \varepsilon_0\). No sequence whose terms stay at a fixed distance \(\varepsilon_0>0\) from \(x\) can converge to \(x\). This contradiction arises from assuming \(\{x_n\}\) does not converge to \(x\).
+
+Hence, it must be that \(\{x_n\}\) does converge to \(x\). This completes the proof of the contrapositive and thus the original statement.
+\end{proof}
     
     
     
@@ -1083,7 +1210,43 @@
     
     
     
-    
+    \begin{proof}
+        As the sequence is bounded, then there exist two numbers $a_1 < b_1$ such that $a_1 \leq x_n \leq b_1$ for all $n \in \mathbb{N}$. We will define a subsequence $\{x_{n_i}\}_{i=1}^{\infty}$ and two sequences $\{a_i\}_{i=1}^{\infty}$ and $\{b_i\}_{i=1}^{\infty}$ such that $\{a_i\}_{i=1}^{\infty}$ is monotone increasing, $\{b_i\}_{i=1}^{\infty}$ is monotone decreasing, $a_i \leq x_{n_i} \leq b_i$ and such that $\lim_{i \to \infty} a_i = \lim_{i \to \infty} b_i$. That $x_{n_i}$ converges then follows by the squeeze lemma (\ref{lem:squeeze}).
+
+We define the sequences inductively. We will define the sequences so that for all $i$, we have $a_i < b_i$, and that $x_n \in [a_i, b_i]$ for infinitely many $n \in \mathbb{N}$. We have already defined $a_1$ and $b_1$. We take $n_1 := 1$, that is $x_{n_1} = x_1$. Suppose that up to some $k \in \mathbb{N}$, we have defined the subsequence $x_{n_1}, x_{n_2}, \dots, x_{n_k}$, and the sequences $a_1, a_2, \dots, a_k$ and $b_1, b_2, \dots, b_k$. Let 
+
+\[
+y := \frac{a_k + b_k}{2}.
+\]
+
+Clearly $a_k < y < b_k$. If there exist infinitely many $j \in \mathbb{N}$ such that $x_j \in [a_k, y]$, then set $a_{k+1} := a_k$, $b_{k+1} := y$, and pick $n_{k+1} > n_k$ such that $x_{n_{k+1}} \in [a_k, y]$. If there are not infinitely many $j$ such that $x_j \in [a_k, y]$, then it must be true that there are infinitely many $j \in \mathbb{N}$ such that $x_j \in [y, b_k]$. In this case pick $a_{k+1} := y$, $b_{k+1} := b_k$, and pick $n_{k+1} > n_k$ such that $x_{n_{k+1}} \in [y, b_k]$.
+
+We now have the sequences defined. What is left to prove is that $\lim_{i \to \infty} a_i = \lim_{i \to \infty} b_i$. The limits exist as the sequences are monotone. In the construction, $b_i - a_i$ is cut in half in each step. Therefore, 
+
+\[
+b_{i+1} - a_{i+1} = \frac{b_i - a_i}{2}.
+\]
+
+By induction,
+
+\[
+b_i - a_i = \frac{b_1 - a_1}{2^{i-1}}.
+\]
+
+Let $x := \lim_{i \to \infty} a_i$. As $\{a_i\}_{i=1}^{\infty}$ is monotone,
+
+\[
+x = \sup \{a_i : i \in \mathbb{N}\}.
+\]
+
+Let $y := \lim_{i \to \infty} b_i = \inf \{b_i : i \in \mathbb{N}\}$. Since $a_i < b_i$ for all $i$, then $x \leq y$. As the sequences are monotone, then for all $i$, we have
+
+\[
+y - x \leq b_i - a_i = \frac{b_1 - a_1}{2^{i-1}}.
+\]
+
+Because $\frac{b_1 - a_1}{2^{i-1}}$ is arbitrarily small and $y - x \geq 0$, we have $y - x = 0$. By squeeze lemma (\ref{lem:squeeze}), this concludes the proof.
+    \end{proof}
     
     
     

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  8 MAR 2025 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  9 MAR 2025 19:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -299,8 +299,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@proposition=\count300
 \c@exercise=\count301
 \c@definition=\count302
-\c@remark=\count303
-\c@example=\count304
+\c@example=\count303
+\c@remark=\count304
 ))
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
  (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
@@ -395,11 +395,44 @@ Package hyperref Info: Link coloring ON on input line 2.
 \@outlinefile=\write3
 \openout3 = `linear_algebra.out'.
 
-
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9.
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 9.
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 9.
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 9.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 9.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 9.
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 9.
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 11.
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
 [1
 
-{C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}] (c:\Users\carso\Documents\Projects\LaTexNotes\linear_algebra\linear_algebra.aux)
+{C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+
+[2]
+
+[3] (c:\Users\carso\Documents\Projects\LaTexNotes\linear_algebra\linear_algebra.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -408,17 +441,17 @@ Package rerunfilecheck Info: File `linear_algebra.out' has not changed.
 (rerunfilecheck)             Checksum: D5B5EF869FE2EFCAE72BC95C443FE999;116.
  ) 
 Here is how much of TeX's memory you used:
- 10472 strings out of 473523
- 162900 string characters out of 5714631
- 555830 words of memory out of 5000000
- 33571 multiletter control sequences out of 15000+600000
- 567674 words of font info for 39 fonts, out of 8000000 for 9000
+ 10672 strings out of 473523
+ 167065 string characters out of 5714631
+ 582085 words of memory out of 5000000
+ 33692 multiletter control sequences out of 15000+600000
+ 590390 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,5n,99p,611b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb>
-Output written on c:\Users\carso\Documents\Projects\LaTexNotes\linear_algebra\linear_algebra.pdf (1 page, 42881 bytes).
+ 95i,6n,99p,611b,661s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
+Output written on c:\Users\carso\Documents\Projects\LaTexNotes\linear_algebra\linear_algebra.pdf (3 pages, 165931 bytes).
 PDF statistics:
- 27 PDF objects out of 1000 (max. 8388607)
- 3 named destinations out of 1000 (max. 500000)
+ 121 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
  9 words of extra memory for PDF output out of 10000 (max. 10000000)
 
