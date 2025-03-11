@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  10 MAR 2025 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  10 MAR 2025 16:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -455,27 +455,45 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [7]
 
 [8]
+Underfull \hbox (badness 10000) in paragraph at lines 800--802
 
-[9] (c:\Users\carso\Documents\Projects\LaTexNotes\algebra\algebra.aux)
+ []
+
+
+LaTeX Warning: Reference `thm:subring' on page 9 undefined on input line 840.
+
+
+
+[9]
+
+[10]
+
+[11]
+
+[12] (c:\Users\carso\Documents\Projects\LaTexNotes\algebra\algebra.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `algebra.out' has not changed.
 (rerunfilecheck)             Checksum: 0424C1D614DBCB8DBF9E1E2F4AC8FC4D;539.
  ) 
 Here is how much of TeX's memory you used:
- 10790 strings out of 473523
- 167614 string characters out of 5714631
- 581498 words of memory out of 5000000
- 33696 multiletter control sequences out of 15000+600000
+ 10819 strings out of 473523
+ 168151 string characters out of 5714631
+ 582046 words of memory out of 5000000
+ 33713 multiletter control sequences out of 15000+600000
  607576 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,10n,99p,1207b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,10n,99p,1207b,654s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\carso\Documents\Projects\LaTexNotes\algebra\algebra.pdf (9 pages, 237406 bytes).
+Output written on c:\Users\carso\Documents\Projects\LaTexNotes\algebra\algebra.pdf (12 pages, 251940 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
- 153 named destinations out of 1000 (max. 500000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 165 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 

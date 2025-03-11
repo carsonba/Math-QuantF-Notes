@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1741562653.65595 "c:/Users/carso/Documents/Projects/LaTexNotes/main.tex" "main.pdf" "main" 1741562656.43606 0
+["pdflatex"] 1741708048.00541 "c:/Users/carso/Documents/Projects/LaTexNotes/main.tex" "main.pdf" "main" 1741708049.50173 0
   "C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741471628 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/carso/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741462396 12036088 9e483035d3dd2b7afcbbdaf83df187cf ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -131,16 +131,17 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.sty" 1606222980 5262 70ab9987ec94ed2beeb5c2d951d465f6 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
+  "algebra/algebra.tex" 1741639007 40867 0a59acab5b58f904063f9a432eb6d71c ""
   "analysis/analysis.tex" 1741561974 60408 1b8c9511337b43e030959a00e304140b ""
   "arpm/arpm.tex" 1741480490 5195 59f5d2cbe21b3a60f32d79d6597f812b ""
-  "c:/Users/carso/Documents/Projects/LaTexNotes/main.tex" 1741480780 937 52ce305af828705245a9d61dfb94fe31 ""
+  "c:/Users/carso/Documents/Projects/LaTexNotes/main.tex" 1741644111 991 c7b72ca7d3ca548e928ed5006e566c01 ""
   "linear_algebra/linear_algebra.tex" 1741562536 10611 968e99e0970684ad47867e835d4e8763 ""
   "logic_and_sets/logic_and_sets.tex" 1741472179 45018 32b2aff9b2ce56d8d2bf96835b4104dc ""
-  "main.aux" 1741562655 10845 e28d746d5fbd11bba1b9967c0f039bc8 "pdflatex"
-  "main.out" 1741562655 3211 eca11a75ea247191aedd8bb976018713 "pdflatex"
-  "main.tex" 1741480780 937 52ce305af828705245a9d61dfb94fe31 ""
-  "main.toc" 1741562655 1891 74702428354fb8c46400172a0ae56525 "pdflatex"
-  "probability/probability.tex" 1741472634 18205 4476ef783c91e8bb0d5f7538ae9963ca ""
+  "main.aux" 1741708049 14406 87e2035634b14d8824bc2e36c6939728 "pdflatex"
+  "main.out" 1741708049 3754 dd143ed1e06dbbb60cdd7262655ce6fe "pdflatex"
+  "main.tex" 1741644111 991 c7b72ca7d3ca548e928ed5006e566c01 ""
+  "main.toc" 1741708049 2223 971ded70197258650f6cf42388280fa7 "pdflatex"
+  "probability/probability.tex" 1741661811 25652 cd2d03ed88f463df8be7eca9660a6b2a ""
   (generated)
   "main.aux"
   "main.log"

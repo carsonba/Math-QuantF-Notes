@@ -72,7 +72,7 @@ So how will we define the abstract space we will be working in so that we can ef
 
 
 
-\begin{definition}[Algebra and $\sigma$-algebra]
+\begin{definition}[Algebra and $\sigma$-algebra]\label{def:sigma algebra}
 Let $\Omega$ be an abstract space. Let $2^{\Omega}$ denote all subsets of $\Omega$. With $\mathcal{A}$ being a subset of $2^\Omega$. Then $\mathcal{A}$ is an algebra if it satisfies $(1),(2),$ and $(3)$. $\mathcal{A}$ is a $\sigma$-algebra if it satisfies $(1), (2),$ and $(4)$.
 \begin{enumerate}
     \item $\emptyset \in \mathcal{A}$ and $\Omega \in \mathcal{A}$
@@ -124,7 +124,7 @@ For our actual probability measure, we need an event that is guaranteed and an e
 
 
 
-\begin{definition}[Probability Measure]
+\begin{definition}[Probability Measure]\label{def:probability}
 A probability measure defined on a $ \sigma $-algebra $\mathcal{A}$ of $\Omega$ is a function $ P: \mathcal{A} \to [0,1] $ that satisfies 
 \begin{enumerate}
     \item $P(\Omega)=1$
@@ -141,7 +141,7 @@ A probability measure defined on a $ \sigma $-algebra $\mathcal{A}$ of $\Omega$ 
 
 
 
-\begin{definition}
+\begin{definition}(Indicator Function)\label{def:indicator function}
 If $A \in 2^\Omega$, then the indicator function $1_A(\omega)$ be given by
 \[
 1_A(\omega) = 
@@ -152,14 +152,27 @@ If $A \in 2^\Omega$, then the indicator function $1_A(\omega)$ be given by
 \]
 We say $A_n \in \mathcal{A}$ converges to $A$ if $\lim_{n\to\infty}{1_{A_n}(\omega)} = 1_A(\omega)$ $\forall \omega \in \Omega$.
 \end{definition}
+\begin{remark}
+A few comments and clarifications about the definition above. Since $2^\Omega$
+is not necessarily all measurable, meaning, the $\sigma$-algebra $\mathcal{A}$
+may not include every subset of $\Omega$. So for any singleton outcome $\omega \in \Omega$, 
+we have if $\forall \omega \in A$, $\omega \in A_n \textnormal{ as } n \to \infty$ then $A_n$ converges to $A$.
+Note this is precisely what $\lim_{n\to\infty}{1_{A_n}(\omega)} = 1_A(\omega)$ $\forall \omega \in \Omega$ is stating.
+\end{remark}
 
 \begin{remark}
 So if we can define convergence of a sequence of sets, then we must have some conception of 
 convergene of supremum and infimum. How will we define these? We want the supremum of a set to be 
+the elements (outcomes) that are in \textbf{at least one} of the \textit{infinite events}, that is, for all events events past some $n$th event,
+I want to know what is in \textbf{any} of the events that come after this one, then letting $n\to \infty$ we see that
+the elements remaining are in \textbf{at least one} of the \textit{infinite events}. Whereas, we want the infimum to be the \textit{smaller} 
+set, when compared to the supremum. So instead of considering all elements that are in \textbf{any} event past the $n$th (we will again let $n\to\infty$) event, 
+we will consider the elements that are in \textbf{every single} event past this $n$th one. From this, it is easy to see that the infimum
+is a subset of the supremum, which is what we wanted. We also want that when these are equivalent, the sequence of events converges.
 \end{remark}
 
-\begin{definition}
-If $A_n \in \mathcal{A}$ $\forall n \in \mathbb{N}$ then define
+\begin{definition}[Supremum and Infimum of Sequence of Sets]\label{def:sup and inf of sequence of sets}
+Let $A_n$ be a sequence of sets. If $A_n \in \mathcal{A}$ $\forall n \in \mathbb{N}$ then define
 \begin{gather*}
 \limsup_{n\to\infty}{A_n} = \cap^\infty_{n=1}\cup_{m \geq n}{A_m}\\
 \liminf_{n\to\infty}{A_n} = \cup^\infty_{n=1}\cap_{m\geq n}{A_m}.
@@ -168,24 +181,155 @@ If $A_n \in \mathcal{A}$ $\forall n \in \mathbb{N}$ then define
 \end{definition}
 
 
-\begin{theorem}
-Let $P$ be a probability measure, and let $A_n$ be a sequence of events in $\mathcal{A}$ which converges
-to $A$. Then $A \in \mathcal{A}$ and $\lim_{n \to \infty}{P(A_n)} = P(A)$.
-\end{theorem}
+\begin{lemma}\label{lem:inf subset of sup}
+Let $\mathcal{A}$ be a $\sigma$-algebra and $(A_n)^\infty_{n\geq 1}$ be a sequence 
+of sets in $\mathcal{A}$. Then, \[
+\liminf_{n\to\infty}{A_n} \in \mathcal{A}, \quad \limsup_{n\to\infty}{A_n} \in \mathcal{A}, \quad \textnormal{and } \liminf_{n\to\infty}{A_n} \subseteq \limsup_{n\to\infty}{A_n}
+\]
+\end{lemma}
 
 \begin{proof}
+By definition (\ref{def:sigma algebra}), the $\sigma$-algebra $\mathcal{A}$
+is closed under countable unions and intersections. since $A_n \in \mathcal{A}$, we have that 
+for any fixed $n$, $ \ \cap_{k\geq n}{A_k} \in \mathcal{A}$. Then
+countably infinite many unions of this is also in $\mathcal{A}$. That is, \[
+\liminf_{n\to\infty}{A_n} = \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \in \mathcal{A}.
+\]
+Similarly, \[
+    \limsup_{n\to\infty}{A_n} = \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \in \mathcal{A}.
+\]
+Now suppose $x \in \liminf_{n\to\infty}{A_n} = \cup^\infty_{n=1}\cap_{k\geq n}{A_k}$, then for some
+$N \in \mathbb{N}$, $x \in A_k$, $\forall k \geq n$. Thus $x \in \limsup_{n\to\infty}{A_n} = \cup^\infty_{n=1}\cap_{k\geq n}{A_k}$ since
+$x$ is in all such $A_k$ where $k \geq n$ and $\limsup{A_n}$ only requires that $x$ be in at least one. Therefore,
+\[
+\liminf_{n\to\infty}{A_n} \subseteq \limsup_{n\to\infty}{A_n}.
+\]
+\end{proof}
 
+
+
+
+\begin{lemma}\label{lem:sup equal inf mean converge}
+Let $\mathcal{A}$ be a $\sigma$-algebra and $(A_n)^\infty_{n\geq 1}$ be a sequence 
+of sets in $\mathcal{A}$. Then, \[
+\lim_{n\to\infty}{A_n}=A \iff \limsup_{n\to\infty}{A_n} = \liminf_{n\to\infty}{A_n} = A
+\]
+\end{lemma}
+
+\begin{proof}
+Suppose $ x \in A = \limsup_{n\to\infty}{A_n} = \liminf_{n\to\infty}{A_n}$. Then,
+\begin{gather*}
+x \in \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \implies \exists N \in \mathbb{N} \textnormal{ such that } x \in A_k, \ \forall k \geq N. \\
+\textnormal{Then if we had } x \notin \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \implies \exists N \in \mathbb{N} \textnormal{ such that } x \notin A_k, \ \forall k \geq N.
+\end{gather*}
+\end{proof}
+
+
+
+
+
+\begin{theorem}[Continuity of Probability Measure]
+    Let $P$ be a probability measure, and let $A_n$ be a sequence of events in the $\sigma$-algebra $\mathcal{A}$
+    which converges to $A$. Then $A \in \mathcal{A}$ and $\lim_{n\to\infty}{P(A_n)} = P(A)$.
+    \end{theorem}
+    
+\begin{proof}
+    Define $\limsup{A_n}$ and $\liminf{A_n}$ as definition (\ref{def:sup and inf of sequence of sets}). 
+    By lemma \ref{lem:inf subset of sup}, we have $\limsup_{n\to\infty}{A_n}\in \mathcal{A}$
+    and $\liminf_{n\to\infty}{A_n}\in \mathcal{A}$. So by hypothesis, 
+    $A_n$ converges to $A$, then from lemma \ref{lem:sup equal inf mean converge}, \[
+    \lim_{n\to\infty}{1_{A_n}} = 1_A, \quad \forall \omega \iff A = \limsup_{n \to \infty}{A_n} = \liminf_{n \to \infty}{A_n} 
+    \]
 \end{proof}
 
 \begin{theorem}
 Let \(A_1, A_2, \dots, A_n\) be events, then
-\begin{enumerate}
-    \item \( P(A \cup B) = P(A) + P(B) - P(A\cap B)\)
-    \item \( P(A \cup B \cup C) = P(A) + P(B) + P(C) - \left(P(A \cap B) + P(A \cap C) + P(B \cap C)\right) + P(A \cap B \cap C). \)
-    \item \( P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^{n}{P(A_i)} - \sum_{1 \leq i_1 \leq i_2 \leq n}{P(A_{i_1} \cap A_{i_2})}\\ + \sum_{1 \leq i_1 \leq i_2 \leq i_3 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3})}\\ - \sum_{1 \leq i_1 < i_2 \leq i_3 < i_4 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4})} \\ + \cdots + (-1)^{n+1}P(A_1 \cap \cdots \cap A_n)  = \sum_{k=1}^{n}(-1)^{k+1} \sum_{1 \leq i_1 < \cdots < i_k \leq n}{P(A_{i_1} \cap \cdots \cap A_{i_k})} \)
-\end{enumerate}
+\begin{gather*} P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^{n}{P(A_i)} - \sum_{1 \leq i_1 \leq i_2 \leq n}{P(A_{i_1} \cap A_{i_2})}\\ + \sum_{1 \leq i_1 \leq i_2 \leq i_3 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3})} - \sum_{1 \leq i_1 < i_2 \leq i_3 < i_4 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4})} \\ + \cdots + (-1)^{n+1}P(A_1 \cap \cdots \cap A_n)  = \sum_{k=1}^{n}(-1)^{k+1} \sum_{1 \leq i_1 < \cdots < i_k \leq n}{P(A_{i_1} \cap \cdots \cap A_{i_k})} 
+\end{gather*}
+
 
 \end{theorem}
+
+
+
+\begin{definition}[Monotone Sequence of Sets]\label{def:Increasing or Decreasing Sequence of Sets}
+A sequence of events $(A_n)^\infty_{n\geq 1}$ is said to be an \textit{monotone increasing} sequence of sets if \[
+A_1 \subseteq A_2 \subseteq \cdots \subseteq A_k \subseteq A_{k+1} \subseteq \cdots
+\]
+Similarly, a sequence of sets $(A_n)^\infty_{n\geq 1}$ is said to be a \textit{monotone decreasing} sequence if \[
+A_1 \supseteq A_2 \supseteq \cdots \supseteq A_k \supseteq A_{k+1} \supseteq \cdots
+\]
+Further, if an increasing sequence $(A_n)^\infty_{n\geq 1}$ converges to some event $A$, then we write $A_n \uparrow A$ and we have $A = \cup^\infty_{n\geq 1}{A_n}$. Similarly, 
+if $(A_n)^\infty_{n\geq 1}$ decreases to $A$ then we write $A_n \downarrow A$, with  $A = \cap^\infty_{n\geq 1}{A_n}$.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}\label{thm:convergence of P of seq of sets}
+Let $\mathcal{A}$ be a $\sigma$-algebra and let $(A_n)^\infty_{n\geq 1} \in \mathcal{A}$ be a sequence of sets. Suppose $P: \mathcal{A}\to [0,1]$ is a probability measure.
+Then the following are equivalent, 
+\begin{enumerate}
+    \item Axiom (2) of definition (\ref{def:probability})
+    \item $A_n \downarrow A \implies P(A_n) \downarrow P(A)$.
+    \item $A_n \uparrow A \implies P(A_n) \uparrow P(A)$
+\end{enumerate}
+\end{theorem}
+
+
+\begin{remark}
+In the (3) $\implies$ (1) proof, note that we assume $A_n$ is pairwise disjoint
+because that is what needs to be satisfied, by the definition of the probability measure.
+
+\end{remark}
+
+\begin{proof}
+$ (2) \iff (3) $: Suppose $A_n \uparrow A$ and $P(A_n) \uparrow P(A)$.
+Then $A_n^c \downarrow A^c$ and $P(A^c_n) \downarrow P(A^c)$. But since 
+$P(A_n^c) = 1 - P(A_n)$, proving $(3) \iff (2)$ suffices.\\
+$(3) \implies (1) $: Suppose $A_n \uparrow A$ and $P(A_n) \uparrow P(A)$. Also, assume 
+$A_n$ is \textit{pairwise disjoint}, meaning $\forall i,j \in [n]$, where $i\neq j$, we have $A_i \cap A_j$.
+Let $B_n = \cup^n_{p\geq 1}{A_p}$ and let $B = \cup^\infty_{n\geq 1}{A_n}$.
+Then by axiom (2) of the probability measure (\ref{def:probability}), we have
+$P(B_n) = \sum^n_{p=1}{A_p}$. Then as $n \to \infty$, we have that $P(B_n)\uparrow P(B)$, so $P(B_n)$ is
+increasing sequence, increasing to $P(B)$ since $P(A_n) \uparrow P(A)$ so $P(B_n) = P(\cup^\infty_{n\geq 1}{A_n})$.\\
+$ (1) \iff (3) $: Suppose $A_n$ is a sequence increasing to $A$. Define the sequence $(B_n)^\infty_{n\geq 1}$
+\begin{gather*}
+    B_1 = A_1 \\
+    B_2 = A_2 \setminus A_1 \\
+     \vdots \\
+    B_k = A_k \setminus A_{k-1} \\
+     \vdots 
+\end{gather*}
+\begin{remark} Since $A_n$ is increasing, we have that the $A_{k-1}$ set contains every
+set before it, so letting $B_k = A_k \setminus A_{k-1}$ for every $k$ 
+ensures each $B_k$ contains only the elements that $A_k$ provided. Then since probabilities are nonnegative, 
+we see that $B_n$ is monotone increasing.
+\end{remark}
+Then we have $A= \cup^\infty_{i=1}{B_i}$ and $B_n \cap B_m = \emptyset$
+whenever $m \neq n$, meaning $B_n$ is pairwise disjoint. Thus from $(1)$,\[
+P(A) = \lim_{n\to\infty}{\sum^n_{i=1}{P(B_i)}}
+\]
+But since we also have \[
+P(A_n) = \sum^n_{i=1}{P(B_i)}
+\]
+thus we have $P(A_n) \uparrow P(A)$.
+\end{proof}
+
+
+
+
+
+
+
 
 
 
@@ -199,6 +343,16 @@ P(\cup^n_{i=1}{A_i}) \leq \sum_{i=1}^{\infty}{P(A_i)}
 
 
 
+
+
+
+
+
+
+\begin{remark}
+Suppose we wanted to determine the probability of some event but we want to update this probability
+given 
+\end{remark}
 
 \begin{definition} \label{def: conditional_prob}
     

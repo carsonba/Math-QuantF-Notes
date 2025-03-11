@@ -664,7 +664,12 @@ A ring is a nonempty set R equipped with two operations \(+, \cdot\) that satisf
     \item For each \(a \in R\), \(a + x = 0_R\) has a solution in \(R\), that is, \(x \in R\) \hfill [Additive Inverse]
     \item If \(a \in R\) and \(b \in R\), then \(ab \in R\) \hfill [Closure under Multiplication]
     \item \(a(bc) = (ab)c\) \hfill [Associativity of Multiplication]
-    \item \( a(b+c) = ab + ac\) and \((a+b)c = ac + bc\) \hfill [Distributive Law]
+    \item \( a(b+c) = ab + ac\) and \((a+b)c = ac + bc\) \hfill [Distributive Law] \\
+The additional axioms below come from the definitions that are to follow. These definitions are the specific types of rings.
+    \item $ab = ba \quad \forall a,b \in R$ \hfill [Commutative Ring] 
+    \item $\exists 1_R \in R$ such that $a1_R = a = 1_Ra \quad \forall a \in R $. \hfill [Identity] 
+    \item A commutative ring, with identity such that $ab=0 \implies a= 0 \textnormal{ or } b=0$. \hfill [Integral Domain] 
+    \item A commutative ring, with identity such that $\forall a \neq 0 \in R$, $ax = 1$ has a solution in $R$. \hfill [Field] 
 \end{enumerate}
 
 \end{definition}
@@ -677,14 +682,14 @@ ab = ba \quad \forall a,b \in R.
 \]
 \end{definition}
 
-\begin{definition}[Multiplicative Identity]
+\begin{definition}[Multiplicative Identity] \label{def: multiplicative identity}
 A ring with indentity is a ring \(R\) that contains an element \(1_R\) that satisfies the additional axiom: multiplicative identity
 \[
 a1_R = a = 1_R a \quad \forall a \in R.
 \]
 \end{definition}
 
-\begin{definition}[Integral Domain]
+\begin{definition}[Integral Domain]\label{def:integral domain}
 An integral domain is a commutative ring \(R\) with identity \(1_R \neq 0_R\) that satisfies the additional axiom
 \[
 \textnormal{Whenever } a,b \in R \textnormal{ and } ab = 0_R, \textnormal{ then } a = 0_R \textnormal{ or } b = 0_R.
@@ -693,7 +698,7 @@ An integral domain is a commutative ring \(R\) with identity \(1_R \neq 0_R\) th
 \end{definition}
 
 
-\begin{definition}[Field]
+\begin{definition}[Field]\label{def:field}
 A field is a commutative ring \(R\) with identity \(1_R \neq 0_R\) that satisfies the axiom 
 \[
 \textnormal{For each } a \neq 0_R \in R, \quad ax = 1_R \textnormal{ has a solution in \(R\)}
@@ -707,7 +712,7 @@ Note that these operations don't have to adhere to what we think of as addition 
 
 
 
-\begin{proposition}
+\begin{proposition}\label{prp:cartesian prod ring}
 Let $R$ and $S$ be rings. Define addition and multiplication on the Cartesian product $R \times S$ by
 
 \[
@@ -721,7 +726,7 @@ Then $R \times S$ is a ring. If $R$ and $S$ are both commutative, then so is $R 
 
 
 
-\begin{theorem}[Subring]
+\begin{theorem}[Subring] \label{thm:check for subring}
 Suppose that $R$ is a ring and that $S$ is a subset of $R$ such that:
 \begin{enumerate}
     \item $S$ is closed under addition (if $a, b \in S$, then $a + b \in S$);
@@ -742,26 +747,35 @@ since axioms 2,3,7, and 8 hold for all elements of $R$.
 
 
 
-\begin{theorem}
+\begin{theorem} \label{thm:uniqueness of additive inverse}
 For any element $a$ in a ring $R$, the equation $a + x = 0_R$ has a unique solution.
 \end{theorem}
 
 \begin{proof}
 From axiom 5 in definition (\ref{def:ring}), we know $a+x = 0_R$ has at least one solution, 
-call it $u$. Then suppose $v$ is another solution 
-
+call it $u$. Then suppose $v$ is another solution. Then we have
+\[
+v = v + 0_R = v + (a+u) = (v+a) + u = 0_R + u = u.
+\]
+So $v=u$ and so the solution is always unique in any ring.
 \end{proof}
 
 
 
-\begin{theorem}
+\begin{theorem}\label{thm:subtraction}
 If $a + b = a + c$ in a ring $R$, then $b = c$.
 \end{theorem}
 
+\begin{proof}
+Using associativity from (\ref{def:ring}) we have
+\[
+a + c = a+b \implies (c+a)-a = (b+a)-a \implies c+(a-a) = b+(a-a)\implies b = c.
+\]
+\end{proof}
 
 
 
-\begin{proposition}
+\begin{proposition} \label{prp:ring arithmetic with subtraction}
 For any elements $a$ and $b$ of a ring $R$,
 \begin{enumerate}
     \item $a \cdot 0_R = 0_R = 0_R \cdot a$. In particular, $0_R \cdot 0_R = 0_R$.
@@ -778,9 +792,57 @@ If $R$ has an identity, then
 \end{enumerate}
 \end{proposition}
 
+\begin{proof}
+(1): Since $0 + 0 = 0$, using the distributive law, we have
+\begin{gather*}
+a \cdot 0 + a \cdot 0 = a(0 + 0) = a \cdot 0 = a \cdot 0 + 0 \\
+\implies a \cdot 0 + a \cdot 0 = a \cdot 0 + 0 \implies a \cdot 0 = 0.
+\end{gather*}
+Note that the last implication uses \ref{thm:subtraction}. \\
+
+(2): Since $-ab$ is the unique solution to $ab + x = 0$, any other solution
+is equivalent to $-ab$ by \ref{thm:subtraction}. So we have\[
+ab + a(-b) = a(b - b) = a\cdot 0 = 0 \implies -ab = a(-b).
+\]\\
+(3): Again from (\ref{thm:subtraction}) we know \(-(-a)\) is the unique solution
+of \(-a + x = 0\), but \(a\) is also a solution, thus \(a = -(-a)\). \\
+(4): Since \(-(a+b)\) is the unique solution of \((a+b) + x = 0\) and since addition
+is commutative, we have \[
+(a+b) + (-a) + (-b) = (a-a) + (b-b) = 0 + 0 = 0 \implies (-a) + (-b) = -(a+b).
+\]\\
+(5): By parts (4) and (3) above, we have \[
+-(a-b) = (-a) + (-(-b)) = -a + b.
+\]\\
+(6): By parts (2) and (3) above, \[
+(-a)(-b) = -(a(-b)) = -(-ab) = ab
+\]\\
+(7): By (2), we have \[
+(-1)a = -(1a) = -a.
+\]
+\end{proof}
 
 
-\begin{proposition}[Subring]
+
+\begin{exercise}\label{ex:def of exponential}
+Let $n,m \in \mathbb{N}$, if \(R\) is a ring with $a\in R$, then
+\begin{gather*}
+    a^n = aaa\cdots a \quad (\textnormal{n factors})\\
+    a^na^m = a^{m+n} \textnormal{ and } (a^m)^n = a^{mn}
+\end{gather*}
+
+
+\end{exercise}
+
+
+
+
+\begin{remark}
+    Now with subtraction formally defined, we can revisit theorem \ref{thm:subring}
+    and see if we can find a simpler method for checking subrings.
+\end{remark}
+
+
+\begin{proposition}[Subring]\label{thm:check for subring_p2}
 Let $S$ be a nonempty subset of a ring $R$ such that:
 \begin{enumerate}
     \item $S$ is closed under subtraction (if $a, b \in S$, then $a - b \in S$);
@@ -790,12 +852,24 @@ Then $S$ is a subring of $R$.
 \end{proposition}
 
 
+\begin{proof}
+We will show that this is equivalent to the hypotheses of theorem \ref{thm:check for subring}.
+This means we only need to show that closure under subtraction implies (1) $S$ is closed 
+under addition, (2) $0 \in S$, and (3) if $a \in S$ then $x\in S$, where $a+x = 0$. \\
+(2): Since $S$ is nonempty and is closed under subtraction, we have that
+ $c \in S$ exists so that $c-c = 0 \in S$. Thus $0 \in S$.\\
+(3): Since $-a$ is the solution of $a+x = 0$, we just need that $-a \in S$.
+Again, since $S$ is closed under subtraction, we have $0 - a = -a \in S$.\\
+(1) By part (3) above, we have that $-b \in S$, and so from closure of subtraction
+ \(a-b \in S \implies a - (-b) = a+b \in S\). Where the equality used (\ref{prp:ring arithmetic with subtraction}).
+
+\end{proof}
 
 
-
-
-\begin{definition}
-An element $a$ in a ring $R$ with identity is called a \textit{unit} if there exists $u \in R$ such that $au = 1_R = ua$. In this case, the element $u$ is called the (multiplicative) inverse of $a$ and is denoted $a^{-1}$. Note that we already defined this in \ref{def:units}.
+\begin{definition}\label{def:units p2}
+An element $a$ in a ring $R$ with identity is called a \textit{unit} if there exists $u \in R$ such that $au = 1_R = ua$. In this case, 
+the element $u$ is called the (multiplicative) inverse of $a$ and is
+denoted $a^{-1}$. Note that we already defined this in \ref{def:units}.
 \end{definition}
 
 
@@ -804,7 +878,7 @@ An element $a$ in a ring $R$ with identity is called a \textit{unit} if there ex
 
 
 
-\begin{definition}
+\begin{definition}\label{def:zero divisor p2}
 An element $a$ in a ring $R$ is a \textbf{zero divisor} provided that:
 \begin{enumerate}
     \item $a \neq 0_R$.
@@ -816,20 +890,69 @@ Note that we already defined this in \ref{def:zero_divisor}.
 
 
 
-\begin{theorem}
+\begin{theorem}\label{thm:cancellation of Multiplication}
 Cancellation is valid in any integral domain $R$: If $a \neq 0_R$ and $ab = ac$ in $R$, then $b = c$.
 \end{theorem}
 
-\begin{theorem}
+\begin{proof}
+Since $ab=ac$ and since all rings are closed under subtraction (\ref{thm:subtraction}) we have \[
+ab - ac = a(b-c) = 0
+\]
+since $S$ is an integral domain (\ref{def:integral domain}) we have $a=0$ or $b-c = 0$, but by hypothesis $a \neq 0$, thus $b=c$.
+\end{proof}
+
+\begin{theorem}\label{thm:fields are integral domains}
 Every field $F$ is an integral domain.
 \end{theorem}
 
-\begin{theorem}
+
+\begin{proof}
+Since both fields and integral domains are commutative rings with identity,
+we only need to show that the existence of a solution $x \in R$ in $ax=1$ implies
+that whenever $ab=0$ then $a=0$ or $b=0$. Suppose $b\neq 0$ and $ab=0$. By definition
+(\ref{def:field}) we have $b^{-1} \in R$ such that $bb^{-1} = 1$. Then
+\[
+a = a1 = a(bb^{-1}) = (ab)b^{-1} = 0b^{-1} = 0
+\].
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}\label{thm:finite integral domain is field}
 Every finite integral domain $R$ is a field.
 \end{theorem}
 
+\begin{proof}
+Since $R$ is an integral domain (\ref{def:integral domain}) it has no zero divisors (\ref{def:zero divisor p2}).
+Let $R' = R \ {0}$ and let $f: R' \to R'$ be the mapping $f(x) = ax$ for some fixed
+$a \in R'$. Now if $f(x) = f(y)$ or $ax = ay$ then by cancellation for integral domains (\ref{thm:cancellation of Multiplication}) $x=y$,
+thus $f$ is injective. But since $R (R')$ is finite, we have that $f$ is also surjective.
+So fixing any $a \in R$, we have $\forall y \in R'$, $\exists x \in R'$ such that
+$ax = y$. Letting $y = 1$ we see that $\forall a \in R'$, $\exists x \in R'$ such that $ax = 1$. 
+\end{proof}
 
 
+
+\begin{remark}
+Consider the subset $\{0,2,4,6,8\}$ of $\mathbb{Z}_{10}$ along with
+the set $\mathbb{Z}_5 = \{0,1,2,3,4,5\}$. Notice that the multiplication 
+and addition amongst the subset of $\mathbb{Z}_10$ and amongst the elements in $\mathbb{Z}_5$
+are analogous in that the only thing changing is the labels of the numbers. Meaning, 
+for the elements of $\mathbb{Z}_5$, if we relabel 0 as 0, 1 as 6, 2 as 2, 3 as 8, and 4 as 4, we see
+that the two sets are actually identical (after relabeling).\\
+\indent The above is an example of having two structures and finding that for
+however multiplication and addition are defined, every element along with the stucture those elements build (with operations)
+can be paired off with elements of another structure. This is an isomorphism and is defined rigorously below.
+\end{remark}
 
 
 
@@ -846,7 +969,11 @@ In this case, the function $f$ is called an \textbf{isomorphism}.
 
 
 
-
+\begin{remark}
+Now if we have that two rings are almost isomorphic but there does not 
+exist a bijection amongst the elements, then we basically have only an isomorphism between
+the structures only. This implies the operations, the things that build the structure, must satisfy the below.
+\end{remark}
 
 \begin{definition}[Homomorphism]
 Let $R$ and $S$ be rings. A function $f: R \to S$ is said to be a \textbf{homomorphism} if
@@ -864,14 +991,13 @@ f(a + b) = f(a) + f(b) \quad \text{and} \quad f(ab) = f(a) f(b) \quad \text{for 
 
 
 
-\begin{theorem}
+\begin{theorem}\label{thm:homomorphism property}
 Let $f: R \to S$ be a homomorphism of rings. Then
 \begin{enumerate}
     \item $f(0_R) = 0_S$.
     \item $f(-a) = -f(a)$ for every $a \in R$.
     \item $f(a - b) = f(a) - f(b)$ for all $a, b \in R$.
 \end{enumerate}
-
 If $R$ is a ring with identity and $f$ is surjective, then
 \begin{enumerate}
     \setcounter{enumi}{3}
@@ -879,6 +1005,28 @@ If $R$ is a ring with identity and $f$ is surjective, then
     \item Whenever $u$ is a unit in $R$, then $f(u)$ is a unit in $S$ and $f(u)^{-1} = f(u^{-1})$.
 \end{enumerate}
 \end{theorem}
+
+\begin{proof}
+(1): Since $f$ is a homomorphism we have $f(0_R) + f(0_R) = f(0_R + 0_R) = f(0_R) = f(0_R) + 0_S$.
+So this means, $f(0_R) = 0_S$.\\
+(2): Let $a \in R$, then $f(a) + f(-a) = f(a-a) = f(0_R) = 0_S$ by (1).
+Since $-f(a)$ is the solution to the equation $f(a) + x = 0_S$, and since 
+we have that $f(-a)$ is also a solution. By \ref{thm:subtraction}, we have $-f(a) = f(-a)$.\\
+(3): $ f(a-b) = f(a + (-b)) = f(a) + f(-b) = f(a) - f(b)$. Note that we used (2) on the third equality.\\
+(4): Since $f$ is surjective, we have that $\forall s \in S$, $\exists r \in R$ such that
+$s = f(r)$. Thus, \[
+sf(1_R) = f(r)f(1_R) = f(r\cdot 1_R) = f(r) = s \implies f(1_R) = 1_S.
+\]\\
+(5): Using (4), we see that\[
+1_S = f(1_R) = f(uu^{-1}) = f(u)f(u^{-1}) \implies f(u)f(u^{-1}) = 1_S
+\]
+So the multiplicative inverse of any $f(u)$ is $f(u^{-1})$ and since 
+we denote the inverse of $f(u)$ as $f(u)^{-1}$, we see $f(u^{-1}) = f(u)^{-1}$.
+
+
+
+
+\end{proof}
 
 
 
@@ -893,6 +1041,37 @@ If $R$ is a ring with identity and $f$ is surjective, then
 \begin{corollary}
 If $f: R \to S$ is a homomorphism of rings, then the image of $f$ is a subring of $S$.
 \end{corollary}
+
+\begin{proof}
+Denote the image of $f$ by $Im(f)$. $Im(f)$ is nonempty because 
+$0_S = f(0_R) \in Im(f)$ by theorem \ref{thm:homomorphism property}.
+Then by definition we have that if $f(a), f(b) \in Im(f)$ then 
+$f(a)f(b) = f(ab) \in Im(f)$ and $f(a) - f(b) = f(a-b) \in Im(f)$, again by \ref{thm:homomorphism property}. Thus, $Im(f)$ is a subring of $S$ by \ref{thm:check for subring_p2}.
+
+\end{proof}
+
+\begin{remark}
+Suppose there is some property amongst the elements of $R$ and their is 
+an isomorphism between $R$ and $S$. Then we say the property is \textit{preserved}
+under the isomorphism $f$ if that property is carried over, or, also seen in $S$.
+For example, suppose $R$ is a commutative ring (\ref{def:commutative_ring}) and $f: R \to S$
+is an isomorphism. Then $\forall a,b \in R$, we have $ab = ba \in R$. Therefore, in $S$ we have \[
+f(a)f(b) = f(ab) = f(ba) = f(b)f(a).
+\]
+Which means $S$ is also a commutative ring. So we see here that the structure of commutative rings are preserved under isomorphisms.
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

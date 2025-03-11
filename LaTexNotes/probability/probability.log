@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  8 MAR 2025 17:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  10 MAR 2025 22:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -299,8 +299,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@proposition=\count300
 \c@exercise=\count301
 \c@definition=\count302
-\c@remark=\count303
-\c@example=\count304
+\c@example=\count303
+\c@remark=\count304
 ))
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2.
  (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
@@ -436,7 +436,11 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 
 [4]
 
-[5] (c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.aux)
+[5]
+
+[6]
+
+[7] (c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -445,17 +449,17 @@ Package rerunfilecheck Info: File `probability.out' has not changed.
 (rerunfilecheck)             Checksum: 9B6073DD6C4821D41954AF439A054973;266.
  ) 
 Here is how much of TeX's memory you used:
- 10703 strings out of 473523
- 167548 string characters out of 5714631
- 576130 words of memory out of 5000000
- 33704 multiletter control sequences out of 15000+600000
+ 10722 strings out of 473523
+ 167928 string characters out of 5714631
+ 578467 words of memory out of 5000000
+ 33713 multiletter control sequences out of 15000+600000
  598853 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,13n,99p,1131b,653s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 95i,14n,99p,1131b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.pdf (5 pages, 242151 bytes).
+Output written on c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.pdf (7 pages, 254709 bytes).
 PDF statistics:
- 173 PDF objects out of 1000 (max. 8388607)
- 60 named destinations out of 1000 (max. 500000)
+ 199 PDF objects out of 1000 (max. 8388607)
+ 70 named destinations out of 1000 (max. 500000)
  17 words of extra memory for PDF output out of 10000 (max. 10000000)
 

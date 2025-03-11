@@ -210,6 +210,12 @@ INPUT C:\Users\carso\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmri7.
 INPUT C:\Users\carso\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmbx12.tfm
 INPUT C:\Users\carso\AppData\Local\Programs\MiKTeX\fonts\enc\dvips\lm\lm-mathex.enc
 INPUT C:\Users\carso\AppData\Local\Programs\MiKTeX\fonts\tfm\public\lm\rm-lmbxi10.tfm
+INPUT .\algebra\algebra.tex
+INPUT .\algebra\algebra.tex
+INPUT algebra\algebra.tex
+INPUT .\algebra\algebra.tex
+INPUT .\algebra\algebra.tex
+INPUT algebra\algebra.tex
 INPUT .\linear_algebra\linear_algebra.tex
 INPUT .\linear_algebra\linear_algebra.tex
 INPUT linear_algebra\linear_algebra.tex
