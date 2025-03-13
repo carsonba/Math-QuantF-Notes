@@ -371,7 +371,7 @@
     
     
     \begin{proof}
-        We start with (i). Suppose $\{x_n\}_{n=1}^{\infty}$ and $\{y_n\}_{n=1}^{\infty}$ are convergent sequences and write
+\textit{(i)} Suppose $\{x_n\}_{n=1}^{\infty}$ and $\{y_n\}_{n=1}^{\infty}$ are convergent sequences and write
 $z_n := x_n + y_n$. Let $x := \lim_{n \to \infty} x_n$, $y := \lim_{n \to \infty} y_n$, and $z := x + y$.
 
 Let $\epsilon > 0$ be given. Find an $M_1$ such that for all $n \geq M_1$, we have $|x_n - x| < \epsilon/2$. Find an $M_2$ such that for all $n \geq M_2$, we have $|y_n - y| < \epsilon/2$. Take $M := \max\{M_1, M_2\}$. For all $n \geq M$, we have
@@ -429,7 +429,7 @@ Let $\epsilon > 0$ be given. Let $K := \max\{|x|, |y|, \epsilon/3, 1\}$. Find an
 
 Finally, we examine (iv). Instead of proving (iv) directly, we prove the following simpler claim:
 
-\textbf{Claim:} If $\{y_n\}_{n=1}^{\infty}$ is a convergent sequence such that $\lim_{n \to \infty} y_n \neq 0$ and $y_n \neq 0$ for all $n \in \mathbb{N}$, then $\{1/y_n\}_{n=1}^{\infty}$ converges and
+\textit{Claim:} If $\{y_n\}_{n=1}^{\infty}$ is a convergent sequence such that $\lim_{n \to \infty} y_n \neq 0$ and $y_n \neq 0$ for all $n \in \mathbb{N}$, then $\{1/y_n\}_{n=1}^{\infty}$ converges and
 
 \[
 \lim_{n \to \infty} \frac{1}{y_n} = \frac{1}{\lim_{n \to \infty} y_n}.
@@ -438,6 +438,49 @@ Finally, we examine (iv). Instead of proving (iv) directly, we prove the followi
 Once the claim is proved, we take the sequence $\{1/y_n\}_{n=1}^{\infty}$, multiply it by the sequence $\{x_n\}_{n=1}^{\infty}$ and apply item (iii).
 
 \textit{Proof of claim:} Let $\epsilon > 0$ be given. Let $y := \lim_{n \to \infty} y_n$. As $|y| \neq 0$, then
+we want that $\left|\frac{1}{y_n} - \frac{1}{y}\right| < \varepsilon$.
+Thus, \[
+\left|\frac{1}{y_n} - \frac{1}{y}\right| = \left|\frac{y_n-y}{yy_n}\right|
+\]
+Then since $|yy_n| \to |y|^2$, we need find $N$ to satisfy 
+\begin{equation}
+    |y_n - y| < \varepsilon |y|^2
+\end{equation}
+But this implies we are saying
+
+\[
+    \left|\frac{y_n-y}{yy_n}\right| \leq \left|\frac{y_n-y}{y^2}\right| \iff 
+     \frac{1}{|y||y_n|} \leq \frac{1}{|y|^2}
+\]
+So we also need to choose $N$ so that  
+\[\frac{1}{|y_n|} \leq \frac{1}{|y|}\]
+But to use the above with $|y_n - y|$, consider 
+\[
+|y| \leq |y_n - y| + |y_n|
+\] 
+So we have, $ \forall \varepsilon>0 $, choose $N \in \mathbb{N}$ suchh that
+\[
+|y_n - y | < min\left\{\varepsilon |y|^2, \right\}
+\]
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+OOOOOOOOOOOOOOOOOOOOOOOO
+
+
+
+
+
+
 
 \[
 \min \left\{ \frac{|y|^2 \epsilon}{2}, \frac{|y|}{2} \right\} > 0.
@@ -476,7 +519,7 @@ We finish the proof of the claim:
 \]
 
 \[
-< \frac{|y|^2 \epsilon}{2} \cdot \frac{2}{|y|}
+< \frac{|y|^2 \epsilon}{2|y|} \cdot \frac{2}{|y|}
 \]
 
 \[
@@ -1169,29 +1212,20 @@ which is the desired conclusion.
     
     
     \begin{exercise}
-    A bounded sequence $ (x_n)^\infty_{n=1}$ converges to $x$ $\iff$ every subsequence $ (x_{n_k})^\infty_{k = 1}$ converges to $x$.
+    A sequence $ (x_n)^\infty_{n=1}$ converges to $x$ $\iff$ every subsequence $ (x_{n_k})^\infty_{k = 1}$ converges to $x$.
     \end{exercise}
     
-    \begin{proof}
-Suppose \(x_n \to x\). Let \(\{x_{n_k}\}\) be any subsequence of \(\{x_n\}\). By definition of a subsequence, the terms \(x_{n_k}\) are simply some of the terms \(x_n\), but in the same order. Hence, for every \(\varepsilon > 0\), if we can make \(|x_n - x| < \varepsilon\) for all \(n\) large enough, the same is true for the subsequence terms \(x_{n_k}\). Given \(\varepsilon > 0\), there exists \(N\) such that for all \(n \ge N\), \(|x_n - x| < \varepsilon\). Since \(n_k \ge k\) (in fact \(n_k \to \infty\) as \(k \to \infty\)), eventually \(n_k \ge N\). Thus \(\bigl|x_{n_k} - x\bigr| < \varepsilon\) for all \(k\) sufficiently large. This shows \(x_{n_k} \to x\). Therefore, every convergent subsequence converges to the same limit \(x\).
-\\ \indent For the other direction, we prove the contrapositive. Assume \(\{x_n\}\) does not converge to \(x\). By the definition of the limit, this means there exists some \(\varepsilon_0 > 0\) such that for **every** \(N\in\mathbb{N}\), there is an \(n \ge N\) with
-\[
-  \bigl|x_n - x\bigr| \;\ge\; \varepsilon_0.
+\begin{proof}
+Suppose $x_n \to x$. Then by definition \ref{def:subsequence}, we have
+$n_k \geq k \ \forall n \in \mathbb{N}$. Thus $\forall \varepsilon >0$,
+$\exists N \in \mathbb{N}$ such that $\forall n_k \geq n \geq N$ we have \[
+|x_n - x_{n_k}| \leq |x_n - x| + |x_{n_k} - x| < \varepsilon/2 + \varepsilon/2 = \varepsilon.
 \]
-Intuitively, no matter how far out in the sequence you go, there are terms that stay at least \(\varepsilon_0\)-away from \(x\). We build a subsequence \(\{x_{n_k}\}\) that remains outside the \(\varepsilon_0\)-neighborhood of \(x\). Start by letting \(n_1\) be an index such that \(\bigl|x_{n_1} - x\bigr| \ge \varepsilon_0\). Having chosen \(n_k\), pick \(n_{k+1} > n_k\) such that \(\bigl|x_{n_{k+1}} - x\bigr| \ge \varepsilon_0\).  
-This is always possible by the non-convergence assumption.
-
-Thus, for each \(k\),
-\[
-  \bigl|x_{n_k} - x\bigr| \;\ge\; \varepsilon_0.
-\]
-Therefore, the subsequence \(\{x_{n_k}\}\) does not converge to \(x\). Since \(\{x_n\}\) is given to be bounded, any subsequence (including \(\{x_{n_k}\}\)) is also bounded. By the Bolzano–Weierstrass Theorem (or any equivalent result about bounded sequences in \(\mathbb{R}\)), the subsequence \(\{x_{n_k}\}\) has a further convergent subsequence, say \(\{x_{n_{k_j}}\}\). Let
-\[
-  \lim_{j \to \infty} x_{n_{k_j}} \;=\; y
-\]
-for some \(y \in \mathbb{R}\). By hypothesis, every convergent subsequence of \(\{x_n\}\) must converge to \(x\). Thus we must have \(y = x\).  On one hand, we deduce \(x_{n_{k_j}} \to x\). On the other hand, from the construction we know each \(x_{n_{k_j}}\) satisfies \(\bigl|x_{n_{k_j}} - x\bigr| \ge \varepsilon_0\). No sequence whose terms stay at a fixed distance \(\varepsilon_0>0\) from \(x\) can converge to \(x\). This contradiction arises from assuming \(\{x_n\}\) does not converge to \(x\).
-
-Hence, it must be that \(\{x_n\}\) does converge to \(x\). This completes the proof of the contrapositive and thus the original statement.
+Conversely, suppose $x_{n_k} \to x$ for any subsequence $x_{n_k}$. 
+Then, by \ref{thm: lim sup lim inf subsequence}, $\exists x_{n_k} \to \limsup{x_n}$ and $\exists x_{n_i} \to \liminf{x_n}$,
+so we have by \ref{prp: convergence criterion lim inf lim sup} \[
+x = \limsup{x_n} = \liminf{x_n} \implies x_n \to x
+\] 
 \end{proof}
     
     
@@ -1265,25 +1299,20 @@ Because $\frac{b_1 - a_1}{2^{i-1}}$ is arbitrarily small and $y - x \geq 0$, we 
     
     \end{exercise}
     
+    \begin{remark}
+    The above uses the same arguement as the ratio test.
+\par To see this, observe that the ratio test by construction
+has the property that each term is a multiple $L$ of the preceeding term. But this 
+is only true when $n \geq N$ so now remembering how the
+\ref{ex:ratio_test} \ref{ex: limit of c^n} \ref{ex: nth root limit} proofs multiply
+a bunch of terms then show that each of those terms is bounded by $L$, 
+so you have some big product with something like $L^{n-N}$ bounding $|x_n|$. Then
+you can take the $n$th root of your ending expression that looks something like
+ $|x_n| < L^{n-N}$ which gives you your result. 
+    \end{remark}
     
     
-    
-    \begin{exercise}
-    If \(\lim \left| \frac{s_{n+1}}{s_n} \right|\) exists and equals \(L\)\, then \(\lim |s_n|^{1/n}\) exists and equals \(L\).
-    
-    \end{exercise}
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     
@@ -1303,10 +1332,21 @@ Because $\frac{b_1 - a_1}{2^{i-1}}$ is arbitrarily small and $y - x \geq 0$, we 
     
     
     
-    \begin{lemma}
+    \begin{lemma}\label{lem:if cauchy then bounded}
     If a sequence is Cauchy, then it is bounded. 
     \end{lemma}
     
+    \begin{proof}
+    Suppose $x_n$ is cauchy. Then, from the definition \ref{def:cauchy_sequence}, let $m = N$ and let $\varepsilon = 1$, then
+    \[
+    |x_n - x_N| < 1
+    \]
+    Then by reverse triangle inequality, 
+    \[
+    |x_n| < 1+|x_N|
+    \]
+    Since $|x_N|$ is fixed, this shows that $|x_n$ is bounded. 
+    \end{proof}
     
     
     
@@ -1534,6 +1574,16 @@ Because $\frac{b_1 - a_1}{2^{i-1}}$ is arbitrarily small and $y - x \geq 0$, we 
         \lim_{n\to\infty} x_n = x.
         \)
     \end{proposition}
+
+\begin{proof}
+Suppose $x\in \mathbb{R}$ is a cluster point \ref{def:cluster_point} of $S$. 
+Then define the sequence $x_n$ such that $\forall n \in \mathbb{N}$, $x_n \in S$ and \[
+0 < |x_n - x| < \frac{1}{n}
+\]
+Conversely, if we have a sequence convergent to $x$ such that $\forall \varepsilon > 0$
+$\exists N \in \mathbb{N}$ such that $0<|x_N - x| < \varepsilon$ where $x_n \neq x$. That is, for any $\varepsilon > 0$
+\[x_N \in (x - \epsilon, x + \epsilon) \cap (S \setminus \{x\})\]
+\end{proof}
     
     
     
@@ -1558,6 +1608,14 @@ Because $\frac{b_1 - a_1}{2^{i-1}}$ is arbitrarily small and $y - x \geq 0$, we 
     \begin{proposition}
     Let $c$ be a cluster point of $S \subset \mathbb{R}$ and let $f : S \to \mathbb{R}$ be a function such that $f(x)$ converges as $x$ goes to $c$. Then the limit of $f(x)$ as $x$ goes to $c$ is unique.
     \end{proposition}
+
+    \begin{proof}
+    $\forall \varepsilon > 0$, $\exists \delta_1 >0$ such that $x\in S \setminus c$ and $|x-c|<\delta_1 \implies |f(x) - L_1| < \varepsilon/2$, and also
+    $\exists \delta_2 > 0$ such that $|x-c|<\delta_2 \implies |f(x) - L_2| < \varepsilon/2$. Then,
+    \[
+    |L_1 - L_2| \leq |f(x) - L_1| + |f(x) - L_2| \leq \varepsilon/2 + \varepsilon/2 = \varepsilon.
+    \]
+    \end{proof}
         
     
     

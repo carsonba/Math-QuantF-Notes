@@ -57,66 +57,119 @@
     \end{array} \right) }_{\mathbb{E}\{\boldsymbol{X}\}}\text{.}
 \end{equation}
 
-So we give the following definitions
-
-
-\begin{definition}
-Given a probability space $(\Omega, \mathcal{F}, P)$ (\ref{def:probability_space}) with a random variable $X$ (\ref{def:random_variable}), integration with respect to the probability measure (\ref{def:probability_measure}), yields the expectation
+So we will measure the returns of 
+an asset at different intervals, then, in 
+the mean covariance framework, we will characterize 
+the \textit{random variables} based on their mean \ref{def:expected value} and covariance XXX REF Cov XXX.
+For example, consider the linear returns $
+    R_{t\rightarrow u}\equiv\frac{V_{u}}{V_{t}}-1\text{}$ of the $n=2$ assets
 \begin{equation}
-    \mathbb{E}\{X\}\equiv\int_{\Omega}X(\omega)d\mathbb{P}\{\omega\}\text{.}
-\end{equation}
-More specifically, the expectation applied to the indicator function $1_\mathcal{E}$ for a given set $\mathcal{E}$ is the probability of the event $\mathcal{E}$ itself
+    \underbrace{\left( \begin{smallmatrix}
+    X_{1}\\
+    X_{2}
+    \end{smallmatrix} \right) }_{\boldsymbol{X}}\equiv\left( \begin{smallmatrix}
+    V_{1,t+1}/V_{1,t}-1\\
+    V_{2,t+1}/V_{2,t}-1
+    \end{smallmatrix} \right) \text{,}
+    \end{equation}
+where $V_{n,u}$ denotes the value of the $n$th asset at time $u$. \\
+\indent We then start to measure and characterize the random variable $\textbf{X}$ of the returns, so we
+find $\mathbb{E}(\textbf{X})$ and $\mathbb{C}v{\textbf(X)}$ where the expectation is a measure of the center
+of the distrbution s
+
 \[
-    1_{\boldsymbol{x}\in\mathcal{E}}\equiv1_{\mathcal{E}}(\boldsymbol{x})\equiv\left\{ \begin{array}
-    [c]{ll}0 & \text{ if }\boldsymbol{x}\notin\mathcal{D}\\
-    1 & \text{ if }\boldsymbol{x}\in\mathcal{E}
-    \end{array} \right. \implies \mathbb{E}\{1_{\mathcal{E}}\}=\mathbb{P}\{\mathcal{E}\}\text{.}
+    \mathbb{E}\{\boldsymbol{X}\}=\int_{\mathbb{R}^{\bar{n}}}\boldsymbol{x}dF_{\boldsymbol{X}}(\boldsymbol{x}) \quad \textnormal{or} \quad 
+        \mathbb{E}\{\boldsymbol{X}\}\equiv\left( \begin{array}
+        [c]{c}\mathbb{E}\{X_{1}\}\\
+        \vdots\\
+        \mathbb{E}\{X_{n}\}\\
+        \vdots\\
+        \mathbb{E}\{X_{\bar{n}}\}
+        \end{array} \right) \text{,}
 \]
-Note that the indicator $1_\mathcal{E}$ is a special type of random variable, and thus the expectation is well defined. \\
-We commonly use the disitrbution of a random variable (\ref{def:distribution_of_rand_variable}) to calculate the expectation as 
+the variance is given by 
+
+\[
+    \mathbb{V}\{X\}\equiv\mathbb{E}\{(X-\mathbb{E}\{X\})^{2}\}=\mathbb{E}\{X^{2}\}-\left( \mathbb{E}\{X\}\right) ^{2}\text{,}
+    \quad \textnormal{ or } \quad 
+    \mathbb{V}\{X\}=\int\nolimits_{-\infty}^{+\infty}(x-\mathbb{E}\{X\})^{2}dF_{X}(x)\text{.}
+\]
+and the covariance is given by
+
+\[
+    \mathbb{C}v\{X,Y\}\equiv\mathbb{E}\{(X-\mathbb{E}\{X\})(Y-\mathbb{E}\{Y\})\}=\mathbb{E}\{XY\}-\mathbb{E}\{X\}\mathbb{E}\{Y\}\text{,}
+\]
+\[
+\mathbb{C}v\{X,Y\}=\int\nolimits_{\mathbb{R}^{2}}(x-\mathbb{E}\{X\})(y-\mathbb{E}\{Y\})dF_{X,Y}(x,y)\text{,}
+\]
+\[
+    \mathbb{C}v\{\boldsymbol{X},\boldsymbol{Y}\}\equiv\left( \begin{array}
+        [c]{cccc}\mathbb{C}v\{X_{1},Y_{1}\} & \mathbb{C}v\{X_{1},Y_{2}\} & \cdots & \mathbb{C}v\{X_{1},Y_{\bar{m}}\}\\
+        \mathbb{C}v\{X_{2},Y_{1}\} & \mathbb{C}v\{X_{2},Y_{2}\} & \cdots & \mathbb{C}v\{X_{2},Y_{\bar{m}}\}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \mathbb{C}v\{X_{\bar{n}},Y_{1}\} & \mathbb{C}v\{X_{\bar{n}},Y_{2}\} & \cdots & \mathbb{C}v\{X_{\bar{n}},Y_{\bar{m}}\}
+        \end{array} \right) \text{,}
+\]
+Notice in all of the expressions above we have one involving the cdf and one involving 
+the expectation. Obviously the expecation is the mathematical definition where the integral is the application
+of the definition. \\
+Below we see the XXX REF z-score ZZZ which allows us to
+indicate outliers in the data we work with.
+
 \begin{equation}
-    \mathbb{E}\{X\}=\int\nolimits_{-\infty}^{+\infty}xdF_{X}(x)\text{.}
+    z_{X}(x)\equiv\dfrac{x-\mathbb{E}\{X\}}{\mathbb{S}\mathit{d}\left\{ X\right\} }\text{,}
+    \end{equation}
+
+The z-score is closely related to the signal to noise ratio 
+\begin{equation}
+    \mathbb{S}\mathit{n}\{Y\}=\frac{\mathbb{E}\{Y\}}{\mathbb{S}\mathit{d}\{Y\}}\text{.}
 \end{equation}
-Where $dF_{X}(x)$ is the pdf (\ref{def:pdf_of_rand_variable}) of the random variable.\\
-The mean vector, given below, is the weighted average of all possible outcomes where the weights are the likelihoods. Better said, it is the center of mass of the distribution. Each $\mathbb{E}\{\mathbf{X}_n\}$ is the mean of the $n$th marginal variable $\mathbf{X}_n$
+
+Which is the usually the measure for a risk-return decison. When $X$ is the 
+excess return over the risk free rate, the signal to noise ratio is the sharpe ratio
 \begin{equation}
-    \mathbb{E}\{\boldsymbol{X}\}\equiv\left( \begin{array}
-    [c]{c}\mathbb{E}\{X_{1}\}\\
-    \vdots\\
-    \mathbb{E}\{X_{n}\}\\
-    \vdots\\
-    \mathbb{E}\{X_{\bar{n}}\}
-    \end{array} \right) \text{,}
-    \end{equation}
-The mean vector is a functional (\ref{def:functional}) of the distribution $F_{X}(x)$ since it inputs the distribution and outputs a vector. 
-\end{definition}
-
-
-
-
-\begin{equation}
-    \mathbb{C}v\{\boldsymbol{X}\}\equiv\left( \begin{array}
-    [c]{cccc}\mathbb{V}\{X_{1}\} & \mathbb{C}v\{X_{1},X_{2}\} & \cdots & \mathbb{C}v\{X_{1},X_{\bar{n}}\}\\
-    \mathbb{C}v\{X_{2},X_{1}\} & \mathbb{V}\{X_{2}\} & \cdots & \mathbb{C}v\{X_{2},X_{\bar{n}}\}\\
-    \vdots & \vdots & \ddots & \vdots\\
-    \mathbb{C}v\{X_{\bar{n}},X_{1}\} & \mathbb{C}v\{X_{\bar{n}},X_{2}\} & \cdots & \mathbb{V}\{X_{\bar{n}}\}
-    \end{array} \right) \text{.}
+    \mathbb{S}\mathit{r}\{R\}\equiv\mathbb{S}\mathit{n}\{R-r\}\text{.}
     \end{equation}
 
 
 
+Similarly, when $X$ is the excess return over the benchmark, 
+the signal to noise ratio becomes the information ratio (obviously if the benchmark was the risk free rate IR = SR).
 
+\begin{equation}
+    \mathbb{I}\mathit{r}\{R\}\equiv\mathbb{S}\mathit{n}\{R-B\}\text{.}
+    \end{equation}
 
+\vspace{1cm}
 
+We generalize the z-score to $n$ dimensional random variable $\mathbf{X}$ via 
+the \textit{multivariate standard score} for an outcome $\mathbf{x}$
 
+\begin{equation}
+    z_{\boldsymbol{X}}\left( \boldsymbol{x}\right) \equiv(\mathbb{C}v\{\boldsymbol{X}\})^{-1/2}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})\text{,}
+    \end{equation}
 
+Where  $\mathbb{C}v\{\boldsymbol{X}\}^{-1/2}$  is a transpose square root $\mathbf{s}$, which is defined as the solution to the below
+\begin{equation}
+    \boldsymbol{s}\equiv\mathit{root}(\boldsymbol{s}^{2})\quad\Leftrightarrow \quad\boldsymbol{s}^{2}=\boldsymbol{s}\boldsymbol{s}^{\prime}\text{,}
+    \end{equation}
 
+Where the riccati root is the below, which is a result of the
+XXXX REF spectral decomposition XXXX
 
+\begin{equation}
+    \boldsymbol{s}_{\mathit{Ricc}}=\mathit{root}_{\mathit{Ricc}}(\boldsymbol{s}^{2})\equiv\boldsymbol{e}\times\mathit{Diag}(\sqrt{\boldsymbol{\lambda}})\times\boldsymbol{e}^{\prime}\text{,}
+    \end{equation}
 
+Then the multivariate z score is given by 
+\begin{equation}
+    \Vert\boldsymbol{z}_{\boldsymbol{X}}(\boldsymbol{x})\Vert=\sqrt{(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}(\mathbb{C}v\{\boldsymbol{X}\})^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})}\text{.}
+    \end{equation}
 
-
-
-
+This is the mahalanbis distance, given below, Where
+the covariance matrix is scaling 
+the multivariate distance property
+of the mahalanobis.
 
 
 
@@ -180,6 +233,8 @@ The mean vector is a functional (\ref{def:functional}) of the distribution $F_{X
 \subsubsection{Linear Models}
 
 \subsubsection{Machine Learning}
+
+
 
 \subsubsection{Estimation}
 

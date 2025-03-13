@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1741639013.3663 "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" "algebra/algebra.pdf" "algebra" 1741639014.60721 0
-  "C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741471628 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1741796601.34536 "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" "algebra/algebra.pdf" "algebra" 1741796602.76787 0
+  "C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741788637 82665 3eb0bcc9d631fc78d736d6e53fe0e9b2 ""
   "C:/Users/carso/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741462396 12036088 9e483035d3dd2b7afcbbdaf83df187cf ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -76,6 +76,7 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/base/atbegshi-ltx.sty" 1738160243 2963 d8ec5a1b4e0a106c5c737900202763e4 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/base/atveryend-ltx.sty" 1738160243 2378 14b657ee5031da98cf91648f19642694 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/base/size10.clo" 1738160243 8448 5cf247d4bd0c7d5d711bbbdf111fae2e ""
+  "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/bold-extra/bold-extra.sty" 1266350429 1923 d0cfef8b32c8df31c8dc244f7e40f3dc ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/epstopdf-pkg/epstopdf-base.sty" 1623003186 13886 d1306dcf79a944f6988e688c1785f9ce ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/etoolbox/etoolbox.sty" 1739279216 46850 d87daedc2abdc653769a6f1067849fe0 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/geometry/geometry.cfg" 1578053545 1104 7ac475a4e3466b0b43e138e9356bda83 ""
@@ -109,12 +110,12 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.cls" 1606222980 1507 57de335d88fde4e5c924dfed577fdb74 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.sty" 1606222980 5262 70ab9987ec94ed2beeb5c2d951d465f6 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "algebra/../main.tex" 1741624712 962 8b2722e7566bbb6a47f83134b2aec9fd ""
-  "algebra/algebra.aux" 1741639014 3027 586a4a700d002fc51f948db8c14893c6 "pdflatex"
-  "algebra/algebra.out" 1741639014 539 0424c1d614dbcb8dbf9e1e2f4ac8fc4d "pdflatex"
-  "algebra/algebra.tex" 1741639007 40867 0a59acab5b58f904063f9a432eb6d71c ""
-  "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" 1741639007 40867 0a59acab5b58f904063f9a432eb6d71c ""
-  "main.tex" 1741624712 962 8b2722e7566bbb6a47f83134b2aec9fd ""
+  "algebra/../main.tex" 1741788677 1016 e38e36fe4f946cfb1a8927385cc0d2ee ""
+  "algebra/algebra.aux" 1741796602 3027 586a4a700d002fc51f948db8c14893c6 "pdflatex"
+  "algebra/algebra.out" 1741796602 539 0424c1d614dbcb8dbf9e1e2f4ac8fc4d "pdflatex"
+  "algebra/algebra.tex" 1741796600 41449 7ca9507a7a84b938360da7f4e61fcac8 ""
+  "c:/Users/carso/Documents/Projects/LaTexNotes/algebra/algebra.tex" 1741796600 41449 7ca9507a7a84b938360da7f4e61fcac8 ""
+  "main.tex" 1741788677 1016 e38e36fe4f946cfb1a8927385cc0d2ee ""
   (generated)
   "algebra/algebra.aux"
   "algebra/algebra.log"

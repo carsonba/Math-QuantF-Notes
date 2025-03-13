@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1741661811.61238 "c:/Users/carso/Documents/Projects/LaTexNotes/probability/probability.tex" "probability/probability.pdf" "probability" 1741661812.4191 0
-  "C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741471628 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
+["pdflatex"] 1741805948.13581 "c:/Users/carso/Documents/Projects/LaTexNotes/probability/probability.tex" "probability/probability.pdf" "probability" 1741805949.61277 0
+  "C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1741788637 82665 3eb0bcc9d631fc78d736d6e53fe0e9b2 ""
   "C:/Users/carso/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1741462396 12036088 9e483035d3dd2b7afcbbdaf83df187cf ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -107,12 +107,12 @@
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.cls" 1606222980 1507 57de335d88fde4e5c924dfed577fdb74 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/subfiles/subfiles.sty" 1606222980 5262 70ab9987ec94ed2beeb5c2d951d465f6 ""
   "C:/Users/carso/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
-  "c:/Users/carso/Documents/Projects/LaTexNotes/probability/probability.tex" 1741661811 25652 cd2d03ed88f463df8be7eca9660a6b2a ""
-  "main.tex" 1741644111 991 c7b72ca7d3ca548e928ed5006e566c01 ""
-  "probability/../main.tex" 1741644111 991 c7b72ca7d3ca548e928ed5006e566c01 ""
-  "probability/probability.aux" 1741661812 1701 4ecfdf79b16ada5d9002cb0861af85f4 "pdflatex"
-  "probability/probability.out" 1741661812 266 9b6073dd6c4821d41954af439a054973 "pdflatex"
-  "probability/probability.tex" 1741661811 25652 cd2d03ed88f463df8be7eca9660a6b2a ""
+  "c:/Users/carso/Documents/Projects/LaTexNotes/probability/probability.tex" 1741720582 32881 744150f28140b10662cece08b2cc222b ""
+  "main.tex" 1741805931 993 e025b0ece65265c10c07caac3996616d ""
+  "probability/../main.tex" 1741805931 993 e025b0ece65265c10c07caac3996616d ""
+  "probability/probability.aux" 1741805949 2396 b03dc67b59aef9c1e9474a9763b1b029 "pdflatex"
+  "probability/probability.out" 1741805949 672 0ee8bc678d6841e82b8fc6b8b8a28491 "pdflatex"
+  "probability/probability.tex" 1741720582 32881 744150f28140b10662cece08b2cc222b ""
   (generated)
   "probability/probability.aux"
   "probability/probability.log"

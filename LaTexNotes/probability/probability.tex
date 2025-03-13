@@ -137,6 +137,61 @@ A probability measure defined on a $ \sigma $-algebra $\mathcal{A}$ of $\Omega$ 
 
 
 
+\begin{theorem}\label{thm:additivity of nondisjoint sets}
+    Let \(A_1, A_2, \dots, A_n\) be events, then
+\begin{gather*} P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^{n}{P(A_i)} - \sum_{1 \leq i_1 \leq i_2 \leq n}{P(A_{i_1} \cap A_{i_2})}\\ + \sum_{1 \leq i_1 \leq i_2 \leq i_3 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3})} - \sum_{1 \leq i_1 < i_2 \leq i_3 < i_4 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4})} \\ + \cdots + (-1)^{n+1}P(A_1 \cap \cdots \cap A_n)  = \sum_{k=1}^{n}(-1)^{k+1} \sum_{1 \leq i_1 < \cdots < i_k \leq n}{P(A_{i_1} \cap \cdots \cap A_{i_k})} 
+\end{gather*}
+    
+\end{theorem}
+    
+\begin{proof}
+We prove the formula by induction on \( n \). For $n=2$ we already know it holds. Thus
+assume the statement holds for \( n-1 \) events, i.e.,
+
+\[
+P(A_1 \cup A_2 \cup \dots \cup A_{n-1}) = \sum P(A_i) - \sum P(A_i \cap A_j) + \sum P(A_i \cap A_j \cap A_k) - \dots + (-1)^n P(A_1 \cap A_2 \cap \dots \cap A_{n-1}).
+\]
+
+We show it holds for \( n \) events. Observe that
+
+\[
+P(A_1 \cup A_2 \cup \dots \cup A_n) = P((A_1 \cup \dots \cup A_{n-1}) \cup A_n).
+\]
+
+Using the formula 
+
+\[
+P(B \cup C) = P(B) + P(C) - P(B \cap C),
+\]
+
+with \( B = A_1 \cup \dots \cup A_{n-1} \) and \( C = A_n \), we obtain
+
+\[
+P(A_1 \cup \dots \cup A_n) = P(A_1 \cup \dots \cup A_{n-1}) + P(A_n) - P((A_1 \cup \dots \cup A_{n-1}) \cap A_n).
+\]
+
+By the induction hypothesis, the first term on the right-hand side is the sum of all inclusion-exclusion terms up to \( (-1)^n P(A_1 \cap \dots \cap A_{n-1}) \). The new term is 
+
+\[
+- P((A_1 \cup \dots \cup A_{n-1}) \cap A_n).
+\]
+
+Expanding 
+
+\[
+(A_1 \cup \dots \cup A_{n-1}) \cap A_n = (A_1 \cap A_n) \cup \dots \cup (A_{n-1} \cap A_n),
+\]
+
+and applying the inclusion-exclusion principle to these \( n-1 \) sets \( A_1 \cap A_n, \dots, A_{n-1} \cap A_n \), we obtain an alternating sum of probabilities of intersections that include \( A_n \). Careful bookkeeping of signs shows that each new term \( P(A_{i_1} \cap A_{i_2} \cap \dots \cap A_m \cap A_n) \) appears with the correct factor \( (-1)^m \). 
+
+Combining the induction hypothesis with these new terms yields
+
+\[
+P(A_1 \cup A_2 \cup \dots \cup A_n) = \sum P(A_i) - \sum P(A_i \cap A_j) + \sum P(A_i \cap A_j \cap A_k) - \dots + (-1)^{n+1} P(A_1 \cap A_2 \cap \dots \cap A_n).
+\]
+
+Thus, the formula holds for all \( n \).
+\end{proof}
 
 
 
@@ -217,11 +272,23 @@ of sets in $\mathcal{A}$. Then, \[
 \end{lemma}
 
 \begin{proof}
-Suppose $ x \in A = \limsup_{n\to\infty}{A_n} = \liminf_{n\to\infty}{A_n}$. Then,
-\begin{gather*}
-x \in \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \implies \exists N \in \mathbb{N} \textnormal{ such that } x \in A_k, \ \forall k \geq N. \\
-\textnormal{Then if we had } x \notin \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \implies \exists N \in \mathbb{N} \textnormal{ such that } x \notin A_k, \ \forall k \geq N.
-\end{gather*}
+Suppose $ x \in A$ and $\lim{A_n} = A$. Then $\exists N \in \mathbb{N}$ such that
+$\forall k \geq N$ we have $x \in A_k$. Thus, \[
+x \in \bigcap_{k\geq N}{A_k} \implies x \in \bigcup^\infty_{n=1}\bigcap_{k\geq n}{A_k} = \liminf_{n\to\infty}{A_n}
+\]
+Hence, $A \subseteq \liminf{A_n}$ since we showed that $x\in A \implies x \in \liminf{A_n}$.
+Suppose $x \notin A$. Then $\exists N \in \mathbb{N}$ such that $\forall k \geq N$ we have
+$x \notin A_k$. Thus, \[
+x \notin \bigcup_{k\geq n}{A_k} \implies x \notin \bigcap^\infty_{n=1}\bigcup_{k\geq n}{A_k} = \limsup_{n\to \infty}{A_n}
+\]
+Lets summarize what we have showed here. We have all of the below conditions, 
+\[
+(\ref{lem:inf subset of sup}) \ \liminf_{n\to\infty}{A_n} \subseteq \limsup_{n\to\infty}{A_n}, \quad A \subseteq \liminf_{n\to\infty}{A_n}, \quad \textnormal{and } \quad \limsup_{n\to\infty}{A_n} \subseteq A
+\]
+Thus \[
+A = \liminf_{n\to\infty}{A_n} = \limsup_{n\to\infty}{A_n}
+\]
+
 \end{proof}
 
 
@@ -241,15 +308,6 @@ x \in \cup^\infty_{n=1}\cap_{k\geq n}{A_k} \implies \exists N \in \mathbb{N} \te
     \lim_{n\to\infty}{1_{A_n}} = 1_A, \quad \forall \omega \iff A = \limsup_{n \to \infty}{A_n} = \liminf_{n \to \infty}{A_n} 
     \]
 \end{proof}
-
-\begin{theorem}
-Let \(A_1, A_2, \dots, A_n\) be events, then
-\begin{gather*} P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^{n}{P(A_i)} - \sum_{1 \leq i_1 \leq i_2 \leq n}{P(A_{i_1} \cap A_{i_2})}\\ + \sum_{1 \leq i_1 \leq i_2 \leq i_3 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3})} - \sum_{1 \leq i_1 < i_2 \leq i_3 < i_4 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4})} \\ + \cdots + (-1)^{n+1}P(A_1 \cap \cdots \cap A_n)  = \sum_{k=1}^{n}(-1)^{k+1} \sum_{1 \leq i_1 < \cdots < i_k \leq n}{P(A_{i_1} \cap \cdots \cap A_{i_k})} 
-\end{gather*}
-
-
-\end{theorem}
-
 
 
 \begin{definition}[Monotone Sequence of Sets]\label{def:Increasing or Decreasing Sequence of Sets}
@@ -333,16 +391,37 @@ thus we have $P(A_n) \uparrow P(A)$.
 
 
 
-\begin{exercise}
-Let $A_i \in \mathcal{A}$ be a sequence of events. Show that 
+\begin{proposition}
+Let $A_i \in \mathcal{A}$ be a sequence of events. Then, 
 \[
-P(\cup^n_{i=1}{A_i}) \leq \sum_{i=1}^{\infty}{P(A_i)} 
+P\left(\bigcup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{\infty} P(A_i).
 \]
-\end{exercise}
+\end{proposition}
+
+
+\begin{proof}
+We proceed by induction. With $n=2$ we have
+\begin{gather*}
+    P(A_1 \cup A_2) = P(A_1) + P(A_2) - P(A_1 \cap A_2) \implies P(A_1 \cup A_2) \leq P(A_1) + P(A_2)
+\end{gather*}
+Assume for some $n$ the below holds, 
+\[
+    P\left(\bigcup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{n} P(A_i)
+\]
+Then consider 
+\begin{align*}
+    P\left( \bigcup_{i=1}^{n+1} A_i \right) &= P\left( \bigcup_{i=1}^{n} A_i \right) + P(A_{n+1}) - P\left( \bigcup_{i=1}^{n} A_i \cap A_{n+1} \right) \quad (\ref{thm:additivity of nondisjoint sets})\\
+    &\leq \sum_{i=1}^{n}{P(A_i)} + P(A_{n+1}) = \sum_{i=1}^{n+1} P(A_i)\\
+    n \to \infty &\implies P\left( \bigcup_{i=1}^{\infty} A_i \right) \leq \sum_{i=1}^{\infty} P(A_i)\\
+    &\implies P\left( \bigcup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{\infty} P(A_i)
+\end{align*}
+
+\end{proof}
 
 
 
 
+\subsection{Conditional Probability and Independence}
 
 
 
@@ -351,7 +430,10 @@ P(\cup^n_{i=1}{A_i}) \leq \sum_{i=1}^{\infty}{P(A_i)}
 
 \begin{remark}
 Suppose we wanted to determine the probability of some event but we want to update this probability
-given 
+given we observed that the event $B$ occured, or, we want to see how the likelihood changes given $B$ happened.
+Then we want the probability \textit{density} associated with
+the portion of $A$ that is in $B$, then we want to normalize this figure
+to represent that $B$ is being assumed. Another way of seeing the above is, given that $B$ occured, we would never consider accounting for the event $A \cap B^c$.
 \end{remark}
 
 \begin{definition} \label{def: conditional_prob}
@@ -363,6 +445,32 @@ P(A \mid B) = \frac{P(A \cap B)}{P(B)}.
 \]
 
 \end{definition}
+
+
+
+
+\begin{proposition}[Conditional Probability Measure]\label{prop:conditional prob is a prob measure}
+The conditional probability is a probability measure (\ref{def:probability}).
+\end{proposition}
+
+\begin{proof}
+Define $Q(A) = P(A\mid B)$. Then \[
+Q(\Omega) = P(\Omega \mid B) = \frac{P(\Omega \cap B)}{P(B)} = \frac{P(B)}{P(B)} = 1.
+\]
+Now suppose $A_n$ is a sequence of pairwise disjoint sets. Then
+\[
+Q(\cup^\infty_{n=1}{A_n}) = \frac{P(\cup^\infty_{n=1}{A_n} \cap B)}{P(B)} = \frac{P(\cup^\infty_{n=1}{(A_n \cap B)})}{P(B)}
+\]
+Observe that $\cup^\infty_{n=1}{(A_n \cap B)}$ is a pairwise disjoint partition (\ref{def:partition}) of $B$, thus applying (\ref{def:probability})
+\[
+\sum^\infty_{n=1}{\frac{P(A_n \cap B)}{P(B)}} = \sum^\infty_{n=1}{P(A_n\mid B)} = \sum^\infty_{n=1}{Q(A_n)}.
+\]
+\end{proof}
+
+
+
+
+
 
 \begin{definition}\label{def: independence}
 A collection of events $(A_i)_{i \in I}$ is an independent collection if for every finite subset $J$ of $I$, one has 
@@ -380,15 +488,74 @@ if $A_i$ and $A_j$ are independent $\forall i,j$ with $i \neq j$, that is if any
 If $A$ and $B$ are independent, so also are $A$ and $B^c$, $A^c$ and $B$, and $A^c$ and $B^C$. 
 \end{exercise}
 
-\begin{proposition}
+\begin{proof}
+\[
+P(A \cap B^c) = P(A) - P(A \cap B) = P(A) - P(A) P(B) = P(A)(1 - P(B)) = P(A)P(B^c)
+\]
+Suppose \( A \) and \( B \) are independent events, so that
+    
+\[
+P(A \cap B) = P(A) P(B).
+\]
+
+We show that \( P(A^c \cap B^c) = P(A^c) P(B^c) \). Notice that
+
+\[
+P(A^c \cap B^c) = 1 - P(A \cup B).
+\]
+
+By the inclusion-exclusion formula,
+
+\[
+P(A \cup B) = P(A) + P(B) - P(A \cap B).
+\]
+
+Hence,
+
+\[
+P(A^c \cap B^c) = 1 - \left[ P(A) + P(B) - P(A \cap B) \right] = 1 - P(A) - P(B) + P(A \cap B).
+\]
+
+On the other hand,
+
+\[
+P(A^c) P(B^c) = (1 - P(A))(1 - P(B)) = 1 - P(A) - P(B) + P(A) P(B).
+\]
+
+Since \( P(A \cap B) = P(A) P(B) \), we see that the two expressions match:
+
+\[
+P(A^c \cap B^c) = 1 - P(A) - P(B) + P(A \cap B) = 1 - P(A) - P(B) + P(A) P(B) = P(A^c) P(B^c).
+\]
+
+Therefore, \( A^c \) and \( B^c \) are independent.
+\end{proof}
+
+\begin{proposition}[Partition Equation]\label{prop:partition equation}
 If \(A_1, A_2, \dots, A_n \in \mathcal{A}\) and if $ P(A_1 \cap \cdots \cap A_{n-1}) > 0$, then  
 \[
 P(A_1 \cap A_2 \cap \dots \cap A_n) = P(A_1)P(A_2 \mid A_1)P(A_3 \mid A_1 \cap A_2) \dots P(A_n \mid A_1 \cap \dots \cap A_n).
 \]
 \end{proposition}
 
+\begin{proof}
+    We use induction. For \( n = 2 \), the theorem is simply Definition \ref{def: conditional_prob}. Suppose the theorem holds for \( n-1 \) events. Let \( B = A_1 \cap \dots \cap A_{n-1} \). Then by Definition \ref{def: conditional_prob},
+    \[
+    P(B \cap A_n) = P(A_n \mid B) P(B);
+    \]
+    next, we replace \( P(B) \) by its value given in the inductive hypothesis:
+    \[
+    P(B) = P(A_1) P(A_2 \mid A_1) \dots P(A_{n-1} \mid A_1 \cap \dots \cap A_{n-2}),
+    \]
+    and we get the result
+\end{proof}
 
-\begin{definition}
+
+
+
+
+
+\begin{definition}[Partition]\label{def:partition}
 A countable collection of events \(B_1, \dots, B_n\) are a \textit{partition} of \(\Omega\) 
 if the sets \(B_i\) are pairwise disjoint and together they make up \(\Omega\). 
 That is, for all i and j, \( B_i \cap B_j = \emptyset \) whenever \(i \neq j\) 
@@ -404,12 +571,28 @@ and \( \bigcup_{i=1}^n B_i = \Omega\)
 \end{proposition}
 
 
-\begin{theorem}\label{thm:bayes_formula}
+\begin{theorem}[Bayes Theorem]\label{thm:bayes_formula}
 Let \( B_1, B_2, \dots, B_n \) be a partition of the sample space \( \Omega \) such that each \( P(B_i) > 0 \). Then for any event \( A \) with \( P(A) > 0 \), and for any \( k = 1, \dots, n \), we have:
 \[
 P(B_k \mid A) = \frac{P(A B_k)}{P(A)} = \frac{P(A \mid B_k) P(B_k)}{\sum_{i=1}^{n} P(A \mid B_i) P(B_i)}.
 \]
 \end{theorem}
+
+
+
+\begin{proof}
+    By Proposition \ref{prop:partition equation}, we have that the denominator
+    \[
+    \sum_n P(A \mid B_n) P(B_n) = P(A).
+    \]
+    Therefore, the formula becomes
+    \[
+    \frac{P(A \mid B_n) P(B_n)}{P(A)} = \frac{P(A \cap B_n)}{P(A)} = P(B_n \mid A).
+    \]
+\end{proof}
+
+
+
 
 
 
@@ -429,17 +612,18 @@ P(A_{i_1} A_{i_2} \dots A_{i_k} \mid B) = P(A_{i_1} \mid B) P(A_{i_2} \mid B) \c
 
 
 
-\begin{theorem}
-(a) A probability on the countable set $\Omega$ is characterized by its values on the atoms: 
-\[
-p_\omega = P({\omega}), \quad \omega \in \Omega.
-\]
-(b) Let $(p_\omega)_{\omega \in \Omega}$ be a family of real numbers indexed by $\Omega$.
-Then there exists a unique probability $P$ such that $P({\omega}) = p_\omega$ if and only if $p_\omega \geq 0$ and $\sum_{\omega \in \Omega}{p_\omega} = 1$
-\end{theorem}
+\subsection{Random Variables}
+\indent A random variable $X$ is a single-valued real function that assigns 
+a value of $X$ to each set in $\mathcal{A}$. So $X$ is just a regular function
+the only difference is that the domain is comprised of sets. For each such
+set, $X$ will give some value, then we can assign probabilities to these values. We will
+see that we are often not concerned with the individual values of $X$, instead
+we investigate the range of $X$ and the \textit{probability distribution} associated with it.
 
 
-\begin{definition} \label{def: Random_Variable}
+
+
+\begin{definition}[Random Variable] \label{def: Random_Variable}
 A random variable is a measurble function $ X: \Omega \to \mathbb{R}$ such that for all Borel measurable sets $ B \subseteq \mathbb{R}$,
 the preimage of $B$ is an event in $\mathcal{A}$, that is 
 \[
@@ -455,13 +639,47 @@ We can then define the distribution of $X$ by
 \[
 P^X(A) = P({\omega \mid X(w) \in A}) = P(X^{-1}(A)) = P(X \in A)
 \]
-This is completely determined by the following 
+When $\Omega$ is finite or countable, this is completely determined by the following 
 \[
-p_j^X = P(X=j) = \sum_{\omega \mid X(w) =j} \textnormal{ and } P_X(A) = \sum_{j \in A}{p^X_j}
+p_j^X = P(X=j) = \sum_{\{\omega \mid X(w) =j\}}{p_\omega} \textnormal{ and } P_X(A) = \sum_{j \in A}{p^X_j}
 \]
 \end{remark}
 
+\begin{remark}
+We are now going to go off on a bit of a tangent in order to construct the probability 
+measure over uncountable $\Omega$, which we have not touched on yet. In the
+above remark, we concluded that countable probabilities are completely determined by \[
+P(A) = \sum_{\{\omega \mid \forall \omega \in A\}}p_\omega
+\]
+When we consider uncountable sets, this no longer holds. For example, if $\Omega = [0,1] \subset \mathbb{R}$,
+then we need to assign a probability measure to the collection of all subsets of $[0,1]$. 
+\end{remark}
+
+
+
 \begin{definition}
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\textbf{[Expected Value]}\label{def:expected value}
 Let $X$ be a real-valued random variable on a countable space $\Omega$. The expectation of $X$, denoted $E(X)$, is defined to be 
 \[
 E(X) = \sum_{\omega}{X(\omega)p_\omega} \quad \textnormal{or } \quad \int_{-\infty}^{\infty}X(\omega)p_\omega d\omega??
