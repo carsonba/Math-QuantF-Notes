@@ -51,6 +51,15 @@ For any integer \(n \geq 0\) and any real or complex numbers a,b,
 
 \end{theorem}
 
+\begin{theorem}
+The number of ways a set of $n$ distinct objects 
+can be partitioned into $k$ subsets with 
+$n_k$ objects in the $k$th subset is
+\[
+\binom{n}{n_1,n_2,\dots, n_k} = \frac{n!}{n_1!n_2!\cdots n_k!}
+\]
+\end{theorem}
+
 
 \begin{theorem} \label{thm:permutations}
 The number of ways to arrange n distinct objects in a sequence is 
@@ -63,6 +72,19 @@ P(n,k) = \frac{n!}{(n-k)!}.
 \]
 \end{theorem}
 
+
+\begin{theorem}
+Let $n$, $k$, and $j$ be nonnegative integers with $0j\leq k \leq n$. 
+Then for a set with $n$ distinct elements, all of the following hold
+\begin{enumerate}
+    \item \[\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}\]
+    \item \[\binom{n}{k} = \binom{n}{n-k}\]
+    \item \[\sum^k_{j=0}{\binom{m}{j}\binom{n}{k-j}} = \binom{m+n}{k}\]
+    \item \[\binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}\]
+    \item \[2^n = \sum^n_{k=0}{\binom{n}{k}}\]
+    \item \[\binom{k}{k}+ \binom{k+1}{k} + \binom{k+2}{k} + \cdots +\binom{n}{k} = \binom{n+1}{k+1}   \]
+\end{enumerate}
+\end{theorem}
 
 \subsection{Axioms of Probability}
 
@@ -643,6 +665,14 @@ When $\Omega$ is finite or countable, this is completely determined by the follo
 \[
 p_j^X = P(X=j) = \sum_{\{\omega \mid X(w) =j\}}{p_\omega} \textnormal{ and } P_X(A) = \sum_{j \in A}{p^X_j}
 \]
+So basically, the probability distribution of the random variable $X$ is the collection
+of probabilities $P(X\in B)$.
+\par Further, a random variable is a discrete random variable if there exists
+a finite or countably infinite set $k_1, k_2, \dots $ of reals such that
+\[
+\sum_i{P(X=k_i)} = 1
+\]
+where the sum ranges over the entire set of points $\{k_1, k_2, \dots\}$.
 \end{remark}
 
 \begin{remark}
@@ -652,14 +682,54 @@ above remark, we concluded that countable probabilities are completely determine
 P(A) = \sum_{\{\omega \mid \forall \omega \in A\}}p_\omega
 \]
 When we consider uncountable sets, this no longer holds. For example, if $\Omega = [0,1] \subset \mathbb{R}$,
-then we need to assign a probability measure to the collection of all subsets of $[0,1]$. 
+then we need to assign a probability measure to the collection of all subsets of $[0,1]$.
 \end{remark}
 
 
 
 \begin{definition}
+    Let \( (\Omega, \mathcal{F}, \mathbb{P}) \) be a probability space, and let \( X: \Omega \to \mathbb{R} \) be a real-valued random variable. The cumulative distribution function (CDF) of \( X \), denoted \( F_X: \mathbb{R} \to [0,1] \), is defined by  
 
+    \[
+    F_X(x) = P(X \leq x), \quad \forall x \in \mathbb{R}.
+    \]
+    The function \( F_X(x) \) satisfies the following properties  
+    \begin{enumerate}
+        \item (Monotonicity) $\quad F_X(x)$ is monotone increasing
+        \item (Right Continuity) $quad F_X(x)$ is right continuous\[
+        \lim_{h\to 0^+} F_X(x+h) = F_X(x)
+        \]
+        \item (Limits at Infinity) \[
+            \lim_{x \to -\infty} F_X(x) = 0, \quad \lim_{x \to \infty} F_X(x) = 1.
+            \]  
+        \item (Jumps) If \( F_X(x) \) has a jump at \( x \), say  
+        \[
+        P(X = x) = F_X(x) - \lim_{y \to x^-} F_X(y),
+        \]  
+        then \( X \) has positive probability at \( x \)
+        \item (Absolute Continuity) If \( F_X(x) \) is absolutely continuous, then there exists a probability density function (PDF) \( f_X(x) \) such that  
+        \[
+        F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt.
+        \]  
+    \end{enumerate} 
 \end{definition}
+
+
+
+
+
+
+\begin{definition}[Probability Mass Function (PMF)]\label{def:pmf}
+The probability mass function of a discrete random variable $X$ is the function
+$p$ defined by 
+\[
+p(k) = P(X=k)
+\]
+for possible values $k$ of $X$.\\
+We can then find the probabilites of other events of $X$. That is, for some event $X\in B$, we 
+sum each $p(k)$, $\forall k \in B$. 
+\end{definition}
+
 
 
 
@@ -738,6 +808,23 @@ If $X^2$ is in $\mathcal{L}^1$, then for $a>0$ we have
 \end{corollary}
 
 
+
+\subsubsection{Distributions}
+We will now look at the different distributions associtated with a random variable
+and we will discuss the motivations for using each one.\\
+\textbf{Repeated Independent Trials}\\
+If we are sampling with replacement, that is, whatever \textit{data} we are 
+looking at is being drawn from equivalent sets. This means the information
+of each given trial (or occurence/value/outcome of the random variable) does not provide
+any information for the next trial.
+\par The simplest trial is one which has two outcomes, success or failure, for each trial. If we let the 
+probability of a success be $p$, then the probability of fail is $1-p$. So suppose we do $n$ trials
+and we have $k=1$ success. Then the probability of that one success is $p(1-p)^{n-1}$, but the 
+number of ways to have this success is $\binom{n}{1} = n$ since for each of the $n$ spots, only 
+one of them was a success. Extending this, we get the definition below. 
+
+
+
 \begin{definition}[\textbf{Binomial Distribution}]
 Let $n$ be a positive integer and $ 0 \leq p \leq 1$. A random variable $X$ has the $binomial distribution$ with parameters
 $n$ and $p$ if the possible values of $X$ are $\{0,1,\dots,n\}$ and the probabilities are 
@@ -749,6 +836,11 @@ This is denoted $X ~ Bin(n,p)$.
 \end{definition}
 
 
+\par Now consider you are trying to figure out how many flips of a coin 
+till you get a head. Let the probability of a head be $p$. Then the probability 
+of obtaining heads on the 10th flip is $(1-p)^{9}p$. This motivates the below definition
+
+
 \begin{definition}[\textbf{Geometric Distribution}]
 A random variable \( X \) follows a Geometric distribution with parameter \( p \) (success probability per trial) if the probability of $k$ independent trials till a success on the $k$th trial is given by,
 
@@ -757,14 +849,24 @@ P(X = k) = (1 - p)^{k-1} p, \quad k = 1, 2, 3, \dots
 \]
 \end{definition}
 
+\par Now imagine you have a finite population with 
+$N$ objects. Then suppose $K$ objects are of type 1 and $N-K$ objects
+are of type 2. We draw a sample of $n$ without replacement from the $N$ total and 
+want to know the probability of getting exactly $k$ objects of type 1. This is the exact 
+same as the binomial distribution only now we are not replacing. 
+\par So for some $P(X=k)$ we have $\binom{K}{k}$ ways 
+of choosing the $k$ type 1 objects from the total $K$ amount of them. Then we have $\binom{N-K}{n-k}$ ways
+to select the remaining $n-k$ objects of type 2 from the total $N-K$ of type 2.
+Then $\binom{N}{n}$ is the total number of ways to select the $n$ objects. 
 
 \begin{definition}[\textbf{Hypergeometric Distribution}]
 A hypergeometric random variable represents the number of successes of size $n$, drawn without replacement from a population of size \( N \) that contains \( K \) successes. The PMF is given by
 \[
 P(X = k) = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}, \quad \max(0, n - (N - K)) \leq k \leq \min(n, K).
 \]
-
 \end{definition}
+
+
 
 \begin{definition}[\textbf{Poisson Distribution}]
 A Poisson random variable models the number of events occurring in a fixed interval of time or space, under the assumption that events occur independently and at a constant average rate \( \lambda \).

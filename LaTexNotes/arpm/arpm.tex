@@ -166,31 +166,196 @@ Then the multivariate z score is given by
     \Vert\boldsymbol{z}_{\boldsymbol{X}}(\boldsymbol{x})\Vert=\sqrt{(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}(\mathbb{C}v\{\boldsymbol{X}\})^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})}\text{.}
     \end{equation}
 
-This is the mahalanbis distance, given below, Where
-the covariance matrix is scaling 
-the multivariate distance property
-of the mahalanobis.
+This is the mahalanobis distance, given below,
+\begin{equation}
+    \mathit{Mah}_{\boldsymbol{s}^{2}}(\boldsymbol{v},\boldsymbol{w})\equiv \sqrt{\left( \boldsymbol{v}-\boldsymbol{w}\right) ^{\prime}(\boldsymbol{s}^{2})^{-1}\left( \boldsymbol{v}-\boldsymbol{w}\right) }=\Vert\boldsymbol{s}^{-1}(\boldsymbol{v}-\boldsymbol{w})\Vert_{2}\text{,}
+\end{equation}
+Where the covariance matrix is scaling 
+the multivariate distance between
+the point $x$ and the mean $\mathbb{E}(\mathbf{X})$.
+The mahalanobis distance is induced by the mahalanobis
+inner product which is given by 
+\begin{equation}
+    \langle\boldsymbol{v},\boldsymbol{w}\rangle_{\boldsymbol{s}^{2}}\equiv\boldsymbol{v}^{\prime}(\boldsymbol{s}^{2})^{-1}\boldsymbol{w}=(\boldsymbol{s}^{-1}\boldsymbol{v})^{\prime}(\boldsymbol{s}^{-1}\boldsymbol{w})\text{,}
+    \end{equation}
+
+for $\mathbf{v,w} \in \mathbb{R}^n$ and Where
+$\mathbf{s}^2$ is a symmetric, positive definite matrix, and 
+is full rank. Note we define positive definiteness as
+\[
+\mathbf{s}^2 > 0: \quad \mathbf{x^T}\mathbf{s}^2\mathbf{x} > 0.
+\]
+We denote symmetric, positive definite matrices
+as $\mathbf{s}^2$ because any positive definite symmetric 
+matrix can be written as the square of the riccati root. 
+The usefulness of the property seen above is 
+that we can use the quadratic form of the positive definite matrix $\mathbf{s}^2$
+\begin{equation}
+    f(\boldsymbol{x})\equiv\boldsymbol{x}^{\prime}\boldsymbol{s}^{2}\boldsymbol{x}={\textstyle\sum\nolimits_{n,m=1}^{\bar{n}}} s_{n,m}^{2}x_{n}x_{m}\text{,}
+    \end{equation}
+The quadratic form above defines a paraboloid
+with a unique global minimum value, this will
+be helpful in multiple applications.
+Also, the iso-contours of the paraboloid
+are ellipsoids given by 
+\begin{equation}
+    \mathcal{I}_{\boldsymbol{s}^{2}}(\gamma)\equiv\{\boldsymbol{x}:\boldsymbol{x}^{\prime}\boldsymbol{s}^{2}\boldsymbol{x}=\gamma > 0\}\text{,}
+    \end{equation}
+This is precisely what we will look into next... That being, how do we visualize
+the mean covariance classes?\\
+\\ \textbf{Construction of Mean-Covariance Ellipsoid}\\
+\par To visualize the mean-covariance 
+environment, we only have the mean and the covariance. 
+So we will use the covariance matrix to geometrically shape and
+the mean to locate. Note that we assume that the second cross moments of the random vector 
+$\mathbf{X}$ are well defined. That is, we need
+that inner products are well defined. For this, 
+we need that the function space $L^2$ gives a finite integral.
+\begin{equation}
+    L_{\mu}^{2}(\mathcal{T})\equiv\{g:\mathcal{T}\rightarrow\mathbb{C}\text{ such that }\int_{\mathcal{T}}|g(\boldsymbol{t})|^{2}d\mu(\boldsymbol{t})<+\infty\}\text{.}
+    \end{equation}
+For our case we check,
+\begin{equation}
+    L^{2}\equiv\{X\text{ such that }\mathbb{E}\{X^{2}\}=\int_{\Omega}(X(\omega))^{2}d\mathbb{P}\{\omega\}<\infty\}\text{,}
+    \end{equation}
+This ensures the expectation and covariance are well defined. 
+\par So recall, we are trying to visualize the mean covariance classes. 
+We know that the covariance matrix is symmeric and positive definite 
+where symmetry is by definition of covariance matrix and positive definitenss is given by the below
+\begin{equation}
+    \boldsymbol{w}^{\prime}\mathbb{C}v\{\boldsymbol{X}\}\boldsymbol{w}=\mathbb{V}\{\boldsymbol{w}^{\prime}\boldsymbol{X}\}\geq0\text{.}
+    \end{equation}
+Since it is symmetric and positive definite, it admits the spectral decomposition
+\begin{equation}
+    \mathbb{C}v\{\boldsymbol{X}\}=\boldsymbol{e}\times\mathit{Diag}(\boldsymbol{\lambda})\times\boldsymbol{e}^{\prime}\text{,}
+    \end{equation}
+where $\mathbf{e}$ is the $n \times n$ matrix
+of orthonormal ($\mathbf{e'e}=\mathbf{ee'}=\mathbb{I}$) eigenvectors, Also
+$\mathbf{\lambda}$ denotes the $n\times 1$ vector if eigenvalues
+which are all nonnegative.\
+An ellipsoid with radius 1 and center $\mathbf{m}$ and shape $\mathbf{s}^2$
+is the set of points with unit square
+mahalanobis distance from $\mathbf{m}$
+\begin{equation}
+    \partial\mathcal{E}(\boldsymbol{m},\boldsymbol{s}^{2})\equiv\{\boldsymbol{x}\in\mathbb{R}^{\bar{n}}:(\boldsymbol{x}-\boldsymbol{m})^{\prime}(\boldsymbol{s}^{2})^{-1}(\boldsymbol{x}-\boldsymbol{m})=1\}\text{.}
+    \end{equation}
+The $n$ principal semi axes in dimension $n$ are 
+the $n$ straight lines that start at the center of the ellipsoid,
+are orthogonal to the surface, and are not multiples of each other. \\
+We can describe the principal semi axes by 
+\begin{equation}
+    \mathfrak{A}_{n}\equiv\{\boldsymbol{m}+t\sqrt{\lambda_{n}}\boldsymbol{e}_{n},\quad0\leq t\leq1\}\text{,}
+    \end{equation}
+Where the eigenvalue square rooted and the eigenvector multiplying it 
+make the slope of the $n$th line. 
+So just like equation (19), we define the mean-covariance ellipsoid 
+as 
+\begin{equation}
+    \partial\mathcal{E}(\mathbb{E}\{\boldsymbol{X}\},\mathbb{C}v\{\boldsymbol{X}\})=\{\boldsymbol{x}\in\mathbb{R}^{\bar{n}}:(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}(\mathbb{C}v\{\boldsymbol{X}\})^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})=1\}\text{.}
+    \end{equation}
 
 
+\par Below we give the construction of the mean covariance ellipsoid
+by starting from the unit sphere. 
+\begin{equation}
+    \partial\mathcal{B}^{\bar{n}}\equiv\{\boldsymbol{y}:y_{1}^{2}+\cdots +y_{\bar{n}}^{2}=1\}=\partial\mathcal{E}(\boldsymbol{0},\mathbb{I}_{\bar{n}})\text{.}
+    \end{equation}
+Now we consider the eigenvalues and eigenvectors from the spectral decomposition
+given by the covariance matrix. 
+\par We define a new set of coordinates $\mathbf{z}$ by,
+\begin{equation}
+    \boldsymbol{y}\quad\mapsto\quad\boldsymbol{z}\equiv\mathit{Diag}(\sqrt{\boldsymbol{\lambda}})\times\boldsymbol{y}\text{,}
+    \end{equation}
+So the square root of the $n$th eigenvalue
+is scaling the $n$th axis. Then inverting the transformation (to obtain 
+the ellipsoid form we were working with before), follow the inversion for the $n$th element 
+\[
+y_n = z_n / \sqrt{\lambda_n}
+\]
+then substituting, 
+\begin{equation}
+    \{\boldsymbol{z}:\text{\ }\frac{z_{1}^{2}}{\lambda_{1}}+\cdots+\frac{z_{\bar{n}}^{2}}{\lambda_{\bar{n}}}=1\}=\partial\mathcal{E}(\boldsymbol{0},\mathit{Diag}(\boldsymbol{\lambda}))\text{,}
+    \end{equation}
+This gives us the ellipsoid 
+with principle semi axes that have length 
+equal to the $n$th eigenvalue of the covariance matrix.
+So we have now stretched or squeezed the ellipse.
+\par Now we need to rotate the ellipse. So we define a new set of
+coordniates by multiplying the new coordinates in $z$ (seen in equation 23)
+by the matrix of eigenvectors
+\begin{equation}
+    \boldsymbol{z}\quad\mapsto\quad\boldsymbol{u}\equiv\boldsymbol{e}\times\boldsymbol{z}\text{.}
+    \end{equation}
+Since the eigenvectors are orthonormal, we can 
+invert the transformation and obtain $z = e'u$. 
+Then substituing into the definition of the ellipsoid
+\[
+\mathbf{z'}(Diag(\mathbf{\lambda})^{-1})\mathbf{z} = 1
+\]
+gives us 
+\begin{equation}
+    \{\boldsymbol{u}:\boldsymbol{u}^{\prime}\left( \boldsymbol{e}\times \mathit{Diag}(\boldsymbol{\lambda})\times\boldsymbol{e}^{\prime}\right) ^{-1}\boldsymbol{u}=1\}=\partial\mathcal{E}(\boldsymbol{0},\mathbb{C}v\{\boldsymbol{X}\})\text{.}
+    \end{equation}
+\par Now we have an ellipse where 
+the nth axis has length of square root of the nth eigenvalue and is pointed 
+in the same direction as the nth eigenvector. Since the ellipsoid
+is still centered at the origin, we translate it by adding the mean
+\begin{equation}
+    \boldsymbol{u}\quad\mapsto\quad\boldsymbol{x}\equiv\mathbb{E}\{\boldsymbol{X}\}+\boldsymbol{u}\text{.}
+    \end{equation}
+then we substitute $u = x - \mathbb{E}(X)$ into the ellipsoid to obtain 
+\begin{equation}
+    \{\boldsymbol{x}:(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}\left( \mathbb{C}v\{\boldsymbol{X}\}\right) ^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})=1\}=\partial\mathcal{E}(\mathbb{E}\{\boldsymbol{X}\},\mathbb{C}v\{\boldsymbol{X}\})\text{.}
+    \end{equation}\\
+\\ \textbf{Principal Component Analysis}\\
+\par We have seen that we can represent
+a mean-covariance equivalence class visually using an ellipsoid 
+where the shape and location where determined by the mean and covariance.
+\par Now we consider a random variable $\mathbf{X}$. The principal
+directions are the uncorrelated directions, decreasingly responsible for the most variance.
+So the first principal direction $\mathbf{e_1}$ \textit{explains} the most variance of the random variable $\mathbf{X}$. Then
+the second principal direction $\mathbf{e_2}$ is the 
+direction such that the univariate variable $\mathbf{e'_2X}$ has the most variance
+and is uncorrelated with $\mathbf{e'_1X}$.
+We represent this mathematically as, 
+\begin{equation}
+    \boldsymbol{e}_{n}\equiv\operatorname*{argmax}\limits_{\boldsymbol{v}\in\mathcal{V}_{\{0,...,n-1\}}}\,\mathbb{V}\{\boldsymbol{v}^{\prime}\boldsymbol{X}\}\text{,}
+    \end{equation}
+for $n = 1,\dots, n$ where the constraint set is 
+\begin{equation}
+    \mathcal{V}_{\mathcal{N}}=\{\boldsymbol{v}\in\mathbb{R}^{\bar{n}}:\left\{ \begin{array}
+    [c]{ll}\Vert\boldsymbol{v}\Vert_{2}=1 & \\
+    \mathbb{C}v\{\boldsymbol{v}^{\prime}\boldsymbol{X},\boldsymbol{e}_{m}^{\prime}\boldsymbol{X}\}=0 & m\in\mathcal{N}
+    \end{array} \right. \}\text{,}
+    \end{equation}
+with $\mathbf{e_0} = \mathbf{0}$. Then
+affine equivariance of the covariance gives us
+\begin{equation}
+    \boldsymbol{e}_{n}=\operatorname*{argmax}\limits_{\boldsymbol{v}\in \mathcal{V}_{\{0,...,n-1\}}}\,\boldsymbol{v}^{\prime}\mathbb{C}v\{\boldsymbol{X}\}\boldsymbol{v}\text{,}
+    \end{equation}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\par We can see in the above equations that 
+each $e_n$ is selected so that it is uncorrelated with each $e_m$ 
+that came before it (shown by: $\mathbb{C}v\{\boldsymbol{v}^{\prime}\boldsymbol{X},\boldsymbol{e}_{m}^{\prime}\boldsymbol{X}\}=0, \quad m\in\mathcal{N}$)
+\par Note that the argmax function notation is abused here so that 
+it outputs the vector $e_n$ that acheives the maximum length ($e_n$)
+but also the maximum value achieved ($\lambda_n$).
+\par So we are starting with a linearly independent set of $v_n$'s, then for each one, we find the $v_n$ that gives us the maximum 
+variance of $\mathbf{v'}\mathbf{X}$. With the constraint set seen in (30), we first check 
+that the length is unit norm, then the next ensures no correlation. 
+\par Note that our treatment of the PCA is an instance of more general
+principal component orthonomralization algrothim when applied to the mahalanobis inner product. 
+The general form is shown below,  
+\begin{equation}
+    \{\mathfrak{e}_{(n)},\lambda_{n}\}=\operatorname*{argmax}\limits_{\mathfrak{v}\in\mathcal{C}_{\{0,\ldots,n-1\}}}\,\Vert\mathfrak{v}\Vert^{2}\text{,}
+    \end{equation}
+    \begin{equation}
+        \mathcal{C}_{\mathcal{N}}\equiv\{\mathfrak{v}\in\mathit{span}(\mathfrak{v}_{(1)},\ldots,\mathfrak{v}_{(\bar{n})}):\left\{ \begin{array}
+        [c]{l}\Vert\mathit{coord}(\mathfrak{v})\Vert_{2}=1\\
+        \langle\mathfrak{v},\mathfrak{e}_{(n)}\rangle=0,\quad n\in\mathcal{N}
+        \end{array} \right. \}\text{.}
+    \end{equation}
+The solutions we obtain from the PCA are exactly the eigenvectors of the covariance matrix. 
 
 
 

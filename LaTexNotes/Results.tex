@@ -1,0 +1,3206 @@
+\documentclass{article}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{subfiles}
+\usepackage{amsmath, amssymb, amsthm} 
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=red]{hyperref}
+\usepackage{lmodern}
+
+
+
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{proposition}{proposition}[section]
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+
+
+\title{Results}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+
+
+\section{Logic, Metric Spaces, and Set Theory}
+
+
+
+
+\indent \textit{Why study analysis or mathematics in general?} If you intend to reason and navigate the complexities of any system, circumstance, task, or structure, the patterns of reasoning covered in mathematics equips you with the skill of understanding and making inferences or deductions in and about complex systems. So we will study systems at an abstracted level so that our conclusions and hard work are applicable and will aid us in any vocation whether we really notice it or not.  
+\indent Before we begin the rigorous study of calculus, which is the system used to understand and gain insight to abstract dynamic magnitudes. To build this system, we need to first discuss what type of \textit{connections} this systems structure allows. \\
+\indent The first \textit{axiom} of the system is that a \textit{mathematical statement} is either true or false. A mathematical statement is a relationship that is shown through a type of \textit{expression(s)}. An expression is a sequence of mathematical symbols, concepts, and objects that produce some other mathematical object. One can make statements out of expressions by using \textit{relations} such as  \(=, \ <, \ \geq, \ \in, \ \subset \) or by using \textit{properties} such as "is prime", "is invertible", "is continuous". Then one can make a compound statement from other statements by using \textit{logical connectives}. We show some of these below, \\
+\textbf{Conjunction:} If \(X\) is a statement and $Y$ is a statement then the statement "$X$ and $Y$" is a true statement if $X$ and $Y$ are both true. Notice though that this only concerns truth, where the artist of the mathematics must bring the connotations that illustrate more information that just "$X$ and $Y$". For example, "$X$ and also $Y$", or "both $X$ and $Y$", or even "$X$ but $Y$". Notice that $X$ but $Y$ suggests that the statements $X$ and $Y$ are in contrast to each other, while $X$ and $Y$ suggests that they support each other. We can find such reinterpretations of every logical connective.\\
+\textbf{Disjunction:} If $X$ is a statement and $Y$ is a statement then the statement "$X$ or $Y$" is true if either $X$ or $Y$ is true, or both. The reason we include the "$X$ and $Y$" part is because when we are talking about $X$ or $Y$ we want to be talking about \textit{all of} $X$ or $Y$, instead of talking about $X$ and not $Y$ or $Y$ and not $X$. So talking about the \textit{exclusive} "or" (the one that doesn't include "and") is basically talking about two statements. \\
+\textbf{Negation:} The statement "$X$ is not true" or "$X$ is false" is called the \textit{negation} of $X$ and is true if and only if $X$ is false and is false if and only if $X$ is true. Negations convert "and" into "or" and vice versa. For instance, the negation of "Jane Doe has black hair and Jane Doe has blue eyes" is "Jane Doe doesn't have black hair or doesn't have blue eyes". Notice how important the "inclusive or" is here to interpret the meaning of this statement. \\
+\textbf{If and only if:} If $X$ is a statement and $Y$ is a statement, we say that "$X$ is true if and only if $Y$ is true", whenever $X$ is true, $Y$ also has to be true, and whenever $Y$ is true, $X$ must too be true. This is sort of like a logical equivalence. So if we were trying to pin down some type of abstract causal structure of some system an if and only if statement tells me that $X$ and $Y$ will always cause each other.\\
+\textbf{Implication:} If $X$ is a statement and $Y$ is a statement then if we want to know whether (using some abstract notion of "cause") $X$ causes, implies, or leads to $Y$ then we are trying to prove an \textit{implication} which is given by "if $X$ then $Y$" (the implication of $X$ to $Y$). So for $X$ to truly \textit{imply} $Y$, we need that when $X$ is true $Y$ is also true, if $X$ is false then whether $Y$ is true or false doesn't matter. So the only way to disprove an implication is is by showing that when the hypothesis is true, the conclusion is false. One can also think of the statement “if $X$, then $Y$ ” as “$Y$ is at least as true as $X$”—if $X$ is true, then $Y$ also has to be true, but if $X$ is false, $Y$ could be as false as $X$, but it could also be true. 
+\textbf{Variables and Quantifiers:} Notice when we talk about some abstract, general, $X$ and $Y$, the truth of the statements involving them depends on the context of $X$ and $Y$. More precisely, $X$ and $Y$ are \textit{variables} since they are variables that are set to obey some properties but the actual value of them hasn't been specified yet. Then \textit{quantifiers} allow us to talk about the different values of these variables. We can say that there exists $X$ where, say, $X$ implies $Y$ is true, this is denoted \(\exists\). Or we can say for all $X$ (denoted $\forall$), $X$ implies $Y$. 
+\textbf{Equality:} Out of the different relations we have discussed, \textit{equality} is the most obvious. We need to be able to express the relationship of equality. We will present the axioms of equality, called an \textit{equivalence relation}
+\begin{definition}[Equivalence Relation]\label{def:equivalence_relation}
+Given elements $x,y,z$ in any set with the relation $=$ defined, we have
+\begin{enumerate}
+\item (Reflexivity): Given any object $x$, we have $ x = x$.
+\item (Symmetry): Given any two objects $x$ and $y$ of the same type, if $x=y$ then $y=x$
+\item (Transitive): Given any three objects $x, y, z$ of the same type, if $ x = y$ and $y=z$, then $x=z$. 
+\item (Substitution): Given any two objects $x$ and $y$ of the same type, if $ x = y$, then $ f(x) = f(y) $ for all functions or operations $f$. Similarly, for any property $ P(x) $ depending on $x$, if $x=y$, then $P(x)$ and $P(y)$ are equivalent statements. 
+\end{enumerate}
+\end{definition}
+
+
+
+\begin{definition}\label{def:set}
+A \textit{set} is a well-defined collection of distinct objects, called \textit{elements} or \textit{members} considered as a single entity unified under the defining properties of the set. The membership of an element \( x \) in a set \( S \) is denoted by \( x \in S \), while non-membership is written as \( x \notin S \). A set containing no elements is called the \textit{empty set}, denoted \( \emptyset \). 
+\end{definition}
+
+
+
+
+
+
+
+\begin{proposition}\label{prp:set_operations}
+Let $A, B, C$ be sets, and let $X$ be a set containing $A, B, C$ as subsets. 
+\begin{enumerate}
+\item (Minimal element) We have $ A \cup \emptyset = A$ and $A \cap \emptyset = \emptyset$
+\item (Maximal element) We have $ A \cup X = X$ and $ A \cap X = A$.
+\item (Identity) We have $ A \cup A = A$ and $ A \cap A = A$
+\item (Commutativity) We have $ A \cup B = B \cup A$ and $ A \cap B = B \cap A$
+\item (Associativity) We have $ (A \cup B) \cup C = A \cup (B\cup C)$ and $ (A\cap B) \cap C = A \cap (B \cap C)$
+\item (Distributivity) We have $ A \cap (B\cup C) = (A \cap B) \cup (A\cap C) $ and $ A \cup (B \cap C) = (A \cup B) \cap (A\cup C)$
+\item (Partition) We have $ A \cup (X \setminus A) = X$ and $ A \cap (X \setminus A) = \emptyset$
+\item (De Morgan Laws) We have $ X \setminus (A \cup B) = (X \setminus A) \cap (X \setminus B)$ and $ X \setminus (A \cap B) = (X \setminus A) \cup (X \setminus B)$
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+\begin{definition}\label{def:ordered set}
+An \textit{ordered set} is a set S together with an ordering relation, denoted \(<\), such that
+\begin{enumerate}
+\item \textit{(trichotomy)} \(\forall x,y \in S, \textnormal{ exactly one of } x < y, x=y, \textnormal{ or } y<x\) holds.
+\item \textit{(transitivity)} If \(x,y,z \in S \textnormal{ such that } x < y \textnormal{ and } y < z \implies x < z.\)
+\end{enumerate}
+\textbf{Well ordering property of }\label{def:WOA}\(\mathbb{N}:\) Every nonempty subset of \(\mathbb{N}\) has a least element.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\label{def:natural numbers}
+We define the natural numbers \( \{1, 2, 3, 4, \dots \} \) to be a set \(\mathbb{N}\) with the \textit{successor function} \(S\) defined on it. The successor function \(S:\mathbb{N} \rightarrow \mathbb{N},\) is defined by the following axioms,
+\\ \indent \textbf{N1:} \( 1 \in \mathbb{N}\)
+\\ \indent \textbf{N2:} If \(   n \in \mathbb{N}\) then its successor \( n+1 \in \mathbb{N}\) 
+\\ \indent \textbf{N3:} \( 1\) is not the successor of any element in \(\mathbb{N}\)
+\\ \indent \textbf{N4:} If \(n\) and \(m\) in \(\mathbb{N}\) have the same successor, then \(n=m\).
+\\ \indent \textbf{N5:} A subset of \(\mathbb{N}\) that contains \(1\), and contains \(n+1\) whenever it contains \(n\), must be equivalent to \(\mathbb{N}\).
+
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}[Principle of induction]\label{thm:principle_of_induction}
+Let \( P(n) \) be a statement depending on a natural number \( n \). Suppose that
+\begin{itemize}
+\item[(i)] \textit{(basis statement)} \( P(1) \) is true.
+\item[(ii)] \textit{(induction step)} If \( P(n) \) is true, then \( P(n+1) \) is true.
+\end{itemize}
+Then \( P(n) \) is true for all \( n \in \mathbb{N} \).\\
+\end{theorem}
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:field}
+A set \( F \) is called a \textit{field} if it has two operations defined on it, addition \( x + y \) and multiplication \( xy \), and if it satisfies the following axioms:
+\begin{itemize}
+\item[(A1)] If \( x \in F \) and \( y \in F \), then \( x + y \in F \).
+\item[(A2)] \textit{(commutativity of addition)} \( x + y = y + x \) for all \( x, y \in F \).
+\item[(A3)] \textit{(associativity of addition)} \( (x + y) + z = x + (y + z) \) for all \( x, y, z \in F \).
+\item[(A4)] There exists an element \( 0 \in F \) such that \( 0 + x = x \) for all \( x \in F \).
+\item[(A5)] For every element \( x \in F \), there exists an element \( -x \in F \) such that \( x + (-x) = 0 \).
+\item[(M1)] If \( x \in F \) and \( y \in F \), then \( xy \in F \).
+\item[(M2)] \textit{(commutativity of multiplication)} \( xy = yx \) for all \( x, y \in F \).
+\item[(M3)] \textit{(associativity of multiplication)} \( (xy)z = x(yz) \) for all \( x, y, z \in F \).
+\item[(M4)] There exists an element \( 1 \in F \) (with \( 1 \neq 0 \)) such that \( 1x = x \) for all \( x \in F \).
+\item[(M5)] For every \( x \in F \) such that \( x \neq 0 \), there exists an element \( 1/x \in F \) such that \( x(1/x) = 1 \).
+\item[(D)] \textit{(distributive law)} \( x(y+z) = xy + xz \) for all \( x, y, z \in F \).
+\end{itemize}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\label{def:ordered_field}
+A field \( F \) is said to be an \textit{ordered field} if \( F \) is also an ordered set such that
+\begin{itemize}
+\item[(i)] For \( x, y, z \in F \), \( x < y \) implies \( x + z < y + z \).
+\item[(ii)] For \( x, y \in F \), \( x > 0 \) and \( y > 0 \) implies \( xy > 0 \).
+\end{itemize}
+If \( x > 0 \), we say \( x \) is \textit{positive}. If \( x < 0 \), we say \( x \) is \textit{negative}. We also say \( x \) is \textit{nonnegative} if \( x \geq 0 \), and \( x \) is \textit{nonpositive} if \( x \leq 0 \).
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prop:ordered_field_properties}
+Let \( F \) be an ordered field and \( x, y, z, w \in F \). Then
+\begin{itemize}
+\item[(i)] If \( x > 0 \), then \( -x < 0 \) (and vice versa).
+\item[(ii)] If \( x > 0 \) and \( y < z \), then \( xy < xz \).
+\item[(iii)] If \( x < 0 \) and \( y < z \), then \( xy > xz \).
+\item[(iv)] If \( x \neq 0 \), then \( x^2 > 0 \).
+\item[(v)] If \( 0 < x < y \), then \( 0 < 1/y < 1/x \).
+\item[(vi)] If \( 0 < x < y \), then \( x^2 < y^2 \).
+\item[(vii)] If \( x \leq y \) and \( z \leq w \), then \( x + z \leq y + w \).
+\end{itemize}
+Note that (iv) implies, in particular, that \( 1 > 0 \).\\
+\end{proposition}
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:bounded_set}
+Let \( E \subset S \), where \( S \) is an ordered set.
+\begin{itemize}
+\item[(i)] If \( \exists b \in S \textnormal{ such that } x \leq b, \ \forall x \in E \implies E \) is \textit{bounded above} and \( b \) is an \textit{upper bound} of \( E \).
+\item[(ii)] If \( \exists b \in S \textnormal{ such that } x \geq b, \ \forall x \in E \implies E \) is \textit{bounded below} and \( b \) is a \textit{lower bound} of \( E \).
+\item[(iii)] If \( \exists b_0 \) an upper bound of \( E \) such that \( b_0 \leq b, \ \forall \) upper bounds \( b \) of \( E \), then \( b_0 \) is called the \textit{least upper bound} or the \textit{supremum} of \( E \). We write:
+\[
+\sup E := b_0.
+\]
+\item[(iv)] If \( \exists b_0 \) a lower bound of \( E \) such that \( b_0 \geq b, \ \forall \) lower bounds \( b \) of \( E \), then \( b_0 \) is called the \textit{greatest lower bound} or the \textit{infimum} of \( E \). We write
+\[
+\inf E := b_0.
+\]
+\end{itemize}
+When a set \( E \) is both bounded above and bounded below, we say simply that \( E \) is \textit{bounded}.
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}[Least Upper Bound Property]\label{def:lub_property}
+An ordered set $S$ has the \textit{least-upper-bound property} if every nonempty subset $ E \subset S$ that is bounded above has a least upper bound, that is, $ \sup E$ exists in $S$.
+\begin{center}
+The \textit{least-upper-bound property} is sometimes called the \textit{completeness property} or the \textit{Dedekind completeness property}.
+\end{center}
+
+\end{definition}
+
+
+
+
+
+
+\begin{proposition} \label{prop:infimum_exists}
+Let \( F \) be an ordered field with the least-upper-bound property. Let \( A \subset F \) be a nonempty set that is bounded below. Then \( \inf A \) exists.
+\end{proposition}
+
+
+
+
+
+
+
+
+\begin{proposition} \label{ex:bounds_of_inf_sup}
+Let \( S \) be an ordered set, and let \( B \subseteq S \) be a subset that is bounded above and below. Suppose that \( A \subseteq B \) is a nonempty subset and that both \( \inf A \) and \( \sup A \) exist. Then we have the inequalities:
+\[
+\inf B \leq \inf A \leq \sup A \leq \sup B.
+\]
+\end{proposition}
+
+
+
+
+
+
+
+\begin{proposition}[The Supremum is the least upper bound]
+Let \( S \subset \mathbb{R} \) be nonempty, and \( L \in \mathbb{R} \cup \{\infty, -\infty\} \). Then 
+\[
+\sup S \leq L \iff s \leq L \quad \forall s \in S.
+\]
+
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{ex:bound_compare}
+Let \( A, B \subset \mathbb{R} \) be nonempty sets such that \( x \leq y \) whenever \( x \in A \) and \( y \in B \). Assume \( A \) is bounded above, \( B \) is bounded below, and \( \sup A \leq \inf B \). Then it follows that \( A \) is bounded below, \( B \) is bounded above, and moreover:
+\[
+\sup A \leq \inf B.
+\]
+This inequality confirms that the upper bound of \( A \) does not exceed the lower bound of \( B \), effectively placing \( A \) entirely below or at most touching \( B \).
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+\begin{proposition}\label{ex:sup_inf_subsets}
+If \( S \) and \( T \) are nonempty subsets of \( \mathbb{R} \) and \( T \subseteq S \), then \( \sup T \leq \sup S \) and \( \inf T \geq \inf S \). Note that the supremum and infimum could be finite or infinite.
+\end{proposition}
+
+
+
+
+
+\begin{proposition} \label{ex:sup_inf_algebra}
+Let \( A \) and \( B \) be two nonempty bounded sets of real numbers, and let \( C = \{a + b : a \in A, b \in B\} \) and \( D = \{ab : a \in A, b \in B\} \). Then 
+\begin{enumerate}
+\item \(\sup C = \sup A + \sup B \quad \text{and} \quad \inf C = \inf A + \inf B.\)
+\item \(\sup D = (\sup A)(\sup B) \quad \text{and} \quad \inf D = (\inf A)(\inf B). \)
+\end{enumerate}
+
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:function}
+A \textit{function} \( f: A \to B \) is a subset \( f \) of \( A \times B \) such that for each \( x \in A \),
+there exists a unique \( y \in B \) for which \( (x, y) \in f \). We write \( f(x) = y \). Sometimes the set \( f \) is
+called the \textit{graph} of the function rather than the function itself.
+
+The set \( A \) is called the \textit{domain} of \( f \) (and sometimes confusingly denoted \( D(f) \)). The set
+
+\[
+R(f) := \{y \in B : \text{there exists an } x \in A \text{ such that } f(x) = y\}
+\]
+
+is called the \textit{range} of \( f \). The set \( B \) is called the \textit{codomain} of \( f \).
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:image_inverse_image}
+Consider a function \( f: A \to B \). Define the \textit{image} (or \textit{direct image}) of a subset \( C \subset A \) as
+\[
+f(C) := \{ f(x) \in B : x \in C \}.
+\]
+
+Define the \textit{inverse image} of a subset \( D \subset B \) as
+\[
+f^{-1}(D) := \{ x \in A : f(x) \in D \}.
+\]
+
+In particular, \( R(f) = f(A) \), the range is the direct image of the domain \( A \).
+\end{definition}
+
+
+
+\begin{theorem}
+Let $f:A \to B$ be a function. Then the inverse relation $f^{-1}$ is a function from $B$ to $A$ if and only if $f$ is bijective. Furthermore, if $f$ is bijective, then $f^-1$ is also bijective. 
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prop:inverse_image_properties}
+Consider \( f: A \to B \). Let \( C, D \) be subsets of \( B \). Then
+\[
+f^{-1}(C \cup D) = f^{-1}(C) \cup f^{-1}(D),
+\]
+\[
+f^{-1}(C \cap D) = f^{-1}(C) \cap f^{-1}(D),
+\]
+\[
+f^{-1}(C^c) = (f^{-1}(C))^c.
+\]
+Read the last line of the proposition as $f^{-1}( B \setminus C) = A \setminus f^{-1} (C)\text{.}$
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prop:direct_image_properties}
+Consider \( f: A \to B \). Let \( C, D \) be subsets of \( A \). Then
+\[
+f(C \cup D) = f(C) \cup f(D),
+\]
+\[
+f(C \cap D) \subseteq f(C) \cap f(D).
+\]
+\end{proposition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:injective_surjective_bijective}
+Let \( f: A \to B \) be a function. The function \( f \) is said to be \textit{injective} or \textit{one-to-one} if
+\[
+f(x_1) = f(x_2) \text{ implies } x_1 = x_2.
+\]
+In other words, \( f \) is injective if for all \( y \in B \), the set \( f^{-1}(\{y\}) \) is empty or consists of a single element. We call such an \( f \) an \textit{injection}.
+
+If \( f(A) = B \), then we say \( f \) is \textit{surjective} or \textit{onto}. In other words, \( f \) is surjective if the range and the codomain of \( f \) are equal. We call such an \( f \) a \textit{surjection}.
+
+If \( f \) is both surjective and injective, then we say \( f \) is \textit{bijective} or that \( f \) is a \textit{bijection}.
+\end{definition}
+
+
+
+
+\begin{definition}
+Let $f: A \to B$ and $g:B \to C$ be functions. Then we define the composition as $(g \circ f)(x) = g(f(x))$. So we first use $f$ to map from $A$ to $B$, then take the value of $f$ in $B$ and input into $g$ and use it to map to $C$.
+\end{definition}
+
+
+
+\begin{proposition}
+If $f: A \to B$ and $g: B\to C$ are bijective functions, then $f \circ g$ is bijective.
+\end{proposition}
+
+
+
+
+
+
+\begin{definition} \label{def:cardinality}
+Let \( A \) and \( B \) be sets. We say \( A \) and \( B \) have the same \textit{cardinality} when there exists a bijection \( f: A \to B \). 
+
+We denote by \( |A| \) the equivalence class of all sets with the same cardinality as \( A \), and we simply call \( |A| \) the \textit{cardinality} of \( A \).
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition} \label{def:cardinality_comparison}
+We write
+\[
+|A| \leq |B|
+\]
+if there exists an injection from \( A \) to \( B \). 
+
+We write \( |A| = |B| \) if \( A \) and \( B \) have the same cardinality. 
+
+We write \( |A| < |B| \) if \( |A| \leq |B| \), but \( A \) and \( B \) do not have the same cardinality.\\
+If $ |A| \leq |\mathbb{N}$ then we say that $A$ is countable. If $|A| = |\mathbb{R}|$ then we say that $A$ is uncountable.
+\end{definition}
+
+
+
+
+
+\begin{theorem}
+If there exists a bijective function between two sets $A$ and $B$, then we have that the cardanalities, \ref{def:cardinality}, are equivalenet. 
+\end{theorem}
+
+
+\begin{proposition}
+Let $S$ be a nonempty collection of nonempty sets. A realation $R$ is defined on $S$ by A R B if there exists a bijective function from $A$ to $B$. Then R is an equivalence relation \ref{def:equivalence_relation}.
+\end{proposition}
+
+
+\begin{proposition}
+The set $\mathbb{Z}$ is countable
+\end{proposition}
+
+
+\begin{proposition}
+Every infinite subset of a countable set is also countable
+\end{proposition}
+
+
+\begin{proposition}
+If $A$ and $B$ are countable, then $A \times B$ is countable
+\end{proposition}
+
+
+
+
+
+\begin{theorem}
+The set $\mathbb{Q}$ is countable
+\end{theorem}
+
+
+\begin{theorem}
+The open interval $(0,1)$ of real numbers is uncountable.
+\end{theorem}
+
+\begin{theorem}
+\( |(0,1)| = |\mathbb{R}| \)
+\end{theorem}
+
+
+
+
+\begin{theorem}
+\( |\mathcal{P}(A)| = |2^A| \)
+\end{theorem}
+
+
+
+
+\begin{lemma}
+
+Let \( f: A \to B \) and \( g: C \to D \) be one-to-one functions, where \( A \cap C = \emptyset \), and where the function \( h: A \cup C \to B \cup D \) is defined by
+\[
+h(x) =
+\begin{cases} 
+f(x) & \text{if } x \in A, \\
+g(x) & \text{if } x \in C.
+\end{cases}
+\]
+If \( B \cap D = \emptyset \), then \( h \) is also a one-to-one function. Consequently, if \( f \) and \( g \) are bijective functions, then \( h \) is a bijective function.
+\end{lemma}
+
+
+\begin{theorem}
+Let \( A \) and \( B \) be nonempty sets such that \( B \subseteq A \). If there exists an injective function from \( A \) to \( B \), then there exists a bijective function from \( A \) to \( B \).
+\end{theorem}
+
+
+\begin{theorem}[\textbf{Schröder-Bernstein Theorem}]
+If \( A \) and \( B \) are sets such that \( |A| \leq |B| \) and \( |B| \leq |A| \), then \( |A| = |B| \).
+\end{theorem}
+
+
+
+
+\begin{theorem}
+$|\mathcal{P}(\mathbb{N})| = |\mathbb{R}|$
+\end{theorem}
+
+
+\subsection{Metric Spaces}
+\begin{definition} \label{def:metric_space}
+Let \( X \) be a set, and let \( d: X \times X \to \mathbb{R} \) be a function such that for all \( x, y, z \in X \):
+\begin{enumerate}
+\item \( d(x,y) \geq 0 \) \hfill (nonnegativity)
+\item \( d(x,y) = 0 \) if and only if \( x = y \) \hfill (identity of indiscernibles)
+\item \( d(x,y) = d(y,x) \) \hfill (symmetry)
+\item \( d(x,z) \leq d(x,y) + d(y,z) \) \hfill (triangle inequality)
+\end{enumerate}
+The pair \( (X, d) \) is called a \textit{metric space}. The function \( d \) is called the \textit{metric} or the \textit{distance function}. Sometimes we write just \( X \) as the metric space instead of \( (X, d) \) if the metric is clear from context.
+\end{definition}
+
+\begin{lemma} \label{lem:cauchy_schwarz}
+(Cauchy-Schwarz inequality). Suppose \( x = (x_1, x_2, \dots, x_n) \in \mathbb{R}^n \), \( y = (y_1, y_2, \dots, y_n) \in \mathbb{R}^n \). Then
+\[
+\left( \sum_{k=1}^{n} x_k y_k \right)^2 \leq \left( \sum_{k=1}^{n} x_k^2 \right) \left( \sum_{k=1}^{n} y_k^2 \right).
+\]
+\end{lemma}
+
+\begin{proposition} \label{prop:metric_restriction}
+Let \( (X, d) \) be a metric space and \( Y \subset X \). Then the restriction \( d|_{Y \times Y} \) is a metric on \( Y \).
+\end{proposition}
+
+\begin{definition} \label{def:metric_subspace}
+If \( (X, d) \) is a metric space, \( Y \subset X \), and \( d' := d|_{Y \times Y} \), then \( (Y, d') \) is said to be a \textit{subspace} of \( (X, d) \).
+\end{definition}
+
+\begin{definition} \label{def:bounded_subset}
+Let \( (X, d) \) be a metric space. A subset \( S \subset X \) is said to be \textit{bounded} if there exists a \( p \in X \) and a \( B \in \mathbb{R} \) such that
+\[
+d(p, x) \leq B \quad \text{for all } x \in S.
+\]
+We say \( (X, d) \) is \textit{bounded} if \( X \) itself is a bounded subset.
+\end{definition}
+
+\begin{definition} \label{def:open_closed_ball}
+Let \( (X, d) \) be a metric space, \( x \in X \), and \( \delta > 0 \). Define the \textit{open ball}, or simply \textit{ball}, of radius \( \delta \) around \( x \) as
+\[
+B(x, \delta) := \{ y \in X : d(x,y) < \delta \}.
+\]
+Define the \textit{closed ball} as
+\[
+C(x, \delta) := \{ y \in X : d(x,y) \leq \delta \}.
+\]
+When dealing with different metric spaces, it is sometimes vital to emphasize which metric space the ball is in. We do this by writing \( B_X(x, \delta) := B(x, \delta) \) or \( C_X(x, \delta) := C(x, \delta) \).
+\end{definition}
+
+\begin{definition} \label{def:open_closed_sets}
+Let \( (X, d) \) be a metric space. A subset \( V \subset X \) is \textit{open} if for every \( x \in V \), there exists a \( \delta > 0 \) such that \( B(x, \delta) \subset V \). A subset \( E \subset X \) is \textit{closed} if the complement \( E^c = X \setminus E \) is open. When the ambient space \( X \) is not clear from context, we say \( V \) is \textit{open in} \( X \) and \( E \) is \textit{closed in} \( X \).
+If \( x \in V \) and \( V \) is open, then we say \( V \) is an \textit{open neighborhood} of \( x \) (or sometimes just \textit{neighborhood}).
+\end{definition}
+
+\begin{proposition} \label{prop:open_sets}
+Let \( (X, d) \) be a metric space.
+\begin{enumerate}
+\item \( \emptyset \) and \( X \) are open.
+\item If \( V_1, V_2, \dots, V_k \) are open subsets of \( X \), then
+\[
+\bigcap_{j=1}^{k} V_j
+\]
+is also open. That is, a finite intersection of open sets is open.
+\item If \( \{ V_{\lambda} \}_{\lambda \in I} \) is an arbitrary collection of open subsets of \( X \), then
+\[
+\bigcup_{\lambda \in I} V_{\lambda}
+\]
+is also open. That is, a union of open sets is open.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition} \label{prop:closed_sets}
+Let \( (X, d) \) be a metric space.
+\begin{enumerate}
+\item \( \emptyset \) and \( X \) are closed.
+\item If \( \{ E_{\lambda} \}_{\lambda \in I} \) is an arbitrary collection of closed subsets of \( X \), then
+\[
+\bigcap_{\lambda \in I} E_{\lambda}
+\]
+is also closed. That is, an intersection of closed sets is closed.
+\item If \( E_1, E_2, \dots, E_k \) are closed subsets of \( X \), then
+\[
+\bigcup_{j=1}^{k} E_j
+\]
+is also closed. That is, a finite union of closed sets is closed.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition} \label{prop:open_closed_ball}
+Let \( (X, d) \) be a metric space, \( x \in X \), and \( \delta > 0 \). Then \( B(x, \delta) \) is open and \( C(x, \delta) \) is closed.
+\end{proposition}
+
+\begin{proposition} \label{prop:subspace_topology}
+Suppose \( (X, d) \) is a metric space, and \( Y \subset X \). Then \( U \subset Y \) is open in \( Y \) (in the subspace topology) if and only if there exists an open set \( V \subset X \) (so open in \( X \)) such that \( V \cap Y = U \).
+\end{proposition}
+
+\begin{proposition} \label{prop:subspace_topology_open_closed}
+Suppose \( (X, d) \) is a metric space, \( V \subset X \) is open, and \( E \subset X \) is closed.
+\begin{enumerate}
+\item \( U \subset V \) is open in the subspace topology if and only if \( U \) is open in \( X \).
+\item \( F \subset E \) is closed in the subspace topology if and only if \( F \) is closed in \( X \).
+\end{enumerate}
+\end{proposition}
+
+
+\begin{definition} \label{def:connected_space}
+A nonempty metric space \( (X, d) \) is \textit{connected} if the only subsets of \( X \) that are both open and closed (so-called \textit{clopen} subsets) are \( \emptyset \) and \( X \) itself. If a nonempty \( (X, d) \) is not connected, we say it is \textit{disconnected}. 
+
+When we apply the term \textit{connected} to a nonempty subset \( A \subset X \), we mean that \( A \) with the subspace topology is connected.
+
+In other words, a nonempty \( X \) is connected if whenever we write \( X = X_1 \cup X_2 \) where \( X_1 \cap X_2 = \emptyset \) and \( X_1 \) and \( X_2 \) are open, then either \( X_1 = \emptyset \) or \( X_2 = \emptyset \). So to show \( X \) is disconnected, we need to find nonempty disjoint open sets \( X_1 \) and \( X_2 \) whose union is \( X \).
+\end{definition}
+
+\begin{proposition} \label{prop:disconnected_set}
+Let \( (X, d) \) be a metric space. A nonempty set \( S \subset X \) is disconnected if and only if there exist open sets \( U_1 \) and \( U_2 \) in \( X \) such that \( U_1 \cap U_2 \cap S = \emptyset \), \( U_1 \cap S \neq \emptyset \), \( U_2 \cap S \neq \emptyset \), and
+\[
+S = (U_1 \cap S) \cup (U_2 \cap S).
+\]
+\end{proposition}
+
+\begin{proposition} \label{prop:connected_real_set}
+A nonempty set \( S \subset \mathbb{R} \) is connected if and only if \( S \) is an interval or a single point.
+\end{proposition}
+
+\begin{definition} \label{def:closure}
+Let \( (X, d) \) be a metric space and \( A \subset X \). The \textit{closure} of \( A \) is the set
+\[
+\bar{A} := \bigcap \{E \subset X : E \text{ is closed and } A \subset E\}.
+\]
+That is, \( \bar{A} \) is the intersection of all closed sets that contain \( A \).
+\end{definition}
+
+\begin{proposition} \label{prop:closure_properties}
+Let \( (X, d) \) be a metric space and \( A \subset X \). The closure \( \bar{A} \) is closed, and \( A \subset \bar{A} \). Furthermore, if \( A \) is closed, then \( \bar{A} = A \).
+\end{proposition}
+
+\begin{proposition} \label{prop:closure_characterization}
+Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( x \in \bar{A} \) if and only if for every \( \delta > 0 \), \( B(x, \delta) \cap A \neq \emptyset \).
+\end{proposition}
+
+\begin{definition} \label{def:interior_boundary}
+Let \( (X, d) \) be a metric space and \( A \subset X \). The \textit{interior} of \( A \) is the set
+\[
+A^{\circ} := \{ x \in A : \text{there exists a } \delta > 0 \text{ such that } B(x, \delta) \subset A \}.
+\]
+The \textit{boundary} of \( A \) is the set
+\[
+\partial A := \bar{A} \setminus A^{\circ}.
+\]
+\end{definition}
+
+\begin{proposition} \label{prop:interior_boundary}
+Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( A^{\circ} \) is open and \( \partial A \) is closed.
+\end{proposition}
+
+\begin{proposition} \label{prop:boundary_characterization}
+Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( x \in \partial A \) if and only if for every \( \delta > 0 \), \( B(x, \delta) \cap A \) and \( B(x, \delta) \cap A^c \) are both nonempty.
+\end{proposition}
+
+\begin{corollary} \label{cor:boundary_closure}
+Let \( (X, d) \) be a metric space and \( A \subset X \). Then
+\[
+\partial A = \bar{A} \cap \overline{A^c}.
+\]
+\end{corollary}
+
+\begin{proposition} \label{prop:sequence_convergence}
+Let \( (X, d) \) be a metric space and \( \{ x_n \}_{n=1}^{\infty} \) a sequence in \( X \). Then \( \{ x_n \}_{n=1}^{\infty} \) converges to \( p \in X \) if and only if for every open neighborhood \( U \) of \( p \), there exists an \( M \in \mathbb{N} \) such that for all \( n \geq M \), we have \( x_n \in U \).
+
+A closed set contains the limits of its convergent sequences.
+\end{proposition}
+
+\begin{proposition} \label{prop:sequence_closure}
+Let \( (X, d) \) be a metric space and \( A \subset X \). Then \( p \in \bar{A} \) if and only if there exists a sequence \( \{ x_n \}_{n=1}^{\infty} \) of elements in \( A \) such that
+\[
+\lim_{n \to \infty} x_n = p.
+\]
+\end{proposition}
+
+
+\begin{definition} \label{def:complete_space}
+We say a metric space \( (X, d) \) is \textit{complete} or \textit{Cauchy-complete} if every Cauchy sequence \( \{x_n\}_{n=1}^{\infty} \) in \( X \) converges to a \( p \in X \).
+\end{definition}
+
+\begin{proposition} \label{prop:complete_Rn}
+The space \( \mathbb{R}^n \) with the standard metric is a complete metric space.
+\end{proposition}
+
+\begin{proposition} \label{prop:complete_function_space}
+The space of continuous functions \( C([a,b], \mathbb{R}) \) with the uniform norm as metric is a complete metric space.
+\end{proposition}
+
+\begin{definition} \label{def:compact_set}
+Let \( (X, d) \) be a metric space and \( K \subset X \). The set \( K \) is said to be \textit{compact} if for every collection of open sets \( \{ U_{\lambda} \}_{\lambda \in I} \) such that
+\[
+K \subset \bigcup_{\lambda \in I} U_{\lambda},
+\]
+there exists a finite subset \( \{\lambda_1, \lambda_2, \dots, \lambda_m\} \subset I \) such that
+\[
+K \subset \bigcup_{j=1}^{m} U_{\lambda_j}.
+\]
+A collection of open sets \( \{U_{\lambda} \}_{\lambda \in I} \) as above is said to be an \textit{open cover} of \( K \). A way to say that \( K \) is compact is to say that \textit{every open cover of \( K \) has a finite subcover}.
+\end{definition}
+
+\begin{proposition} \label{prop:compact_closed_bounded}
+Let \( (X, d) \) be a metric space. If \( K \subset X \) is compact, then \( K \) is closed and bounded.
+\end{proposition}
+
+\begin{lemma} \label{lem:lebesgue_covering}
+(Lebesgue covering lemma). Let \( (X, d) \) be a metric space and \( K \subset X \). Suppose every sequence in \( K \) has a subsequence convergent in \( K \). Given an open cover \( \{U_{\lambda}\}_{\lambda \in I} \) of \( K \), there exists a \( \delta > 0 \) such that for every \( x \in K \), there exists a \( \lambda \in I \) with \( B(x, \delta) \subset U_{\lambda} \).
+\end{lemma}
+
+\begin{theorem} \label{thm:compactness_sequential}
+Let \( (X, d) \) be a metric space. Then \( K \subset X \) is compact if and only if every sequence in \( K \) has a subsequence converging to a point in \( K \).
+\end{theorem}
+
+\begin{proposition} \label{prop:compact_closed_subset}
+Let \( (X, d) \) be a metric space and let \( K \subset X \) be compact. If \( E \subset K \) is a closed set, then \( E \) is compact.
+\end{proposition}
+
+\begin{theorem} \label{thm:heine_borel}
+(Heine-Borel theorem). A \textit{closed bounded} subset \( K \subset \mathbb{R}^n \) is compact.
+
+So subsets of \( \mathbb{R}^n \) are compact if and only if they are closed and bounded, a condition that is much easier to check. Let us reiterate that the Heine-Borel theorem only holds for \( \mathbb{R}^n \) and not for metric spaces in general. The theorem does not hold even for subspaces of \( \mathbb{R}^n \), just in \( \mathbb{R}^n \) itself. In general, compact implies closed and bounded, but not vice versa.
+\end{theorem}
+
+\begin{definition} \label{def:continuous_function}
+Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces and \( c \in X \). Then \( f: X \to Y \) is \textit{continuous} at \( c \) if for every \( \epsilon > 0 \) there is a \( \delta > 0 \) such that whenever \( x \in X \) and \( d_X(x, c) < \delta \), then \( d_Y(f(x), f(c)) < \epsilon \).
+
+When \( f: X \to Y \) is continuous at all \( c \in X \), we simply say that \( f \) is a \textit{continuous function}.
+\end{definition}
+
+\begin{proposition} \label{prop:continuity_sequence}
+Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces. Then \( f: X \to Y \) is continuous at \( c \in X \) if and only if for every sequence \( \{x_n\}_{n=1}^{\infty} \) in \( X \) converging to \( c \), the sequence \( \{f(x_n)\}_{n=1}^{\infty} \) converges to \( f(c) \).
+\end{proposition}
+
+\begin{lemma} \label{lem:continuous_compact}
+Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces and \( f: X \to Y \) a continuous function. If \( K \subset X \) is a compact set, then \( f(K) \) is a compact set.
+\end{lemma}
+
+\begin{theorem} \label{thm:max_min_compact}
+Let \( (X, d) \) be a nonempty compact metric space and let \( f: X \to \mathbb{R} \) be continuous. Then \( f \) is bounded and in fact \( f \) achieves an absolute minimum and an absolute maximum on \( X \).
+
+\end{theorem}
+
+\begin{lemma} \label{lem:continuity_neighborhood}
+Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces. A function \( f: X \to Y \) is continuous at \( c \in X \) if and only if for every open neighborhood \( U \) of \( f(c) \) in \( Y \), the set \( f^{-1}(U) \) contains an open neighborhood of \( c \) in \( X \).
+\end{lemma}
+
+\begin{theorem} \label{thm:continuity_open_sets}
+Let \( (X, d_X) \) and \( (Y, d_Y) \) be metric spaces. A function \( f: X \to Y \) is continuous if and only if for every open \( U \subset Y \), \( f^{-1}(U) \) is open in \( X \).
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+
+\section{Algebra}
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\label{def:algebraic number}
+A number is called an \textit{algebraic number} if it satisfies a polynomial equation
+\[
+c_nx^n + c_{n-1}x^{n-1} + \dotsc + c_1x + c_0 = 0
+\]
+where the coefficients \(c_0, c_1, \dots, c_n\) are integers and \(c_n \neq 0\) and \(n \geq 1.\)
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}[Rational Zeros Theorem]\label{thm:rational zeros theorem}
+Suppose \(c_0, c_1, \dots , c_n \) are integers and \( r \in \mathbb{Q}\) satisfies the polynomial
+\[
+c_nx^n + c_{n-1}x^{n-1} + \dotsc + c_1x + c_0 = 0
+\]
+where \(n \geq 1, c_n \neq 0, \textnormal{ and } c_0 \neq 0.\) Let \(r = \frac{m}{d}, \textnormal{ where } m, d \in \mathbb{Z} \textnormal{ such that } \gcd(m,d) = 1 \textnormal{ and } d \neq 0.\) Then \(m\mid c_0 \textnormal{ and } d \mid c_n.\) 
+\end{theorem}
+
+\begin{remark}
+Since $m/d$ is a solution, plug it into the polynomial. Then distributing your
+power of $n$ and multiplying by $d^n$ you will be able to rearrange to show 
+that $m$ divides $c_0$.\\
+This result can be used to show that a number is a real number by letting
+$x=$ the number we want to show is a rational then rearrange to get a polynomial on one 
+side and 0 on the other. Then using the result above we can 
+\end{remark}
+
+
+
+
+\subsection{Divisibility in $\mathbb{Z}$}
+
+We start by defining the integers. This ordered set will be our object of study. SAY MORE HERE
+
+\begin{definition}[$\mathbb{Z}$]
+The set of integers is any ordered set equipped with two operations $+, \cdot$ that satisfy the following axioms. $\forall a,b,c \in \mathbb{Z}:$
+\begin{enumerate}
+\item If $a, b \in \mathbb{Z}$, then $a + b \in \mathbb{Z}$ \hfill \textit{[Closure for addition]}
+\item $a + (b + c) = (a + b) + c$ \hfill \textit{[Associative addition]}
+\item $a + b = b + a$ \hfill \textit{[Commutative addition]}
+\item $a + 0 = a = 0 + a$ \hfill \textit{[Additive identity]}
+\item For each $a \in \mathbb{Z}$, the equation $a + x = 0$ has a solution in $\mathbb{Z}$.
+\item If $a, b \in \mathbb{Z}$, then $ab \in \mathbb{Z}$ \hfill \textit{[Closure for multiplication]}
+\item $a(bc) = (ab)c$ \hfill \textit{[Associative multiplication]}
+\item $a(b + c) = ab + ac$ and \newline
+\hspace{0.5cm} $(a + b)c = ac + bc$ \hfill \textit{[Distributive laws]}
+\item $ab = ba$ \hfill \textit{[Commutative multiplication]}
+\item $a \cdot 1 = a = 1 \cdot a$ \hfill \textit{[Multiplicative identity]}
+\item If $ab = 0$, then $a = 0$ or $b = 0$.
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+\end{definition}
+
+
+
+
+
+
+
+\begin{theorem}[Division Algorithm]\label{thm:division_algorithim}
+Let \(a,b \in \mathbb{Z}\) with \(b>0\). Then there exist unique \(q,r \in \mathbb{Z}\) such that \[
+a = bq+r \textnormal{ and } 0 \leq r < b.
+\]
+\end{theorem}
+
+
+
+
+
+
+\begin{definition}[Greatest Common Divisor]\label{def:gcd}
+For any two nonzero integers \(a \textnormal{ and } b\), the \textit{greatest common divisor} \(gcd(a,b)\) is the unique positive integers \(d\) such that
+\begin{enumerate}
+\item \(d \mid a \textnormal{ and } d \mid b\)
+\item If \( \exists c \in \mathbb{Z} \textnormal{ such that } c \mid a \) and \(c \mid b\), then \(c \leq d\).
+\end{enumerate}
+
+\end{definition}
+
+
+
+
+
+
+\begin{theorem}[Bezout's Identity]\label{thm:bezout_identity}
+Let \(a\) and \(b\) be integers, not both 0, and let \(d = gcd(a,b)\). Then there exists integers \(u\) and \(v\) such that \[
+gcd(a,b) = d = au + bv
+\]  
+\end{theorem}
+
+
+
+\begin{proposition}\label{prp:gcd_divides_lin_combo}
+Let \(a,b,x,y \in \mathbb{Z}\). Then 
+\[
+ax + by = c \iff gcd(a,b) \mid c.
+\]
+\end{proposition}
+
+
+
+
+
+
+
+\begin{proposition}\label{prp:coprime_divisor_of_product}
+Let \(a,b,c \in \mathbb{Z}\). If \(a \mid bc \) and \(\gcd(a,b) = 1\), then \(a \mid c\).
+
+\end{proposition}
+
+
+
+
+
+
+
+\begin{proposition}
+Let $ a,b,c \in \mathbb{Z}$. Suppose $ \gcd(a,b) = 1$. If $a|c$ and $b|c$, then $ab|c.$
+\end{proposition}
+
+
+
+
+
+\begin{proposition}
+Let $ a,b,c \in \mathbb{Z}$. Then $ \forall t \in \mathbb{Z}$ all of the following hold
+\begin{enumerate}
+\item $\gcd(a,b) = \gcd(a,b + at)$
+\item $\gcd(ta,tb) = t\gcd(a,b) \quad \textnormal{ for } t > 0$
+\item $\gcd(a, \gcd(b,c)) = gcd(gcd(a,b), c)$
+\item $\gcd(a,c) = 1 \implies \gcd(ab, c) = \gcd(b,c) $
+\end{enumerate}
+
+\end{proposition}
+
+
+
+
+\begin{proposition}
+Let $ a,b,c \in \mathbb{Z}$. If $\gcd(a,c) = 1 $ and $\gcd(b,c)=1 \textnormal{, then }\gcd(ab,c) = 1 $
+\end{proposition}
+
+
+
+\begin{proposition}
+A positive integer is divisible by $3$ $\iff$ the sum of its digits is divisible by $3$.
+\end{proposition}
+
+\begin{theorem}\label{thm:prime_dividing_product}
+Let \(p \in \mathbb{Z}\) with \(p \neq 0,1, -1.\) Then \(p\) is prime if and only if \(p\) has the following property
+\[
+\textnormal{whenever } p \mid bc, \textnormal{ then } p \mid b \textnormal{ or } p \mid c
+\]
+\end{theorem}
+
+
+
+\begin{theorem}[Fundamental Theoerem of Arithmetic]\label{thm:fund_thm_of_arith}
+Every integer \(n \neq 0, 1, -1\) has a unique prime factorization.
+\end{theorem}
+
+
+
+
+
+
+
+\begin{proposition}
+If $n>1$ has no positive prime faster less than or equal to $\sqrt{n}$, then $s$ is prime.
+\end{proposition}
+
+\begin{proposition}
+$a|b \iff a^n | b^n$
+\end{proposition}
+
+
+
+
+\subsection{Congruence and Congruence Classes}
+
+
+
+
+
+
+
+\begin{definition}[Congruence $\pmod{n}$]
+Let $a,b,n \in \mathbb{Z}$ with $n>0$. Then $a$ is congruent to $b$ modulo $n$ if $n \mid a-b$. This is denoted $ a \equiv b \quad \pmod{n}$
+
+\end{definition}
+
+\begin{theorem}[Congruence $\in$ Equivalence Relations]
+Let $n$ be a positive integer, then $\forall a,b,c \in \mathbb{Z}$,
+\begin{enumerate}
+\item $ a \equiv a \pmod{n}$
+\item If $ a \equiv b  \pmod{n}$, then $ b \equiv a \pmod{n}$
+\item If $ a \equiv b \pmod{n}$ and $ b \equiv c \pmod{n}$, then $ a \equiv c \pmod{n}$.
+\end{enumerate}
+
+\end{theorem}
+
+
+
+
+
+\begin{proposition}[Modulo Arithmetic]\label{prp:mod_arithmetic}
+If $ a \equiv b \pmod{n}$ and $ c \equiv d \pmod{n}$, then 
+\begin{enumerate}
+\item $ a+c \equiv b+d \pmod{n}$
+\item $ ac \equiv bd \pmod{n}$
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+\begin{definition}[Congruence Class]
+Let $a, n \in \mathbb{Z}$ be integers with $n > 0$. The \textit{congruence class} of $a$ modulo $n$ (denoted $[a]$) is the set of all integers that are congruent to $a$ modulo $n$, that is,
+\[
+[a] = \{b \mid b \in \mathbb{Z} \quad \text{and} \quad b \equiv a \pmod{n} \}.
+\]
+Recall $b \equiv a \pmod{n}$ means that $b - a = kn$ for some integer $k$ or, equivalently, that $b = a + kn$. Thus
+\[
+[a] = \{b \mid b \equiv a \pmod{n} \} = \{b \mid b = a + kn \text{ with } k \in \mathbb{Z} \} = \{a + kn \mid k \in \mathbb{Z} \}
+\]
+\end{definition}
+
+
+\begin{theorem}[Congruence Class Equality]\label{thm:congruence_class_equality}
+$a \equiv c \pmod{n}$ if and only if $[a] = [c]$.
+
+\end{theorem}
+
+
+
+
+
+\begin{corollary}\label{cor:congruence_classes_disjoint}
+Two congruence classes modulo $n$ are either disjoint or identical.
+\end{corollary}
+
+
+
+\begin{proposition}
+Let $n > 1$ be an integer and consider congruence modulo $n$.
+\begin{enumerate}
+\item If $a$ is any integer and $r$ is the remainder when $a$ is divided by $n$, then $[a] = [r]$.
+\item There are exactly $n$ distinct congruence classes, namely, $[0], [1], [2], \dots, [n - 1]$.
+\end{enumerate}
+\end{proposition}
+
+
+
+\begin{definition}
+The set of all congruences classes modulo $n$ is denoted $\mathbb{Z}_n$.\\
+Note that an element of $\mathbb{Z}_n$ is a class, the set of integers that it is congruent to, not a single integer. 
+\end{definition}
+
+\begin{proposition}
+If $a, b$ are integers such that $a \equiv b \pmod{p}$ for every positive prime $p$, then $a = b$.
+\end{proposition}
+
+
+
+\begin{theorem}
+If $[a] = [b]$ and $[c] = [d]$ in $\mathbb{Z}_n$, then
+\[
+[a + c] = [b + d] \quad \text{and} \quad [ac] = [bd].
+\]
+\end{theorem}
+
+
+
+\begin{definition}[Operations in $\mathbb{Z}_n$]
+We define addition $+$ and multiplication $ \cdot$ in $\mathbb{Z}_n$ by 
+\[
+[a] \oplus [c] = [a + c] \quad \text{and} \quad [a] \odot [c] = [ac].
+\]
+\end{definition}
+
+
+
+
+
+
+\begin{proposition}
+For any classes $[a], [b], [c]$ in $\mathbb{Z}_n$,
+
+\begin{enumerate}
+\item If $[a] \in \mathbb{Z}_n$ and $[b] \in \mathbb{Z}_n$, then $[a] \oplus [b] \in \mathbb{Z}_n$.
+\item $[a] \oplus ([b] \oplus [c]) = ([a] \oplus [b]) \oplus [c]$.
+\item $[a] \oplus [b] = [b] \oplus [a]$.
+\item $[a] \oplus [0] = [a] = [0] \oplus [a]$.
+\item For each $[a]$ in $\mathbb{Z}_n$, the equation $[a] \oplus x = [0]$ has a solution in $\mathbb{Z}_n$.
+\item If $[a] \in \mathbb{Z}_n$ and $[b] \in \mathbb{Z}_n$, then $[a] \odot [b] \in \mathbb{Z}_n$.
+\item $[a] \odot ([b] \odot [c]) = ([a] \odot [b]) \odot [c]$.
+\item $[a] \odot ([b] \oplus [c]) = [a] \odot [b] \oplus [a] \odot [c]$ and
+\newline \hspace{0.5cm} $([a] \oplus [b]) \odot [c] = [a] \odot [c] \oplus [b] \odot [c]$.
+\item $[a] \odot [b] = [b] \odot [a]$.
+\item $[a] \odot [1] = [a] = [1] \odot [a]$.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{theorem}
+If $p > 1$ is an integer, then the following are equivalent:
+\begin{enumerate}
+\item $p$ is prime.
+\item For any $a \neq 0$ in $\mathbb{Z}_p$, the equation $ax = 1$ has a solution in $\mathbb{Z}_p$.
+\item Whenever $bc = 0$ in $\mathbb{Z}_p$, then $b = 0$ or $c = 0$.
+\end{enumerate}
+\end{theorem}
+
+
+
+
+
+
+\begin{corollary}
+Let $a$ and $n$ be integers with $n > 1$. Then
+
+The equation $[a]x = [1]$ has a solution in $\mathbb{Z}_n$ if and only if $\gcd(a, n) = 1$ in $\mathbb{Z}$.
+\end{corollary}
+
+
+\begin{definition}[Units]\label{def:units}
+For any $ a \in \mathbb{Z}_n$, if $ \exists b \in \mathbb{Z}_n$ such that $ab = 1$, then $a$ is a \textit{unit}. In this case, we say $b$ is the \textit{inverse} of $a$.
+\end{definition}
+
+\begin{definition}[Zero Divisors]\label{def:zero_divisor}
+Suppose $a \in \mathbb{Z}_n$ and $ a \neq 0$. If  $ \exists c \in \mathbb{Z}_n$ such that $c \neq 0$ and $ac = 0$.
+\end{definition}
+
+
+
+
+
+
+
+
+\subsection{Rings}
+\par We now generalize the properties we have found consistent across the number-like systems we have studied. 
+
+
+\begin{definition}[Ring]\label{def:ring}
+A ring is a nonempty set R equipped with two operations \(+, \cdot\) that satisfy the following axioms. \(\forall a,b,c \in R\):
+\begin{enumerate}
+\item If \(a \in R\) and \(b \in R\), then \(a + b \in R\). \hfill [Closure under Addition]
+\item \(a + (b+c) = (a+b)+c\) \hfill [Associativity of Addition]
+\item \(a + b = b + a\) \hfill [Commutativity of Addition]
+\item There exists an element \( 0_R \in R\) such that \(a + 0_R = a = 0_R + a, \ \forall a \in R\) \hfill [Additive identity]
+\item For each \(a \in R\), \(a + x = 0_R\) has a solution in \(R\), that is, \(x \in R\) \hfill [Additive Inverse]
+\item If \(a \in R\) and \(b \in R\), then \(ab \in R\) \hfill [Closure under Multiplication]
+\item \(a(bc) = (ab)c\) \hfill [Associativity of Multiplication]
+\item \( a(b+c) = ab + ac\) and \((a+b)c = ac + bc\) \hfill [Distributive Law] \\
+The additional axioms below come from the definitions that are to follow. These definitions are the specific types of rings.
+\item $ab = ba \quad \forall a,b \in R$ \hfill [Commutative Ring] 
+\item $\exists 1_R \in R$ such that $a1_R = a = 1_Ra \quad \forall a \in R $. \hfill [Identity] 
+\item A commutative ring, with identity such that $ab=0 \implies a= 0 \textnormal{ or } b=0$. \hfill [Integral Domain] 
+\item A commutative ring, with identity such that $\forall a \neq 0 \in R$, $ax = 1$ has a solution in $R$. \hfill [Field] 
+\end{enumerate}
+
+\end{definition}
+
+
+\begin{definition}[Commutative Ring]\label{def:commutative_ring}
+A commutative ring is a ring \(R\) that satisfies the additional axiom: commutative multiplication
+\[
+ab = ba \quad \forall a,b \in R.
+\]
+\end{definition}
+
+\begin{definition}[Multiplicative Identity] \label{def: multiplicative identity}
+A ring with indentity is a ring \(R\) that contains an element \(1_R\) that satisfies the additional axiom: multiplicative identity
+\[
+a1_R = a = 1_R a \quad \forall a \in R.
+\]
+\end{definition}
+
+\begin{definition}[Integral Domain]\label{def:integral domain}
+An integral domain is a commutative ring \(R\) with identity \(1_R \neq 0_R\) that satisfies the additional axiom
+\[
+\textnormal{Whenever } a,b \in R \textnormal{ and } ab = 0_R, \textnormal{ then } a = 0_R \textnormal{ or } b = 0_R.
+\]
+
+\end{definition}
+
+
+\begin{definition}[Field]\label{def:field}
+A field is a commutative ring \(R\) with identity \(1_R \neq 0_R\) that satisfies the axiom 
+\[
+\textnormal{For each } a \neq 0_R \in R, \quad ax = 1_R \textnormal{ has a solution in \(R\)}
+\]
+\end{definition}
+
+
+
+
+
+
+
+
+
+\begin{proposition}\label{prp:cartesian prod ring}
+Let $R$ and $S$ be rings. Define addition and multiplication on the Cartesian product $R \times S$ by
+
+\[
+(r, s) + (r', s') = (r + r', s + s') \quad \text{and} \quad (r, s)(r', s') = (rr', ss').
+\]
+
+Then $R \times S$ is a ring. If $R$ and $S$ are both commutative, then so is $R \times S$. If both $R$ and $S$ have an identity, then so does $R \times S$.
+\end{proposition}
+
+
+
+
+
+\begin{theorem}[Subring] \label{thm:check for subring}
+Suppose that $R$ is a ring and that $S$ is a subset of $R$ such that:
+\begin{enumerate}
+\item $S$ is closed under addition (if $a, b \in S$, then $a + b \in S$);
+\item $S$ is closed under multiplication (if $a, b \in S$, then $ab \in S$);
+\item $0_R \in S$;
+\item If $a \in S$, then the solution of the equation $a + x = 0_R$ is in $S$.
+\end{enumerate}
+Then $S$ is a subring of $R$.
+\end{theorem}
+
+
+
+
+\begin{theorem} \label{thm:uniqueness of additive inverse}
+For any element $a$ in a ring $R$, the equation $a + x = 0_R$ has a unique solution.
+\end{theorem}
+
+
+
+
+\begin{theorem}\label{thm:subtraction}
+If $a + b = a + c$ in a ring $R$, then $b = c$.
+\end{theorem}
+
+
+
+
+\begin{proposition} \label{prp:ring arithmetic with subtraction}
+For any elements $a$ and $b$ of a ring $R$,
+\begin{enumerate}
+\item $a \cdot 0_R = 0_R = 0_R \cdot a$. In particular, $0_R \cdot 0_R = 0_R$.
+\item $a(-b) = -ab$ \quad and \quad $(-a)b = -ab$.
+\item $-(-a) = a$.
+\item $-(a + b) = (-a) + (-b)$.
+\item $-(a - b) = -a + b$.
+\item $(-a)(-b) = ab$.
+\end{enumerate}
+If $R$ has an identity, then
+\begin{enumerate}
+\setcounter{enumi}{6}
+\item $(-1_R)a = -a$.
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}\label{ex:def of exponential}
+Let $n,m \in \mathbb{N}$, if \(R\) is a ring with $a\in R$, then
+\begin{gather*}
+a^n = aaa\cdots a \quad (\textnormal{n factors})\\
+a^na^m = a^{m+n} \textnormal{ and } (a^m)^n = a^{mn}
+\end{gather*}
+
+
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}[Subring]\label{thm:check for subring_p2}
+Let $S$ be a nonempty subset of a ring $R$ such that:
+\begin{enumerate}
+\item $S$ is closed under subtraction (if $a, b \in S$, then $a - b \in S$);
+\item $S$ is closed under multiplication (if $a, b \in S$, then $ab \in S$).
+\end{enumerate}
+Then $S$ is a subring of $R$.
+\end{proposition}
+
+
+
+
+
+
+\begin{definition}\label{def:units p2}
+An element $a$ in a ring $R$ with identity is called a \textit{unit} if there exists $u \in R$ such that $au = 1_R = ua$. In this case, 
+the element $u$ is called the (multiplicative) inverse of $a$ and is
+denoted $a^{-1}$. Note that we already defined this in \ref{def:units}.
+\end{definition}
+
+
+
+
+
+
+
+\begin{definition}\label{def:zero divisor p2}
+An element $a$ in a ring $R$ is a \textbf{zero divisor} provided that:
+\begin{enumerate}
+\item $a \neq 0_R$.
+\item There exists a nonzero element $c$ in $R$ such that $ac = 0_R$ or $ca = 0_R$.
+\end{enumerate}
+Note that we already defined this in \ref{def:zero_divisor}.
+\end{definition}
+
+
+
+
+\begin{theorem}\label{thm:cancellation of Multiplication}
+Cancellation is valid in any integral domain $R$: If $a \neq 0_R$ and $ab = ac$ in $R$, then $b = c$.
+\end{theorem}
+
+
+
+
+\begin{theorem}\label{thm:fields are integral domains}
+Every field $F$ is an integral domain.
+\end{theorem}
+
+
+
+
+\begin{theorem}\label{thm:finite integral domain is field}
+Every finite integral domain $R$ is a field.
+\end{theorem}
+
+
+
+
+
+\begin{definition}[Isomorphism]
+A ring $R$ is isomorphic to a ring $S$ (in symbols, $R \cong S$) if there is a function $f: R \to S$ such that all of the below hold:
+\begin{enumerate}
+\item $f$ is injective;
+\item $f$ is surjective;
+\item $f(a + b) = f(a) + f(b)$ \quad and \quad $f(ab) = f(a) f(b)$ for all $a, b \in R$.
+\end{enumerate}
+In this case, the function $f$ is called an \textbf{isomorphism}.
+\end{definition}
+
+
+\begin{definition}[Homomorphism]
+Let $R$ and $S$ be rings. A function $f: R \to S$ is said to be a \textbf{homomorphism} if
+\[
+f(a + b) = f(a) + f(b) \quad \text{and} \quad f(ab) = f(a) f(b) \quad \text{for all } a, b \in R.
+\]
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+\begin{theorem}\label{thm:homomorphism property}
+Let $f: R \to S$ be a homomorphism of rings. Then
+\begin{enumerate}
+\item $f(0_R) = 0_S$.
+\item $f(-a) = -f(a)$ for every $a \in R$.
+\item $f(a - b) = f(a) - f(b)$ for all $a, b \in R$.
+\end{enumerate}
+If $R$ is a ring with identity and $f$ is surjective, then
+\begin{enumerate}
+\setcounter{enumi}{3}
+\item $S$ is a ring with identity $f(1_R)$.
+\item Whenever $u$ is a unit in $R$, then $f(u)$ is a unit in $S$ and $f(u)^{-1} = f(u^{-1})$.
+\end{enumerate}
+\end{theorem}                
+
+
+
+
+
+\begin{corollary}
+If $f: R \to S$ is a homomorphism of rings, then the image of $f$ is a subring of $S$.
+\end{corollary}
+
+
+
+
+
+
+\begin{theorem}
+If $R$ is a ring, then there exists a ring $T$ containing an element
+$x$ that is not in $R$ and satisfies
+\begin{enumerate}
+\item $R$ is a subring of $T$
+\item $xa = ax, \quad \forall a \in R$
+\item The set $R[x]$ of all elements of $T$ of the form \[
+a_0 + a_1x + a_2x^2 + \cdots + a_nx^n, \quad \textnormal{where } n \geq 0 \textnormal{ and } a_i \in R
+\]
+\item The representation of elements of $R[x]$ is unique.
+\item $a_0 + a_1x + a_2x^2 + \cdots + a_nx^n = 0_R \iff a_i = 0_R, \ \forall i$.
+\end{enumerate}
+\end{theorem}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%           
+
+
+
+\section{Linear Algebra}
+
+
+
+\begin{definition}
+Let \( F \) be a field. A \textbf{vector space} over \( F \) is a set \( V \) equipped with two operations:
+\begin{itemize}
+\item \textbf{Vector addition}: A function \( +: V \times V \to V \) assigning to each pair \( (v, w) \in V \times V \) a sum \( v + w \in V \).
+\item \textbf{Scalar multiplication}: A function \( \cdot: F \times V \to V \) assigning to each scalar \( a \in F \) and vector \( v \in V \) a product \( av \in V \).
+\end{itemize}
+These operations satisfy the following axioms for all \( u, v, w \in V \) and all \( a, b \in F \):
+
+\begin{enumerate}
+\item \textbf{Axioms for Vector Addition:}
+\begin{enumerate}
+\item \textbf{Closure}: \( v + w \in V \).
+\item \textbf{Associativity}: \( u + (v + w) = (u + v) + w \).
+\item \textbf{Commutativity}: \( v + w = w + v \).
+\item \textbf{Existence of Additive Identity}: There exists an element \( 0 \in V \) such that \( v + 0 = v \) for all \( v \in V \).
+\item \textbf{Existence of Additive Inverses}: For each \( v \in V \), there exists \( -v \in V \) such that \( v + (-v) = 0 \).
+\end{enumerate}
+
+\item \textbf{Axioms for Scalar Multiplication:}
+\begin{enumerate}
+\item \textbf{Closure}: \( av \in V \) for all \( a \in F \) and \( v \in V \).
+\item \textbf{Distributivity over Vector Addition}: \( a(v + w) = av + aw \).
+\item \textbf{Distributivity over Scalar Addition}: \( (a + b)v = av + bv \).
+\item \textbf{Associativity}: \( (ab)v = a(bv) \).
+\item \textbf{Multiplicative Identity}: There exists a scalar \( 1 \in F \) such that \( 1v = v \) for all \( v \in V \).
+\end{enumerate}
+\end{enumerate}
+
+\end{definition}
+
+
+
+\begin{definition}[Subspace]
+Let $V$ be a vector space, and let $W$ be a subset of $V$. We define $W$ to be a \textit{subspace} if $W$ satisfies the following conditions:
+\begin{enumerate}
+\item If $v, w$ are elements of $W$, their sum $v + w$ is also an element of $W$.
+\item If $v$ is an element of $W$ and $c$ is a scalar, then $cv$ is an element of $W$.
+\item The element $O$ of $V$ is also an element of $W$.
+\end{enumerate}
+Then $W$ itself is a vector space. Indeed, properties $\textbf{VS1}$ through $\textbf{VS8}$, being satisfied for all elements of $V$, are satisfied \textit{a fortiori} for the elements of $W$.
+\end{definition}
+
+
+
+
+
+\begin{definition}[Linear Combination]
+Let $V$ be an arbitrary vector space, and let $v_1, \dots, v_n$ be elements of $V$. Let $x_1, \dots, x_n$ be scalars. An expression of the form
+\[
+x_1 v_1 + \dots + x_n v_n
+\]
+is called a \textit{linear combination} of $v_1, \dots, v_n$.
+\end{definition}
+
+
+\begin{definition}[Dot Product]
+Let $V = K^n$. Let $A, B \in K^n$ with $A = (a_1, \dots, a_n)$ and $B = (b_1, \dots, b_n)$. We define the \textit{dot product} or \textit{scalar product} as
+\[
+A \cdot B = a_1 b_1 + \dots + a_n b_n.
+\]
+\end{definition}
+
+\begin{remark}
+Geometrically we say that $A$ and $B$ are orthogonal
+MORE HERE
+\end{remark}
+
+
+
+\begin{definition}[Linear Independence]
+Let $v_1, \dots, v_n$ be vectors in a vector space. The set of vectors $\{ v_1, \dots, v_n \}$ is said to be \textit{linearly independent} if the only solution to the equation
+\[
+a_1 v_1 + \dots + a_n v_n = O
+\]
+is $a_1 = a_2 = \dots = a_n = 0$. That is, the vectors are linearly independent if no nontrivial linear combination of them results in the zero vector.
+\end{definition}
+
+
+
+
+\begin{definition}[Basis]
+Let $V$ be a vector space. A set of vectors $\{ v_1, \dots, v_n \}$ in $V$ is called a \textit{basis} of $V$ if:
+\begin{enumerate}
+\item The vectors $v_1, \dots, v_n$ \textit{generate} $V$, meaning that every vector in $V$ can be written as a linear combination of $v_1, \dots, v_n$.
+\item The vectors $v_1, \dots, v_n$ are \textit{linearly independent}, meaning that the only solution to 
+\[
+a_1 v_1 + \dots + a_n v_n = O
+\]
+is $a_1 = a_2 = \dots = a_n = 0$.
+\end{enumerate}
+If these conditions are satisfied, we say that $\{ v_1, \dots, v_n \}$ \textit{forms a basis} of $V$.
+\end{definition}
+
+
+
+\begin{theorem}
+Let $V$ be a vector space. Let $v_1, \dots, v_n$ be linearly independent elements of $V$. Let $x_1, \dots, x_n$ and $y_1, \dots, y_n$ be scalars. Suppose that 
+\[
+x_1 v_1 + \dots + x_n v_n = y_1 v_1 + \dots + y_n v_n.
+\]
+Then $x_i = y_i$ for all $i = 1, \dots, n$.
+\end{theorem}
+
+
+
+\begin{theorem}
+Let $\{ v_1, \dots, v_n \}$ be a set of generators of a vector space $V$. Let $\{ v_1, \dots, v_r \}$ be a maximal subset of linearly independent elements. Then $\{ v_1, \dots, v_r \}$ is a basis of $V$.
+\end{theorem}
+
+
+
+
+
+\begin{definition}[Dimension of a Vector Space]
+Let $V$ be a vector space having a basis consisting of $n$ elements. We define $n$ to be the \textit{dimension} of $V$. If $V$ consists only of the zero vector $O$, then $V$ does not have a basis, and we define the dimension of $V$ to be $0$.
+\end{definition}
+
+
+
+
+
+
+
+\begin{theorem} \label{thm:maximal_independent_set}
+Let \( V \) be a vector space, and \( \{ v_1, \dots, v_n \} \) a maximal set of linearly independent elements of \( V \). Then \( \{ v_1, \dots, v_n \} \) is a basis of \( V \).
+\end{theorem}
+
+\begin{theorem} \label{thm:dim_n_basis}
+Let \( V \) be a vector space of dimension \( n \), and let \( v_1, \dots, v_n \) be linearly independent elements of \( V \). Then \( v_1, \dots, v_n \) constitute a basis of \( V \).
+\end{theorem}
+
+
+\begin{corollary} \label{cor:equal_dimension}
+Let \( V \) be a vector space and let \( W \) be a subspace. If \( \dim W = \dim V \), then \( V = W \).
+\end{corollary}
+
+
+
+\begin{corollary} \label{cor:extend_basis}
+Let \( V \) be a vector space of dimension \( n \). Let \( r \) be a positive integer with \( r < n \), and let \( v_1, \dots, v_r \) be linearly independent elements of \( V \). Then one can find elements \( v_{r+1}, \dots, v_n \) such that
+\[
+\{ v_1, \dots, v_n \}
+\]
+is a basis of \( V \).
+\end{corollary}
+
+\begin{theorem} \label{thm:subspace_basis}
+Let \( V \) be a vector space having a basis consisting of \( n \) elements. Let \( W \) be a subspace which does not consist of \( O \) alone. Then \( W \) has a basis, and the dimension of \( W \) is \( \leq n \).
+\end{theorem}
+
+
+
+
+
+
+\begin{definition} \label{def:sum_subspaces}
+Let \( V \) be a vector space over the field \( K \). Let \( U, W \) be subspaces of \( V \). We define the \textit{sum} of \( U \) and \( W \) to be the subset of \( V \) consisting of all sums \( u + w \) with \( u \in U \) and \( w \in W \). We denote this sum by \( U + W \). It is a subspace of \( V \). Indeed, if \( u_1, u_2 \in U \) and \( w_1, w_2 \in W \) then
+\[
+(u_1 + w_1) + (u_2 + w_2) = u_1 + u_2 + w_1 + w_2 \in U + W.
+\]
+If \( c \in K \), then
+\[
+c (u_1 + w_1) = c u_1 + c w_1 \in U + W.
+\]
+Finally, \( O + O \in W \). This proves that \( U + W \) is a subspace.
+
+We shall say that \( V \) is a \textit{direct sum} of \( U \) and \( W \) if for every element \( v \) of \( V \) there exist \textit{unique} elements \( u \in U \) and \( w \in W \) such that \( v = u + w \).
+\end{definition}
+
+\begin{theorem} \label{thm:direct_sum_condition}
+Let \( V \) be a vector space over the field \( K \), and let \( U, W \) be subspaces. If \( U + W = V \), and if \( U \cap W = \{ O \} \), then \( V \) is the \textit{direct sum} of \( U \) and \( W \).
+\end{theorem}
+
+\begin{theorem} \label{thm:direct_sum_existence}
+Let \( V \) be a finite-dimensional vector space over the field \( K \). Let \( W \) be a subspace. Then there exists a subspace \( U \) such that \( V \) is the direct sum of \( W \) and \( U \).
+\end{theorem}
+
+\begin{theorem} \label{thm:direct_sum_dimension}
+If \( V \) is a finite-dimensional vector space over \( K \), and is the direct sum of subspaces \( U, W \), then
+\[
+\dim V = \dim U + \dim W.
+\]
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                               
+
+
+\section{Analysis}
+
+\begin{theorem}[Archimedean Property] \label{thm:archimedean_property} 
+If \( x, y \in \mathbb{R} \) and \( x > 0 \), then there exists an \( n \in \mathbb{N} \) such that
+\[
+nx > y.
+\]
+\end{theorem}
+
+
+
+
+\begin{theorem}[Density of \( \mathbb{Q} \) in \( \mathbb{R} \)] \label{thm:density_of_rationals}
+If \( x, y \in \mathbb{R} \) and \( x < y \), then there exists an \( r \in \mathbb{Q} \) such that
+\[
+x < r < y.
+\]
+\end{theorem}
+
+
+\subsection{Sequences}
+
+
+
+
+\begin{definition}[Sequence] \label{def:sequence}
+A \textit{sequence} (of real numbers) is a function \( x : \mathbb{N} \to \mathbb{R} \). Instead of \( x(n) \), we usually denote the \( n \)th element in the sequence by \(x_n\). To denote a sequence we write 
+\[
+\{x_n\}_{n=1}^{\infty}
+\]
+\end{definition}
+
+
+
+
+
+
+\begin{definition}[Bounded Sequence] \label{def:bounded sequence}
+A sequence \( \{x_n\}_{n=1}^{\infty}\) is \textit{bounded} if there exists \( M \in \mathbb{R}\) such that 
+\[
+|x_n| \leq M \quad \text{for all } n \in \mathbb{N}.
+\]
+That is, the sequence \(x_n\) is bounded whenever the set $\{ x_n \mid n \in \mathbb{N} \}$ is bounded.
+\end{definition}
+
+
+
+
+
+
+
+
+
+\begin{definition}[Monotone Sequence]\label{def:Monotone_sequence}
+A sequence \(\{x_n\}_{n=1}^{\infty}\) is \textit{monotone increasing} if \( x_n \leq x_{n+1} \) for all \( n \in \mathbb{N} \). A sequence \(\{x_n\}_{n=1}^{\infty}\) is \textit{monotone decreasing} if \( x_n \geq x_{n+1} \) for all \( n \in \mathbb{N} \). If a sequence is either monotone increasing or monotone decreasing, we can simply say the sequence is \textit{monotone}.
+\end{definition}
+
+
+
+
+
+
+
+\begin{definition}[Convergent Sequence] \label{def:convergent_sequence}
+A sequence \(x_n\) is said to \textit{converge} to a number \( x \in \mathbb{R}\) if 
+\[
+\forall \varepsilon > 0, \, \exists N \in \mathbb{N} \text{ such that } \forall n \geq N, |x_n - x| < \varepsilon.
+\]
+Note that this is equivalently written \( \lim_{n \to \infty} x_n = x\) or \(x_n \longrightarrow x \).
+
+\end{definition}
+
+
+
+
+
+
+\begin{proposition} \label{prp:uniqueness_of_limit}
+A convergent sequence has a unique limit.
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}
+
+Let \( (s_n)\) be a sequence of non-negative real numbers and suppose \( s = \lim_{n \to \infty}\). Then
+\[
+\lim_{n \to \infty}{\sqrt{s_n}} = \sqrt{\lim_{n \to \infty}{s_n}}
+\]
+
+\end{proposition}
+
+
+
+
+
+\begin{proposition}\label{prp: convergent sequences are bounded}
+
+Convergent sequences are bounded.
+
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}[Algebra of Limits] \label{prop:limit_algebra}
+Let \( \{x_n\}_{n=1}^{\infty} \) and \( \{y_n\}_{n=1}^{\infty} \) be convergent sequences.
+\begin{enumerate}
+\item 
+\(
+\lim_{n\to\infty} (x_n + y_n) = \lim_{n\to\infty} x_n + \lim_{n\to\infty} y_n.
+\)
+\item 
+\(
+\lim_{n\to\infty} (x_n y_n) = \left( \lim_{n\to\infty} x_n \right) \left( \lim_{n\to\infty} y_n \right).
+\)
+\item If \( \lim_{n\to\infty} y_n \neq 0 \) and \( y_n \neq 0 \) for all \( n \in \mathbb{N} \), then
+\(
+\lim_{n\to\infty} \frac{x_n}{y_n} = \frac{\lim_{n\to\infty} x_n}{\lim_{n\to\infty} y_n}.
+\)
+\end{enumerate}
+\end{proposition}
+
+
+
+\begin{lemma}[Squeeze lemma] \label{lem:squeeze}
+Let \( \{a_n\}_{n=1}^{\infty} \), \( \{b_n\}_{n=1}^{\infty} \), and \( \{x_n\}_{n=1}^{\infty} \) be sequences such that
+\[
+a_n \leq x_n \leq b_n \quad \text{for all } n \in \mathbb{N}.
+\]
+Suppose \( \{a_n\}_{n=1}^{\infty} \) and \( \{b_n\}_{n=1}^{\infty} \) converge and
+\[
+\lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n.
+\]
+Then \( \{x_n\}_{n=1}^{\infty} \) converges and
+\[
+\lim_{n\to\infty} x_n = \lim_{n\to\infty} a_n = \lim_{n\to\infty} b_n.
+\]
+\end{lemma}
+
+
+
+
+
+
+\begin{definition}\label{def:divergent sequence}
+We say \(x_n\) \textit{diverges to infinity} if
+\[
+\forall K \in \mathbb{R}, \exists M \in \mathbb{N}, \textnormal{ such that } \exists n \geq  M \textnormal{ where} x_n > K.
+\]
+This is written
+\[
+\lim_{n \to \infty}{x_n} = \infty
+\]
+\end{definition}
+
+
+
+\begin{theorem}[Monotone Convergence Theorem] \label{thm: monotone convergence theorem}
+A monotone sequence \(\{x_n\}_{n=1}^{\infty}\) is bounded if and only if it is convergent.
+
+\textit{Furthermore, if} \(\{x_n\}_{n=1}^{\infty}\) \textit{is monotone increasing and bounded, then}
+\[
+\lim_{n \to \infty} x_n = \sup \{x_n : n \in \mathbb{N} \}.
+\]
+\textit{If} \(\{x_n\}_{n=1}^{\infty}\) \textit{is monotone decreasing and bounded, then}
+\[
+\lim_{n \to \infty} x_n = \inf \{x_n : n \in \mathbb{N} \}.
+\]
+\end{theorem}
+
+
+
+
+
+\begin{proposition} \label{ex: nth root limit}
+Let \(n \in \mathbb{N}\) then,
+\[
+\ \lim_{n \to \infty}{n^{1/n}} = 1.
+\]
+\end{proposition}
+
+
+
+
+\begin{proposition} \label{ex: limit of c^n}
+If $0<c<1$, then 
+\[
+\lim_{n \to \infty} c^n = 0.
+\]
+\end{proposition}
+
+
+
+
+\begin{proposition}[Ratio Test for Sequences] \label{ex:ratio_test}
+Let \( (x_n)_{n=1}^{\infty} \) be a sequence such that \( x_n \neq 0 \ \forall n \in \mathbb{N}\) and such that the limit
+\[
+L = \lim_{n \to \infty} \frac{|x_{n+1}|}{|x_n|}
+\]
+exists.
+\begin{enumerate}
+\item If \( L < 1 \), then \( \lim\limits_{n\to\infty} x_n = 0 \).
+\item If \( L > 1 \), then \( \{x_n\}_{n=1}^{\infty} \) is unbounded.
+\end{enumerate}
+\end{proposition}
+
+
+
+
+\begin{proposition}
+If $ (x_n)^\infty_{n=1}$ is convergent and $ k \in \mathbb{N}$ then
+\[
+\lim_{n \to \infty}{x_n^k} = \left( \lim_{n \to \infty}{x_n}\right)^k
+\]
+\end{proposition}
+
+
+
+
+\begin{proposition}
+If $ (x_n)^\infty_{n=1}$ is a convergent sequence and $ x_n \geq 0 $ and $ k \in \mathbb{N}$ then
+\[
+\lim_{n \to \infty}{x_n^{1/k}} = \left( \lim_{n \to \infty}{x_n}\right)^{1/k}
+\]
+\end{proposition}
+
+
+
+
+
+
+
+\begin{definition} \label{def:subsequence}
+Let \( \{x_n\}_{n=1}^{\infty} \) be a sequence. Let \( \{n_i\}_{i=1}^{\infty} \) be a strictly increasing sequence of natural numbers, that is, \( n_i < n_{i+1} \) for all \( i \in \mathbb{N} \) (in other words \( n_1 < n_2 < n_3 < \cdots \)). The sequence
+\[
+\{x_{n_i}\}_{i=1}^{\infty}
+\]
+is called a \textit{subsequence} of \( \{x_n\}_{n=1}^{\infty} \).
+\end{definition}
+
+
+
+
+\begin{proposition} \label{prp:subsequence limit equal to limit}
+If \( \{x_n\}_{n=1}^{\infty} \) is a convergent sequence, then every subsequence \( \{x_{n_i}\}_{i=1}^{\infty} \) is also convergent, and
+\[
+\lim_{n \to \infty} x_n = \lim_{i \to \infty} x_{n_i}.
+\]
+\end{proposition}
+
+
+
+
+
+
+
+\begin{definition} \label{def:limsup_liminf}
+Let \( \{x_n\}_{n=1}^{\infty} \) be a bounded sequence. Define the sequences \( \{a_n\}_{n=1}^{\infty} \) and \( \{b_n\}_{n=1}^{\infty} \) by
+\[
+a_n := \sup\{ x_k : k \geq n \}, \quad b_n := \inf\{ x_k : k \geq n \}.
+\]
+Define, if the limits exist,
+\[
+\limsup_{n \to \infty} x_n := \lim_{n \to \infty} a_n, \quad \liminf_{n \to \infty} x_n := \lim_{n \to \infty} b_n.
+\]
+In words, the supremum of a sequence $x_n$ is the supremum of all $x_n$'s after the $n$th value that we are currently on. So the limit of the supremum is the supremum of all terms to 
+come. Notice that the sequence $a_n$ is monotone decreasing (\ref{def:Monotone_sequence}) since 
+with each passing $n$, the value that is the supremum of all $x_n$ to come,
+can only decrease. 
+
+
+\end{definition}
+
+
+
+
+
+\begin{theorem}\label{thm: lim sup lim inf subsequence}
+If \( \{x_n\}_{n=1}^{\infty} \) is a bounded sequence, then there exists a subsequence \( \{x_{n_k}\}_{k=1}^{\infty} \) such that
+\[
+\lim_{k \to \infty} x_{n_k} = \limsup_{n \to \infty} x_n.
+\]
+Similarly, there exists a (perhaps different) subsequence \( \{x_{m_k}\}_{k=1}^{\infty} \) such that
+\[
+\lim_{k \to \infty} x_{m_k} = \liminf_{n \to \infty} x_n.
+\]
+\end{theorem}
+
+
+
+
+
+
+
+\begin{proposition}\label{ex: sup inf monotone sequence}
+Let \( S \subset \mathbb{R} \) be a nonempty bounded set. Then there exist monotone sequences \( \{x_n\}_{n=1}^{\infty} \) and \( \{y_n\}_{n=1}^{\infty} \) such that \( x_n, y_n \in S \) and
+\[
+\sup S = \lim_{n \to \infty} x_n \quad \text{and} \quad \inf S = \lim_{n \to \infty} y_n.
+\]
+\end{proposition}
+
+
+
+
+
+
+
+
+\begin{proposition} \label{prp: convergence criterion lim inf lim sup}
+Let \( \{x_n\}_{n=1}^{\infty} \) be a bounded sequence. Then \( \{x_n\}_{n=1}^{\infty} \) converges if and only if
+\[
+\liminf_{n \to \infty} x_n = \limsup_{n \to \infty} x_n.
+\]
+\textit{Furthermore, if} \( \{x_n\}_{n=1}^{\infty} \) \textit{converges, then}
+\[
+\lim_{n \to \infty} x_n = \liminf_{n \to \infty} x_n = \limsup_{n \to \infty} x_n.
+\]
+\end{proposition}
+
+
+
+
+
+
+
+
+\begin{proposition}
+Suppose $ (x_n)^\infty_{n=1}$ is a bounded sequence and $ (x_{n_k})^\infty_{k = 1}$ is a subsequence. Then
+\[
+\liminf_{n \to \infty} x_n \leq \liminf_{k \to \infty} x_{n_k} \leq \limsup_{k \to \infty} x_{n_k} \leq \limsup_{n \to \infty} x_n
+\]
+\end{proposition}
+
+
+\begin{proposition}
+A sequence $ (x_n)^\infty_{n=1}$ converges to $x$ $\iff$ every subsequence $ (x_{n_k})^\infty_{k = 1}$ converges to $x$.
+\end{proposition}
+
+
+
+
+
+\begin{definition}[Subsequential Limit]
+Let  $ (x_n)^\infty_{n=1}$ be a sequence. A \textit{subsequential limit} is any extended real number that is the limit of some subsequence of  $ (x_n)^\infty_{n=1}$.
+
+\end{definition}
+
+
+
+
+
+
+\begin{theorem}[Bolzano–Weierstrass] \label{thm: Bolzano-Weierstrass}
+Suppose a sequence \( \{x_n\}_{n=1}^{\infty} \) of real numbers is bounded. Then there exists a convergent subsequence \( \{x_{n_i}\}_{i=1}^{\infty} \).
+\end{theorem}
+
+
+
+\begin{proposition}
+Let $(s_n)$ be any sequence of nonzero real numbers. Then we have
+\[
+\liminf \left| \frac{s_{n+1}}{s_n} \right| 
+\leq \liminf |s_n|^{1/n} 
+\leq \limsup |s_n|^{1/n} 
+\leq \limsup \left| \frac{s_{n+1}}{s_n} \right|.
+\]
+
+\end{proposition}
+
+
+
+
+
+
+
+
+
+\begin{definition}[Cauchy Sequence]\label{def:cauchy_sequence}
+A sequence \( \{x_n\}_{n=1}^{\infty} \) is a \textit{Cauchy sequence} if for every \( \varepsilon > 0 \), there exists an \( M \in \mathbb{N} \) such that for all \( n \geq M \) and all \( k \geq M \), we have
+\[
+|x_n - x_k| < \varepsilon.
+\]
+\end{definition}
+
+
+
+
+
+
+
+\begin{lemma}\label{lem:if cauchy then bounded}
+If a sequence is Cauchy, then it is bounded. 
+\end{lemma}
+
+
+
+
+
+
+
+\begin{theorem}[Convergent $\iff$ Cauchy]\label{thm:cauchy_convergence}
+A sequence of real numbers is Cauchy $ \iff$ the sequence is convergent. 
+
+\end{theorem}
+
+
+
+
+
+
+\subsection{Series}
+
+\begin{definition}[Series]\label{def:series}
+Given a sequence $ (x_n)^\infty_{n=1}$, we define
+\[
+\sum_{n=1}^\infty{x_n}
+\]
+as a \textit{series}. A series \textit{converges} if the sequence $ (s_k)^\infty_{k=1}$, called the partial sums, and defined by
+\[
+s_k = \sum_{n = 1}^k{x_n} = x_1 + x_2 + \cdots + x_k
+\]
+converges. So a series converges if
+\[
+\sum_{n=1}^\infty{x_n} = \lim_{k \to \infty}{\sum_{n = 1}^k{x_n}}.
+\]
+\end{definition}
+
+
+
+
+
+\begin{proposition}[Geometric Series]\label{prp:geo_series}
+Suppose $ -1 < r < 1.$ Then the geometric series $ \sum_{n=0}^\infty{r^n}$ converges, and 
+\[
+\sum_{n=0}^\infty{r^n} = \frac{1}{1-r}
+\]
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}
+Let $\sum_{n=1}^\infty{x_n}$ be a series and let $M \in \mathbb{N}$. Then
+\[
+\sum_{n=1}^\infty{x_n} \textnormal{ converges } \iff \sum_{n=M}^\infty{x_n} \textnormal{ converges.}
+\]
+\end{proposition}
+
+
+\begin{definition}[Cauchy Series]
+A series $\sum_{n=1}^\infty{x_n}$ is said to be \textit{Cauchy} if the sequence of the partial sums $ (s_n)^\infty_{n=1}$ is a Cauchy sequence.\\
+Note that a series is convergent if and only if it is Cauchy \ref{thm:cauchy_convergence}.
+\end{definition}
+
+
+
+
+\begin{proposition}
+If a series $\sum_{n=1}^\infty{x_n}$ converges, then $\lim{x_n} = 0.$
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}[Linearity of Series]\label{prp:linearity_series}
+Let $\alpha \in \mathbb{R}$ and $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ be convergent series. Then
+\begin{enumerate}
+\item $\sum_{n=1}^{\infty} \alpha x_n$ is a convergent series and
+\[
+\sum_{n=1}^{\infty} \alpha x_n = \alpha \sum_{n=1}^{\infty} x_n.
+\]
+\item $\sum_{n=1}^{\infty} (x_n + y_n)$ is a convergent series and
+\[
+\sum_{n=1}^{\infty} (x_n + y_n) = \left( \sum_{n=1}^{\infty} x_n \right) + \left( \sum_{n=1}^{\infty} y_n \right).
+\]
+\end{enumerate}
+
+\end{proposition}
+
+
+
+
+\begin{proposition}
+If $x_n \geq 0$ for all $n$, then $\sum_{n=1}^{\infty} x_n$ converges if and only if the sequence of partial sums is bounded above.
+\end{proposition}
+
+
+
+
+
+\begin{definition}[Absolute Convergence]\label{def:absolute_Convergence_series}
+A series $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely} if the series $\sum_{n=1}^{\infty} |x_n|$ converges. If a series converges, but does not converge absolutely, we say it \textit{converges conditionally}
+\end{definition}
+
+
+
+
+\begin{proposition}
+If the series $\sum_{n=1}^{\infty} x_n$ converges absolutely, then it converges.
+\end{proposition}
+
+
+
+
+
+\begin{proposition}[Comparison Test]\label{prp:comparison_test_series}
+Let $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ be series such that $0 \leq x_n \leq y_n$ for all $n \in \mathbb{N}$.
+\begin{enumerate}
+\item If $\sum_{n=1}^{\infty} y_n$ converges, then so does $\sum_{n=1}^{\infty} x_n$.
+\item If $\sum_{n=1}^{\infty} x_n$ diverges, then so does $\sum_{n=1}^{\infty} y_n$.
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}[P-Series]\label{prp:p-series}
+($p$-series or the $p$-test). For $p \in \mathbb{R}$, the series
+\[
+\sum_{n=1}^{\infty} \frac{1}{n^p}
+\]
+\textit{converges if and only if} $p > 1$.
+
+\end{proposition}
+
+
+
+
+
+
+
+
+\begin{proposition}[Root Test]\label{prp:root_test}
+Let $\sum_{n=1}^{\infty} x_n$ be a series and let
+\[
+L = \limsup_{n \to \infty} |x_n|^{1/n}.
+\]
+\begin{enumerate}
+\item If $L < 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely}.
+\item If $L > 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{diverges}.
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+
+\begin{proposition}[Ratio Test]\label{prp:ratio_test_Series}
+Let $\sum_{n=1}^{\infty} x_n$ be a series, $x_n \neq 0$ for all $n$, and such that
+\begin{enumerate}
+\item If $\limsup_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L < 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely}.
+\item If $\liminf_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L > 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{diverges}.
+\end{enumerate}
+\end{proposition}
+
+
+
+
+
+
+\begin{proposition}[Alternating Series Test]\label{prp:alt_series_test}
+Let \( \{x_n\}_{n=1}^\infty \) be a monotone decreasing sequence of positive real numbers such that \(\lim_{n \to \infty} x_n = 0\). Then the alternating series
+\[
+\sum_{n=1}^\infty (-1)^n x_n
+\]
+converges.
+\end{proposition}
+
+
+
+
+\subsection{Continuity}
+
+
+
+
+
+\begin{definition}[Cluster Point]\label{def:cluster_point}
+A number \( x \in \mathbb{R} \) is called a cluster point of a set \( S \subset \mathbb{R} \) if for every \( \epsilon > 0 \), the set  
+
+\[
+(x - \epsilon, x + \epsilon) \cap (S \setminus \{x\})
+\]
+
+is nonempty.  
+
+Equivalently, \( x \) is a cluster point of \( S \) if for every \( \epsilon > 0 \), there exists some \( y \in S \) such that \( y \neq x \) and \( |x - y| < \epsilon \).  
+
+A cluster point of \( S \) need not belong to \( S \).
+\end{definition}
+
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$. Then $x \in \mathbb{R}$ is a cluster point of $S$ if and only if there exists a convergent sequence of numbers $\{x_n\}_{n=1}^{\infty}$ such that $x_n \neq x$ and $x_n \in S$ for all $n$, and 
+\(
+\lim_{n\to\infty} x_n = x.
+\)
+\end{proposition}
+
+
+
+\begin{definition}
+Let $f : S \to \mathbb{R}$ be a function and $c$ a cluster point of $S \subset \mathbb{R}$. Suppose there exists an $L \in \mathbb{R}$ and for every $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $x \in S \setminus \{c\}$ and $|x - c| < \delta$, we have
+\[
+|f(x) - L| < \epsilon.
+\]
+We then say $f(x)$ \textit{converges} to $L$ as $x$ goes to $c$, and we write
+\[
+f(x) \to L \quad \text{as} \quad x \to c.
+\]
+We say $L$ is a \textit{limit} of $f(x)$ as $x$ goes to $c$, and if $L$ is unique (it is), we write
+\[
+\lim_{x\to c} f(x) := L.
+\]
+If no such $L$ exists, then we say that the limit does not exist or that $f$ \textit{diverges} at $c$.
+
+\end{definition}
+
+\begin{proposition}
+Let $c$ be a cluster point of $S \subset \mathbb{R}$ and let $f : S \to \mathbb{R}$ be a function such that $f(x)$ converges as $x$ goes to $c$. Then the limit of $f(x)$ as $x$ goes to $c$ is unique.
+\end{proposition}
+
+
+
+\begin{lemma}
+Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, let $f : S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $f(x) \to L$ as $x \to c$ if and only if for every sequence $\{x_n\}_{n=1}^{\infty}$ such that $x_n \in S \setminus \{c\}$ for all $n$, and such that $\lim_{n\to\infty} x_n = c$, we have that the sequence $\{f(x_n)\}_{n=1}^{\infty}$ converges to $L$.
+\end{lemma}
+
+
+
+
+
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ are functions such that the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist, and
+\[
+f(x) \leq g(x) \quad \text{for all } x \in S \setminus \{c\}.
+\]
+Then
+\[
+\lim_{x\to c} f(x) \leq \lim_{x\to c} g(x).
+\]
+\end{proposition}
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$, $g : S \to \mathbb{R}$, and $h : S \to \mathbb{R}$ are functions such that
+\[
+f(x) \leq g(x) \leq h(x) \quad \text{for all } x \in S \setminus \{c\}.
+\]
+Suppose the limits of $f(x)$ and $h(x)$ as $x$ goes to $c$ both exist, and
+\[
+\lim_{x\to c} f(x) = \lim_{x\to c} h(x).
+\]
+Then the limit of $g(x)$ as $x$ goes to $c$ exists and
+\[
+\lim_{x\to c} g(x) = \lim_{x\to c} f(x) = \lim_{x\to c} h(x).
+\]
+\end{proposition}
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ are functions such that the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist. Then
+\begin{enumerate}
+\item $\lim_{x\to c} (f(x) + g(x)) = \left(\lim_{x\to c} f(x)\right) + \left(\lim_{x\to c} g(x)\right)$.
+\item $\lim_{x\to c} (f(x) - g(x)) = \lim_{x\to c} f(x) - \lim_{x\to c} g(x)$.
+\item $\lim_{x\to c} (f(x)g(x)) = \left(\lim_{x\to c} f(x)\right) \left(\lim_{x\to c} g(x)\right)$.
+\item If $\lim_{x\to c} g(x) \neq 0$ and $g(x) \neq 0$ for all $x \in S \setminus \{c\}$, then
+\[
+\lim_{x\to c} \frac{f(x)}{g(x)} = \frac{\lim_{x\to c} f(x)}{\lim_{x\to c} g(x)}.
+\]
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ is a function such that the limit of $f(x)$ as $x$ goes to $c$ exists. Then
+\[
+\lim_{x\to c} |f(x)| = \left| \lim_{x\to c} f(x) \right|.
+\]
+\end{proposition}
+
+\begin{definition}
+Let $f : S \to \mathbb{R}$ be a function and $A \subset S$. Define the function $f|_A : A \to \mathbb{R}$ by
+\[
+f|_A(x) := f(x) \quad \text{for } x \in A.
+\]
+We call $f|_A$ the \textit{restriction} of $f$ to $A$.
+\end{definition}
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$, $c \in \mathbb{R}$, and let $f : S \to \mathbb{R}$ be a function. Suppose $A \subset S$ is such that there is some $\alpha > 0$ such that
+\[
+(A \setminus \{c\}) \cap (c - \alpha, c + \alpha) = (S \setminus \{c\}) \cap (c - \alpha, c + \alpha).
+\]
+\begin{enumerate}
+\item The point $c$ is a cluster point of $A$ if and only if $c$ is a cluster point of $S$.
+\item Supposing $c$ is a cluster point of $S$, then $f(x) \to L$ as $x \to c$ if and only if $f|_A(x) \to L$ as $x \to c$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$ be such that $c$ is a cluster point of both $S \cap (-\infty, c)$ and $S \cap (c, \infty)$, let $f : S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $c$ is a cluster point of $S$ and
+\[
+\lim_{x\to c} f(x) = L \quad \text{if and only if} \quad \lim_{x\to c^-} f(x) = \lim_{x\to c^+} f(x) = L.
+\]
+\end{proposition}
+
+\begin{definition}
+Suppose $S \subset \mathbb{R}$ and $c \in S$. We say $f : S \to \mathbb{R}$ is \textit{continuous} at $c$ if for every $\epsilon > 0$ there is a $\delta > 0$ such that whenever $x \in S$ and $|x - c| < \delta$, we have $|f(x) - f(c)| < \epsilon$.
+
+When $f : S \to \mathbb{R}$ is continuous at all $c \in S$, then we simply say $f$ is a \textit{continuous function}.
+\end{definition}
+
+
+\begin{proposition}
+Consider a function $f : S \to \mathbb{R}$ defined on a set $S \subset \mathbb{R}$ and let $c \in S$. Then:
+\begin{enumerate}
+\item If $c$ is not a cluster point of $S$, then $f$ is continuous at $c$.
+\item If $c$ is a cluster point of $S$, then $f$ is continuous at $c$ if and only if the limit of $f(x)$ as $x \to c$ exists and
+\[
+\lim_{x\to c} f(x) = f(c).
+\]
+\item The function $f$ is continuous at $c$ if and only if for every sequence $\{x_n\}_{n=1}^{\infty}$ where $x_n \in S$ and $\lim_{n\to\infty} x_n = c$, the sequence $\{f(x_n)\}_{n=1}^{\infty}$ converges to $f(c)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $f : \mathbb{R} \to \mathbb{R}$ be a polynomial. That is,
+\[
+f(x) = a_d x^d + a_{d-1} x^{d-1} + \dots + a_1 x + a_0,
+\]
+for some constants $a_0, a_1, \dots, a_d$. Then $f$ is continuous.
+\end{proposition}
+
+\begin{proposition}
+Let $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ be functions continuous at $c \in S$.
+\begin{enumerate}
+\item The function $h: S \to \mathbb{R}$ defined by $h(x) := f(x) + g(x)$ is continuous at $c$.
+\item The function $h: S \to \mathbb{R}$ defined by $h(x) := f(x) - g(x)$ is continuous at $c$.
+\item The function $h: S \to \mathbb{R}$ defined by $h(x) := f(x)g(x)$ is continuous at $c$.
+\item If $g(x) \neq 0$ for all $x \in S$, the function $h: S \to \mathbb{R}$ given by $h(x) := \frac{f(x)}{g(x)}$ is continuous at $c$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+Let $A, B \subset \mathbb{R}$ and $f : B \to \mathbb{R}$ and $g : A \to B$ be functions. If $g$ is continuous at $c \in A$ and $f$ is continuous at $g(c)$, then $f \circ g: A \to \mathbb{R}$ is continuous at $c$.
+\end{proposition}
+
+\begin{proposition}
+Let $f : S \to \mathbb{R}$ be a function and $c \in S$. Suppose there exists a sequence $\{x_n\}_{n=1}^{\infty}$, where $x_n \in S$ for all $n$, and $\lim_{n\to\infty} x_n = c$ such that $\{f(x_n)\}_{n=1}^{\infty}$ does not converge to $f(c)$. Then $f$ is discontinuous at $c$.
+\end{proposition}
+
+\begin{lemma}
+A continuous function $f : [a,b] \to \mathbb{R}$ is bounded.
+\end{lemma}
+
+\begin{theorem}[Minimum-maximum theorem / Extreme value theorem]
+A continuous function $f : [a,b] \to \mathbb{R}$ achieves both an absolute minimum and an absolute maximum on $[a,b]$.
+\end{theorem}
+
+\begin{lemma}
+Let $f : [a,b] \to \mathbb{R}$ be a continuous function. Suppose $f(a) < 0$ and $f(b) > 0$. Then there exists a number $c \in (a,b)$ such that $f(c) = 0$.
+\end{lemma}
+
+\begin{theorem}[Bolzano's Intermediate Value Theorem]
+Let $f : [a,b] \to \mathbb{R}$ be a continuous function. Suppose $y \in \mathbb{R}$ is such that $f(a) < y < f(b)$ or $f(a) > y > f(b)$. Then there exists a $c \in (a,b)$ such that $f(c) = y$.
+\end{theorem}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+\section{Combinatorics}
+
+\begin{theorem}
+Let \( X_1, X_2, \dots, X_n \) be finite sets with cardinalities \( |X_1|, |X_2|, \dots, |X_n| \). If a process consists of making sequential choices such that:
+\begin{itemize}
+\item The first choice is made from \( X_1 \),
+\item The second choice is made from \( X_2 \),
+\item \(\dots\),
+\item The \( n \)th choice is made from \( X_n \),
+\end{itemize}
+where the number of choices at each stage is independent of previous choices, then the total number of ways to complete the process is:
+\[
+|X_1| \cdot |X_2| \cdots |X_n| = \prod_{i=1}^{n} |X_i|.
+\]
+\end{theorem}
+
+
+
+\begin{theorem} \label{thm:binomial coefficient}
+Let n and k be nonnegative integers with \( 0 \leq k \leq n\). The number of distinct subsets of size \(k\) that a set of size \(n\) has is given by the binomial coefficient
+\[
+\binom{n}{k} = \frac{n!}{k!(n-k)!}
+\]
+
+\end{theorem}
+
+\begin{theorem} \label{thm:binomial theorem}
+For any integer \(n \geq 0\) and any real or complex numbers a,b, 
+\[
+(a+b)^n = \sum^n_{k=0}{\binom{n}{k} a^{k}b^{n-k}},
+\]
+
+
+\end{theorem}
+
+\begin{theorem}
+The number of ways a set of $n$ distinct objects 
+can be partitioned into $k$ subsets with 
+$n_k$ objects in the $k$th subset is
+\[
+\binom{n}{n_1,n_2,\dots, n_k} = \frac{n!}{n_1!n_2!\cdots n_k!}
+\]
+\end{theorem}
+
+
+\begin{theorem} \label{thm:permutations}
+The number of ways to arrange n distinct objects in a sequence is 
+\[
+P(n) = n! = n(n-1)(n-2) \cdots 2 \cdot 1
+\]
+The number of ways to select and arrange k objects from n distinct objects is
+\[
+P(n,k) = \frac{n!}{(n-k)!}.
+\]
+\end{theorem}
+
+
+\begin{theorem}
+Let $n$, $k$, and $j$ be nonnegative integers with $0j\leq k \leq n$. 
+Then for a set with $n$ distinct elements, all of the following hold
+\begin{enumerate}
+\item \[\binom{n+1}{k} = \binom{n}{k} + \binom{n}{k-1}\]
+\item \[\binom{n}{k} = \binom{n}{n-k}\]
+\item \[\sum^k_{j=0}{\binom{m}{j}\binom{n}{k-j}} = \binom{m+n}{k}\]
+\item \[\binom{n}{k} + \binom{n}{k+1} = \binom{n+1}{k+1}\]
+\item \[2^n = \sum^n_{k=0}{\binom{n}{k}}\]
+\item \[\binom{k}{k}+ \binom{k+1}{k} + \binom{k+2}{k} + \cdots +\binom{n}{k} = \binom{n+1}{k+1}   \]
+\end{enumerate}
+\end{theorem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+
+\section{Probability}
+\subsection{Probability Axioms}
+\begin{definition}[Algebra and $\sigma$-algebra]\label{def:sigma algebra}
+Let $\Omega$ be an abstract space. Let $2^{\Omega}$ denote all subsets of $\Omega$. With $\mathcal{A}$ being a subset of $2^\Omega$. Then $\mathcal{A}$ is an algebra if it satisfies $(1),(2),$ and $(3)$. $\mathcal{A}$ is a $\sigma$-algebra if it satisfies $(1), (2),$ and $(4)$.
+\begin{enumerate}
+\item $\emptyset \in \mathcal{A}$ and $\Omega \in \mathcal{A}$
+\item If $ A \in \mathcal{A}$ then $A^c \in \mathcal{A}$.
+\item If the finite sequence of events $A_1, A_2, \dots ,A_n \in \mathcal{A}$ then $\bigcup^n_{i=1}{A_i} \in \mathcal{A}$ and $\bigcap^n_{i=1}{A_i} \in \mathcal{A}$.
+\item If the countable sequence of events $A_1, A_2, \dots \in \mathcal{A}$ then $\bigcup^\infty_{i=1}{A_i} \in \mathcal{A}$ and $ \bigcap^\infty_{i=1}{A_i} \in \mathcal{A}    $. 
+\end{enumerate}
+
+\end{definition}
+
+\begin{theorem}[Borel $\sigma$-algebra]
+If $\Omega = \mathbb{R}$, the Borel $\sigma$-algebra is the $\sigma$-algebra generated by open sets (or equivalently closed sets). Then the Borel $\sigma $-algebra can be generated by intervals of the form $ (-\infty, a] $, where $ a \in \mathbb{Q} $.
+\end{theorem}
+
+
+
+\begin{definition}[Probability Measure]\label{def:probability}
+A probability measure defined on a $ \sigma $-algebra $\mathcal{A}$ of $\Omega$ is a function $ P: \mathcal{A} \to [0,1] $ that satisfies 
+\begin{enumerate}
+\item $P(\Omega)=1$
+\item For every pairwise disjoint $ (A_n \cap A_m = \emptyset \textnormal{ whenever } n \neq m) $ countable sequence $ (A_n)_{n \geq 1} $ of elements of $\mathcal{A}$, we have 
+\[
+P\left(\bigcup^\infty_{n=1}{A_n}\right) = \sum^\infty_{n=1}{P(A_n)}.
+\]
+\end{enumerate}
+\end{definition}
+
+
+
+
+\begin{theorem}\label{thm:additivity of nondisjoint sets}
+Let \(A_1, A_2, \dots, A_n\) be events, then
+\begin{gather*} P(A_1 \cup A_2 \cup \cdots \cup A_n) = \sum_{i=1}^{n}{P(A_i)} - \sum_{1 \leq i_1 \leq i_2 \leq n}{P(A_{i_1} \cap A_{i_2})}\\ + \sum_{1 \leq i_1 \leq i_2 \leq i_3 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3})} - \sum_{1 \leq i_1 < i_2 \leq i_3 < i_4 \leq n}{P(A_{i_1} \cap A_{i_2} \cap A_{i_3} \cap A_{i_4})} \\ + \cdots + (-1)^{n+1}P(A_1 \cap \cdots \cap A_n)  = \sum_{k=1}^{n}(-1)^{k+1} \sum_{1 \leq i_1 < \cdots < i_k \leq n}{P(A_{i_1} \cap \cdots \cap A_{i_k})} 
+\end{gather*}
+
+\end{theorem}
+
+
+
+
+\begin{definition}(Indicator Function)\label{def:indicator function}
+If $A \in 2^\Omega$, then the indicator function $1_A(\omega)$ be given by
+\[
+1_A(\omega) = 
+\begin{cases}
+1 \textit{ if } \omega \in A,\\
+0 \textit{ if } \omega \notin A.
+\end{cases}
+\]
+We say $A_n \in \mathcal{A}$ converges to $A$ if $\lim_{n\to\infty}{1_{A_n}(\omega)} = 1_A(\omega)$ $\forall \omega \in \Omega$.
+\end{definition}
+
+
+
+\begin{definition}[Supremum and Infimum of Sequence of Sets]\label{def:sup and inf of sequence of sets}
+Let $A_n$ be a sequence of sets. If $A_n \in \mathcal{A}$ $\forall n \in \mathbb{N}$ then define
+\begin{gather*}
+\limsup_{n\to\infty}{A_n} = \cap^\infty_{n=1}\cup_{m \geq n}{A_m}\\
+\liminf_{n\to\infty}{A_n} = \cup^\infty_{n=1}\cap_{m\geq n}{A_m}.
+\end{gather*}
+
+\end{definition}
+
+
+
+
+\begin{lemma}\label{lem:inf subset of sup}
+Let $\mathcal{A}$ be a $\sigma$-algebra and $(A_n)^\infty_{n\geq 1}$ be a sequence 
+of sets in $\mathcal{A}$. Then, \[
+\liminf_{n\to\infty}{A_n} \in \mathcal{A}, \quad \limsup_{n\to\infty}{A_n} \in \mathcal{A}, \quad \textnormal{and } \liminf_{n\to\infty}{A_n} \subseteq \limsup_{n\to\infty}{A_n}
+\]
+\end{lemma}
+
+
+
+
+
+\begin{lemma}\label{lem:sup equal inf mean converge}
+Let $\mathcal{A}$ be a $\sigma$-algebra and $(A_n)^\infty_{n\geq 1}$ be a sequence 
+of sets in $\mathcal{A}$. Then, \[
+\lim_{n\to\infty}{A_n}=A \iff \limsup_{n\to\infty}{A_n} = \liminf_{n\to\infty}{A_n} = A
+\]
+\end{lemma}
+
+
+
+
+
+\begin{theorem}[Continuity of Probability Measure]
+Let $P$ be a probability measure, and let $A_n$ be a sequence of events in the $\sigma$-algebra $\mathcal{A}$
+which converges to $A$. Then $A \in \mathcal{A}$ and $\lim_{n\to\infty}{P(A_n)} = P(A)$.
+\end{theorem}
+
+
+
+\begin{definition}[Monotone Sequence of Sets]\label{def:Increasing or Decreasing Sequence of Sets}
+A sequence of events $(A_n)^\infty_{n\geq 1}$ is said to be an \textit{monotone increasing} sequence of sets if \[
+A_1 \subseteq A_2 \subseteq \cdots \subseteq A_k \subseteq A_{k+1} \subseteq \cdots
+\]
+Similarly, a sequence of sets $(A_n)^\infty_{n\geq 1}$ is said to be a \textit{monotone decreasing} sequence if \[
+A_1 \supseteq A_2 \supseteq \cdots \supseteq A_k \supseteq A_{k+1} \supseteq \cdots
+\]
+Further, if an increasing sequence $(A_n)^\infty_{n\geq 1}$ converges to some event $A$, then we write $A_n \uparrow A$ and we have $A = \cup^\infty_{n\geq 1}{A_n}$. Similarly, 
+if $(A_n)^\infty_{n\geq 1}$ decreases to $A$ then we write $A_n \downarrow A$, with  $A = \cap^\infty_{n\geq 1}{A_n}$.
+\end{definition}
+
+
+
+
+
+
+\begin{theorem}\label{thm:convergence of P of seq of sets}
+Let $\mathcal{A}$ be a $\sigma$-algebra and let $(A_n)^\infty_{n\geq 1} \in \mathcal{A}$ be a sequence of sets. Suppose $P: \mathcal{A}\to [0,1]$ is a probability measure.
+Then the following are equivalent, 
+\begin{enumerate}
+\item Axiom (2) of definition (\ref{def:probability})
+\item $A_n \downarrow A \implies P(A_n) \downarrow P(A)$.
+\item $A_n \uparrow A \implies P(A_n) \uparrow P(A)$
+\end{enumerate}
+\end{theorem}
+
+
+
+
+\begin{proposition}
+Let $A_i \in \mathcal{A}$ be a sequence of events. Then, 
+\[
+P\left(\bigcup_{i=1}^{n} A_i \right) \leq \sum_{i=1}^{\infty} P(A_i).
+\]
+\end{proposition}
+
+
+
+
+
+\subsection{Conditional Probability and Independence}
+
+
+\begin{definition} \label{def: conditional_prob}
+
+
+Let B be an event in the sample space \(\Omega\) such that \(P(B) > 0\). Then for all events \(A\) the \textit{conditional probability} of \(A\) given \(B\) is defined as
+\[
+P(A \mid B) = \frac{P(A \cap B)}{P(B)}.
+\]
+
+\end{definition}
+
+\begin{proposition}[Conditional Probability Measure]\label{prop:conditional prob is a prob measure}
+The conditional probability is a probability measure (\ref{def:probability}).
+\end{proposition}
+
+
+
+
+
+\begin{definition}\label{def: independence}
+A collection of events $(A_i)_{i \in I}$ is an independent collection if for every finite subset $J$ of $I$, one has 
+\[
+P(\cap_{i \in J}{A_i}) = \prod_{i \in J}{P(A_i)}.
+\]
+If the above condition is satisfied for for the whole collection, we say the collection $(A_i)_{i \in I}$ is mutually independent. Also, 
+if $A_i$ and $A_j$ are independent $\forall i,j$ with $i \neq j$, that is if any two events you pick from the collection $(A_i)_{i \in I}$ are independent, then the collection is pariwise independent.
+
+\end{definition}
+
+
+
+\begin{proposition}
+If $A$ and $B$ are independent, so also are $A$ and $B^c$, $A^c$ and $B$, and $A^c$ and $B^C$. 
+\end{proposition}
+
+
+
+\begin{proposition}[Partition Equation]\label{prop:partition equation}
+If \(A_1, A_2, \dots, A_n \in \mathcal{A}\) and if $ P(A_1 \cap \cdots \cap A_{n-1}) > 0$, then  
+\[
+P(A_1 \cap A_2 \cap \dots \cap A_n) = P(A_1)P(A_2 \mid A_1)P(A_3 \mid A_1 \cap A_2) \dots P(A_n \mid A_1 \cap \dots \cap A_n).
+\]
+\end{proposition}
+
+
+
+\begin{definition}[Partition]\label{def:partition}
+A countable collection of events \(B_1, \dots, B_n\) are a \textit{partition} of \(\Omega\) 
+if the sets \(B_i\) are pairwise disjoint and together they make up \(\Omega\). 
+That is, for all i and j, \( B_i \cap B_j = \emptyset \) whenever \(i \neq j\) 
+and \( \bigcup_{i=1}^n B_i = \Omega\)
+\end{definition}
+
+
+
+
+
+
+
+\begin{theorem}[Bayes Theorem]\label{thm:bayes_formula}
+Let \( B_1, B_2, \dots, B_n \) be a partition of the sample space \( \Omega \) such that each \( P(B_i) > 0 \). Then for any event \( A \) with \( P(A) > 0 \), and for any \( k = 1, \dots, n \), we have:
+\[
+P(B_k \mid A) = \frac{P(A B_k)}{P(A)} = \frac{P(A \mid B_k) P(B_k)}{\sum_{i=1}^{n} P(A \mid B_i) P(B_i)}.
+\]
+\end{theorem}
+
+
+
+
+
+
+
+
+
+\begin{definition}\label{def:conditional_independence}
+Let \( A_1, A_2, \dots, A_n \) and \( B \) be events with \( P(B) > 0 \). Then \( A_1, A_2, \dots, A_n \) are \textit{conditionally independent, given \( B \)}, if the following condition holds:
+
+For any \( k \in \{2, \dots, n\} \) and indices \( 1 \leq i_1 < i_2 < \dots < i_k \leq n \),
+\[
+P(A_{i_1} A_{i_2} \dots A_{i_k} \mid B) = P(A_{i_1} \mid B) P(A_{i_2} \mid B) \cdots P(A_{i_k} \mid B).
+\]
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+\subsection{Random Variables}
+
+
+
+\begin{definition}[Random Variable] \label{def: Random_Variable}
+A random variable is a measurble function $ X: \Omega \to \mathbb{R}$ such that for all Borel measurable sets $ B \subseteq \mathbb{R}$,
+the preimage of $B$ is an event in $\mathcal{A}$, that is 
+\[
+X^{-1}(B) = \{ \omega \in \Omega \mid X(\omega) \in B \} \in \mathcal{F}.
+\]
+This means that $X$ is $\mathcal{A}$-measurable, ensuring that we can compute probabilities of the form $P(X \in B)$
+\end{definition}
+
+
+
+
+\begin{definition}
+Let \( (\Omega, \mathcal{F}, \mathbb{P}) \) be a probability space, and let \( X: \Omega \to \mathbb{R} \) be a real-valued random variable. The cumulative distribution function (CDF) of \( X \), denoted \( F_X: \mathbb{R} \to [0,1] \), is defined by  
+
+\[
+F_X(x) = P(X \leq x), \quad \forall x \in \mathbb{R}.
+\]
+The function \( F_X(x) \) satisfies the following properties  
+\begin{enumerate}
+\item (Monotonicity) $\quad F_X(x)$ is monotone increasing
+\item (Right Continuity) $quad F_X(x)$ is right continuous\[
+\lim_{h\to 0^+} F_X(x+h) = F_X(x)
+\]
+\item (Limits at Infinity) \[
+\lim_{x \to -\infty} F_X(x) = 0, \quad \lim_{x \to \infty} F_X(x) = 1.
+\]  
+\item (Jumps) If \( F_X(x) \) has a jump at \( x \), say  
+\[
+P(X = x) = F_X(x) - \lim_{y \to x^-} F_X(y),
+\]  
+then \( X \) has positive probability at \( x \)
+\item (Absolute Continuity) If \( F_X(x) \) is absolutely continuous, then there exists a probability density function (PDF) \( f_X(x) \) such that  
+\[
+F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt.
+\]  
+\end{enumerate} 
+\end{definition}
+
+
+\begin{definition}
+So a random variable inputs events or outcomes and outputs a real number, then the probability measure will assign probabilities in $[0,1]$ to the values of $X$.
+We can then define the distribution of $X$ by
+\[
+P^X(A) = P({\omega \mid X(w) \in A}) = P(X^{-1}(A)) = P(X \in A)
+\]
+When $\Omega$ is finite or countable, this is completely determined by the following 
+\[
+p_j^X = P(X=j) = \sum_{\{\omega \mid X(w) =j\}}{p_\omega} \textnormal{ and } P_X(A) = \sum_{j \in A}{p^X_j}
+\]
+So basically, the probability distribution of the random variable $X$ is the collection
+of probabilities $P(X\in B)$.
+\par Further, a random variable is a discrete random variable if there exists
+a finite or countably infinite set $k_1, k_2, \dots $ of reals such that
+\[
+\sum_i{P(X=k_i)} = 1
+\]
+where the sum ranges over the entire set of points $\{k_1, k_2, \dots\}$.
+\end{definition}    
+
+
+
+
+
+\begin{definition}
+Let \( (\Omega, \mathcal{F}, \mathbb{P}) \) be a probability space, and let \( X: \Omega \to \mathbb{R} \) be a real-valued random variable. The cumulative distribution function (CDF) of \( X \), denoted \( F_X: \mathbb{R} \to [0,1] \), is defined by  
+
+\[
+F_X(x) = P(X \leq x), \quad \forall x \in \mathbb{R}.
+\]
+The function \( F_X(x) \) satisfies the following properties  
+\begin{enumerate}
+\item (Monotonicity) $\quad F_X(x)$ is monotone increasing
+\item (Right Continuity) $quad F_X(x)$ is right continuous\[
+\lim_{h\to 0^+} F_X(x+h) = F_X(x)
+\]
+\item (Limits at Infinity) \[
+\lim_{x \to -\infty} F_X(x) = 0, \quad \lim_{x \to \infty} F_X(x) = 1.
+\]  
+\item (Jumps) If \( F_X(x) \) has a jump at \( x \), say  
+\[
+P(X = x) = F_X(x) - \lim_{y \to x^-} F_X(y),
+\]  
+then \( X \) has positive probability at \( x \)
+\item (Absolute Continuity) If \( F_X(x) \) is absolutely continuous, then there exists a probability density function (PDF) \( f_X(x) \) such that  
+\[
+F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt.
+\]  
+\end{enumerate} 
+\end{definition}
+
+
+
+
+
+
+
+\begin{definition}[Probability Mass Function (PMF)]\label{def:pmf}
+The probability mass function of a discrete random variable $X$ is the function
+$p$ defined by 
+\[
+p(k) = P(X=k)
+\]
+for possible values $k$ of $X$.\\
+We can then find the probabilites of other events of $X$. That is, for some event $X\in B$, we 
+sum each $p(k)$, $\forall k \in B$. 
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{definition}\textbf{[Expected Value]}\label{def:expected value}
+Let $X$ be a real-valued random variable on a countable space $\Omega$. The expectation of $X$, denoted $E(X)$, is defined to be 
+\[
+E(X) = \sum_{\omega}{X(\omega)p_\omega} \quad \textnormal{or } \quad \int_{-\infty}^{\infty}X(\omega)p_\omega d\omega??
+\]
+provided this sum converges. Notice that if the random variable is discrete we use the finite sum, if it is continuous, we use the continuous sum.
+\end{definition}
+
+\begin{definition}
+The $n$th moment of the random variable $X$ is the expectation $E(X^n)$. 
+\[
+E(X^n) = \sum_{\omega}{X^n(\omega)p_\omega} \quad \textnormal{or } \quad \int_{-\infty}^{\infty}X^n(\omega)P(X(\omega)) d\omega
+\]
+\end{definition}
+
+
+
+\begin{theorem}
+Let $h: \mathbb{R} \to [0,\infty)$ be a nonnegative function and let $X$ be a real valued random variable. Then 
+\[
+P(\{\omega \mid h(X(\omega)) \geq a\}) \leq \frac{E(H(X))}{a}, \quad \forall a > 0.
+\]
+\end{theorem}
+
+
+
+\begin{corollary}[Markovs Inequality] \label{Markovs Inequality}
+\[
+P({|X| \geq a}) \leq \frac{E(|X|)}{a}
+\]
+
+\end{corollary}
+
+
+
+\begin{definition}\label{def: Variance and Standard Deviation}
+Let $X$ be a real valued random variable with $X^2 \in \mathcal{L}^1$ where $\mathcal{L}^1$ is the space of real valued random variables on $(\Omega, \mathcal{A}, P)$. The variance of $X$ is defined to be
+\[
+\sigma^2 = \sigma^2_X = E((X - E(X))^2) = E(X^2) - (E(X))^2
+\]
+The standard deviation of $X$, $\sigma_X$, is the nonnegative square root of the variance. 
+
+\end{definition}
+
+
+
+
+
+
+\begin{corollary}[\textbf{Chebyshev's Inequality}]
+If $X^2$ is in $\mathcal{L}^1$, then for $a>0$ we have
+\begin{enumerate}
+\item $ \quad P(\{|X| \geq a\}) \leq \frac{E{X^2}}{a^2}$
+\item $ \quad P(\{|X - E(X)| \geq a\}) \leq \frac{\sigma^2_X}{a^2}$
+\end{enumerate}
+
+\end{corollary}
+
+
+
+
+
+\subsection{Distributions}
+We will now look at the different distributions associtated with a random variable
+and we will discuss the motivations for using each one.\\
+\textbf{Repeated Independent Trials}\\
+If we are sampling with replacement, that is, whatever \textit{data} we are 
+looking at is being drawn from equivalent sets. This means the information
+of each given trial (or occurence/value/outcome of the random variable) does not provide
+any information for the next trial.
+\par The simplest trial is one which has two outcomes, success or failure, for each trial. If we let the 
+probability of a success be $p$, then the probability of fail is $1-p$. So suppose we do $n$ trials
+and we have $k=1$ success. Then the probability of that one success is $p(1-p)^{n-1}$, but the 
+number of ways to have this success is $\binom{n}{1} = n$ since for each of the $n$ spots, only 
+one of them was a success. Extending this, we get the definition below. 
+
+
+
+\begin{definition}[\textbf{Binomial Distribution}]
+Let $n$ be a positive integer and $ 0 \leq p \leq 1$. A random variable $X$ has the \textit{binomial distribution} with parameters
+$n$ and $p$ if the possible values of $X$ are $\{0,1,\dots,n\}$ and the probabilities are 
+\[
+P(\{X=k\}) = \binom{n}{k}p^k(1-p)^{n-k} \quad \textnormal{for } k = 0,1,\dots n.
+\]
+This is denoted $X ~ Bin(n,p)$.
+
+\end{definition}
+
+
+\par Now consider you are trying to figure out how many flips of a coin 
+till you get a head. Let the probability of a head be $p$. Then the probability 
+of obtaining heads on the 10th flip is $(1-p)^{9}p$. This motivates the below definition
+
+
+\begin{definition}[\textbf{Geometric Distribution}]
+A random variable \( X \) follows a Geometric distribution with parameter \( p \) (success probability per trial) if the probability of $k$ independent trials till a success on the $k$th trial is given by,
+
+\[
+P(X = k) = (1 - p)^{k-1} p, \quad k = 1, 2, 3, \dots
+\]
+\end{definition}
+
+\par Now imagine you have a finite population with 
+$N$ objects. Then suppose $K$ objects are of type 1 and $N-K$ objects
+are of type 2. We draw a sample of $n$ without replacement from the $N$ total and 
+want to know the probability of getting exactly $k$ objects of type 1. This is the exact 
+same as the binomial distribution only now we are not replacing. 
+\par So for some $P(X=k)$ we have $\binom{K}{k}$ ways 
+of choosing the $k$ type 1 objects from the total $K$ amount of them. Then we have $\binom{N-K}{n-k}$ ways
+to select the remaining $n-k$ objects of type 2 from the total $N-K$ of type 2.
+Then $\binom{N}{n}$ is the total number of ways to select the $n$ objects. 
+
+\begin{definition}[\textbf{Hypergeometric Distribution}]
+A hypergeometric random variable represents the number of successes of size $n$, drawn without replacement from a population of size \( N \) that contains \( K \) successes. The PMF is given by
+\[
+P(X = k) = \frac{\binom{K}{k} \binom{N - K}{n - k}}{\binom{N}{n}}, \quad \max(0, n - (N - K)) \leq k \leq \min(n, K).
+\]
+\end{definition}
+
+
+
+\begin{definition}[\textbf{Poisson Distribution}]
+A Poisson random variable models the number of events occurring in a fixed interval of time or space, under the assumption that events occur independently and at a constant average rate \( \lambda \).
+A random variable \( X \) follows a Poisson distribution with rate parameter \( \lambda > 0 \) if
+
+\[
+P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \dots.
+\]
+
+
+\end{definition}
+
+
+\begin{definition}[\textbf{Normal Distribution}]
+A random variable \( X \) follows a Normal distribution with mean \( \mu \) and variance \( \sigma^2 \), written as \( X \sim \mathcal{N}(\mu, \sigma^2) \), if its probability density function (PDF) is
+\[
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp \left( -\frac{(x - \mu)^2}{2\sigma^2} \right), \quad x \in \mathbb{R}.
+\]
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

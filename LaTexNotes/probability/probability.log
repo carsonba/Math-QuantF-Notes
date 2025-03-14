@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  12 MAR 2025 14:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  13 MAR 2025 16:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -431,18 +431,18 @@ File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 {C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
 
 [2]
-Overfull \hbox (13.54997pt too wide) detected at line 153
-\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 [ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 [ [] [ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) = [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) + [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [] \OT1/lmr/m/n/10 + (\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 1)[]\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ [] \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 :
- []
-
-
-Overfull \hbox (3.20294pt too wide) detected at line 191
+Overfull \hbox (13.54997pt too wide) detected at line 175
 \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 [ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 [ [] [ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) = [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) + [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [] \OT1/lmr/m/n/10 + (\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 1)[]\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ [] \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 :
  []
 
 
 
 [3]
+Overfull \hbox (3.20294pt too wide) detected at line 213
+\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 [ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 [ [] [ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) = [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) + [] \OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 ^^@ [] \OT1/lmr/m/n/10 + (\OMS/lmsy/m/n/10 ^^@\OT1/lmr/m/n/10 1)[]\OML/lmm/m/it/10 P\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ \OML/lmm/m/it/10 A[] \OMS/lmsy/m/n/10 \ [] \ \OML/lmm/m/it/10 A[]\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 :
+ []
+
+
 
 [4]
 
@@ -456,26 +456,28 @@ Overfull \hbox (3.20294pt too wide) detected at line 191
 
 [9]
 
-[10] (c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.aux)
+[10]
+
+[11] (c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `probability.out' has not changed.
-(rerunfilecheck)             Checksum: 0EE8BC678D6841E82B8FC6B8B8A28491;672.
+(rerunfilecheck)             Checksum: A4F551B5E345FBA1A487703B516C96A2;804.
  ) 
 Here is how much of TeX's memory you used:
- 10738 strings out of 473523
- 168232 string characters out of 5714631
- 577706 words of memory out of 5000000
- 33722 multiletter control sequences out of 15000+600000
+ 10756 strings out of 473523
+ 168404 string characters out of 5714631
+ 578785 words of memory out of 5000000
+ 33724 multiletter control sequences out of 15000+600000
  598853 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 95i,13n,99p,1131b,645s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.pdf (10 pages, 271285 bytes).
+ 95i,13n,99p,1131b,663s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on c:\Users\carso\Documents\Projects\LaTexNotes\probability\probability.pdf (11 pages, 286991 bytes).
 PDF statistics:
- 232 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 33 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 262 PDF objects out of 1000 (max. 8388607)
+ 93 named destinations out of 1000 (max. 500000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
