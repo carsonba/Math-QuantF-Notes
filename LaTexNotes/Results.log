@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  14 MAR 2025 10:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.2) (preloaded format=pdflatex 2025.3.8)  16 MAR 2025 12:34
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -294,45 +294,21 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 \c@lemma=\count298
 \c@corollary=\count299
 \c@proposition=\count300
-
-
-c:/Users/carso/Documents/Projects/LaTexNotes/Results.tex:17: LaTeX Error: Command \proposition already defined.
-               Or name \end... illegal, see p.192 of the manual.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.17 \newtheorem{proposition}
-                             {proposition}[section]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-c:/Users/carso/Documents/Projects/LaTexNotes/Results.tex:17: LaTeX Error: Missing \begin{document}.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.17 \newtheorem{proposition}{p
-                               roposition}[section]
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
 \c@definition=\count301
 \c@example=\count302
 \c@remark=\count303
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 29.
-(C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+ (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count304
 \l__pdf_internal_box=\box54
+) (Results.aux
+
+LaTeX Warning: Label `def:field' multiply defined.
+
 )
-No file Results.aux.
 \openout1 = `Results.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
@@ -353,6 +329,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -413,14 +390,10 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
  (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
 Package hyperref Info: Link coloring ON on input line 29.
+ (Results.out) (Results.out)
 \@outlinefile=\write3
 \openout3 = `Results.out'.
 
-
-
-[1
-
-{C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}]
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 31.
  (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -450,27 +423,32 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 LaTeX Warning: No \author given.
 
-No file Results.toc.
+(Results.toc
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 3.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 3.
+)
 \tf@toc=\write4
 \openout4 = `Results.toc'.
 
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 43.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 43.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 43.
 
 
-[2{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Underfull \hbox (badness 10000) in paragraph at lines 151--152
+[1
+
+{C:/Users/carso/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 154--155
 
  []
 
 
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 230--231
+Underfull \hbox (badness 10000) in paragraph at lines 233--234
 
  []
 
@@ -480,31 +458,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 230--231
 
 [5]
 
-LaTeX Warning: Reference `def:cardinality' on page 6 undefined on input line 575.
+[6{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-
-LaTeX Warning: Reference `def:equivalence_relation' on page 6 undefined on input line 580.
-
-
-
-[6]
-
-[7{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
+[7]
 
 [8]
 
 [9]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 991.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 991.
+
+
+
 [10]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 983.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 983.
-
-
 
 [11]
 
@@ -514,41 +485,25 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [14]
 
-LaTeX Warning: Reference `def:units' on page 15 undefined on input line 1461.
-
-
-LaTeX Warning: Reference `def:zero_divisor' on page 15 undefined on input line 1476.
-
-
-
 [15]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1587.
- (C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 
-[16{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+[16]
 
 [17]
 
 [18]
-
-[19]
-
-LaTeX Warning: Reference `def:Monotone_sequence' on page 20 undefined on input line 2068.
-
-
-
-[20]
-
-LaTeX Warning: Reference `thm:cauchy_convergence' on page 21 undefined on input line 2255.
-
-
-Overfull \hbox (1.98967pt too wide) in paragraph at lines 2297--2298
-[][]\OT1/lmr/bx/n/10 Definition 4.12 \OT1/lmr/m/n/10 (Ab-so-lute Con-ver-gence)\OT1/lmr/bx/n/10 . []\OT1/lmr/m/n/10 A se-ries $[][] \OML/lmm/m/it/10 x[]$ \OT1/lmr/m/it/10 con-verges ab-so-lutely \OT1/lmr/m/n/10 if the se-ries $[][] \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 x[]\OMS/lmsy/m/n/10 j$
+Overfull \hbox (6.65749pt too wide) in paragraph at lines 1901--1902
+[][]\OT1/lmr/bx/n/10 Corollary 3.8. []\OT1/lmr/m/it/10 Let $\OML/lmm/m/it/10 F$ \OT1/lmr/m/it/10 be a field and $\OML/lmm/m/it/10 p\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )$ \OT1/lmr/m/it/10 an ir-re-ducible poly-no-mial in $\OML/lmm/m/it/10 F\OT1/lmr/m/n/10 [\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ]$\OT1/lmr/m/it/10 . If $\OML/lmm/m/it/10 p\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10 j \OML/lmm/m/it/10 a[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )\OML/lmm/m/it/10 a[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 ) [] \OML/lmm/m/it/10 a[]\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 )$\OT1/lmr/m/it/10 ,
  []
 
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1931.
+(C:\Users\carso\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 
+[19{C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+[20]
 
 [21]
 
@@ -557,17 +512,15 @@ Overfull \hbox (1.98967pt too wide) in paragraph at lines 2297--2298
 [23]
 
 [24]
+Overfull \hbox (1.98967pt too wide) in paragraph at lines 2684--2685
+[][]\OT1/lmr/bx/n/10 Definition 5.12 \OT1/lmr/m/n/10 (Ab-so-lute Con-ver-gence)\OT1/lmr/bx/n/10 . []\OT1/lmr/m/n/10 A se-ries $[][] \OML/lmm/m/it/10 x[]$ \OT1/lmr/m/it/10 con-verges ab-so-lutely \OT1/lmr/m/n/10 if the se-ries $[][] \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 x[]\OMS/lmsy/m/n/10 j$
+ []
+
+
 
 [25]
 
 [26]
-
-LaTeX Warning: Reference `def:probability' on page 27 undefined on input line 2787.
-
-
-LaTeX Warning: Reference `def:probability' on page 27 undefined on input line 2821.
-
-
 
 [27]
 
@@ -577,39 +530,38 @@ LaTeX Warning: Reference `def:probability' on page 27 undefined on input line 28
 
 [30]
 
-[31] (Results.aux)
+[31]
+
+[32]
+
+[33]
+
+[34]
+
+[35] (Results.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 
 
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `Results.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Results.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  E55C26B43143BED55855913C837F39DB;2289.
+Package rerunfilecheck Info: File `Results.out' has not changed.
+(rerunfilecheck)             Checksum: 1024CD543A4CE8891DECC2EECE80DFCB;2373.
  ) 
 Here is how much of TeX's memory you used:
- 11277 strings out of 473523
- 174690 string characters out of 5714631
- 576487 words of memory out of 5000000
- 33852 multiletter control sequences out of 15000+600000
- 616779 words of font info for 78 fonts, out of 8000000 for 9000
+ 11390 strings out of 473523
+ 176491 string characters out of 5714631
+ 585084 words of memory out of 5000000
+ 33890 multiletter control sequences out of 15000+600000
+ 621005 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,882b,666s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Results.pdf (31 pages, 472336 bytes).
+<C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/carso/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Results.pdf (35 pages, 520789 bytes).
 PDF statistics:
- 785 PDF objects out of 1000 (max. 8388607)
- 488 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 977 PDF objects out of 1000 (max. 8388607)
+ 554 named destinations out of 1000 (max. 500000)
+ 145 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -14,7 +14,7 @@
 \newtheorem{lemma}{Lemma}[section]
 \newtheorem{corollary}{Corollary}[section]
 \newtheorem{proposition}{Proposition}[section]
-\newtheorem{proposition}{proposition}[section]
+
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section] 
@@ -30,6 +30,9 @@
 \maketitle
 
 \tableofcontents
+
+\section{Learning}
+
 
 
 
@@ -959,7 +962,6 @@ where the coefficients \(c_0, c_1, \dots, c_n\) are integers and \(c_n \neq 0\) 
 
 
 
-
 \begin{theorem}[Rational Zeros Theorem]\label{thm:rational zeros theorem}
 Suppose \(c_0, c_1, \dots , c_n \) are integers and \( r \in \mathbb{Q}\) satisfies the polynomial
 \[
@@ -974,15 +976,26 @@ power of $n$ and multiplying by $d^n$ you will be able to rearrange to show
 that $m$ divides $c_0$.\\
 This result can be used to show that a number is a real number by letting
 $x=$ the number we want to show is a rational then rearrange to get a polynomial on one 
-side and 0 on the other. Then using the result above we can 
+side and 0 on the other. Then using the result above we can see if the number we originally let $x=$
+is a rational solution.
 \end{remark}
+
+
+
+
+
 
 
 
 
 \subsection{Divisibility in $\mathbb{Z}$}
 
-We start by defining the integers. This ordered set will be our object of study. SAY MORE HERE
+
+
+
+\begin{definition}[Well Ordering Axiom]
+Every nonempty subset of the set of nonnegative integers contains a smallest element. 
+\end{definition}
 
 \begin{definition}[$\mathbb{Z}$]
 The set of integers is any ordered set equipped with two operations $+, \cdot$ that satisfy the following axioms. $\forall a,b,c \in \mathbb{Z}:$
@@ -1023,6 +1036,13 @@ a = bq+r \textnormal{ and } 0 \leq r < b.
 \]
 \end{theorem}
 
+\begin{remark}
+Consider $S = \{a-bx \geq 0 \}$. Start by showing $S$ is nonempty 
+by choosing $x = -|a|$, then rederive the form of $S$ from this chosen $x$ and 
+show that it is greater than 0. Then by well ordering axiom, let $r$ be the 
+least positive element. Then show that $r<b$ and that $r$ and $q$ are unique.
+Remember to use absolute values for the uniqueness and recall $|r_2 - r_1| < b$.
+\end{remark}
 
 
 
@@ -1047,17 +1067,20 @@ Let \(a\) and \(b\) be integers, not both 0, and let \(d = gcd(a,b)\). Then ther
 gcd(a,b) = d = au + bv
 \]  
 \end{theorem}
-
-
-
-\begin{proposition}\label{prp:gcd_divides_lin_combo}
-Let \(a,b,x,y \in \mathbb{Z}\). Then 
-\[
-ax + by = c \iff gcd(a,b) \mid c.
-\]
-\end{proposition}
-
-
+\begin{remark}
+Consider the set $S = \{am + bn\}$. Show nonempty and existence of nonnegative elements
+by letting $m=a$ and $n=b$. Let $d$ be the minimum positive element by well ordering axiom.
+Show that $d$ fits the definition of $\gcd$, note that you will
+show $d\mid a$ by using the form given by division algo, you just need to show that $r=0$. 
+Once you set up \ref{thm:division_algorithim}, you can substitute your given expression of $d$ because
+you then have 2 terms of $a$ and a term of $b$, this is exactly the form of $S$. Thus $r\in S$ but
+$r<d$, since $r$, by the requirement of division alg, must be greater than or equal to 0, 
+we have that $r=0$. 
+Then show by contradiction that $d$ is in fact the least element. \\
+Notice we found that the $\gcd$ is the smallest positive element. This means
+the $\gcd$ divides any linear combination of $a$ and $b$.\\
+\vspace{1cm} \textit{Referenced in:} \ref{thm:prime congruence classes}
+\end{remark}
 
 
 
@@ -1068,7 +1091,14 @@ Let \(a,b,c \in \mathbb{Z}\). If \(a \mid bc \) and \(\gcd(a,b) = 1\), then \(a 
 
 \end{proposition}
 
-
+\begin{remark}
+The $\gcd$ of 1 implies the form of Bezout. Then multiplying by $c$ allows
+us to show that $c$ is a multiple of $a$.\\
+Notice the property of coprime, or just prime in general, integers
+here: When $a$ doesnt share any factors with $b$, if $a$ divides any multiple
+of $b$ then we know $a$ must divide the number multiplying $b$ for the sole
+purpose of it having no factors to share with $b$.
+\end{remark}
 
 
 
@@ -1087,18 +1117,27 @@ Let $ a,b,c \in \mathbb{Z}$. Then $ \forall t \in \mathbb{Z}$ all of the followi
 \begin{enumerate}
 \item $\gcd(a,b) = \gcd(a,b + at)$
 \item $\gcd(ta,tb) = t\gcd(a,b) \quad \textnormal{ for } t > 0$
-\item $\gcd(a, \gcd(b,c)) = gcd(gcd(a,b), c)$
 \item $\gcd(a,c) = 1 \implies \gcd(ab, c) = \gcd(b,c) $
 \end{enumerate}
 
 \end{proposition}
+\begin{remark}
+(3): Notice that the prime factorization of $ d = \gcd(ab,c)$ must 
+divide both $ab$ and $c$. So if $d$ shares any primes with $a$, then 
+we have that those primes are also shared by $c$, so $\gcd(a,c) > 1$ which 
+is a contradiction. \\
+This is exactly the result we would expect for the exact same reason the proof 
+worked: adding factors of a number that cannot share any factors with $c$ tells 
+us the $d =$ "the divisor that contains all divisors of both $ab$ and $c$.\\
+(2) If you let $d = \gcd(ta,tb)$, then you have $\frac{d}{t}\mid a$ and 
+$\frac{d}{t}\mid b$. Then let $m = gcd(a,b)$ so we have that $\frac{d}{t}\mid m$ or
+$d \mid mt$. Then using \ref{thm:bezout_identity}, show that $mt \mid d$.\\
+This seems like it wouldnt be true because the gcd of ta and tb obviously must 
+include the greatest factor of t and any additional factors a and b might have. Where 
+the RHS is only the factors of a and b. The only thing missing on the RHS is 
+the contribution of every single factor of t. 
+\end{remark}
 
-
-
-
-\begin{proposition}
-Let $ a,b,c \in \mathbb{Z}$. If $\gcd(a,c) = 1 $ and $\gcd(b,c)=1 \textnormal{, then }\gcd(ab,c) = 1 $
-\end{proposition}
 
 
 
@@ -1112,13 +1151,25 @@ Let \(p \in \mathbb{Z}\) with \(p \neq 0,1, -1.\) Then \(p\) is prime if and onl
 \textnormal{whenever } p \mid bc, \textnormal{ then } p \mid b \textnormal{ or } p \mid c
 \]
 \end{theorem}
-
+\begin{remark}
+Using \ref{prp:coprime_divisor_of_product}, we see that $p$ 
+beign prime implies that property. The converse is obvious 
+by contrapositive. 
+\end{remark}
 
 
 \begin{theorem}[Fundamental Theoerem of Arithmetic]\label{thm:fund_thm_of_arith}
 Every integer \(n \neq 0, 1, -1\) has a unique prime factorization.
 \end{theorem}
-
+\begin{remark}
+Show every integer is either prime or 
+has a prime factorization by contradiction. To show uniqueness of the factorization, 
+show by contradiction that if two integers had the same 
+factorization, then we would have something like $p_1p_2\cdots p_n = q_1q_2\cdots q_n$. 
+But this means, $p_1(p_2\cdots p_n) = q_1(q_2 \cdots q_n)$, so either $p_1$ divides $q_1$ or
+it divides the other integer. Since they are all prime, using \ref{thm:prime_dividing_product}
+we can show they are equivalent.  
+\end{remark}
 
 
 
@@ -1129,10 +1180,21 @@ Every integer \(n \neq 0, 1, -1\) has a unique prime factorization.
 If $n>1$ has no positive prime faster less than or equal to $\sqrt{n}$, then $s$ is prime.
 \end{proposition}
 
+\begin{remark}
+This is obvious, if any integer doesnt have a product where one element 
+is less than its root, then nothing can divide it. Prove this 
+by contradiction and show that if $p_1p_2$ divide $n$ then 
+$ n = p_1p_2k \geq p_1p_2 > \sqrt{n}\sqrt{n} = n \implies n > n$.
+\end{remark}
+
 \begin{proposition}
 $a|b \iff a^n | b^n$
 \end{proposition}
-
+\begin{remark}
+For the reverse direction, use the prime factorizations of $a$ and $b$.
+Then you will have the same arguement as \ref{thm:fund_thm_of_arith} 
+where the primes divide primes so you will be able to show the primes divide. 
+\end{remark}
 
 
 
@@ -1148,6 +1210,11 @@ $a|b \iff a^n | b^n$
 Let $a,b,n \in \mathbb{Z}$ with $n>0$. Then $a$ is congruent to $b$ modulo $n$ if $n \mid a-b$. This is denoted $ a \equiv b \quad \pmod{n}$
 
 \end{definition}
+
+\begin{remark}
+Notice this means the integers have the same remainder when divided by n. To see this
+consider the definition above along with their form given by the division algo \ref{thm:division_algorithim}
+\end{remark}
 
 \begin{theorem}[Congruence $\in$ Equivalence Relations]
 Let $n$ be a positive integer, then $\forall a,b,c \in \mathbb{Z}$,
@@ -1186,11 +1253,24 @@ Recall $b \equiv a \pmod{n}$ means that $b - a = kn$ for some integer $k$ or, eq
 \]
 \end{definition}
 
+\begin{remark}
+So a congruence class is just sets of integers that all leave the same remainder 
+when divided by $n$. See \ref{cor:congruence_classes_disjoint} and \ref{prop:congruence class remainder and distinctness}.
+\end{remark}
+
+
 
 \begin{theorem}[Congruence Class Equality]\label{thm:congruence_class_equality}
 $a \equiv c \pmod{n}$ if and only if $[a] = [c]$.
 
 \end{theorem}
+\begin{remark}
+For the direction to the right, show that $[a]\subseteq [c]$ and $[c] \subseteq [a]$ by 
+letting $x\in [a]$ and show that $x$ must be congruent to c.
+For the reverse direction, by Reflexivity $a \in [a]$...\\
+This is completely obvious because we already know, integers are only
+equivalent modulo n if they have the same remainder when divided by n.
+\end{remark}
 
 
 
@@ -1199,16 +1279,22 @@ $a \equiv c \pmod{n}$ if and only if $[a] = [c]$.
 \begin{corollary}\label{cor:congruence_classes_disjoint}
 Two congruence classes modulo $n$ are either disjoint or identical.
 \end{corollary}
+\begin{remark}
+Prove this by contradiction
+\end{remark}
 
 
 
-\begin{proposition}
+\begin{proposition}\label{prop:congruence class remainder and distinctness}
 Let $n > 1$ be an integer and consider congruence modulo $n$.
 \begin{enumerate}
 \item If $a$ is any integer and $r$ is the remainder when $a$ is divided by $n$, then $[a] = [r]$.
 \item There are exactly $n$ distinct congruence classes, namely, $[0], [1], [2], \dots, [n - 1]$.
 \end{enumerate}
 \end{proposition}
+\begin{remark}
+For (1) use the form given by the division algo. 
+\end{remark}
 
 
 
@@ -1263,7 +1349,7 @@ For any classes $[a], [b], [c]$ in $\mathbb{Z}_n$,
 \end{proposition}
 
 
-\begin{theorem}
+\begin{theorem}\label{thm:prime congruence classes}
 If $p > 1$ is an integer, then the following are equivalent:
 \begin{enumerate}
 \item $p$ is prime.
@@ -1272,7 +1358,15 @@ If $p > 1$ is an integer, then the following are equivalent:
 \end{enumerate}
 \end{theorem}
 
-
+\begin{remark}
+For $(1)\implies (2)$, we have that $a\neq 0$ in $\mathbb{Z}_p$ implies
+$p$ doesnt divide $a$. Since $p$ is prime, this means $\gcd(a,p)=1$. Then using
+\ref{thm:bezout_identity} we can show (2).\\
+For $(2) \implies (3)$, we note that if $b \neq 0$ then we have 
+from (2) that there is a solution to $bx = 1$. Then we can 
+say that $c = 1\cdot c = bcx = 0$. \\
+For $(3)\implies (1)$ we note \ref{thm:prime_dividing_product}.
+\end{remark}
 
 
 
@@ -1386,21 +1480,37 @@ Suppose that $R$ is a ring and that $S$ is a subset of $R$ such that:
 \end{enumerate}
 Then $S$ is a subring of $R$.
 \end{theorem}
-
+\begin{remark}
+To check that $S$ is a subring, we need to show that $S$ satisfies all
+the axioms of a ring.
+\end{remark}
 
 
 
 \begin{theorem} \label{thm:uniqueness of additive inverse}
 For any element $a$ in a ring $R$, the equation $a + x = 0_R$ has a unique solution.
 \end{theorem}
-
+\begin{remark}
+Use axioms of rings. Specifically, since any element of the ring summed with 
+the zero element is itself, we can substitue for the zero element using 
+a different expression of $a$ with 0. Then using associativity, we can finish the proof.
+\end{remark}
 
 
 
 \begin{theorem}\label{thm:subtraction}
 If $a + b = a + c$ in a ring $R$, then $b = c$.
 \end{theorem}
+\begin{remark}
+Add $-a$ (the additive inverse from the axiom of rings \ref{def:ring}) from both sides and use associativity.
+\end{remark}
 
+\begin{definition}[Subtraction]
+Let $R$ be a ring and $a \in R$. By \ref{thm:uniqueness of additive inverse}, the equation
+$a+x = 0_R$ has a unique solution, call it $-a$. Then, \[
+a+(-a)=0_R = (-a)+a
+\]
+\end{definition}
 
 
 
@@ -1426,7 +1536,7 @@ If $R$ has an identity, then
 
 
 
-\begin{proposition}\label{ex:def of exponential}
+\begin{definition}\label{ex:def of exponential}
 Let $n,m \in \mathbb{N}$, if \(R\) is a ring with $a\in R$, then
 \begin{gather*}
 a^n = aaa\cdots a \quad (\textnormal{n factors})\\
@@ -1434,7 +1544,7 @@ a^na^m = a^{m+n} \textnormal{ and } (a^m)^n = a^{mn}
 \end{gather*}
 
 
-\end{proposition}
+\end{definition}
 
 
 
@@ -1482,6 +1592,9 @@ Note that we already defined this in \ref{def:zero_divisor}.
 \begin{theorem}\label{thm:cancellation of Multiplication}
 Cancellation is valid in any integral domain $R$: If $a \neq 0_R$ and $ab = ac$ in $R$, then $b = c$.
 \end{theorem}
+\begin{remark}
+Since subtraction is defined 
+\end{remark}
 
 
 
@@ -1570,6 +1683,237 @@ a_0 + a_1x + a_2x^2 + \cdots + a_nx^n, \quad \textnormal{where } n \geq 0 \textn
 \end{enumerate}
 \end{theorem}
 
+
+\begin{definition}[Polynomial]\label{def:polynomial}
+Let $R$ be a ring. A polynomial with coefficients in $R$ is an expression of the form
+\[
+a_0 + a_1x + a_2x^2 + \cdots + a_nx^n
+\]
+where $n$ is a nonnegative integer and $a_i \in R$. Note that the elements
+$x$ could be in some larger ring. 
+\end{definition}
+
+
+\begin{theorem}
+If $R$ is a ring, then there exists a ring $T$ containing an element $x$ that is 
+not in $R$ and has these properties
+\begin{enumerate}
+\item $R$ is a subring of $T$.
+\item $xa = ax$ for every $a \in R$
+\item The set $R[x]$ of all elements of $T$ of the form \[
+a_0 + a_1x + a_2x^2 + \cdots + a_nx^n
+\]
+(where $n \geq 0$ and $a_i \in R$) is a subring of $T$ that contains $R$.
+\item The representation of elements of $R[x]$ is unique: If $n \leq m$ and 
+\[
+a_0 + a_1x+a_2x^2 + \cdots a_nx^n = b_0 + b_1x + b_2x^2 + \cdots + b_nx^n
+\]
+then $a_i = b_i$ for $i=1,2,\dots, n$ and $b_i = 0_R$ for each $i > n$.
+\item $a_0 + a_1x + a_2x^2 + \cdots a_nx^n = 0_R$ if and only if $a_i = 0_R \quad \forall i$.
+\end{enumerate}
+\end{theorem}
+\begin{remark}
+To understand what this theorem is actually saying, the ring $R$ is the polynomial 
+ring, while $T$ is the solutions to the polynomials which is possibly a different ring. The 
+reason for this is the only elements that we need to be in $R$ are the coefficients, so we could 
+have a polynomial with integer coefficients which would give us $R = \mathbb{Z}$, but the solutions to 
+the polynomial dont necessarily have to be integers. So the coefficients $a \in R$ are elements of 
+$R$ which is a subring of $R[x]$ which is the ring of polynomials, and this is a subring of $T$ which 
+is the ring containing the $x$.
+\end{remark}
+
+
+
+
+
+\begin{definition}[Polynomial Addition and Multiplication]
+Let $R[x]$ be the ring of polynomials with coefficients in a ring $R$. The operations of polynomial addition and multiplication are defined as follows:
+
+\textit{Polynomial Addition:}  
+For polynomials
+\[
+(a_0 + a_1x + a_2x^2 + \cdots + a_nx^n) + (b_0 + b_1x + b_2x^2 + \cdots + b_mx^m),
+\]
+addition is performed by adding corresponding coefficients:
+\[
+(a_0 + b_0) + (a_1 + b_1)x + (a_2 + b_2)x^2 + \cdots + (a_n + b_n)x^n.
+\]
+
+\textit{Polynomial Multiplication:}  
+For polynomials
+\[
+(a_0 + a_1x + a_2x^2 + \cdots + a_nx^n)(b_0 + b_1x + b_2x^2 + \cdots + b_mx^m),
+\]
+multiplication is performed using the distributive property and collecting like powers of $x$:
+\[
+a_0b_0 + (a_0b_1 + a_1b_0)x + (a_0b_2 + a_1b_1 + a_2b_0)x^2 + \cdots + a_n b_m x^{n+m}.
+\]
+
+\textit{Coefficient of $x^k$ in the product:}  
+For each $k \geq 0$, the coefficient of $x^k$ in the product of two polynomials is given by:
+\[
+a_0b_k + a_1b_{k-1} + a_2b_{k-2} + \cdots + a_k b_0 = \sum_{i=0}^{k} a_i b_{k-i},
+\]
+where $a_i = 0_R$ if $i > n$ and $b_j = 0_R$ if $j > m$.
+
+\textit{Properties:}
+- If $R$ is commutative, then $R[x]$ is also commutative.
+- If $R$ has a multiplicative identity $1_R$, then $1_R$ is also the multiplicative identity of $R[x]$.
+\end{definition}
+
+
+\begin{definition}[Degree and Leading Coefficient of a Polynomial]
+Let 
+\[
+f(x) = a_0 + a_1x + a_2x^2 + \cdots + a_nx^n
+\]
+be a polynomial in $R[x]$ with $a_n \neq 0_R$. Then $a_n$ is called the \textbf{leading coefficient} of $f(x)$. 
+
+The \textbf{degree} of $f(x)$ is the integer $n$; it is denoted as $\deg f(x)$. In other words, $\deg f(x)$ is the largest exponent of $x$ that appears with a nonzero coefficient, and this coefficient is the leading coefficient.
+\end{definition}
+
+
+
+\begin{theorem} \label{thm:degree of product}
+If $R$ is an integral domain and $f(x), g(x)$ are nonzero polynomials in $R[x]$, then
+\[
+\deg[f(x)g(x)] = \deg f(x) + \deg g(x).
+\]
+\end{theorem}
+
+
+\begin{corollary} \label{cor:integral domain of polynomials}
+If $R$ is an integral domain, then so is $R[x]$.
+\end{corollary}
+
+
+
+\begin{corollary} \label{cor:degree inequality}
+Let $R$ be a ring. If $f(x), g(x)$, and $f(x)g(x)$ are nonzero in $R[x]$, then
+\[
+\deg [f(x)g(x)] \leq \deg f(x) + \deg g(x).
+\]
+\end{corollary}
+
+
+
+\begin{corollary} \label{cor:units in polynomial ring}
+Let $R$ be an integral domain and $f(x) \in R[x]$. Then $f(x)$ is a unit in $R[x]$ if and only if $f(x)$ is a constant polynomial that is a unit in $R$. 
+
+In particular, if $F$ is a field, the units in $F[x]$ are the nonzero constants in $F$.
+\end{corollary}
+
+
+
+
+\begin{theorem}[The Division Algorithm in $F(x)$] \label{thm:division algorithm for polynomial}
+Let $F$ be a field and let $f(x), g(x) \in F[x]$ with $g(x) \neq 0_F$. Then there exist unique polynomials $q(x)$ and $r(x)$ such that
+\[
+f(x) = g(x)q(x) + r(x)
+\]
+and either $r(x) = 0_F$ or $\deg r(x) < \deg g(x)$.
+\end{theorem}
+
+
+\begin{definition}[Divisibility in $F(x)$]
+Let $F$ be a field and $a(x), b(x) \in F[x]$ with $b(x)$ nonzero. We say that $b(x)$ \textbf{divides} $a(x)$ (or that $b(x)$ is a \textbf{factor} of $a(x)$) and write $b(x) \mid a(x)$ if
+\[
+a(x) = b(x) h(x)
+\]
+for some $h(x) \in F[x]$.
+\end{definition}
+
+
+\begin{definition}[Greatest Common Divisor in $F(x)$]
+Let $F$ be a field and $a(x), b(x) \in F[x]$, not both zero. The \textbf{greatest common divisor} (gcd) of $a(x)$ and $b(x)$ is the monic polynomial of highest degree that divides both $a(x)$ and $b(x)$. 
+
+In other words, $d(x)$ is the gcd of $a(x)$ and $b(x)$ provided that $d(x)$ is monic and:
+\begin{enumerate}
+\item $d(x) \mid a(x)$ and $d(x) \mid b(x)$;
+\item If $c(x) \mid a(x)$ and $c(x) \mid b(x)$, then $\deg c(x) \leq \deg d(x)$.
+\end{enumerate}
+\end{definition}
+
+
+\begin{corollary} \label{cor:gcd characterization}
+Let $F$ be a field and $a(x), b(x) \in F[x]$, not both zero. A monic polynomial $d(x) \in F[x]$ is the greatest common divisor of $a(x)$ and $b(x)$ if and only if $d(x)$ satisfies these conditions:
+\begin{enumerate}
+\item $d(x) \mid a(x)$ and $d(x) \mid b(x)$.
+\item If $c(x) \mid a(x)$ and $c(x) \mid b(x)$, then $c(x) \mid d(x)$.
+\end{enumerate}
+\end{corollary}
+
+
+
+
+
+\begin{theorem} \label{thm:relatively prime divisibility}
+Let $F$ be a field and $a(x), b(x), c(x) \in F[x]$. If $a(x) \mid b(x)c(x)$ and $a(x)$ and $b(x)$ are relatively prime, then $a(x) \mid c(x)$.
+\end{theorem}
+
+\begin{definition}[Associates in $F(x)$]
+Let $R$ be a commutative ring with identity. An element $a \in R$ is said to be an \textbf{associate} of an element $b \in R$ if there exists a unit $u \in R$ such that
+\[
+a = bu.
+\]
+In this case, $b$ is also an associate of $a$ since $u^{-1}$ is a unit and $b = au^{-1}$.
+
+In the ring $\mathbb{Z}$, the only associates of an integer $n$ are $n$ and $-n$ because $\pm 1$ are the only units. If $F$ is a field, then by Corollary \ref{cor:units in polynomial ring}, the units in $F[x]$ are the nonzero constants in $F$. Therefore, in $F[x]$,
+
+\[
+f(x) \text{ is an associate of } g(x) \text{ if and only if } f(x) = c g(x) \text{ for some nonzero } c \in F.
+\]
+
+\textbf{Prime Elements:}  
+A nonzero integer $p$ is \textbf{prime} in $\mathbb{Z}$ if it is not $\pm1$ (i.e., $p$ is not a unit in $\mathbb{Z}$) and its only divisors are $\pm1$ (the units) and $\pm p$ (its associates). Similarly, in $F[x]$, the units are the nonzero constants.
+
+\end{definition}
+
+
+\begin{definition}[Irreducible and Reducible Polynomials]
+Let $F$ be a field. A nonconstant polynomial $p(x) \in F[x]$ is said to be \textbf{irreducible} if its only divisors are its associates and the nonzero constant polynomials (units). 
+
+A nonconstant polynomial that is not irreducible is said to be \textbf{reducible}.
+\end{definition}
+
+
+\begin{theorem} \label{thm:reducibility criterion}
+Let $F$ be a field. A nonzero polynomial $f(x)$ is \textbf{reducible} in $F[x]$ if and only if $f(x)$ can be written as the product of two polynomials of lower degree.
+\end{theorem}
+
+
+\begin{theorem} \label{thm:irreducibility conditions}
+Let $F$ be a field and $p(x)$ a nonconstant polynomial in $F[x]$. Then the following conditions are equivalent:
+\begin{enumerate}
+\item $p(x)$ is irreducible.
+\item If $b(x)$ and $c(x)$ are any polynomials such that $p(x) \mid b(x)c(x)$, then $p(x) \mid b(x)$ or $p(x) \mid c(x)$.
+\item If $r(x)$ and $s(x)$ are any polynomials such that $p(x) = r(x)s(x)$, then $r(x)$ or $s(x)$ is a nonzero constant polynomial.
+\end{enumerate}
+\end{theorem}
+
+
+
+
+
+
+
+\begin{corollary} \label{cor:irreducible polynomial divisibility}
+Let $F$ be a field and $p(x)$ an irreducible polynomial in $F[x]$. If $p(x) \mid a_1(x) a_2(x) \cdots a_n(x)$, then $p(x)$ divides at least one of the $a_i(x)$.
+\end{corollary}
+
+
+\begin{theorem} \label{thm:unique factorization}
+Let $F$ be a field. Every nonconstant polynomial $f(x)$ in $F[x]$ is a product of irreducible polynomials in $F[x]$. This factorization is unique in the following sense:
+
+If
+\[
+f(x) = p_1(x) p_2(x) \cdots p_r(x) \quad \text{and} \quad f(x) = q_1(x) q_2(x) \cdots q_s(x),
+\]
+with each $p_i(x)$ and $q_j(x)$ irreducible, then $r = s$ (that is, the number of irreducible factors is the same). After the $q_j(x)$ are reordered and relabeled if necessary,
+\[
+p_i(x) \text{ is an associate of } q_i(x) \quad (i = 1, 2, 3, \dots, r).
+\]
+\end{theorem}
 
 
 
@@ -2004,7 +2348,14 @@ exists.
 \item If \( L > 1 \), then \( \{x_n\}_{n=1}^{\infty} \) is unbounded.
 \end{enumerate}
 \end{proposition}
-
+\begin{remark}
+So we want to use that $\frac{|x_{n+1}|}{|x_n|}$ having a limit less than 1
+implies we can find $r$ such that $0 \leq L<r<1$ and $\frac{|x_{n+1}|}{|x_n|} < r^n$.
+Since we wont ever be less than $L$, we need $1>r>L$. Then there exists 
+an $N$ such that $\forall n\geq N$ we have that $\frac{|x_{n+1}|}{|x_n|} < r$ then write out
+each term of $\frac{|x_{n+1}|}{|x_n|}$ multiplying each term before it but stopping at $x_N$ and show that this 
+expression is bounded.
+\end{remark}
 
 
 
@@ -2087,7 +2438,11 @@ Similarly, there exists a (perhaps different) subsequence \( \{x_{m_k}\}_{k=1}^{
 \]
 \end{theorem}
 
-
+\begin{remark}
+Construct $x_{n_k}$ inductively up to $n_{k-1}$ then choose $x_{n_k}$
+such that $a_{n_{k-1}+1} - x_{n_k} < \frac{1}{k}$. The rest of the proof
+follows from here. 
+\end{remark}
 
 
 
@@ -2119,7 +2474,9 @@ Let \( \{x_n\}_{n=1}^{\infty} \) be a bounded sequence. Then \( \{x_n\}_{n=1}^{\
 \end{proposition}
 
 
-
+\begin{remark}
+This follows from squeeze theorem. 
+\end{remark}
 
 
 
@@ -2154,7 +2511,15 @@ Let  $ (x_n)^\infty_{n=1}$ be a sequence. A \textit{subsequential limit} is any 
 \begin{theorem}[Bolzano–Weierstrass] \label{thm: Bolzano-Weierstrass}
 Suppose a sequence \( \{x_n\}_{n=1}^{\infty} \) of real numbers is bounded. Then there exists a convergent subsequence \( \{x_{n_i}\}_{i=1}^{\infty} \).
 \end{theorem}
-
+\begin{remark}
+Since $x_n$ is bounded, we know $\forall n$ $x_n \in [a,b]$ for some $a$ and $b$ as bounds.
+Then splitting this interval into two halves, we know that infinitely many 
+$x_{n_k}$ lie in one (or both) halves, so pick that side (suppose it was the top half), then set
+$a_1 = a, b_1 = b$, then since we choose the top half, pick $a_2 = \frac{a_1 + b_1}{2}$, and $b_2 = b_1$.
+If we contiue to do this, we will have monotone sequences $b_n$ and $a_n$ such that 
+$b_n - a_n = \frac{b_1 - a_1}{2^{n-1}}$. So we essnetially use nested interval property to show
+that a convergent subsequence can be made just by the fact that 
+\end{remark}
 
 
 \begin{proposition}
@@ -2192,7 +2557,13 @@ A sequence \( \{x_n\}_{n=1}^{\infty} \) is a \textit{Cauchy sequence} if for eve
 \begin{lemma}\label{lem:if cauchy then bounded}
 If a sequence is Cauchy, then it is bounded. 
 \end{lemma}
-
+\begin{remark}
+Since $x_n$ is cauchy, we can fix $x_N$ so that $|x_n - x_N| < \varepsilon = 1$. 
+Then apply reverse triangle inequality to obtain $|x_n| < 1+|x_N|$.\\
+This kinda hints that cauchy might imply convergence because this means for any $\varepsilon$, we
+can fix an $x_N$ so that $|x_n - x_N| < \varepsilon$, but this is basically $x_n$ 
+converging to a limit of $x_N$.
+\end{remark}
 
 
 
@@ -2204,7 +2575,13 @@ A sequence of real numbers is Cauchy $ \iff$ the sequence is convergent.
 
 \end{theorem}
 
-
+\begin{remark}
+Since $x_n$ is cauchy, by \ref{lem:if cauchy then bounded}, we know $x_n$
+is bounded. Since $x_n$ is bounded, by \ref{thm: lim sup lim inf subsequence} we know
+there exists subsequences convergent to $\limsup$ and $\liminf$. Now 
+we want to use \ref{prp: convergence criterion lim inf lim sup} to show that $x_n$ converges.
+Then using that $x_n$ being cauchy applies to the subsequences too, we can show $|\limsup - \liminf| < \varepsilon$.
+\end{remark}
 
 
 
@@ -2237,7 +2614,9 @@ Suppose $ -1 < r < 1.$ Then the geometric series $ \sum_{n=0}^\infty{r^n}$ conve
 \]
 \end{proposition}
 
-
+\begin{remark}
+    Consider $S_n = \sum^n_{i=0}{r^i}$ and $S_n - rS_n$.
+\end{remark}
 
 
 
@@ -2250,7 +2629,7 @@ Let $\sum_{n=1}^\infty{x_n}$ be a series and let $M \in \mathbb{N}$. Then
 \end{proposition}
 
 
-\begin{definition}[Cauchy Series]
+\begin{definition}[Cauchy Series]\label{def:cauchy_series}
 A series $\sum_{n=1}^\infty{x_n}$ is said to be \textit{Cauchy} if the sequence of the partial sums $ (s_n)^\infty_{n=1}$ is a Cauchy sequence.\\
 Note that a series is convergent if and only if it is Cauchy \ref{thm:cauchy_convergence}.
 \end{definition}
@@ -2262,7 +2641,11 @@ Note that a series is convergent if and only if it is Cauchy \ref{thm:cauchy_con
 If a series $\sum_{n=1}^\infty{x_n}$ converges, then $\lim{x_n} = 0.$
 \end{proposition}
 
-
+\begin{remark}
+Since $\sum{x_n}$ converges, we know it is cauchy. Since it is cauchy, 
+for any $\varepsilon$ there is an $N$ such that $\forall n \geq N$, we have that 
+$|\sum{x_n} - \sum{x_{n-1}}| < \varepsilon$ but this just means $x_n < \varepsilon$.
+\end{remark}
 
 
 
@@ -2289,7 +2672,11 @@ Let $\alpha \in \mathbb{R}$ and $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\inft
 If $x_n \geq 0$ for all $n$, then $\sum_{n=1}^{\infty} x_n$ converges if and only if the sequence of partial sums is bounded above.
 \end{proposition}
 
-
+\begin{remark}
+This is analogous to monotone convergence theorem \ref{thm: monotone convergence theorem} since being told 
+$x_n \geq 0 \ \forall n \in \mathbb{N}$ is the same as saying $S_m = \sum^m{x_n}$ is 
+a monotone increasing sequence. So given that $S_m$ is bounded, we can say it converges.
+\end{remark}
 
 
 
@@ -2303,7 +2690,13 @@ A series $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely} if the series $
 \begin{proposition}
 If the series $\sum_{n=1}^{\infty} x_n$ converges absolutely, then it converges.
 \end{proposition}
-
+\begin{remark}
+Since the series of absolute values converges, that series must
+be cauchy \ref{def:cauchy_series}. So consider the partial sums
+of the cauchy series's, since in cauchy form you are just subtracting one series from the other,
+the residual will just be the terms leftover from the sequence that \textit{went further out}.
+Then using triangle inequality we can show that $\left|\sum^m_{i=k+1}{x_n}\right| < \left|\sum^m_{i=k+1}{|x_n|}\right| = \sum^m_{i=k+1}{|x_n|}$.
+\end{remark}
 
 
 
@@ -2316,7 +2709,11 @@ Let $\sum_{n=1}^{\infty} x_n$ and $\sum_{n=1}^{\infty} y_n$ be series such that 
 \end{enumerate}
 \end{proposition}
 
-
+\begin{remark}
+Since we require by hypothesis that the terms are nonnegative, 
+we have that both of the series are monotone increasing, so if $\sum{y_n}$ 
+converges, then it is bounded, then $\sum{x_n}$ is bounded and monotone increasing, thus convergent \ref{thm: monotone convergence theorem}.
+\end{remark}
 
 
 
@@ -2375,8 +2772,33 @@ Let \( \{x_n\}_{n=1}^\infty \) be a monotone decreasing sequence of positive rea
 converges.
 \end{proposition}
 
+\begin{definition}
+Consider a series $\sum^\infty_{n=1}{x_n}$. Given a bijective
+function $\sigma: \mathbb{N} \to \mathbb{N}$ the corresponding rearrangement
+is the series \[
+\sum^\infty_{k=1}{x_{\sigma(k)}}
+\]
+We simply sum the series in a different order.
+\end{definition}
 
 
+\begin{proposition}
+Let $\sum^\infty_{n=1}{x_n}$ be an absolutely convergent series converging to $x$. 
+Let $\sigma: \mathbb{N}\to \mathbb{N}$ be a bijection. Then 
+$\sum^\infty_{n=1}{x_{\sigma(n)}}$ is absolutely convergent and converges to $x$.
+\end{proposition}
+
+
+\begin{theorem}[Mertens Theorem]
+Suppose $\sum^\infty_{n=0}{a_n}$ and $\sum^\infty_{n=0}{b_n}$
+are two convergent series, converging to $A$ and $B$ respectively. Suppose at 
+least one of the series converges absolutely. Then $\sum^\infty_{n=0}{c_n}$ converges
+to $AB$, where 
+\[
+c_n = a_0b_n + a_1b_{n-1} + \cdots + a_nb_0 = \sum^n_{i=0}{a_ib_{n-i}}
+\]
+
+\end{theorem}
 
 \subsection{Continuity}
 
@@ -2914,59 +3336,28 @@ This means that $X$ is $\mathcal{A}$-measurable, ensuring that we can compute pr
 
 
 
-\begin{definition}
-Let \( (\Omega, \mathcal{F}, \mathbb{P}) \) be a probability space, and let \( X: \Omega \to \mathbb{R} \) be a real-valued random variable. The cumulative distribution function (CDF) of \( X \), denoted \( F_X: \mathbb{R} \to [0,1] \), is defined by  
 
+\begin{definition}[Distribution]\label{def:distribution}
+Let \((\Omega,\mathcal{F},P)\) be a probability space and \((S,\mathcal{S})\) a measurable space. A random variable \(X:\Omega\to S\) is a measurable function. The distribution of \(X\) is the pushforward measure \(\mu\) on \((S,\mathcal{S})\) defined by
 \[
-F_X(x) = P(X \leq x), \quad \forall x \in \mathbb{R}.
+\mu(A)\;=\;P\bigl(\{\omega\in\Omega : X(\omega)\in A\}\bigr)
+\quad\text{for all }A\in \mathcal{S}.
 \]
-The function \( F_X(x) \) satisfies the following properties  
-\begin{enumerate}
-\item (Monotonicity) $\quad F_X(x)$ is monotone increasing
-\item (Right Continuity) $quad F_X(x)$ is right continuous\[
-\lim_{h\to 0^+} F_X(x+h) = F_X(x)
-\]
-\item (Limits at Infinity) \[
-\lim_{x \to -\infty} F_X(x) = 0, \quad \lim_{x \to \infty} F_X(x) = 1.
-\]  
-\item (Jumps) If \( F_X(x) \) has a jump at \( x \), say  
-\[
-P(X = x) = F_X(x) - \lim_{y \to x^-} F_X(y),
-\]  
-then \( X \) has positive probability at \( x \)
-\item (Absolute Continuity) If \( F_X(x) \) is absolutely continuous, then there exists a probability density function (PDF) \( f_X(x) \) such that  
-\[
-F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt.
-\]  
-\end{enumerate} 
-\end{definition}
 
-
-\begin{definition}
-So a random variable inputs events or outcomes and outputs a real number, then the probability measure will assign probabilities in $[0,1]$ to the values of $X$.
-We can then define the distribution of $X$ by
+When \(S=\mathbb{R}\) with its Borel \(\sigma\)-algebra, we say:\\
+\(X\) is discrete if \(\mu\) is a discrete probability measure, i.e.\ there exists a countable (finite or infinite) set \(\{x_i\}\subset \mathbb{R}\) such that \(\mu\) is concentrated on these points. Concretely, \(\mu=\sum_i p_i\,\delta_{x_i}\) where \(\delta_{x_i}\) is the Dirac measure at \(x_i\) and \(\sum_i p_i=1\).\\
+\(X\) is continuous if \(\mu\) is absolutely continuous with respect to the Lebesgue measure \(\lambda\) on \(\mathbb{R}\). In that case there exists a nonnegative measurable function \(f\) (called a probability density function) such that 
 \[
-P^X(A) = P({\omega \mid X(w) \in A}) = P(X^{-1}(A)) = P(X \in A)
+\mu(A) \;=\;\int_A f(x)\,\lambda(dx)
+\quad\text{for all Borel sets }A\subseteq \mathbb{R}.
 \]
-When $\Omega$ is finite or countable, this is completely determined by the following 
-\[
-p_j^X = P(X=j) = \sum_{\{\omega \mid X(w) =j\}}{p_\omega} \textnormal{ and } P_X(A) = \sum_{j \in A}{p^X_j}
-\]
-So basically, the probability distribution of the random variable $X$ is the collection
-of probabilities $P(X\in B)$.
-\par Further, a random variable is a discrete random variable if there exists
-a finite or countably infinite set $k_1, k_2, \dots $ of reals such that
-\[
-\sum_i{P(X=k_i)} = 1
-\]
-where the sum ranges over the entire set of points $\{k_1, k_2, \dots\}$.
 \end{definition}    
 
 
 
 
 
-\begin{definition}
+\begin{definition}[Cumulative Distribution Function]\label{def:cdf}
 Let \( (\Omega, \mathcal{F}, \mathbb{P}) \) be a probability space, and let \( X: \Omega \to \mathbb{R} \) be a real-valued random variable. The cumulative distribution function (CDF) of \( X \), denoted \( F_X: \mathbb{R} \to [0,1] \), is defined by  
 
 \[
@@ -2975,13 +3366,13 @@ F_X(x) = P(X \leq x), \quad \forall x \in \mathbb{R}.
 The function \( F_X(x) \) satisfies the following properties  
 \begin{enumerate}
 \item (Monotonicity) $\quad F_X(x)$ is monotone increasing
-\item (Right Continuity) $quad F_X(x)$ is right continuous\[
+\item (Right Continuity) $\quad F_X(x)$ is right continuous\[
 \lim_{h\to 0^+} F_X(x+h) = F_X(x)
 \]
 \item (Limits at Infinity) \[
 \lim_{x \to -\infty} F_X(x) = 0, \quad \lim_{x \to \infty} F_X(x) = 1.
 \]  
-\item (Jumps) If \( F_X(x) \) has a jump at \( x \), say  
+\item (Jumps) If \( F_X(x) \) has a jump at \( x \), then 
 \[
 P(X = x) = F_X(x) - \lim_{y \to x^-} F_X(y),
 \]  
@@ -2999,50 +3390,66 @@ F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt.
 
 
 
-\begin{definition}[Probability Mass Function (PMF)]\label{def:pmf}
-The probability mass function of a discrete random variable $X$ is the function
-$p$ defined by 
-\[
-p(k) = P(X=k)
-\]
-for possible values $k$ of $X$.\\
-We can then find the probabilites of other events of $X$. That is, for some event $X\in B$, we 
-sum each $p(k)$, $\forall k \in B$. 
-\end{definition}
 
 
 
 
-
-
-
-
-
-
-
-
-
-\begin{definition}\textbf{[Expected Value]}\label{def:expected value}
+\begin{definition}[Expected Value]\label{def:expected value}
 Let $X$ be a real-valued random variable on a countable space $\Omega$. The expectation of $X$, denoted $E(X)$, is defined to be 
 \[
-E(X) = \sum_{\omega}{X(\omega)p_\omega} \quad \textnormal{or } \quad \int_{-\infty}^{\infty}X(\omega)p_\omega d\omega??
+E(X) = \sum_{\omega \in \Omega}{X(\omega)P(\{\omega\})} \quad \textnormal{ or equivalently } \quad E(X) = \sum_k{x_kp_k}
 \]
-provided this sum converges. Notice that if the random variable is discrete we use the finite sum, if it is continuous, we use the continuous sum.
+where $p_k = P(X=x_k)$.\\
+If $X$ has a probability density function $f: \mathbb{R} \to [0, \infty)$ or a cumulative 
+distribution function $F(x) = P(X \leq x)$ then
+\[
+E(X) = \int_{-\infty}^{\infty}{xf(x)dx} \quad \textnormal{ or } \quad E(X) = \int_{-\infty}^{\infty}{xdF(x)}
+\]
+In full generality, we have 
+\[
+E(X) = \int_\Omega{X(\omega)dP(\omega)}
+\]
 \end{definition}
 
 \begin{definition}
 The $n$th moment of the random variable $X$ is the expectation $E(X^n)$. 
 \[
-E(X^n) = \sum_{\omega}{X^n(\omega)p_\omega} \quad \textnormal{or } \quad \int_{-\infty}^{\infty}X^n(\omega)P(X(\omega)) d\omega
+E(X^n) = \sum_{\omega}{X^n(\omega)P(X = \omega)} \quad \textnormal{or } \quad \int_{-\infty}^{\infty}x^ndF(x)
 \]
 \end{definition}
 
+\begin{definition}
+Let $g$ be a real valued function defined on the range
+of a random variable $X$. If $X$ is a discrete random variable then 
+\[
+E[g(X)] = \sum_k{g(k)P(X=k)}
+\]
+while if $X$ is continuous random variable with density function $f$, then
+\[
+E[g(X)] = \int_{-\infty}^{\infty}{g(x)f(x)dx}
+\]
+\end{definition}
 
+\begin{definition}
+The \textit{median} of a random variable $X$ is any real value $m$
+that satisfies \[
+P(X \geq m) \geq \frac{1}{2} \quad \textnormal{ and } \quad 
+P(X \leq m) \geq \frac{1}{2}.
+\]
+\end{definition}
+
+\begin{definition}
+For $0 < p < 1$, the $p$th quantile of a random variable $X$ 
+is any real value $x$ satisfying 
+\[
+P(X \geq x) \geq 1-p \quad \textnormal{ and } \quad P(X \leq x) \geq p
+\]
+\end{definition}
 
 \begin{theorem}
 Let $h: \mathbb{R} \to [0,\infty)$ be a nonnegative function and let $X$ be a real valued random variable. Then 
 \[
-P(\{\omega \mid h(X(\omega)) \geq a\}) \leq \frac{E(H(X))}{a}, \quad \forall a > 0.
+P(\{\omega \mid h(X(\omega)) \geq a\}) \leq \frac{E(h(X))}{a}, \quad \forall a > 0.
 \]
 \end{theorem}
 
@@ -3067,6 +3474,15 @@ The standard deviation of $X$, $\sigma_X$, is the nonnegative square root of the
 \end{definition}
 
 
+\begin{proposition}[Affine Equivariance]
+Let $X$ be a random variable and $a$ and $b$ be real numbers. Then,
+\[
+E(aX + b) = aE(X) + b
+\]
+\[
+Var(aX + b) = a^2Var(X)
+\]
+\end{proposition}
 
 
 
@@ -3087,6 +3503,21 @@ If $X^2$ is in $\mathcal{L}^1$, then for $a>0$ we have
 \subsection{Distributions}
 We will now look at the different distributions associtated with a random variable
 and we will discuss the motivations for using each one.\\
+The most obvious distribution of all is the one where each point has equivalent probability. 
+
+\begin{definition}[Uniform Distribution]
+Let $[a,b]$ be a bounded interval on the real line. A random variable
+$X$ has a \textit{uniform distribution on the interval} $[a,b]$ if $X$
+has the density function
+\[
+f(x) = \begin{cases}
+    \frac{1}{b-a},\quad & x \in [a,b]\\
+    0, \quad & x \notin [a,b]
+\end{cases}
+\]
+\end{definition}
+
+
 \textbf{Repeated Independent Trials}\\
 If we are sampling with replacement, that is, whatever \textit{data} we are 
 looking at is being drawn from equivalent sets. This means the information
@@ -3153,6 +3584,16 @@ P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \dots.
 
 
 \end{definition}
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{definition}[\textbf{Normal Distribution}]
