@@ -1551,7 +1551,7 @@ a^na^m = a^{m+n} \textnormal{ and } (a^m)^n = a^{mn}
 
 
 
-\begin{proposition}[Subring]\label{thm:check for subring_p2}
+\begin{proposition}\textbf{[Subring]}\label{thm:check for subring_p2}
 Let $S$ be a nonempty subset of a ring $R$ such that:
 \begin{enumerate}
 \item $S$ is closed under subtraction (if $a, b \in S$, then $a - b \in S$);
@@ -1565,7 +1565,7 @@ Then $S$ is a subring of $R$.
 
 
 
-\begin{definition}\label{def:units p2}
+\begin{definition}\textbf{[Units]}\label{def:units p2}
 An element $a$ in a ring $R$ with identity is called a \textit{unit} if there exists $u \in R$ such that $au = 1_R = ua$. In this case, 
 the element $u$ is called the (multiplicative) inverse of $a$ and is
 denoted $a^{-1}$. Note that we already defined this in \ref{def:units}.
@@ -1577,8 +1577,8 @@ denoted $a^{-1}$. Note that we already defined this in \ref{def:units}.
 
 
 
-\begin{definition}\label{def:zero divisor p2}
-An element $a$ in a ring $R$ is a \textbf{zero divisor} provided that:
+\begin{definition}\textbf{[Zero-Divisor]}\label{def:zero divisor p2}
+An element $a$ in a ring $R$ is a \textit{zero divisor} provided that:
 \begin{enumerate}
 \item $a \neq 0_R$.
 \item There exists a nonzero element $c$ in $R$ such that $ac = 0_R$ or $ca = 0_R$.
@@ -1587,13 +1587,22 @@ Note that we already defined this in \ref{def:zero_divisor}.
 \end{definition}
 
 
-
+\begin{definition}\textbf{[Idempotent]}
+An element $e \in R$ is called idempotent if it satisfies
+\[
+e^2 = e.
+\]
+That is, if multiplied by itself gives back itself. 
+\end{definition}
 
 \begin{theorem}\label{thm:cancellation of Multiplication}
-Cancellation is valid in any integral domain $R$: If $a \neq 0_R$ and $ab = ac$ in $R$, then $b = c$.
+$R$ is an integral domain if and only if $a \neq 0_R$ and $ab = ac$ in $R$, imply $b = c$.
 \end{theorem}
 \begin{remark}
-Since subtraction is defined 
+Since subtraction is defined, we can subtract $ac$ to the other side.
+Then if we \textit{undistribute} $a$ then since $R$ is an integral 
+domain, we have that one of them is equal to 0 but by hypothesis its not $a$. So you get that $b-c=0$.\\
+For the reverse direction, since cancellation holds, consider $ab = a0_R$. 
 \end{remark}
 
 
@@ -1602,6 +1611,12 @@ Since subtraction is defined
 \begin{theorem}\label{thm:fields are integral domains}
 Every field $F$ is an integral domain.
 \end{theorem}
+\begin{remark}
+Suppose you had $ab=0$ in a field. Since 
+the multiplicative inverse exists in a field for nonzero elements,
+we can multiply $ab=0$ by the multiplicative inverse 
+and get that the other element is 0.
+\end{remark}
 
 
 
@@ -1610,29 +1625,55 @@ Every field $F$ is an integral domain.
 Every finite integral domain $R$ is a field.
 \end{theorem}
 
+\begin{remark}
+Since $R$ is finite, suppose it has $n$ elements.
+Since $R$ is an integral domain, it contains an identity, and 
+when two nonzero elements are multiplied the product is nonzero.
+So if I take some element $a_t \in R$ and multiply it with every other element
+\[
+a_ta_1, a_ta_2, a_ta_3, \dots , a_ta_n
+\]
+Then this in $n$ elements. Since $R$ only has $n$ elements, and since one of these 
+must be an identity, we have that for each $a_t$ there exists $a_j$ such that 
+$a_ta_j = 1$. This proves that the finite integral domain is a field.\\
+This really follows from the fact that multiplying each element
+still results in a finite number of elements, so their must be a one to one corresponance between 
+the elements which means one of them is equal to 1. But since I can do that for any element, I have shown 
+that $a_i x = 1$ has a solution. 
+\end{remark}
 
 
 
-
-\begin{definition}[Isomorphism]
+\begin{definition}\textbf{[Isomorphism]}
 A ring $R$ is isomorphic to a ring $S$ (in symbols, $R \cong S$) if there is a function $f: R \to S$ such that all of the below hold:
 \begin{enumerate}
 \item $f$ is injective;
 \item $f$ is surjective;
 \item $f(a + b) = f(a) + f(b)$ \quad and \quad $f(ab) = f(a) f(b)$ for all $a, b \in R$.
 \end{enumerate}
-In this case, the function $f$ is called an \textbf{isomorphism}.
+In this case, the function $f$ is called an \textit{isomorphism}.
 \end{definition}
+\begin{remark}
+An isomorphism is perfect symmetry amongst two structures.
+Meaning, it is not only a bijection, where each element from one ring corresponds to 
+a unique element from the other ring, and the correspondance ($f$) is closed 
+under addition and multiplication. As in, $f$ respects the operations 
+that form algebraic structure \textit{and} has a 1-1 correspondance between the rings.
+\end{remark}
 
 
-\begin{definition}[Homomorphism]
-Let $R$ and $S$ be rings. A function $f: R \to S$ is said to be a \textbf{homomorphism} if
+\begin{definition}\textbf{[Homomorphism]}
+Let $R$ and $S$ be rings. A function $f: R \to S$ is said to be a \textit{homomorphism} if
 \[
 f(a + b) = f(a) + f(b) \quad \text{and} \quad f(ab) = f(a) f(b) \quad \text{for all } a, b \in R.
 \]
 \end{definition}
 
-
+\begin{remark}
+This only shows that the operations that birth the structures
+have correspondance with eachother, but there is not correspondance amongst
+each element in each of the rings. (get better interpretation)
+\end{remark}
 
 
 
@@ -1656,7 +1697,17 @@ If $R$ is a ring with identity and $f$ is surjective, then
 \end{enumerate}
 \end{theorem}                
 
-
+\begin{remark}
+We only need to say that $f$ is surjective for (4) and (5) 
+because we are trying to use something about $R$ and say that
+it implies something holds \textit{for the entire set} $S$. \\
+For example, to prove (4), we need to be able to let $s$ be any element of $S$. Then
+since $f$ is surjective, $\exists r \in R$ such that $f(r) = s$.
+Thus, \[
+s f(1_R) = f(r) f(1_R) = f(r 1_R) = f(r) = s
+\]
+So we showed that $f(1_R)$ is the identity for the entire ring $S$.
+\end{remark}
 
 
 
@@ -1664,27 +1715,136 @@ If $R$ is a ring with identity and $f$ is surjective, then
 If $f: R \to S$ is a homomorphism of rings, then the image of $f$ is a subring of $S$.
 \end{corollary}
 
+\begin{remark}
+This is obvious intuitevely because the definition of isomorphism
+implies the image of $f$ is equivalent to the codomain. So for anything less
+than a bijection, which is what we get with a homomorphism, we would 
+expect that the image of $f$, $im(f)$, is a subring.\\
+Recall, by \ref{thm:check for subring_p2}, we need only show that $f$ 
+is closed under subtraction and multiplication. From \ref{thm:homomorphism property}, this is obvious. 
+\end{remark}
+
+\begin{definition}\textbf{[Polynomial Coefficients]}\label{def:polynomial}
+A polynomial with coefficients in the ring $R$ is an infinite sequence, 
+\[
+(a_0, a_1, a_2, a_3,  \dots )
+\]
+such that $a_i \in R$ and only finitely many of the $a_i$ are 
+nonzero. That is, for some index $k$, $a_i = 0_R$, $\forall i > k$. The
+elements $a_i \in R$ are called the coefficients of the polynomial.
+\end{definition}
+
+\begin{remark}
+Notice that a sequence also respects ordering. So these coefficients contain 
+all the information we need to discuss a ring of polynomials, since almost all 
+operations are amongst the coefficients. \\
+For example, we say two polynomials
+are equal if they are equal sequences. That is, if $a_i = b_i$, $\forall i = j$.\\
+\end{remark}
+
+\begin{definition}\textbf{[Polynomial Addition and Multiplication]}\label{def:poly add and multiply}
+Let $(a_0, a_1, \dots )$ and $(b_0, b_1, \dots )$ be polynomials 
+with coefficients in $R$. Then define addition by, \[
+    (a_0, a_1, \dots ) + (b_0, b_1, \dots ) = (a_0 + b_0, a_1 + b_1, \dots )
+\]
+and define multiplication by
+\[
+    (a_0, a_1, \dots )(b_0, b_1, \dots ) = (c_0, c_1, \dots )
+\]
+where, \begin{align*}
+    c_0 &= a_0 b_0 \\
+    c_1 &= a_0 b_1 + a_1 b_0 \\
+    c_2 &= a_0 b_2 + a_1 b_1 + a_2 b_0 \\
+        & \vdots \quad \vdots \\
+    c_n &= a_0 b_n + a_1 b_{n-1} + \cdots + a_{n-1}b_1 + a_n b_0 \\
+    &= \sum^n_{i=0}{a_ib_{n-i}}
+\end{align*}
+\end{definition}
 
 
+\begin{theorem}
+Let $R$ be a ring with identity and let $P$ be the set of polynomials
+with coefficients in $R$. Then $P$ is a ring with identity. Also, if $R$ is commutative, then so is $P$.
+\end{theorem}
+\begin{remark}
+So really you only have to show that since $R$ is a ring with identity, this implies 
+the ring of polynomials is a ring with identity. Upon realizing that addition and multiplication
+for polynomials is completely defined in terms of the coefficients, of which are elements 
+of a ring, we see that all the axioms follow quite obviously. The only 
+axiom that really requires checking is associativity of multiplication.
+Use the summation definition and show that each sum 
+can be shown to be equavalent to $\sum_{u,v,w}{a_ub_vc_w}$ where the sum 
+is taken over all $u \geq 0, v \geq 0$, and $w \geq 0$ such that 
+$n=u+v+w$.
+\end{remark}
+
+
+\begin{theorem}
+Let $P$ be the ring of polynomials with coefficients in the ring $R$. 
+Let $R^*$ be the set of all polynomials in $P$ of the form $(r,0_R,0_R, 0_R, 0_R, \dots )$,
+with $r\in R$. Then $R^*$ is a subring of $P$ and is isomorphic to $R$.
+\end{theorem}
+\begin{remark}
+This is rather obvious. We are just showing that the constants can be represented. This shows that 
+the ring that the coefficients lie in is a subring of the ring of polynomials. 
+\end{remark}
+
+\begin{remark}
+We will now switch to the more familiar notation, with the variable $x$ equipped with $n$ in $x^n$ 
+to denote its power and thus its position in the sequence. For example, we have 
+\[
+a+bx = (a, 0_R, 0_R, \dots) + (b, 0_R, 0_R, \dots )(0_R, 1_R, 0_R, 0_R, \dots )
+\]
+or \[
+x = (0_R, 1_R, 0_R, 0_R, \dots )
+\]
+or \[
+cx^n = (0_R, 0_R, 0_R, c, 0_R, 0_R, \dots)
+\]
+\end{remark}
+
+\begin{lemma}
+Let $P$ be the ring of polynomials with coefficients in the ring $R$ and $x$ 
+the polynomial $(0_R, 1_R, 0_R, 0_R, \dots )$. Then 
+for each element $a=(a, 0_R, 0_R, \dots )$ of $R^*$ and each 
+integer $n\geq 1$, 
+\begin{enumerate}
+    \item $x^n = (0_R, 0_R, \dots, 0_R, 1_R, 0_R, \dots )$, where $1_R$ is in position $n$.
+    \item $ax^n = (0_R, 0_R, \dots, 0_R, a, 0_R, \dots)$, where $a$ is in position $n$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{remark}
+Show this by induction on $n$, in $x^n$. When you get to $x^{n+1}$, use the definition of 
+multiplication given in \ref{def:poly add and multiply}. \\
+The only point of this lemma is to show that our conception of writing polynomials 
+in coefficient and variable form is actually valid with a pretty fundamental definition 
+of polynomials. 
+\end{remark}
 
 
 
 \begin{theorem}
-If $R$ is a ring, then there exists a ring $T$ containing an element
-$x$ that is not in $R$ and satisfies
+Let $P$ be the ring of polynomials with coefficients in the ring $R$. Then $P$
+contains an isomorphic copy $R^*$ of $R$ and an element $x$ such that 
 \begin{enumerate}
-\item $R$ is a subring of $T$
-\item $xa = ax, \quad \forall a \in R$
-\item The set $R[x]$ of all elements of $T$ of the form \[
-a_0 + a_1x + a_2x^2 + \cdots + a_nx^n, \quad \textnormal{where } n \geq 0 \textnormal{ and } a_i \in R
+\item $ax = xa$ for every $a \in R^*$.
+\item Every element of $P$ can be written in the form \[
+a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n
 \]
-\item The representation of elements of $R[x]$ is unique.
-\item $a_0 + a_1x + a_2x^2 + \cdots + a_nx^n = 0_R \iff a_i = 0_R, \ \forall i$.
+\item If $a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n = b_0 + b_1 x + b_2 x^2 + \cdots + b_m x^m$ with $n \leq m$, 
+then $a_i = b_i$ for $i \leq n$ and $b_i = 0_R$ for $i > n$, in particular;
+\item $a_0 + a_1 x + a_2 x^2 + \cdots + a_n x^n = 0_R \iff a_i = 0_R, \ \forall i \geq 0$ 
 \end{enumerate}
 \end{theorem}
+\begin{remark}
+After proving the lemmas and theorems proceeding this, this is a rather simple conclusion. \\
+We now change notation. Since we have shown that $R^*$ is isomorphic to $R$ and that our 
+way of writing polynomials is isomorphic to our rigorous definition, we can denote the space of polynomials as $R[x]$
+and write $R$ instead of $R^*$, since they mean the same thing. 
+\end{remark}
 
-
-\begin{definition}[Polynomial]\label{def:polynomial}
+\begin{definition}[Polynomial]
 Let $R$ be a ring. A polynomial with coefficients in $R$ is an expression of the form
 \[
 a_0 + a_1x + a_2x^2 + \cdots + a_nx^n
@@ -1693,34 +1853,6 @@ where $n$ is a nonnegative integer and $a_i \in R$. Note that the elements
 $x$ could be in some larger ring. 
 \end{definition}
 
-
-\begin{theorem}
-If $R$ is a ring, then there exists a ring $T$ containing an element $x$ that is 
-not in $R$ and has these properties
-\begin{enumerate}
-\item $R$ is a subring of $T$.
-\item $xa = ax$ for every $a \in R$
-\item The set $R[x]$ of all elements of $T$ of the form \[
-a_0 + a_1x + a_2x^2 + \cdots + a_nx^n
-\]
-(where $n \geq 0$ and $a_i \in R$) is a subring of $T$ that contains $R$.
-\item The representation of elements of $R[x]$ is unique: If $n \leq m$ and 
-\[
-a_0 + a_1x+a_2x^2 + \cdots a_nx^n = b_0 + b_1x + b_2x^2 + \cdots + b_nx^n
-\]
-then $a_i = b_i$ for $i=1,2,\dots, n$ and $b_i = 0_R$ for each $i > n$.
-\item $a_0 + a_1x + a_2x^2 + \cdots a_nx^n = 0_R$ if and only if $a_i = 0_R \quad \forall i$.
-\end{enumerate}
-\end{theorem}
-\begin{remark}
-To understand what this theorem is actually saying, the ring $R$ is the polynomial 
-ring, while $T$ is the solutions to the polynomials which is possibly a different ring. The 
-reason for this is the only elements that we need to be in $R$ are the coefficients, so we could 
-have a polynomial with integer coefficients which would give us $R = \mathbb{Z}$, but the solutions to 
-the polynomial dont necessarily have to be integers. So the coefficients $a \in R$ are elements of 
-$R$ which is a subring of $R[x]$ which is the ring of polynomials, and this is a subring of $T$ which 
-is the ring containing the $x$.
-\end{remark}
 
 
 
@@ -1824,8 +1956,11 @@ for some $h(x) \in F[x]$.
 \end{definition}
 
 
+
+
+
 \begin{definition}[Greatest Common Divisor in $F(x)$]
-Let $F$ be a field and $a(x), b(x) \in F[x]$, not both zero. The \textbf{greatest common divisor} (gcd) of $a(x)$ and $b(x)$ is the monic polynomial of highest degree that divides both $a(x)$ and $b(x)$. 
+Let $F$ be a field and $a(x), b(x) \in F[x]$, not both zero. The \textit{greatest common divisor} (gcd) of $a(x)$ and $b(x)$ is the monic polynomial of highest degree that divides both $a(x)$ and $b(x)$. 
 
 In other words, $d(x)$ is the gcd of $a(x)$ and $b(x)$ provided that $d(x)$ is monic and:
 \begin{enumerate}
@@ -1833,22 +1968,34 @@ In other words, $d(x)$ is the gcd of $a(x)$ and $b(x)$ provided that $d(x)$ is m
 \item If $c(x) \mid a(x)$ and $c(x) \mid b(x)$, then $\deg c(x) \leq \deg d(x)$.
 \end{enumerate}
 \end{definition}
+\begin{remark}
+Note that by the next theorem REF, the gcd is any multiple of $d(x)$.
+\end{remark}
 
 
-\begin{corollary} \label{cor:gcd characterization}
-Let $F$ be a field and $a(x), b(x) \in F[x]$, not both zero. A monic polynomial $d(x) \in F[x]$ is the greatest common divisor of $a(x)$ and $b(x)$ if and only if $d(x)$ satisfies these conditions:
+
+\begin{theorem}
+Let $F$ be a field and $a(x), b(x) \in F[x]$ with $b(x)$ nonzero.
 \begin{enumerate}
-\item $d(x) \mid a(x)$ and $d(x) \mid b(x)$.
-\item If $c(x) \mid a(x)$ and $c(x) \mid b(x)$, then $c(x) \mid d(x)$.
+    \item If $b(x)$ divides $a(x)$ then $cb(x)$ divides $a(x)$ for each nonzero $c \in F$.
+    \item Every divisor of $a(x)$ has degree less than or equal to $deg(a(x))$.
 \end{enumerate}
-\end{corollary}
+\end{theorem}
 
 
+
+\begin{theorem}
+Let $F$ be a field, and $a(x),b(x)\in F[x]$, not both zero. Then there
+exists polynomials $u(x)$ and $v(x)$ such that $d(x) = a(x)u(x) + b(x)v(x)$.
+\end{theorem}
+\begin{remark}
+This is the exact extension of bezouts equality in the integers. The proof is almost identical. 
+\end{remark}
 
 
 
 \begin{theorem} \label{thm:relatively prime divisibility}
-Let $F$ be a field and $a(x), b(x), c(x) \in F[x]$. If $a(x) \mid b(x)c(x)$ and $a(x)$ and $b(x)$ are relatively prime, then $a(x) \mid c(x)$.
+Let $F$ be a field and $a(x), b(x), c(x) \in F[x]$. If $a(x) \mid b(x)c(x)$ and $1_F = \gcd(a(x), b(x))$, then $a(x) \mid c(x)$.
 \end{theorem}
 
 \begin{definition}[Associates in $F(x)$]
@@ -1857,8 +2004,7 @@ Let $R$ be a commutative ring with identity. An element $a \in R$ is said to be 
 a = bu.
 \]
 In this case, $b$ is also an associate of $a$ since $u^{-1}$ is a unit and $b = au^{-1}$.
-
-In the ring $\mathbb{Z}$, the only associates of an integer $n$ are $n$ and $-n$ because $\pm 1$ are the only units. If $F$ is a field, then by Corollary \ref{cor:units in polynomial ring}, the units in $F[x]$ are the nonzero constants in $F$. Therefore, in $F[x]$,
+If $F$ is a field, then by Corollary \ref{cor:units in polynomial ring}, the units in $F[x]$ are the nonzero constants in $F$. Therefore, in $F[x]$,
 
 \[
 f(x) \text{ is an associate of } g(x) \text{ if and only if } f(x) = c g(x) \text{ for some nonzero } c \in F.

@@ -5,14 +5,14 @@
 \contentsline {subsection}{\numberline {3.1}Divisibility in $\mathbb {Z}$}{10}{subsection.3.1}%
 \contentsline {subsection}{\numberline {3.2}Congruence and Congruence Classes}{12}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Rings}{14}{subsection.3.3}%
-\contentsline {section}{\numberline {4}Linear Algebra}{19}{section.4}%
-\contentsline {section}{\numberline {5}Analysis}{21}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Sequences}{21}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Series}{24}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Continuity}{27}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Combinatorics}{29}{section.6}%
-\contentsline {section}{\numberline {7}Probability}{30}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Probability Axioms}{30}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Conditional Probability and Independence}{32}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Random Variables}{32}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Distributions}{34}{subsection.7.4}%
+\contentsline {section}{\numberline {4}Linear Algebra}{21}{section.4}%
+\contentsline {section}{\numberline {5}Analysis}{23}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Sequences}{23}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Series}{26}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Continuity}{28}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Combinatorics}{30}{section.6}%
+\contentsline {section}{\numberline {7}Probability}{31}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Probability Axioms}{31}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Conditional Probability and Independence}{33}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Random Variables}{33}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Distributions}{35}{subsection.7.4}%

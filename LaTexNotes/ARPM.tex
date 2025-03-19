@@ -1,0 +1,497 @@
+\documentclass{article}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{subfiles}
+\usepackage{amsmath, amssymb, amsthm} 
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=red]{hyperref}
+\usepackage{lmodern}
+
+
+
+
+\newtheorem{theorem}{Theorem}[section] 
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section] 
+\newtheorem{example}{Example}[section]
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+
+
+\title{Advanced Risk and Active Portfolio Management}
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+
+
+
+\section{Advanced Risk and Portfolio Management}
+
+
+\subsection{Data Science}
+
+\subsubsection{Probabilistic Framework}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Mean-Covariance Framework}
+\indent In this framework, we model randomness by measuring only two characteristics of the random variable. We consider only the mean $E(\textbf{X})$ and the covarince $Cv(\textbf{X})$. The expectation gives us the location of our random variable in the multidimensional environment we model it in, and the covariance gives us the amount of dispersion in this random variable with each of the dimensions we define the space to be. Perhaps a better way of seeing this, is to notice that the first and second order terms of the taylor expansion of the characteristic function are fully characterized by the mean and covariance.\\
+\indent We will class random variables based on their first two mooments, $\mu$ and $\sigma^2$. We will then consider affine (linear) transformations of the reference variable for a given class. For example, supposse we have a random variable $\mathbf{X}$ and we transform it into $\mathbf{Y} = \mathbf{a} + \mathbf{b}\mathbf{X}$ which amounts to a rotation, scaling, and translation of $\mathbf{X}$. Since the expectation is linear, this gives us the handy property seen below, the expectation will only act on $\mathbf{X}$,
+\begin{equation}
+    \underbrace{\left( \begin{array}
+    [c]{c}\mathbb{E}\{Y_{1}\}\\
+    \vdots\\
+    \mathbb{E}\{Y_{\bar{k}}\}
+    \end{array} \right) }_{\mathbb{E}\{\boldsymbol{Y}\}}=\underbrace{\left( \begin{array}
+    [c]{c}a_{1}\\
+    \vdots\\
+    a_{\bar{k}}
+    \end{array} \right) }_{\boldsymbol{a}}+\underbrace{\left( \begin{array}
+    [c]{ccc}b_{1,1} & \cdots & b_{1,\bar{n}}\\
+    \vdots & \ddots & \vdots\\
+    b_{\bar{k},1} & \cdots & b_{\bar{k},\bar{n}}
+    \end{array} \right) }_{\boldsymbol{b}}\underbrace{\left( \begin{array}
+    [c]{c}\mathbb{E}\{X_{1}\}\\
+    \vdots\\
+    \mathbb{E}\{X_{\bar{n}}\}
+    \end{array} \right) }_{\mathbb{E}\{\boldsymbol{X}\}}\text{.}
+\end{equation}
+
+So we will measure the returns of 
+an asset at different intervals, then, in 
+the mean covariance framework, we will characterize 
+the \textit{random variables} based on their mean \ref{def:expected value} and covariance XXX REF Cov XXX.
+For example, consider the linear returns $
+    R_{t\rightarrow u}\equiv\frac{V_{u}}{V_{t}}-1\text{}$ of the $n=2$ assets
+\begin{equation}
+    \underbrace{\left( \begin{smallmatrix}
+    X_{1}\\
+    X_{2}
+    \end{smallmatrix} \right) }_{\boldsymbol{X}}\equiv\left( \begin{smallmatrix}
+    V_{1,t+1}/V_{1,t}-1\\
+    V_{2,t+1}/V_{2,t}-1
+    \end{smallmatrix} \right) \text{,}
+    \end{equation}
+where $V_{n,u}$ denotes the value of the $n$th asset at time $u$. \\
+\indent We then start to measure and characterize the random variable $\textbf{X}$ of the returns, so we
+find $\mathbb{E}(\textbf{X})$ and $\mathbb{C}v{\textbf(X)}$ where the expectation is a measure of the center
+of the distrbution s
+
+\[
+    \mathbb{E}\{\boldsymbol{X}\}=\int_{\mathbb{R}^{\bar{n}}}\boldsymbol{x}dF_{\boldsymbol{X}}(\boldsymbol{x}) \quad \textnormal{or} \quad 
+        \mathbb{E}\{\boldsymbol{X}\}\equiv\left( \begin{array}
+        [c]{c}\mathbb{E}\{X_{1}\}\\
+        \vdots\\
+        \mathbb{E}\{X_{n}\}\\
+        \vdots\\
+        \mathbb{E}\{X_{\bar{n}}\}
+        \end{array} \right) \text{,}
+\]
+the variance is given by 
+
+\[
+    \mathbb{V}\{X\}\equiv\mathbb{E}\{(X-\mathbb{E}\{X\})^{2}\}=\mathbb{E}\{X^{2}\}-\left( \mathbb{E}\{X\}\right) ^{2}\text{,}
+    \quad \textnormal{ or } \quad 
+    \mathbb{V}\{X\}=\int\nolimits_{-\infty}^{+\infty}(x-\mathbb{E}\{X\})^{2}dF_{X}(x)\text{.}
+\]
+and the covariance is given by
+
+\[
+    \mathbb{C}v\{X,Y\}\equiv\mathbb{E}\{(X-\mathbb{E}\{X\})(Y-\mathbb{E}\{Y\})\}=\mathbb{E}\{XY\}-\mathbb{E}\{X\}\mathbb{E}\{Y\}\text{,}
+\]
+\[
+\mathbb{C}v\{X,Y\}=\int\nolimits_{\mathbb{R}^{2}}(x-\mathbb{E}\{X\})(y-\mathbb{E}\{Y\})dF_{X,Y}(x,y)\text{,}
+\]
+\[
+    \mathbb{C}v\{\boldsymbol{X},\boldsymbol{Y}\}\equiv\left( \begin{array}
+        [c]{cccc}\mathbb{C}v\{X_{1},Y_{1}\} & \mathbb{C}v\{X_{1},Y_{2}\} & \cdots & \mathbb{C}v\{X_{1},Y_{\bar{m}}\}\\
+        \mathbb{C}v\{X_{2},Y_{1}\} & \mathbb{C}v\{X_{2},Y_{2}\} & \cdots & \mathbb{C}v\{X_{2},Y_{\bar{m}}\}\\
+        \vdots & \vdots & \ddots & \vdots\\
+        \mathbb{C}v\{X_{\bar{n}},Y_{1}\} & \mathbb{C}v\{X_{\bar{n}},Y_{2}\} & \cdots & \mathbb{C}v\{X_{\bar{n}},Y_{\bar{m}}\}
+        \end{array} \right) \text{,}
+\]
+Notice in all of the expressions above we have one involving the cdf and one involving 
+the expectation. Obviously the expecation is the mathematical definition where the integral is the application
+of the definition. \\
+Below we see the XXX REF z-score ZZZ which allows us to
+indicate outliers in the data we work with.
+
+\begin{equation}
+    z_{X}(x)\equiv\dfrac{x-\mathbb{E}\{X\}}{\mathbb{S}\mathit{d}\left\{ X\right\} }\text{,}
+    \end{equation}
+
+The z-score is closely related to the signal to noise ratio 
+\begin{equation}
+    \mathbb{S}\mathit{n}\{Y\}=\frac{\mathbb{E}\{Y\}}{\mathbb{S}\mathit{d}\{Y\}}\text{.}
+\end{equation}
+
+Which is the usually the measure for a risk-return decison. When $X$ is the 
+excess return over the risk free rate, the signal to noise ratio is the sharpe ratio
+\begin{equation}
+    \mathbb{S}\mathit{r}\{R\}\equiv\mathbb{S}\mathit{n}\{R-r\}\text{.}
+    \end{equation}
+
+
+
+Similarly, when $X$ is the excess return over the benchmark, 
+the signal to noise ratio becomes the information ratio (obviously if the benchmark was the risk free rate IR = SR).
+
+\begin{equation}
+    \mathbb{I}\mathit{r}\{R\}\equiv\mathbb{S}\mathit{n}\{R-B\}\text{.}
+    \end{equation}
+
+\vspace{1cm}
+
+We generalize the z-score to $n$ dimensional random variable $\mathbf{X}$ via 
+the \textit{multivariate standard score} for an outcome $\mathbf{x}$
+
+\begin{equation}
+    z_{\boldsymbol{X}}\left( \boldsymbol{x}\right) \equiv(\mathbb{C}v\{\boldsymbol{X}\})^{-1/2}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})\text{,}
+    \end{equation}
+
+Where  $\mathbb{C}v\{\boldsymbol{X}\}^{-1/2}$  is a transpose square root $\mathbf{s}$, which is defined as the solution to the below
+\begin{equation}
+    \boldsymbol{s}\equiv\mathit{root}(\boldsymbol{s}^{2})\quad\Leftrightarrow \quad\boldsymbol{s}^{2}=\boldsymbol{s}\boldsymbol{s}^{\prime}\text{,}
+    \end{equation}
+
+Where the riccati root is the below, which is a result of the
+XXXX REF spectral decomposition XXXX
+
+\begin{equation}
+    \boldsymbol{s}_{\mathit{Ricc}}=\mathit{root}_{\mathit{Ricc}}(\boldsymbol{s}^{2})\equiv\boldsymbol{e}\times\mathit{Diag}(\sqrt{\boldsymbol{\lambda}})\times\boldsymbol{e}^{\prime}\text{,}
+    \end{equation}
+
+Then the multivariate z score is given by 
+\begin{equation}
+    \Vert\boldsymbol{z}_{\boldsymbol{X}}(\boldsymbol{x})\Vert=\sqrt{(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}(\mathbb{C}v\{\boldsymbol{X}\})^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})}\text{.}
+    \end{equation}
+
+This is the mahalanobis distance, given below,
+\begin{equation}
+    \mathit{Mah}_{\boldsymbol{s}^{2}}(\boldsymbol{v},\boldsymbol{w})\equiv \sqrt{\left( \boldsymbol{v}-\boldsymbol{w}\right) ^{\prime}(\boldsymbol{s}^{2})^{-1}\left( \boldsymbol{v}-\boldsymbol{w}\right) }=\Vert\boldsymbol{s}^{-1}(\boldsymbol{v}-\boldsymbol{w})\Vert_{2}\text{,}
+\end{equation}
+Where the covariance matrix is scaling 
+the multivariate distance between
+the point $x$ and the mean $\mathbb{E}(\mathbf{X})$.
+The mahalanobis distance is induced by the mahalanobis
+inner product which is given by 
+\begin{equation}
+    \langle\boldsymbol{v},\boldsymbol{w}\rangle_{\boldsymbol{s}^{2}}\equiv\boldsymbol{v}^{\prime}(\boldsymbol{s}^{2})^{-1}\boldsymbol{w}=(\boldsymbol{s}^{-1}\boldsymbol{v})^{\prime}(\boldsymbol{s}^{-1}\boldsymbol{w})\text{,}
+    \end{equation}
+
+for $\mathbf{v,w} \in \mathbb{R}^n$ and Where
+$\mathbf{s}^2$ is a symmetric, positive definite matrix, and 
+is full rank. Note we define positive definiteness as
+\[
+\mathbf{s}^2 > 0: \quad \mathbf{x^T}\mathbf{s}^2\mathbf{x} > 0.
+\]
+We denote symmetric, positive definite matrices
+as $\mathbf{s}^2$ because any positive definite symmetric 
+matrix can be written as the square of the riccati root. 
+The usefulness of the property seen above is 
+that we can use the quadratic form of the positive definite matrix $\mathbf{s}^2$
+\begin{equation}
+    f(\boldsymbol{x})\equiv\boldsymbol{x}^{\prime}\boldsymbol{s}^{2}\boldsymbol{x}={\textstyle\sum\nolimits_{n,m=1}^{\bar{n}}} s_{n,m}^{2}x_{n}x_{m}\text{,}
+    \end{equation}
+The quadratic form above defines a paraboloid
+with a unique global minimum value, this will
+be helpful in multiple applications.
+Also, the iso-contours of the paraboloid
+are ellipsoids given by 
+\begin{equation}
+    \mathcal{I}_{\boldsymbol{s}^{2}}(\gamma)\equiv\{\boldsymbol{x}:\boldsymbol{x}^{\prime}\boldsymbol{s}^{2}\boldsymbol{x}=\gamma > 0\}\text{,}
+    \end{equation}
+This is precisely what we will look into next... That being, how do we visualize
+the mean covariance classes?\\
+\\ \textbf{Construction of Mean-Covariance Ellipsoid}\\
+\par To visualize the mean-covariance 
+environment, we only have the mean and the covariance. 
+So we will use the covariance matrix to geometrically shape and
+the mean to locate. Note that we assume that the second cross moments of the random vector 
+$\mathbf{X}$ are well defined. That is, we need
+that inner products are well defined. For this, 
+we need that the function space $L^2$ gives a finite integral.
+\begin{equation}
+    L_{\mu}^{2}(\mathcal{T})\equiv\{g:\mathcal{T}\rightarrow\mathbb{C}\text{ such that }\int_{\mathcal{T}}|g(\boldsymbol{t})|^{2}d\mu(\boldsymbol{t})<+\infty\}\text{.}
+    \end{equation}
+For our case we check,
+\begin{equation}
+    L^{2}\equiv\{X\text{ such that }\mathbb{E}\{X^{2}\}=\int_{\Omega}(X(\omega))^{2}d\mathbb{P}\{\omega\}<\infty\}\text{,}
+    \end{equation}
+This ensures the expectation and covariance are well defined. 
+\par So recall, we are trying to visualize the mean covariance classes. 
+We know that the covariance matrix is symmeric and positive definite 
+where symmetry is by definition of covariance matrix and positive definitenss is given by the below
+\begin{equation}
+    \boldsymbol{w}^{\prime}\mathbb{C}v\{\boldsymbol{X}\}\boldsymbol{w}=\mathbb{V}\{\boldsymbol{w}^{\prime}\boldsymbol{X}\}\geq0\text{.}
+    \end{equation}
+Since it is symmetric and positive definite, it admits the spectral decomposition
+\begin{equation}
+    \mathbb{C}v\{\boldsymbol{X}\}=\boldsymbol{e}\times\mathit{Diag}(\boldsymbol{\lambda})\times\boldsymbol{e}^{\prime}\text{,}
+    \end{equation}
+where $\mathbf{e}$ is the $n \times n$ matrix
+of orthonormal ($\mathbf{e'e}=\mathbf{ee'}=\mathbb{I}$) eigenvectors, Also
+$\mathbf{\lambda}$ denotes the $n\times 1$ vector if eigenvalues
+which are all nonnegative.\
+An ellipsoid with radius 1 and center $\mathbf{m}$ and shape $\mathbf{s}^2$
+is the set of points with unit square
+mahalanobis distance from $\mathbf{m}$
+\begin{equation}
+    \partial\mathcal{E}(\boldsymbol{m},\boldsymbol{s}^{2})\equiv\{\boldsymbol{x}\in\mathbb{R}^{\bar{n}}:(\boldsymbol{x}-\boldsymbol{m})^{\prime}(\boldsymbol{s}^{2})^{-1}(\boldsymbol{x}-\boldsymbol{m})=1\}\text{.}
+    \end{equation}
+The $n$ principal semi axes in dimension $n$ are 
+the $n$ straight lines that start at the center of the ellipsoid,
+are orthogonal to the surface, and are not multiples of each other. \\
+We can describe the principal semi axes by 
+\begin{equation}
+    \mathfrak{A}_{n}\equiv\{\boldsymbol{m}+t\sqrt{\lambda_{n}}\boldsymbol{e}_{n},\quad0\leq t\leq1\}\text{,}
+    \end{equation}
+Where the eigenvalue square rooted and the eigenvector multiplying it 
+make the slope of the $n$th line. 
+So just like equation (19), we define the mean-covariance ellipsoid 
+as 
+\begin{equation}
+    \partial\mathcal{E}(\mathbb{E}\{\boldsymbol{X}\},\mathbb{C}v\{\boldsymbol{X}\})=\{\boldsymbol{x}\in\mathbb{R}^{\bar{n}}:(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}(\mathbb{C}v\{\boldsymbol{X}\})^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})=1\}\text{.}
+    \end{equation}
+
+
+\par Below we give the construction of the mean covariance ellipsoid
+by starting from the unit sphere. 
+\begin{equation}
+    \partial\mathcal{B}^{\bar{n}}\equiv\{\boldsymbol{y}:y_{1}^{2}+\cdots +y_{\bar{n}}^{2}=1\}=\partial\mathcal{E}(\boldsymbol{0},\mathbb{I}_{\bar{n}})\text{.}
+    \end{equation}
+Now we consider the eigenvalues and eigenvectors from the spectral decomposition
+given by the covariance matrix. 
+\par We define a new set of coordinates $\mathbf{z}$ by,
+\begin{equation}
+    \boldsymbol{y}\quad\mapsto\quad\boldsymbol{z}\equiv\mathit{Diag}(\sqrt{\boldsymbol{\lambda}})\times\boldsymbol{y}\text{,}
+    \end{equation}
+So the square root of the $n$th eigenvalue
+is scaling the $n$th axis. Then inverting the transformation (to obtain 
+the ellipsoid form we were working with before), follow the inversion for the $n$th element 
+\[
+y_n = z_n / \sqrt{\lambda_n}
+\]
+then substituting, 
+\begin{equation}
+    \{\boldsymbol{z}:\text{\ }\frac{z_{1}^{2}}{\lambda_{1}}+\cdots+\frac{z_{\bar{n}}^{2}}{\lambda_{\bar{n}}}=1\}=\partial\mathcal{E}(\boldsymbol{0},\mathit{Diag}(\boldsymbol{\lambda}))\text{,}
+    \end{equation}
+This gives us the ellipsoid 
+with principle semi axes that have length 
+equal to the $n$th eigenvalue of the covariance matrix.
+So we have now stretched or squeezed the ellipse.
+\par Now we need to rotate the ellipse. So we define a new set of
+coordniates by multiplying the new coordinates in $z$ (seen in equation 23)
+by the matrix of eigenvectors
+\begin{equation}
+    \boldsymbol{z}\quad\mapsto\quad\boldsymbol{u}\equiv\boldsymbol{e}\times\boldsymbol{z}\text{.}
+    \end{equation}
+Since the eigenvectors are orthonormal, we can 
+invert the transformation and obtain $z = e'u$. 
+Then substituing into the definition of the ellipsoid
+\[
+\mathbf{z'}(Diag(\mathbf{\lambda})^{-1})\mathbf{z} = 1
+\]
+gives us 
+\begin{equation}
+    \{\boldsymbol{u}:\boldsymbol{u}^{\prime}\left( \boldsymbol{e}\times \mathit{Diag}(\boldsymbol{\lambda})\times\boldsymbol{e}^{\prime}\right) ^{-1}\boldsymbol{u}=1\}=\partial\mathcal{E}(\boldsymbol{0},\mathbb{C}v\{\boldsymbol{X}\})\text{.}
+    \end{equation}
+\par Now we have an ellipse where 
+the nth axis has length of square root of the nth eigenvalue and is pointed 
+in the same direction as the nth eigenvector. Since the ellipsoid
+is still centered at the origin, we translate it by adding the mean
+\begin{equation}
+    \boldsymbol{u}\quad\mapsto\quad\boldsymbol{x}\equiv\mathbb{E}\{\boldsymbol{X}\}+\boldsymbol{u}\text{.}
+    \end{equation}
+then we substitute $u = x - \mathbb{E}(X)$ into the ellipsoid to obtain 
+\begin{equation}
+    \{\boldsymbol{x}:(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})^{\prime}\left( \mathbb{C}v\{\boldsymbol{X}\}\right) ^{-1}(\boldsymbol{x}-\mathbb{E}\{\boldsymbol{X}\})=1\}=\partial\mathcal{E}(\mathbb{E}\{\boldsymbol{X}\},\mathbb{C}v\{\boldsymbol{X}\})\text{.}
+    \end{equation}\\
+\\ \textbf{Principal Component Analysis}\\
+\par We have seen that we can represent
+a mean-covariance equivalence class visually using an ellipsoid 
+where the shape and location where determined by the mean and covariance.
+\par Now we consider a random variable $\mathbf{X}$. The principal
+directions are the uncorrelated directions, decreasingly responsible for the most variance.
+So the first principal direction $\mathbf{e_1}$ \textit{explains} the most variance of the random variable $\mathbf{X}$. Then
+the second principal direction $\mathbf{e_2}$ is the 
+direction such that the univariate variable $\mathbf{e'_2X}$ has the most variance
+and is uncorrelated with $\mathbf{e'_1X}$.
+We represent this mathematically as (note in the below we are indexing through $v_n$s and the one chosen for that \textit{variance level} is the $e_n$ solution seen below), 
+\begin{equation}
+    \boldsymbol{e}_{n}\equiv\operatorname*{argmax}\limits_{\boldsymbol{v}\in\mathcal{V}_{\{0,...,n-1\}}}\,\mathbb{V}\{\boldsymbol{v}^{\prime}\boldsymbol{X}\}\text{,}
+    \end{equation}
+for $n = 1,\dots, n$ where the constraint set is 
+\begin{equation}
+    \mathcal{V}_{\mathcal{N}}=\{\boldsymbol{v}\in\mathbb{R}^{\bar{n}}:\left\{ \begin{array}
+    [c]{ll}\Vert\boldsymbol{v}\Vert_{2}=1 & \\
+    \mathbb{C}v\{\boldsymbol{v}^{\prime}\boldsymbol{X},\boldsymbol{e}_{m}^{\prime}\boldsymbol{X}\}=0 & m\in\mathcal{N}
+    \end{array} \right. \}\text{,}
+    \end{equation}
+with $\mathbf{e_0} = \mathbf{0}$. Then
+affine equivariance of the covariance gives us
+\begin{equation}
+    \boldsymbol{e}_{n}=\operatorname*{argmax}\limits_{\boldsymbol{v}\in \mathcal{V}_{\{0,...,n-1\}}}\,\boldsymbol{v}^{\prime}\mathbb{C}v\{\boldsymbol{X}\}\boldsymbol{v}\text{,}
+    \end{equation}
+
+\par We can see in the above equations that 
+each $e_n$ is selected so that it is uncorrelated with each $e_m$ 
+that came before it (shown by: $\mathbb{C}v\{\boldsymbol{v}^{\prime}\boldsymbol{X},\boldsymbol{e}_{m}^{\prime}\boldsymbol{X}\}=0, \quad m\in\mathcal{N}$)
+\par Note that the argmax function notation is abused here so that 
+it outputs the vector $e_n$ that acheives the maximum length ($e_n$)
+but also the maximum value achieved ($\lambda_n$).
+\par So we are starting with a linearly independent set of $v_n$'s, then for each one, we find the $v_n$ that gives us the maximum 
+variance of $\mathbf{v'}\mathbf{X}$. With the constraint set seen in (30), we first check 
+that the length is unit norm, then the next ensures no correlation. 
+\par Note that our treatment of the PCA is an instance of more general
+principal component orthonomralization algrothim when applied to the mahalanobis inner product $\langle\boldsymbol{v}, \boldsymbol{w}\rangle_{\boldsymbol{\mathbb{C}v(\boldsymbol{X})^{-1}}}$. For 
+example, The solutions we obtain from the PCA are exactly the eigenvectors of the covariance matrix. In the below we see the general form of the PCA. 
+Notice it is the maximum length such that the vector is a unit vector 
+and has an inner product of 0 (so is orthogonal) to every other vector that has already been chosen.
+The general form is shown below,  
+\begin{equation}
+    \{\mathfrak{e}_{(n)},\lambda_{n}\}=\operatorname*{argmax}\limits_{\mathfrak{v}\in\mathcal{C}_{\{0,\ldots,n-1\}}}\,\Vert\mathfrak{v}\Vert^{2}\text{,}
+    \end{equation}
+    \begin{equation}
+        \mathcal{C}_{\mathcal{N}}\equiv\{\mathfrak{v}\in\mathit{span}(\mathfrak{v}_{(1)},\ldots,\mathfrak{v}_{(\bar{n})}):\left\{ \begin{array}
+        [c]{l}\Vert\mathit{coord}(\mathfrak{v})\Vert_{2}=1\\
+        \langle\mathfrak{v},\mathfrak{e}_{(n)}\rangle=0,\quad n\in\mathcal{N}
+        \end{array} \right. \}\text{.}
+    \end{equation}
+
+So now that we have found the direction of the most variance for each $n$, we need to find 
+the actual ??magnitudes?? we call these \textit{principal factors}. They are
+given below as,
+
+\begin{equation}
+    Z_{n}^{\mathit{PC}}\equiv\boldsymbol{e}_{n}^{\prime}(\boldsymbol{X}-\mathbb{E}\{\boldsymbol{X}\})\text{.}
+    \end{equation}
+
+Since the principal directions $\boldsymbol{e}$ are eigenvectors, the principal
+factors are uncorrelated amongst eachother (so the covariance matrix with one another is diagonal). That is, 
+\begin{equation}
+    \mathbb{C}v\{Z_{m}^{\mathit{PC}},Z_{n}^{\mathit{PC}}\}=0\text{,}
+    \end{equation}
+
+For any $m \neq n$.\\
+Then we have (let $e = v$ here for generality) that the random variables are the zero mean uncorrelated
+random vairables that are decreasingly responsible for the most variance. 
+\begin{equation}
+    \mathcal{Z}\equiv\{Z^{\boldsymbol{v}}\equiv\boldsymbol{v}^{\prime}(\boldsymbol{X}-\mathbb{E}\{\boldsymbol{X}\})={\textstyle\sum\nolimits_{n=1}^{\bar{n}}} v_{n}(X_{n}-\mathbb{E}\{X_{n}\})\}\text{.}
+    \end{equation}
+
+Thus we can simplify all the above by writing (we can do this by the properties of affine equivarince), 
+
+\begin{equation}
+    Z_{n}^{\mathit{PC}}=\operatorname*{argmax}\limits_{Z\in\mathcal{C}_{\{0,...,n-1\}}}\,\mathbb{V}\{Z\}\text{,}
+    \end{equation}
+
+for $n = 1,\dots, n$ where the constraint set over the genertic set of indices $\mathcal{N}$ is given by
+
+\begin{equation}
+    \mathcal{C}_{\mathcal{N}}=\{Z\in\mathcal{Z}:\left\{ \begin{array}
+    [c]{ll}\Vert\mathit{coord}(Z)\Vert_{2}=1 & \\
+    \mathbb{C}v\{Z,Z_{m}\}=0 & m\in\mathcal{N}
+    \end{array} \right. \}\text{,}
+    \end{equation}
+
+
+So these random variables that we just constructed using the directions with
+the most variance will be what we investigate. The variances of the principal factors 
+are known as the principal variances
+\begin{equation}
+    \lambda_{n}\equiv\mathbb{V}\{Z_{n}^{\mathit{PC}}\}=\max\nolimits\limits_{Z\in\mathcal{C}_{\{0,...,n-1\}}}\,\mathbb{V}\{Z\}\text{,}
+    \end{equation}
+
+Note that these are exactly the eigenvalues of the covariance matrix of $\boldsymbol{X}$.\\
+From the principal directions, we derive the principal components which are the univariate sources of risk in the n dimensional
+space generated by the random variable $\boldsymbol{X}$
+
+\begin{equation}
+    \boldsymbol{X}_{n}^{\mathit{PC}}\equiv\boldsymbol{e}_{n}Z_{n}^{\mathit{PC}}=\boldsymbol{e}_{n}\boldsymbol{e}_{n}^{\prime}(\boldsymbol{X}-\mathbb{E}\{\boldsymbol{X}\})\text{.}
+    \end{equation}
+
+
+
+
+
+Note that we can now recover the random variable with the below sum
+
+\begin{equation}
+    \boldsymbol{X}=\mathbb{E}\{\boldsymbol{X}\}+\underbrace{\boldsymbol{e}_{1}Z_{1}^{\mathit{PC}}}_{\boldsymbol{X}_{1}^{\mathit{PC}}}+\cdots +\underbrace{\boldsymbol{e}_{\bar{n}}Z_{\bar{n}}^{\mathit{PC}}}_{\boldsymbol{X}_{\bar{n}}^{\mathit{PC}}}\text{.}
+    \end{equation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\subsubsection{Linear Models}
+
+\subsubsection{Machine Learning}
+
+
+
+\subsubsection{Estimation}
+
+\subsubsection{Inference}
+
+\subsubsection{Sequential Decisions}
+
+\subsection{Quantiative Finance}
+
+\subsubsection{Financial Engineering}
+
+\subsubsection{Risk Management}
+
+\subsubsection{Portfolio Management}
+
+
+
+
+
+
+
+\end{document}
