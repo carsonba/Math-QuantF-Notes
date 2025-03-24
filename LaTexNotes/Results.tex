@@ -1999,7 +1999,7 @@ Let $F$ be a field and $a(x), b(x), c(x) \in F[x]$. If $a(x) \mid b(x)c(x)$ and 
 \end{theorem}
 
 \begin{definition}[Associates in $F(x)$]
-Let $R$ be a commutative ring with identity. An element $a \in R$ is said to be an \textbf{associate} of an element $b \in R$ if there exists a unit $u \in R$ such that
+Let $R$ be a commutative ring with identity. An element $a \in R$ is said to be an \textit{associate} of an element $b \in R$ if there exists a unit $u \in R$ such that
 \[
 a = bu.
 \]
@@ -2010,21 +2010,24 @@ If $F$ is a field, then by Corollary \ref{cor:units in polynomial ring}, the uni
 f(x) \text{ is an associate of } g(x) \text{ if and only if } f(x) = c g(x) \text{ for some nonzero } c \in F.
 \]
 
-\textbf{Prime Elements:}  
-A nonzero integer $p$ is \textbf{prime} in $\mathbb{Z}$ if it is not $\pm1$ (i.e., $p$ is not a unit in $\mathbb{Z}$) and its only divisors are $\pm1$ (the units) and $\pm p$ (its associates). Similarly, in $F[x]$, the units are the nonzero constants.
-
 \end{definition}
 
 
 \begin{definition}[Irreducible and Reducible Polynomials]
-Let $F$ be a field. A nonconstant polynomial $p(x) \in F[x]$ is said to be \textbf{irreducible} if its only divisors are its associates and the nonzero constant polynomials (units). 
+Let $F$ be a field. A nonconstant polynomial $p(x) \in F[x]$ is said to be \textit{irreducible} if its only divisors are its associates and the nonzero constant polynomials (units). 
 
-A nonconstant polynomial that is not irreducible is said to be \textbf{reducible}.
+A nonconstant polynomial that is not irreducible is said to be \textit{reducible}.
 \end{definition}
+\begin{remark}
+So an associate is really just a special case where the two polynomials are 
+a multiple together but the multiple is a unit (so its invertible). Then we are basically
+characterizing prime polynomials since we are finding polynomials that cannot be divided by polynomials that are
+not equivalent to it or a constant. 
+\end{remark}
 
 
 \begin{theorem} \label{thm:reducibility criterion}
-Let $F$ be a field. A nonzero polynomial $f(x)$ is \textbf{reducible} in $F[x]$ if and only if $f(x)$ can be written as the product of two polynomials of lower degree.
+Let $F$ be a field. A nonzero polynomial $f(x)$ is \textit{reducible} in $F[x]$ if and only if $f(x)$ can be written as the product of two polynomials of lower degree.
 \end{theorem}
 
 
@@ -2036,6 +2039,11 @@ Let $F$ be a field and $p(x)$ a nonconstant polynomial in $F[x]$. Then the follo
 \item If $r(x)$ and $s(x)$ are any polynomials such that $p(x) = r(x)s(x)$, then $r(x)$ or $s(x)$ is a nonzero constant polynomial.
 \end{enumerate}
 \end{theorem}
+\begin{remark}
+This is the analogous theorem to \ref{thm:prime congruence classes} where we looked
+at the equivalence classes of modulo primes. So here we see that every condition has an equivalent
+representation for polynomials. 
+\end{remark}
 
 
 
@@ -2505,7 +2513,7 @@ expression is bounded.
 
 
 
-\begin{proposition}
+\begin{proposition}\label{prop:limits raised to powers}
 If $ (x_n)^\infty_{n=1}$ is convergent and $ k \in \mathbb{N}$ then
 \[
 \lim_{n \to \infty}{x_n^k} = \left( \lim_{n \to \infty}{x_n}\right)^k
@@ -2515,7 +2523,7 @@ If $ (x_n)^\infty_{n=1}$ is convergent and $ k \in \mathbb{N}$ then
 
 
 
-\begin{proposition}
+\begin{proposition}\label{prop:limits raised to roots}
 If $ (x_n)^\infty_{n=1}$ is a convergent sequence and $ x_n \geq 0 $ and $ k \in \mathbb{N}$ then
 \[
 \lim_{n \to \infty}{x_n^{1/k}} = \left( \lim_{n \to \infty}{x_n}\right)^{1/k}
@@ -2594,18 +2602,6 @@ follows from here.
 
 
 
-\begin{proposition}\label{ex: sup inf monotone sequence}
-Let \( S \subset \mathbb{R} \) be a nonempty bounded set. Then there exist monotone sequences \( \{x_n\}_{n=1}^{\infty} \) and \( \{y_n\}_{n=1}^{\infty} \) such that \( x_n, y_n \in S \) and
-\[
-\sup S = \lim_{n \to \infty} x_n \quad \text{and} \quad \inf S = \lim_{n \to \infty} y_n.
-\]
-\end{proposition}
-
-
-
-
-
-
 
 
 \begin{proposition} \label{prp: convergence criterion lim inf lim sup}
@@ -2625,7 +2621,17 @@ This follows from squeeze theorem.
 \end{remark}
 
 
+\vspace{.5cm}
 
+
+
+
+\begin{proposition}
+Every sequence has a monotone subsequence.
+\end{proposition}
+
+
+\vspace{.5cm}
 
 
 \begin{proposition}
@@ -2773,6 +2779,9 @@ Let $\sum_{n=1}^\infty{x_n}$ be a series and let $M \in \mathbb{N}$. Then
 \sum_{n=1}^\infty{x_n} \textnormal{ converges } \iff \sum_{n=M}^\infty{x_n} \textnormal{ converges.}
 \]
 \end{proposition}
+\begin{remark}
+    
+\end{remark}
 
 
 \begin{definition}[Cauchy Series]\label{def:cauchy_series}
@@ -2873,6 +2882,50 @@ converges, then it is bounded, then $\sum{x_n}$ is bounded and monotone increasi
 
 \end{proposition}
 
+\begin{remark}
+Since the terms of the series are positive, the sequence of partial sums 
+is monotone increasing. Thus we only need to show it is bounded \ref{thm: monotone convergence theorem}.
+Since the sequence $\frac{1}{n^p}$ is monotone decreasing, we have that the $x_n$th term
+is greater than the $x_{n+1}$th term. So we could bound the sum $\sum_{n=1}^{\infty} \frac{1}{n^p}$ 
+by a different sum that is constructed from \textit{prior} terms of $\sum_{n=1}^{\infty} \frac{1}{n^p}$.
+To do this, we replace each term between the $2^k$th one and the $2^{k+1}-1$th one with the $2^k$th term. 
+Why? Because the $2^k$th term is greater than all the terms after it so we can create an 
+upper bound. Why $2^k$ specifically? Because we can easily make a geometric series out of this. 
+Why stop each grouped sum at $2^{k+1}-1$? Beacause we want every term of the next $2^k$ group to 
+be replaced with the $2^{k+1}$ term, so we need that the $2^{k+1}$th term has not been summed yet. 
+Then we have the following \[
+s_{2^k -1} = 1+\sum_{i=1}^{k-1}\sum_{m=2^i}^{2^{i+1}-1}{\frac{1}{m^p}} 
+< 1+ \sum_{i=1}^{k-1}\sum_{m=2^i}^{2^{i+1}-1}\frac{1}{(2^i)^p}
+= 1 + \sum_{i=1}^{k-1}\frac{2^i}{(2^i)^p}
+\]
+where the last sum is geometric and hence converges. Where did the $k-1$ come from? Since we 
+are summing up to 
+\end{remark}
+
+
+
+
+
+
+
+\begin{proposition}[Ratio Test]\label{prp:ratio_test_Series}
+Let $\sum_{n=1}^{\infty} x_n$ be a series, $x_n \neq 0$ for all $n$, and such that
+\begin{enumerate}
+\item If $\limsup_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L < 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely}.
+\item If $\liminf_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L > 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{diverges}.
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+Assume the limit of the ratio is less than 1 ($0<L<1$). Then there is an $r$ such that
+$0\leq L < r < 1$ or $0 < r-L < 1$. Then there exists some value $N$ where for any epsilon
+we can bound $\frac{|x_{n+1}|}{|x_n|} - L$. Thus let $\varepsilon = r-L$ then show that this implies
+$\frac{x_{n+1}}{x_n} < r$. Thus, using the arguement in \ref{ex:ratio_test} we can bound each value past some $N$,
+thus we can bound the sum by a geometric series of $r$.
+\end{remark}
+
+
+
 
 
 
@@ -2891,19 +2944,16 @@ L = \limsup_{n \to \infty} |x_n|^{1/n}.
 \end{enumerate}
 \end{proposition}
 
-
-
-
-
-
-
-\begin{proposition}[Ratio Test]\label{prp:ratio_test_Series}
-Let $\sum_{n=1}^{\infty} x_n$ be a series, $x_n \neq 0$ for all $n$, and such that
-\begin{enumerate}
-\item If $\limsup_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L < 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{converges absolutely}.
-\item If $\liminf_{n \to \infty} \left| \frac{x_{n+1}}{x_n} \right|  = L > 1$, then $\sum_{n=1}^{\infty} x_n$ \textit{diverges}.
-\end{enumerate}
-\end{proposition}
+\begin{remark}
+If we suppose that $L<1$ then there exists an $r$ such that $0\leq L < r < 1$. Then
+there exists an $N$ where $\forall n \geq N$, $\sup\{|x_k^{1/k} \mid k \geq n\} < r$. 
+So we also have by default that $|x_n|^{1/n} < r \implies |x_n| < r^n$. Thus we can
+write the sum $\sum_{n=1}^{\infty}{|x_n|}$ as first the sum from $n=1$ up to $n=N-1$ plus 
+the sum from $n=N$ to $\infty$, and since we have found that $|x_n|$ is bounded for every term 
+after the $N$th one, we have that one of the series is just a real number and the other 
+is the tail of a geometric series. Thus $\sum_{n=1}^{\infty}{|x_n|}$ is monotone increasing (since 
+every term is positive) and is bounded above (what we just showed).
+\end{remark}
 
 
 
@@ -2917,6 +2967,50 @@ Let \( \{x_n\}_{n=1}^\infty \) be a monotone decreasing sequence of positive rea
 \]
 converges.
 \end{proposition}
+
+\begin{proof}
+If you write out the terms of the sequence while thinking about the fact 
+that $x_n$ is monotone decreasing of positive real numbers, it becomes clear 
+that the series can be grouped to be the sum of a bunch of negative
+numbers. That is, \[
+S_{2k} = (-x_1 + x_2) + (-x_3 + x_4) + \cdots + (-x_{2k-1} + x_{2k}) = \sum_{l=1}^{k}{(-x_{2l-1}+x_{2l})}
+\]
+But if I instead was summing by ending each group with an odd I would have 
+$(x_{2l} - x_{2l+1}) \geq 0$, again because it is monotone decreasing. But
+this observation of an alternative grouping suggests, 
+\begin{align*}
+& (x_2-x_3) + (x_4 - x_5) + \cdots + (x_{2l} - x_{2l+1}) \geq 0 \\
+\implies & -x_1 + (x_2-x_3) + (x_4 - x_5) + \cdots + (x_{2l} - x_{2l+1}) \geq -x_1
+\end{align*}
+and this tells us that $S_{2k}$ is bounded below, and since it is monotone decreasing, 
+by \ref{thm: monotone convergence theorem} we have that the subsequence $S_{2k}$ is 
+convergent. Now we want to choose $M$ so that $S_{2k}$ converges for all $k \geq M$. 
+Then we want to choose some value $N$ so that for $m \geq N$, regardless
+of whether $m$ \textit{lands on} an even indexed term or an odd indexed 
+term, $S_m$ converges. So suppose that $m$ is of the form $m = 2k$, 
+then since $S_{2k}$ converges for some $k \geq M$, we have that $S_m$ converges
+if $m\geq N$, or equivalently, $2k \geq N$, so we need $N \geq 2M$ since $2k \geq 2M \implies k \geq M$.
+Then if $m$ is of the form $m = 2k+1$ then choosing $m \geq 2M + l$ gives us
+that $2k+1 \geq 2M+1 \implies k \geq M$ which only tells us that $S_{2k}$ is convergent. But we have $S_{2k+1}$, 
+but we can write that as $S_{2k+1} = S_{2k} - x_{2k+1}$. So if we also choose $N$ so that 
+$|x_{2k+1}| < \varepsilon$ then we will altogether have the existence of an $N$ such that 
+for all $m \geq N$ and for any $\varepsilon > 0$
+\[
+|S_{2k} - L| < \varepsilon , \quad |x_{2k+1}| < \varepsilon , \quad
+\textnormal{ and } \quad  S_{2k+1} = S_{2k} - x_{2k+1}
+\]
+so using triangle inequality you can show that $S_m$ converges using the above. 
+
+
+\end{proof}
+
+
+
+
+
+
+
+
 
 \begin{definition}
 Consider a series $\sum^\infty_{n=1}{x_n}$. Given a bijective
@@ -2946,9 +3040,67 @@ c_n = a_0b_n + a_1b_{n-1} + \cdots + a_nb_0 = \sum^n_{i=0}{a_ib_{n-i}}
 
 \end{theorem}
 
+
+\subsubsection{Power Series}
+
+\begin{definition}
+Fix $x_0 \in \mathbb{R}$. A power series about $x_0$ is a series of the form
+\[
+\sum_{n=0}^{\infty}{a_n(x-x_0)^n}
+\]
+A power series is really a function of $x$. A power
+series is said to be convergent if there is at least one $x \neq x_0$ that
+makes the series converge. If $x = x_0$ every term except the first is 0 so it alwasy converges. 
+\end{definition}
+
+
+
+
+\begin{proposition}
+Let $\sum_{n=0}^{\infty} a_n (x - x_0)^n$ be a power series. 
+If the series is convergent, then either it converges absolutely at all $x \in \mathbb{R}$, or there exists a 
+number $\rho$, such that the series converges absolutely on the interval $(x_0 - \rho, x_0 + \rho)$ and diverges 
+when $x < x_0 - \rho$ or $x > x_0 + \rho$. \\
+\indent The number $\rho$ is called the \textit{radius of convergence} of the power series. We 
+write $\rho = \infty$ if the series converges for all $x$, and we write $\rho = 0$ if the series is divergent. 
+\end{proposition}
+
+\begin{remark}
+So we want to find when $\sum_{n=0}^{\infty} a_n (x - x_0)^n$ converges. 
+Since it is raised to the power of $n$, we use the root test \ref{prp:root_test}
+\[
+L = \limsup |a_n (x - x_0)^n|^{1/n} = |x-x_0|\limsup{|a_n|^{1/n}} 
+\]
+So when $L < 1$ we have that the power series will converge. Thus the convergence of 
+the power series is characterized by the result of $\limsup{|a_n|^{1/n}}$. So let $R = \limsup{|a_n|^{1/n}}$.
+Then we have that if $R = \infty$ then $L = \infty$ for every $x$ not equal to $x_0$ (since it trivially 
+conveges there), so the series diverges. If $0 < R < \infty$ then if $L < 1$ then $R|x-x_0| < 1 \implies |x-x_0| < 1/R$.
+And if instead for $0 < R < \infty$ we had $L>1$, then $R|x-x_0| > 1 \implies |x-x_0| > 1/R$.\\
+So all together we have that if $R = \infty$ then the power series is divergent. If 
+$R = 0$ then the power series converges everywhere. Otherwise, the power series converges in the interval 
+of its radius of convergence $\rho = 1/R$.
+
+
+
+\end{remark}
+
+
+\ref{ex: limit of c^n}
+
+
+
+
+
+
+
+
 \subsection{Continuity}
-
-
+Functions are really just expressions (in a specific language) of relationships
+between things which can be specified in whatever which way the function requires. 
+Continuity is one type of relationship that can be made, that is, a continuous function. 
+Continuity is useful to describe motion, fluid relationships, or anything that just 
+morally should not be expressed in discrete nature. We begin the discussion with an aside on 
+how to get arbitrarily close to points in a set.
 
 
 
@@ -2966,16 +3118,30 @@ Equivalently, \( x \) is a cluster point of \( S \) if for every \( \epsilon > 0
 A cluster point of \( S \) need not belong to \( S \).
 \end{definition}
 
+\begin{remark}
+This is really just an extremely small open set around a point, but not including the point. 
+Think about an open ball with an open center ball (visually).
+\end{remark}
 
+\vspace{.5cm}
 \begin{proposition}
 Let $S \subset \mathbb{R}$. Then $x \in \mathbb{R}$ is a cluster point of $S$ if and only if there exists a convergent sequence of numbers $\{x_n\}_{n=1}^{\infty}$ such that $x_n \neq x$ and $x_n \in S$ for all $n$, and 
 \(
 \lim_{n\to\infty} x_n = x.
 \)
 \end{proposition}
+\begin{remark}
+If $x$ is a cluster point, then we can construct a sequence such that for any $n$ we pick $x_n \in (x- \frac{1}{n}, x+ \frac{1}{n})$ so clearly $x$ converges. \\
+\indent Conversely, if $x_n$ converges then we can show that the set given in \ref{def:cluster_point} can always be shown to be nonempty (a sequence can be made).\\
+\indent We would expect this based on the definition of a cluster point \ref{def:cluster_point}. Since the definition implies
+there are always elements in the domain that are close enough where they are within any distance of the point. So 
+a sequence is really just an ordered list of numbers where after some threshold, the sequence will only contain
+the same values that satisfy the cluster point definition. This is the same reason why given the sequence converges to $c$ 
+we automatically know elements in the domain exist that satisfy the cluster point definition.
+\end{remark}
 
 
-
+\vspace{.5cm}
 \begin{definition}
 Let $f : S \to \mathbb{R}$ be a function and $c$ a cluster point of $S \subset \mathbb{R}$. Suppose there exists an $L \in \mathbb{R}$ and for every $\epsilon > 0$, there exists a $\delta > 0$ such that whenever $x \in S \setminus \{c\}$ and $|x - c| < \delta$, we have
 \[
@@ -2993,12 +3159,23 @@ If no such $L$ exists, then we say that the limit does not exist or that $f$ \te
 
 \end{definition}
 
+\begin{remark}
+So as I near an element, that doesnt have to be in the domain of the function, that is, 
+since elements of the funcitons domain can get within any distance of the limit point,
+it implies that if we want the function to be within any small distance of some value it converges towards (but doesnt have to equal) 
+then we will always be able to find elements of our domain that are close enough to 
+the limiting element. 
+\end{remark}
+
+
+
+\vspace{.5cm}
 \begin{proposition}
 Let $c$ be a cluster point of $S \subset \mathbb{R}$ and let $f : S \to \mathbb{R}$ be a function such that $f(x)$ converges as $x$ goes to $c$. Then the limit of $f(x)$ as $x$ goes to $c$ is unique.
 \end{proposition}
 
 
-
+\vspace{.5cm}
 \begin{lemma}
 Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, let $f : S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $f(x) \to L$ as $x \to c$ if and only if for every sequence $\{x_n\}_{n=1}^{\infty}$ such that $x_n \in S \setminus \{c\}$ for all $n$, and such that $\lim_{n\to\infty} x_n = c$, we have that the sequence $\{f(x_n)\}_{n=1}^{\infty}$ converges to $L$.
 \end{lemma}
@@ -3008,6 +3185,7 @@ Let $S \subset \mathbb{R}$, let $c$ be a cluster point of $S$, let $f : S \to \m
 
 
 
+\vspace{.5cm}
 \begin{proposition}
 Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ are functions such that the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist, and
 \[
@@ -3019,6 +3197,9 @@ Then
 \]
 \end{proposition}
 
+
+
+\vspace{.5cm}
 \begin{proposition}
 Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$, $g : S \to \mathbb{R}$, and $h : S \to \mathbb{R}$ are functions such that
 \[
@@ -3034,6 +3215,8 @@ Then the limit of $g(x)$ as $x$ goes to $c$ exists and
 \]
 \end{proposition}
 
+
+\vspace{.5cm}
 \begin{proposition}
 Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ are functions such that the limits of $f(x)$ and $g(x)$ as $x$ goes to $c$ both exist. Then
 \begin{enumerate}
@@ -3046,6 +3229,13 @@ Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S
 \]
 \end{enumerate}
 \end{proposition}
+\begin{remark}
+Let $x_n$ be a sequence convergent to $c$. Then we can use the sequential limit definition 
+which makes $(f(x_n))^\infty_{n=1}$ and $(g(x_n))^\infty_{n=1}$ sequences so we can use \ref{prop:limit_algebra}.
+\end{remark}
+
+
+\vspace{.5cm}
 
 \begin{proposition}
 Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S \to \mathbb{R}$ is a function such that the limit of $f(x)$ as $x$ goes to $c$ exists. Then
@@ -3054,6 +3244,8 @@ Let $S \subset \mathbb{R}$ and let $c$ be a cluster point of $S$. Suppose $f : S
 \]
 \end{proposition}
 
+
+\vspace{.5cm}
 \begin{definition}
 Let $f : S \to \mathbb{R}$ be a function and $A \subset S$. Define the function $f|_A : A \to \mathbb{R}$ by
 \[
@@ -3062,6 +3254,8 @@ f|_A(x) := f(x) \quad \text{for } x \in A.
 We call $f|_A$ the \textit{restriction} of $f$ to $A$.
 \end{definition}
 
+
+\vspace{.5cm}
 \begin{proposition}
 Let $S \subset \mathbb{R}$, $c \in \mathbb{R}$, and let $f : S \to \mathbb{R}$ be a function. Suppose $A \subset S$ is such that there is some $\alpha > 0$ such that
 \[
@@ -3073,6 +3267,8 @@ Let $S \subset \mathbb{R}$, $c \in \mathbb{R}$, and let $f : S \to \mathbb{R}$ b
 \end{enumerate}
 \end{proposition}
 
+
+\vspace{.5cm}
 \begin{proposition}
 Let $S \subset \mathbb{R}$ be such that $c$ is a cluster point of both $S \cap (-\infty, c)$ and $S \cap (c, \infty)$, let $f : S \to \mathbb{R}$ be a function, and let $L \in \mathbb{R}$. Then $c$ is a cluster point of $S$ and
 \[
@@ -3080,6 +3276,8 @@ Let $S \subset \mathbb{R}$ be such that $c$ is a cluster point of both $S \cap (
 \]
 \end{proposition}
 
+
+\vspace{.5cm}
 \begin{definition}
 Suppose $S \subset \mathbb{R}$ and $c \in S$. We say $f : S \to \mathbb{R}$ is \textit{continuous} at $c$ if for every $\epsilon > 0$ there is a $\delta > 0$ such that whenever $x \in S$ and $|x - c| < \delta$, we have $|f(x) - f(c)| < \epsilon$.
 
@@ -3087,6 +3285,8 @@ When $f : S \to \mathbb{R}$ is continuous at all $c \in S$, then we simply say $
 \end{definition}
 
 
+
+\vspace{.5cm}
 \begin{proposition}
 Consider a function $f : S \to \mathbb{R}$ defined on a set $S \subset \mathbb{R}$ and let $c \in S$. Then:
 \begin{enumerate}
@@ -3099,6 +3299,24 @@ Consider a function $f : S \to \mathbb{R}$ defined on a set $S \subset \mathbb{R
 \end{enumerate}
 \end{proposition}
 
+\begin{remark}
+(1) \; So if we have that $c$ is not a cluster point of $S$. 
+Then there is a $\delta$ distance of $c$ such that 
+the only value in the domain making the set nonempty is $c$ itself. 
+Thus we pick that $\delta$ for any $\varepsilon$ then use that $x = c$.\\
+(2) \indent Just let $L=f(c)$ in the definition of the limit. \\
+(3) \indent ($\implies$) Since $f$ is continuous, by definition \ref{def:continuous_function}, 
+$\forall \varepsilon > 0, \; \exists \delta > 0$ such that if $x \in S$ and $|x - c| < \delta$, 
+then $|f(x)-f(c)| < \varepsilon$. Let $x_n \in S$ be a sequence convergent to $c$. Now find an $M \in \mathbb{N}$ so that $\forall n \geq M, \; |x_n-c| < \delta \implies |f(x_n) - f(c)|<\varepsilon$.\\
+\indent ($\impliedby$) For this direction, we prove the contrapositive, since otherwise you 
+would have to show that a discrete convergence implies a continuous one, when the contrapositive is much more direct. 
+It ends up being close to the statement above, only you are negating the definition of a limit.
+\end{remark}
+
+
+
+
+\vspace{.5cm}
 \begin{proposition}
 Let $f : \mathbb{R} \to \mathbb{R}$ be a polynomial. That is,
 \[
@@ -3107,6 +3325,13 @@ f(x) = a_d x^d + a_{d-1} x^{d-1} + \dots + a_1 x + a_0,
 for some constants $a_0, a_1, \dots, a_d$. Then $f$ is continuous.
 \end{proposition}
 
+\begin{remark}
+Let $x_n$ be a sequence of real numbers that converges to $c$. Then we can use the limit algebra 
+we found in \ref{prop:limit_algebra} \ref{prop:limits raised to powers} since we can now treat the function as a sequence. 
+\end{remark}
+
+
+\vspace{.5cm}
 \begin{proposition}
 Let $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ be functions continuous at $c \in S$.
 \begin{enumerate}
@@ -3117,31 +3342,424 @@ Let $f : S \to \mathbb{R}$ and $g : S \to \mathbb{R}$ be functions continuous at
 \end{enumerate}
 \end{proposition}
 
+
+\vspace{.5cm}
 \begin{proposition}
 Let $A, B \subset \mathbb{R}$ and $f : B \to \mathbb{R}$ and $g : A \to B$ be functions. If $g$ is continuous at $c \in A$ and $f$ is continuous at $g(c)$, then $f \circ g: A \to \mathbb{R}$ is continuous at $c$.
 \end{proposition}
 
+\begin{remark}
+Use sequential definition again, we get that the input of $f(g(x_n))$ is just another sequence, 
+which makes $f(g(x_n))$ just another sequence.
+\end{remark}
+
+
+\vspace{.5cm}
 \begin{proposition}
 Let $f : S \to \mathbb{R}$ be a function and $c \in S$. Suppose there exists a sequence $\{x_n\}_{n=1}^{\infty}$, where $x_n \in S$ for all $n$, and $\lim_{n\to\infty} x_n = c$ such that $\{f(x_n)\}_{n=1}^{\infty}$ does not converge to $f(c)$. Then $f$ is discontinuous at $c$.
 \end{proposition}
 
-\begin{lemma}
+
+\vspace{.5cm}
+
+
+
+\begin{lemma}\label{lem:cnts function is bounded}
 A continuous function $f : [a,b] \to \mathbb{R}$ is bounded.
 \end{lemma}
 
-\begin{theorem}[Minimum-maximum theorem / Extreme value theorem]
+
+\begin{proof}
+We prove this by contrapositive. 
+Suppose $f$ is not bounded. 
+Then for any sequence in the domain of $f$, we have 
+$|f(x_n)|\geq M \quad \forall M \in \mathbb{N}$.
+That just comes from the definition of unbounded. 
+Now since the sequence $x_n$ is in a bounded set, 
+by \ref{thm: Bolzano-Weierstrass}
+there exists a convergent subsequence.
+Note the limit of the sequence is in the interval 
+since the interval is closed.
+So since $f$ is unbounded, 
+we have that as the subsequence approaches $c$ (its limit),
+$f$ does not approach $f(c)$. 
+If instead $f$ was approaching $f(c)$, you would see a contradiction 
+because $f$ would then be bounded on $[a,b]$.\\
+\indent We would expect a function to be bounded if it is continuous on a closed and bounded interval. Since
+how else would continuity be satisfied, if $f$ wasnt bounded on a closed interval then 
+there would exist elements in the domain where 
+no matter how close we get $f$ will always have a discontuity there.
+\end{proof}
+
+
+\vspace{.5cm}
+
+\begin{theorem}[Minimum-maximum theorem / Extreme value theorem]\label{thm:evt}
 A continuous function $f : [a,b] \to \mathbb{R}$ achieves both an absolute minimum and an absolute maximum on $[a,b]$.
 \end{theorem}
 
-\begin{lemma}
+\begin{proof}
+Suppose $f$ is continuous on $[a,b]$. 
+Then since by \ref{lem:cnts function is bounded} the set representing the image of the function is bounded. 
+Thus there exists sequences $f(x_n)$ and $f(y_n)$ such that they converge to the supremum and the infimum of the image of $f$.
+Since $x_n$ and $y_n$ need not converge, we need to use that there are subsequences that converge (this holds because $x_n$ and $y_n$ are in a bounded set so by \ref{thm: Bolzano-Weierstrass} there exists convergent subsequences) to find exactly what $x$ and $y$ actually are. That is, 
+we need to find what values in the domain will map to our supremum and infimum. Since the limit of $f(x_n)$ is the same as the limit of $f(x_{n_i})$ (because we only found 
+the convergent subsequence since $x_n$ didnt have to converge, even though $f(x_n)$ \emph{did} converge to the sup, 
+we couldve picked a bad $x_n$ that did everything around the value 
+mapping to the sup other than converge for every every possible $\delta$. So if $x_n$ did in fact converge, then $x_{n_i}$ will converge to the same value anyway). 
+So $f(x_{n_i})$ converges to $\inf[a,b]$ and 
+$f(y_{n_i})$ converges to $\sup[a,b]$
+\end{proof}
+
+
+
+\vspace{.5cm}
+
+
+
+\begin{lemma}\label{lem:ivt at c = 0}
 Let $f : [a,b] \to \mathbb{R}$ be a continuous function. Suppose $f(a) < 0$ and $f(b) > 0$. Then there exists a number $c \in (a,b)$ such that $f(c) = 0$.
 \end{lemma}
 
-\begin{theorem}[Bolzano's Intermediate Value Theorem]
+
+\begin{proof}
+We will construct a sequence similar to how we did in \ref{thm: Bolzano-Weierstrass}.
+So let $a_n$ and $b_n$ be sequences such that $a_1 = a$ and $b_1 = b$. Then by induction, 
+define $a_n$ and $b_n$ by,
+\begin{align*}
+& \textnormal{If } f(\frac{a_n + b_n}{2}) > 0 \textnormal{ then let } a_{n+1} = a_n \textnormal{ and } b_{n+1} = \frac{a_n + b_n}{2}\\
+& \textnormal{If } f(\frac{a_n + b_n}{2}) \leq 0 \textnormal{ then let } a_{n+1} = \frac{a_n + b_n}{2} \textnormal{ and } b_{n+1} = b_n
+\end{align*}
+Then we show inductively that $a_n < b_n$ for all $n$.\\
+Since $a_n$ and $b_n$ are monotone and are each bounded above and below, 
+these sequences converge, so let $c$ and $d$ be their respective limits. We 
+want to show that $c=d$. So we want $d-c = 0$ or $\lim(b_n - a_n) = 0$. \\
+Notice, $b_{n+1} - a_{n+1} = \frac{b_n - a_n}{2}$. So we have $d-c = \lim(b_n - a_n) = \frac{b - a}{2^{n-1}}$.\\
+So since $f$ is continuous at all points of its domain which is $[a,b]$, 
+$f$ is continuous at $c$ and also from the above we have $f(c) \geq 0$ and $f(c) \leq 0$.
+So we conclude that $f(c) = 0$. \\
+This proof sort of shows us how the element $c$ is found, we find it by repeated
+narrowing down, using the average of the last values as the step taking 
+us narrower. 
+\end{proof}
+
+\vspace{.5cm}
+
+
+
+\begin{theorem}[Bolzano's Intermediate Value Theorem]\label{lem:ivt}
 Let $f : [a,b] \to \mathbb{R}$ be a continuous function. Suppose $y \in \mathbb{R}$ is such that $f(a) < y < f(b)$ or $f(a) > y > f(b)$. Then there exists a $c \in (a,b)$ such that $f(c) = y$.
 \end{theorem}
 
 
+
+\begin{remark}
+Now apply \ref{lem:ivt at c = 0} to $g(x) = f(x) - y$ so that 
+$f(a) < 0$ and $f(b) > 0$. Then we will find $g(c)$ and thus $f(c)$ by using the lemma.
+\end{remark}
+
+\vspace{.5cm}
+
+
+\begin{corollary}
+If $f : [a, b] \to \mathbb{R}$ is continuous, then the direct image $f([a, b])$ is a closed and bounded interval or a single number.
+\end{corollary}
+\begin{proof}
+From \ref{lem:cnts function is bounded} we have that $f$ is bounded. 
+And from \ref{thm:evt} we have that the inf and sup of the image of $f$ is 
+contained in the image of $f$ (since the proof of EVT showed that 
+there are subsequences that converge to the values that map to the inf and sup
+of the image, and since these subsequences were in a closed and bounded set $[a,b]$, we have that
+the set $[a,b]$ contains all the limit points.)
+\end{proof}
+
+
+\vspace{.5cm}
+
+
+\begin{definition}\label{def:uniform continuity}
+Let $S \subset \mathbb{R}$, and let $f : S \to \mathbb{R}$ be a function. Suppose $\forall \epsilon > 0$, $\exists \delta > 0$ such that whenever $x, c \in S$ and $|x - c| < \delta$, then $|f(x) - f(c)| < \epsilon$. Then we say $f$ is \emph{uniformly continuous}.
+\end{definition}
+\begin{remark}
+So we are now choosing $\delta$ so that for any $c \in S$, the function is continuous. 
+So $\delta$ only depends on $\varepsilon$ and the domain the function is defined over (since we need 
+to find a delta so that given any epsilon, we have that any $x$ and $c$ in the domain that are 
+less than this delta will make the function continuous at the point).\\
+Note that if a function is uniform continuous then it is obviously
+continuous since uniform continuity is stronger (or harder to acheive) then continuity.\\
+Also, all of our results of continuity have been proved assuming a closed and bounded
+interval for the function, if this was not the case, then suppose the domain is open. 
+Then we would have that as a sequence in the domain approaches an endpoint, 
+the function approaches some number but since the domain is open, the function does not have
+to equal its value at the point that the sequence is converging. Why do we need the domain to be bounded? 
+We need this becuase if the domain was unbounded then we would never be able to 
+say that the function contains a max and a min in its image (consider $f(x) = x$).\\
+So recall $f$ is continuous if \[
+\textnormal{Continuity: } \forall x \in S, \forall \varepsilon > 0, \exists \delta > 0, \textnormal{ such that } y \in S \textnormal{ and } |x-y| < \delta \implies |f(x) - f(y)| < \varepsilon
+\]
+In the above, we see that our choice of $\delta$ depends on our choice of $\varepsilon$ and $x$. If we want our choice of 
+$\delta$ to depend only on $\varepsilon$, then we have
+\[
+\textnormal{Uniform Continuity: } \forall \varepsilon > 0, \exists \delta > 0, \textnormal{ such that } x,y \in S \textnormal{ and } |x-y| < \delta \implies |f(x) - f(y)| < \varepsilon
+\]
+
+\end{remark}
+
+\vspace{.5cm}
+
+\begin{theorem}\label{thm:if cnts on closed and bdd then unif cnts}
+Let $f : [a, b] \to \mathbb{R}$ be a continuous function. Then $f$ is uniformly continuous.
+\end{theorem}
+
+\begin{proof}
+Note that the theorem actually makes sense, since, as discussed in the remark of 
+\ref{def:uniform continuity}, we have a continuous function that is
+defined on a closed and bounded interval, this being the domain is key.\\
+We prove this by contrapositive, so we suppose that $f$ is not uniformally continuous. \\
+Now we have that no matter how close the inputs of $f$ are, the difference of $f$ evaluated 
+at those inputs is always unbounded $\forall \varepsilon > 0$. So for sequences $x_n$ and $y_n$, we have
+\[
+|x_n - y_n| < 1/n \implies |f(x_n) - f(y_n) | \geq \varepsilon
+\]
+Then to show that $f$ is continuous, we need to show that as a sequence approaches 
+some value $c$, the sequence of the function does not converge to $f(c)$. So we need
+convergent sequences. Since $[a,b]$ is closed and bounded, there exists convergent 
+subsequences $x_{n_k}$ and $y_{n_k}$. So suppose $x_{n_k} \to c$. Then to show 
+that $y_{n_k}$ also converges to the same value (which is essentially by construction), we have
+\[
+|y_{n_k} - c| \leq |y_{n_k} - x_{n_k}| + |x_{n_k} - c| < 1/n_k + |x_{n_k} - c|
+\]
+Note that we have $|y_{n_k} - x_{n_k}| < 1/n_k$ because if the sequences $x_n$ and $y_n$ are always 
+within $1/n$ of eachother, then we must have that $|y_{n_k} - x_{n_k}|$ are within $1/n_k$ of eachother.\\
+So now we have two subsequences that converge to the same value and are within any small distance of eachother. 
+So we want to show that as these subsequences converge to $c$, the function evaluated at the subsequences
+does not converge to $f(c)$. So consider, 
+\[
+|f(x_{n_k}) - f(c)| \leq |f(x_{n_k}) - f(y_{n_k})| + |f(y_{n_k}) - f(c)|
+\]
+So the first term on the RHS is unbounded for any epsilon greater than 0, but we dont get 
+much about $|f(x_{n_k}) - f(c)|$ or $|f(y_{n_k}) - f(c)|$ being unbounded. So instead 
+consider the reverse triangle inequality, then we have \[
+\varepsilon \leq |f(x_{n_k}) - f(c)| + |f(y_{n_k}) - f(c)|
+\]
+So one or both of these terms must diverge, thus we have that one of $x_{n_k}$ or $y_{n_k}$ converges
+to $c$ while the function does not converge to $f(c)$. This means $f$ is not continuous at $c$. \\
+Why did we need two sequences $x_n$ and $y_n$? This came from negating uniform continuity, since 
+we wanted to show that these sequences could get as close as we would like. Then having two sequences also helped 
+with triangle inequality to show that $f$ is not continuous. 
+\end{proof}
+
+\vspace{.5cm}
+
+\begin{definition}[Lipschitz Continuity]\label{def:lipschitz continuous}
+A function $f : S \to \mathbb{R}$ is \emph{Lipschitz continuous}\textsuperscript{*}, if there exists a $K \in \mathbb{R}$ such that
+\[
+|f(x) - f(y)| \leq K |x - y| \quad \forall x,y \in S.
+\]
+\end{definition}
+
+\begin{remark}
+To interpret this definition, notice it is saying that if there exists a real 
+number $K$ so that for any $x$ and $y$ in the domain of $f$, the slope
+of the secant line between $(x,f(x))$ and $(y,f(y))$ is less than $K$. That is, $\exists K \in \mathbb{R}$ such that 
+\[
+\left|\frac{f(x) - f(y)}{x-y} \right| \leq K \quad \; \forall x,y \in S
+\]
+That is, this $K$ holds for every $x,y$. So lipschitz continuity is broken
+if there exists two points where the slope between them is unbounded. This makes sense. 
+\end{remark}
+
+
+\vspace{.5cm}
+
+
+
+\begin{proposition}
+A Lipschitz continuous function is uniformly continuous. 
+\end{proposition}
+
+\begin{proof}
+From the definition you have 
+\[
+|f(x) - f(y)| \leq K |x - y| \quad \forall x,y \in S
+\]
+so for any $\varepsilon > 0$, we want to choose $\delta = \varepsilon / K$ 
+\end{proof}
+
+
+
+
+
+
+
+
+\vspace{.5cm}
+
+\begin{lemma}
+Let $S \subset \mathbb{R}$ and let $f : S \to \mathbb{R}$ be a uniformly continuous function. Let $\{x_n\}_{n=1}^{\infty}$ be a Cauchy sequence in $S$. Then $\{f(x_n)\}_{n=1}^{\infty}$ is Cauchy.
+\end{lemma}
+
+\begin{remark}
+This almost doesnt even need a proof since the sequential definition of uniform continuity 
+already looks so similar to the definition of cauchy sequences. 
+\end{remark}
+
+
+\vspace{.5cm}
+
+
+\begin{proposition}
+A function $f : (a, b) \to \mathbb{R}$ is uniformly continuous if and only if the function $\tilde{f}: [a,b] \to \mathbb{R}$ is continuous, that is, the limits
+\[
+L_a := \lim_{x \to a} f(x) \qquad \text{and} \qquad L_b := \lim_{x \to b} f(x)
+\]
+exist and the function $\tilde{f} : [a, b] \to \mathbb{R}$ defined by
+\[
+\tilde{f}(x) := 
+\begin{cases}
+f(x) & \text{if } x \in (a, b), \\
+L_a & \text{if } x = a, \\
+L_b & \text{if } x = b
+\end{cases}
+\]
+is continuous.
+\end{proposition}
+
+\begin{proof}
+This theorem is saying that if $f$ is unif continuous on an open set, then we can extend 
+the function to be continuous on a closed and bounded set, where the closed and bounded set is made by extending the open set to include its limit points. 
+It is also saying that a continuous function on a closed and bounded set is
+uniformally continuous when it is restricted to an open set that is a subset of $[a,b]$.\\
+We start by assuming $\tilde{f}(x)$ is continuous on $[a,b]$. Then by \ref{thm:if cnts on closed and bdd then unif cnts} we have that $\tilde{f}$ 
+is uniformally continuous on $[a,b]$, thus it is uniformally continuous on any subset of $[a,b]$, namely 
+$(a,b)$, so we have that $f$ is uniformally continuous. \\
+Conversely, if we assume $f$ is uniformally continuous on $(a,b)$, then to show that 
+it is continuous on $[a,b]$, we need to show that the limits $L_a = \lim_{x \to a}{f(x)}$ and $L_b = \lim_{x \to b}{f(x)}$ exist. 
+So take two sequences $x_n$ and $y_n$ in $(a,b)$ that are both convergent to $a$. Since they converge they are cauchy, 
+thus we have that $f$ is cauchy and thus convergent. So let $f(x_n) \to L_1$ and $f(y_n) \to L_2$. We want to show that
+$L_1 = L_2$ which shows that $L_a$ exists since we have that for all sequences convergent to $a$, all the subsequential limits are equal so the sequence has the same limit and converges \ref{prp:subsequence limit equal to limit} ("all sequences convergent to $a$" because $x_n$ and $y_n$ are general).\\
+I am about to omit lots of details. So for any epsilon, there exists a delta such that $|f(x)-f(y)| < \varepsilon/3$, and for all $n \geq M$ we have 
+$|x_n - y_n|$, $|f(x_n) - L_1| < \varepsilon/3$, and $|f(y_n) - L_2| < \varepsilon/3$, then we have 
+\[
+|L_1 - L_2| \leq |L_1 - f(x_n)| + |f(x_n) - f(y_n)| + |f(y_n) - L_2| < \varepsilon
+\]
+So we have that the limit of the function defined on $(a,b)$ as $a$ (and $b$) are approached 
+exist and are equivalent for any sequence in $(a,b)$ that converges to $a$ (or $b$). We have that 
+$\tilde{f}$ is continuous because it is continuous at $a$ and at $b$ and it is continuous for any value $c \in (a,b)$. 
+\end{proof}
+
+
+
+\vspace{.5cm}
+
+
+\begin{definition}
+Let $S \subset \mathbb{R}$. We say $f: S \to \mathbb{R}$ is \emph{increasing} if 
+$x,y \in S$ with $x < y$ implies $f(x) < f(y)$. We define \emph{decreasing} in the same way, switching inequalities.
+\end{definition}
+
+
+\vspace{.5cm}
+
+
+\begin{proposition}
+Let $S \subset \mathbb{R}$, $c \in \mathbb{R}$, $f : S \to \mathbb{R}$ be increasing, and $g : S \to \mathbb{R}$ be decreasing. If $c$ is a cluster point of $S \cap (-\infty, c)$, then
+\[
+\lim_{x \to c^-} f(x) = \sup\{f(x) : x < c,\ x \in S\}
+\quad \text{and} \quad
+\lim_{x \to c^-} g(x) = \inf\{g(x) : x < c,\ x \in S\}.
+\]
+
+If $c$ is a cluster point of $S \cap (c, \infty)$, then
+\[
+\lim_{x \to c^+} f(x) = \inf\{f(x) : x > c,\ x \in S\}
+\quad \text{and} \quad
+\lim_{x \to c^+} g(x) = \sup\{g(x) : x > c,\ x \in S\}.
+\]
+
+If $\infty$ is a cluster point of $S$, then
+\[
+\lim_{x \to \infty} f(x) = \sup\{f(x) : x \in S\}
+\quad \text{and} \quad
+\lim_{x \to \infty} g(x) = \inf\{g(x) : x \in S\}.
+\]
+
+If $-\infty$ is a cluster point of $S$, then
+\[
+\lim_{x \to -\infty} f(x) = \inf\{f(x) : x \in S\}
+\quad \text{and} \quad
+\lim_{x \to -\infty} g(x) = \sup\{g(x) : x \in S\}.
+\]
+
+Namely, all the one-sided limits exist whenever they make sense. For monotone functions therefore, when we say the left-hand limit $x \to c^-$ exists, we mean that $c$ is a cluster point of $S \cap (-\infty, c)$, and same for the right-hand limit.
+\end{proposition}
+
+
+
+\vspace{.5cm}
+
+
+\begin{corollary}
+If $I \subset \mathbb{R}$ is an interval and $f : I \to \mathbb{R}$ is monotone and not constant, then $f(I)$ is an interval if and only if $f$ is continuous.
+\end{corollary}
+
+\begin{proof}
+Firstly note what this is really saying; is the function 
+is monotone and defined on an interval of real numbers, then
+the range of $f$ being an interval is equivalent to it being continuous. 
+This makes sense intuitvely since if we were to suppose that $f(I)$ is 
+an interval subset of real numbers. Then we can get $\varepsilon$ close 
+to any $f(c)$ in the range of $f$, and since the domain is \dots 
+\end{proof}
+
+
+
+
+\vspace{.5cm}
+
+
+\begin{corollary}
+Let $I \subset \mathbb{R}$ be an interval and $f : I \to \mathbb{R}$ be monotone. Then $f$ has at most countably many discontinuities.
+\end{corollary}
+
+
+\vspace{.5cm}
+
+
+
+\begin{proposition}
+Let $f$ be an injective, continuous function on an interval $I$. Then 
+$f$ is strictly monotonic. 
+\end{proposition}
+
+
+
+
+
+
+\vspace{.5cm}
+
+
+
+\begin{proposition}
+If $f$ is a strictly monotonic function, then it is bijective and so has an inverse defined on its range.
+\end{proposition}
+
+\begin{proof}
+Suppose $x_1 \neq x_2$ then either $f(x_1) < f(x_2)$ or $f(x_2) < f(x_1)$, in either case,
+the function values are not equal so it is injective. By default, the function is surjective since the inverse 
+is constrained to have its domain as the range of $f$, and by definition of the range, every value gets mapped to.
+\end{proof}
+
+
+
+
+
+
+
+\begin{proposition}
+If $I \subset \mathbb{R}$ is an interval and $f : I \to \mathbb{R}$ is strictly monotone, then the inverse $f^{-1} : f(I) \to I$ is continuous.
+\end{proposition}
 
 
 
