@@ -10,10 +10,10 @@
 \contentsline {subsection}{\numberline {5.1}Sequences}{23}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Series}{26}{subsection.5.2}%
 \contentsline {subsubsection}{\numberline {5.2.1}Power Series}{29}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}Sequences and Series Key Examples}{30}{subsubsection.5.2.2}%
 \contentsline {subsection}{\numberline {5.3}Continuity}{30}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Combinatorics}{37}{section.6}%
+\contentsline {section}{\numberline {6}Combinatorics}{38}{section.6}%
 \contentsline {section}{\numberline {7}Probability}{39}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Probability Axioms}{39}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Conditional Probability and Independence}{40}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}Random Variables}{41}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Distributions}{43}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.1}Conditional Probability and Independence}{41}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Random Variables}{42}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Distributions}{44}{subsection.7.3}%
